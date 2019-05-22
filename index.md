@@ -9,7 +9,13 @@ summary:
 ---
 
 
+<select onchange="doSearch();" id="table-scope">
+	<option value="example">example list</option>
+	<option value="work">work list</option>
+</select>
+
 <input id="search" placeholder="search" value="" autocomplete="off">
+
 <span id="search-count"></span>
 
 <div id="list"></div>

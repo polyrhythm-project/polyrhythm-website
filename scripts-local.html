@@ -18,7 +18,7 @@ function displayList(list, query) {
 	output += "<th title='Sort by title' onclick='SortByText(2, \"#metadata-list\")'>Title</th>";
 	output += "<th title='Sort by title' onclick='SortByText(3, \"#metadata-list\")'>Genre</th>";
 	output += "<th title='Sort by title' onclick='SortByText(4, \"#metadata-list\")'>Composed</th>";
-	output += "<th style='padding-right:10px;' title='Sort by title' onclick='SortByText(5, \"#metadata-list\")'>Performed</th>";
+	output += "<th style='padding-right:10px;' title='Sort by title' onclick='SortByText(5, \"#metadata-list\")'>Premiered</th>";
 	output += "<th title='Sort by title' onclick='SortByText(6, \"#metadata-list\")'>Published</th>";
 	output += "</tr>";
 	output += "</thead>";
@@ -129,6 +129,14 @@ function doSearch(text) {
 	}
 console.log("QUERY IS ", text);
 
+	var entries = METADATA;
+
+	var selement = document.querySelector("#table-scope");
+	if (selement && selement.value === "work") {
+		// only show works, not examples
+		entries = filterByWorks(entries);
+	}
+
 	text = text.trim();
 	text = escape(text);
 	text = text.replace(/%u0([A-F0-9][A-F0-9][A-F0-9])/g, "&#x$1;");
@@ -137,7 +145,6 @@ console.log("QUERY IS ", text);
 	text = text.replace(/\&#x([0-7][0-9A-F]);/g, "%$1");
 	text = unescape(text);
 	var fields = text.split(/\s+/);
-	var entries = METADATA;
 	var oldentries;
 	for (var i=0; i<fields.length; i++) { 
 		if (fields[i].match(/^\s*$/)) {
@@ -182,6 +189,18 @@ console.log("QUERY IS ", text);
 	displayList(entries, null);
 }
 
+
+//////////////////////////////
+//
+// filterByWorks --
+//
+
+function filterByWorks(entries) {
+	var items = {};
+
+
+
+}
 
 
 //////////////////////////////
