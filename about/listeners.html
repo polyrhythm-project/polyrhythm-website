@@ -1,0 +1,59 @@
+
+<script>
+// vim: ts=3
+
+var CGI = {};      // CGI parameters from URL
+var SORTCOLUMN = 1;
+var METADATA = [];
+
+
+//////////////////////////////
+//
+// DOMContentLoaded event listener --
+//
+
+document.addEventListener("DOMContentLoaded", function () {
+	CGI = GetCgiParameters();
+
+	var element = document.querySelector("input#search");
+	if (element) {
+		element.addEventListener("input", function() {
+			doSearch();
+		});
+	}
+
+	// Create URL for metadata index to download:
+	var sid = "17rjKQ3lXJHEHAcDfOXTDNX5a0A_jVqwokcaqhd3Ddng";
+	var gid = "900860769";
+	var url = "https://docs.google.com/spreadsheets/d/";
+	url += sid + "/export?gid=" + gid + "&format=tsv";
+
+//	if (sessionStorage.METADATA) {
+//		METADATA = JSON.parse(sessionStorage.METADATA);
+//		doAction(METADATA);
+//	} else {
+		var request = new XMLHttpRequest();
+		request.addEventListener("load", function () {
+			METADATA = ParseSpreadsheet(this.responseText);
+			sessionStorage.METADATA = JSON.stringify(METADATA);
+			doAction(METADATA);
+		});
+		request.open("GET", url);
+		request.send();
+//	}
+});
+
+
+
+//////////////////////////////
+//
+// doAction --
+//
+
+function doAction(metadata) {
+	console.log("metadata", metadata);
+}
+
+
+
+</script>

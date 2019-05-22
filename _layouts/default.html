@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- source: http://web.stanford.edu/group/webdev/cardinal -->
+
+<!-- start of head.html include -->
+{% include head.html %}
+<!-- end of head.html include -->
+
+<body class="home"> <!-- class="home" underlines the Home link in the top nav -->
+<div id="su-wrap"> <!-- used to force footer to bottom of short pages -->
+  <div id="su-content"> <!-- used to force footer to bottom of short pages --> 
+    
+    <!--=== Top ===-->
+    <div id="top">
+      <div class="container"> 
+        <!--=== Skip links ===-->
+        <div id="skip"> <a href="#mycontent" onClick="$('#mycontent').focus()">Skip to content</a> </div>
+        <!-- /Skip links --> 
+      </div>
+    </div>
+    <!--/top--> 
+    
+    <!--=== Header ===-->
+    <div id="header" class="clearfix" role="banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8"> 
+            <!-- Logo -->
+            <div id="logo" class="clearfix"> <span style="color:white; font-size:320%">Polyrhythm</span> </div>
+            <!-- /logo -->
+            <div id="signature">
+              <div id="site-name">
+                <a href="/">
+                  <span id="site-name-1">UBC</span>
+                  <span id="site-name-2"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Menu -->
+    <div id="mainmenu" class="clearfix" role="navigation">
+      <div class="container">
+        <div class="navbar navbar-default"> 
+          
+          <!-- main navigation -->
+<!--
+          <button type="button" class="navbar-toggle btn-navbar" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="menu-text">Menu</span></button>
+-->
+          <button type="button" class="navbar-toggle btn-navbar" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="menu-text">Menu</span></button>
+          <!-- /nav-collapse -->
+          
+<!--
+          <div class="navbar-collapse collapse"> 
+-->
+          <div class="navbar-collapse"> 
+            <!--search box-->
+<!--
+            <div id="nav-search" role="search">
+              <form action="http://www.stanford.edu/search" method="get" id="search-form" accept-charset="UTF-8">
+                <h2 class="hidden">Search form</h2>
+                <label class="hidden" for="search-field">Search term</label>
+                <input name="cx" type="hidden" value="003265255082301896483:sq5n7qoyfh8">
+                <input name="cof" type="hidden" value="FORID:9">
+                <input name="ie" type="hidden" value="UTF-8">
+                <input name="as_sitesearch" type="hidden" value="facts.stanford.edu">
+                <input title="Search string" class="input-medium" placeholder="Search this site&hellip;" type="text" id="search-field" name="q" value="" size="15" maxlength="128" />
+                <button id="search-btn" type="submit" name="submit"  aria-label="Search" formmethod="get"><i class="fa fa-search"></i></button>
+              </form>
+            </div>
+-->
+		{% include navigation-bar.html %}
+
+
+          </div>
+          <!-- /nav-collapse --> 
+        </div>
+        <!-- /navbar --> 
+        
+      </div>
+      <!-- /container --> 
+    </div>
+    <!-- /mainmenu --> 
+    
+    <!-- main content -->
+    <div id="mycontent" class="container" role="main" tabindex="0">
+
+
+      <h1 class="hide">Cardinal Theme</h1>
+      <div class="row">
+                <!-- Main column -->
+        <div id="main-content" class="col-md-16 col-md-push-1" role="main">
+
+	{{content}}
+
+
+
+<!--
+        <div id="sidebar-second" class="col-md-3 col-md-pull-9">
+          <div class="well">
+            <h2>About Stanford Cardinal</h2>
+            <p>Stanford Cardinal is available both as HTML / Dreamweaver templates and as a WordPress theme. It is based on the design of the Stanford homepage, and is ready to use without any additional styling.</p>
+            <p><a class="more-link" href="http://wordpressthemes.stanford.edu/"><i class="fa fa-chevron-circle-right"></i> <span>See demo WordPress site</span></a></p>
+            <p>Stanford Cardinal can be used only for the official websites of University academic departments, centers, research groups and administrative units. It is available by request for this purpose.</p>
+            <p><a class="more-link" href="http://helpsu.stanford.edu/?pcat=stanfordhomepage"><i class="fa fa-chevron-circle-right"></i> <span>Request Stanford Cardinal</span></a></p>
+          </div>
+-->
+
+<!--
+          <div class="well">
+            <h2>In the Spotlight</h2>
+            <img src="assets/cardinal/images/samples/LemonsNTower1170.jpg" alt="" />
+            <p class="caption">This is an optional image caption.</p>
+            <p>This is a display element called a "well".  It can be used in either sidebar to highlight content in a shaded box.</p>
+            <p>A <em>well</em> is perfect for featuring an event or calling out highlighted information.</p>
+            <p><a class="more-link" href="#"><i class="fa fa-chevron-circle-right"></i> <span>More information</span></a></p>
+          </div>
+        </div>
+-->
+
+
+      </div>
+    </div>
+    <!-- #content--> 
+    
+  </div>
+  <!-- #su-content --> 
+</div>
+<!-- #su-wrap --> 
+
+<!-- BEGIN footer -->
+<div id="footer" class="clearfix footer" role="contentinfo">
+  <!-- Fat footer start -->
+  <div class="container">
+    <div id="footer-content" class="row">
+<!--
+      <div class="col-xs-12 col-sm-6 col-sm-push-3">
+        <h3>More about us</h3>
+        <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean imperdiet lobortis libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean vitae tortor ligula, quis laoreet ante. Phasellus in turpis ac elit consectetur viverra. Praesent nec massa vitae dui facilisis venenatis et at nisi.</p>
+      </div>
+-->
+<!--
+      <div class="col-xs-12 col-sm-3 col-sm-push-3">
+        <h3>Related Links</h3>
+        <ul>
+          <li><a href="#">Particularly relevant</a></li>
+          <li><a href="#">Related and really quite interesting</a></li>
+          <li><a href="#">Useful in certain circumstances</a></li>
+          <li><a href="#">Purely tangential information</a></li>
+        </ul>
+      </div>
+-->
+    </div>
+  </div>
+  <!-- Fat footer end -->
+  
+  <!-- Global footer snippet start -->
+  <div id="global-footer">
+    <div class="container">
+      <div class="row">
+<!--
+        <div id="bottom-logo" class="col-xs-6 col-sm-2"> <a href="http://www.stanford.edu"> <img src="assets/cardinal/images/footer-stanford-logo@2x.png" alt="Stanford University" width="105" height="49"/> </a> </div>
+-->
+        <!-- #bottom-logo end -->
+        <div id="bottom-text" class="col-xs-6 col-sm-10">
+          <ul>
+            <li class="home"><a target="_blank" href="http://library.stanford.edu/blogs/stanford-libraries-blog/2015/11/piano-roll-scanner-project-prsp">Stanford Piano Roll Scanner Project</a></li>
+          </ul>
+        </div>
+        <!-- .bottom-text end -->
+        <div class="clear"></div>
+      </div>
+      <!-- .row end --> 
+    </div>
+    <!-- .container end --> 
+  </div>
+  <!-- Global footer snippet end --> 
+  
+</div>
+<!-- END footer --> 
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139081373-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-139081373-1');
+</script>
+
+</body>
+</html>
+

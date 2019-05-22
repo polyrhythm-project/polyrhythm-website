@@ -1,0 +1,12 @@
+*.wav
+*.mp4
+*.m4a
+*.tif
+*.tiff
+.DS_Store
+Icon*
+*.bak
+Gemfile.lock
+.jekyll-metadata
+_site
+no_archive

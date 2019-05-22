@@ -1,0 +1,212 @@
+
+{% include_relative listeners.html %}
+{% include scripts/scripts-common.html %}
+
+<script>
+// vim: ts=3
+
+function displayList(list, query) {
+	reportMatches(list);
+	var output = "";
+
+	output += "<table id='metadata-list'>";
+
+	output += "<thead>";
+	output += "<tr>";
+	output += "<th title='Sort by composer' onclick='SortByText(0, \"#metadata-list\")'>ID</th>";
+	output += "<th title='Sort by composer' onclick='SortByText(1, \"#metadata-list\")'>Composer</th>";
+	output += "<th title='Sort by title' onclick='SortByText(2, \"#metadata-list\")'>Title</th>";
+	output += "<th title='Sort by title' onclick='SortByText(3, \"#metadata-list\")'>Genre</th>";
+	output += "<th title='Sort by title' onclick='SortByText(4, \"#metadata-list\")'>Composed</th>";
+	output += "<th style='padding-right:10px;' title='Sort by title' onclick='SortByText(5, \"#metadata-list\")'>Performed</th>";
+	output += "<th title='Sort by title' onclick='SortByText(6, \"#metadata-list\")'>Published</th>";
+	output += "</tr>";
+	output += "</thead>";
+
+	output += "<tbody>";
+
+	output += makeMetaTableRows(list);
+
+	output += "</tbody>";
+	output += "</table>";
+
+	var element = document.querySelector("div#list");
+	if (query) {
+		element.style.display = "none";
+		var inp = document.querySelector("input#search");
+		if (inp) {
+			inp.value = query;
+			doSearch(query);
+		}
+	} else if (list.length == 0) {
+		element.innerHTML = "";
+	} else {
+		element.innerHTML = output;
+	}
+	SortByNumber(SORTCOLUMN, "#metadata-list");
+
+	if (query) {
+		element.style.display = "block";
+	}
+}
+
+
+
+//////////////////////////////
+//
+// makeMetaTableRows
+//
+
+function makeMetaTableRows(list) {
+	var output = "";
+	for (var i=0; i<list.length; i++) {
+		if (!list[i]["Work Title"]) {
+			continue;
+		}
+		output += "<tr class='data'>";
+
+		output += "<td style='min-width:150px;'>";
+		if (list[i]["Example No."]) {
+		 	output += list[i]["Example No."];
+		}
+		output += "</td>";
+
+		output += "<td style='min-width:150px;'>";
+		if (list[i]["Composer Name"]) {
+		 	output += PreparePerson(list[i]["Composer Name"]);
+		}
+		output += "</td>";
+
+		output += "<td style='max-width:450px;'>";
+		if (list[i]["Work Title"]) {
+		 	output += list[i]["Work Title"];
+		}
+		output += "</td>";
+
+		output += "<td>";
+		if (list[i]["Genre"]) {
+		 	output += list[i]["Genre"];
+			if (list[i]["Sub-Genre"]) {
+		 		output += "/" + list[i]["Sub-Genre"];
+			}
+		}
+		output += "</td>";
+
+		output += "<td style='text-align:center; white-space:pre;'>";
+		if (list[i]["Composition Year"]) {
+		 	output += list[i]["Composition Year"];
+		}
+		output += "</td>";
+
+		output += "<td style='text-align:center;'>";
+		if (list[i]["First Public Performance Year"]) {
+		 	output += list[i]["First Public Performance Year"];
+		}
+		output += "</td>";
+
+		output += "<td style='text-align:center;'>";
+		if (list[i]["First Publication Year"]) {
+		 	output += list[i]["First Publication Year"];
+		}
+		output += "</td>";
+
+		output += "</tr>";
+	}
+	return output;
+}
+
+
+
+//////////////////////////////
+//
+// doSearch --
+//
+
+function doSearch(text) {
+	if (!text) {
+		var element = document.querySelector("input#search");
+		text = element.value;
+	}
+console.log("QUERY IS ", text);
+
+	text = text.trim();
+	text = escape(text);
+	text = text.replace(/%u0([A-F0-9][A-F0-9][A-F0-9])/g, "&#x$1;");
+	text = text.replace(/%u([A-F0-9][A-F0-9][A-F0-9][A-F0-9])/g, "&#x$1;");
+	text = text.replace(/%([A-F0-9][A-F0-9])/g, "&#x$1;");
+	text = text.replace(/\&#x([0-7][0-9A-F]);/g, "%$1");
+	text = unescape(text);
+	var fields = text.split(/\s+/);
+	var entries = METADATA;
+	var oldentries;
+	for (var i=0; i<fields.length; i++) { 
+		if (fields[i].match(/^\s*$/)) {
+			continue;
+		}
+		oldentries = entries;
+		entries = [];
+		var regexp = new RegExp(fields[i], "i");
+		for (var j=0; j<oldentries.length; j++) {
+			if (CGI.f) {
+				if (oldentries[j][CGI.f] && oldentries[j][CGI.f].match(regexp)) {
+					entries.push(oldentries[j]);
+					continue;
+				}
+			} else {
+
+				if (oldentries[j]["Composer Name"] && oldentries[j]["Composer Name"].match(regexp)) {
+					entries.push(oldentries[j]);
+					continue;
+				}
+
+				if (oldentries[j]["Work Title"] && oldentries[j]["Work Title"].match(regexp)) {
+					entries.push(oldentries[j]);
+					continue;
+				}
+
+				if (oldentries[j]["Genre"] && oldentries[j]["Genre"].match(regexp)) {
+					entries.push(oldentries[j]);
+					continue;
+				}
+
+				if (oldentries[j]["Sub-Genre"] && oldentries[j]["Sub-Genre"].match(regexp)) {
+					entries.push(oldentries[j]);
+					continue;
+				}
+
+			}
+		}
+		
+	}
+
+	displayList(entries, null);
+}
+
+
+
+//////////////////////////////
+//
+// reportMatches --
+//
+
+function reportMatches(list) {
+	var element = document.querySelector("#search-count");
+	if (!element) {
+		return;
+	}
+/*
+	if (list.length == METADATA.length) {
+		element.innerHTML = "";
+		return;
+	}
+*/
+	var output = "" + list.length;
+	element.innerHTML = output;
+}
+
+
+</script>
+
+
+
+
