@@ -64,7 +64,7 @@ function GetCgiParameters() {
 //
 
 function PreparePerson(name) {
-	return name.replace(/\(.*?\)/g, "");;
+	return name.replace(/\(.*?\)/g, "").replace(/\[(.*?)\]/g, "");
 }
 
 
@@ -199,6 +199,65 @@ function SortByDruid(index, selector, reverse) {
 
 //////////////////////////////
 //
+// SortByWorkId --
+//
+
+function SortByWorkID(index, selector) {
+console.log("SORTING WORK IDS");
+	var data = document.querySelectorAll(selector + " > tbody > tr");
+	var datalist = [];
+	var i;
+	for (i=0; i<data.length; i++) {
+		datalist.push(data[i]);
+	}
+console.log("DATALIST", datalist);
+	datalist.sort(function(a, b) {
+		var A = a.cells[index].textContent;
+		var B = b.cells[index].textContent;
+
+		if (A.match(/^\s*$/)) { return +1; }
+		if (B.match(/^\s*$/)) { return -1; }
+
+		var atext = ""; 
+		var anum = "";
+		var btext = "";
+		var bnum = "";
+
+		var matches = A.match(/^([a-z]{3})-(\d+)$/i);
+		if (matches) {
+			atext = matches[1];
+			anum = parseInt(matches[2]);
+		}
+
+		var matches = B.match(/^([a-z]{3})-(\d+)$/i);
+		if (matches) {
+			btext = matches[1];
+			bnum = parseInt(matches[2]);
+		}
+
+		if (atext.match(/^\s*$/)) { return +1; }
+		if (btext.match(/^\s*$/)) { return -1; }
+
+		if (atext != btext) {
+			return A.localeCompare(B);
+		}
+
+		return anum < bnum;
+	});
+
+	var body = document.querySelector(selector + " tbody");
+	if (body) {
+		body.innerHTML = "";
+		for (i=0; i<datalist.length; i++) {
+			body.appendChild(datalist[i]);
+		}
+	}
+}
+
+
+
+//////////////////////////////
+//
 // SortByText --
 //
 
@@ -255,6 +314,31 @@ function ParseSpreadsheet(text) {
 			item[mapping[j]] = data[j];
 		}
 		output.push(item);
+	}
+	return output;
+}
+
+
+
+//////////////////////////////
+//
+// GenerateWorklist --
+//
+
+function GenerateWorklist(list) {
+	var tlist = {};
+	var workid;
+	var output = [];
+	for (var i=0; i<list.length; i++) {
+		workid = list[i]["Work ID"];
+		if (tlist[workid]) {
+			tlist[workid]["@examples"].push(list[i]);
+		} else {
+			tlist[workid] = list[i];
+			tlist[workid]["@examples"] = [];
+			tlist[workid]["@examples"].push(list[i]);
+			output.push(list[i]);
+		}
 	}
 	return output;
 }

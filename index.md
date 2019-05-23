@@ -9,16 +9,26 @@ summary:
 ---
 
 
+<table>
+<tr>
+<td>
 <select onchange="doSearch();" id="table-scope">
-	<option value="example">example list</option>
 	<option value="work">work list</option>
+	<option value="example">example list</option>
 </select>
+</td>
 
+<td>
 <input id="search" placeholder="search" value="" autocomplete="off">
+</td>
 
+<td>
 <span id="search-count"></span>
+</td>
+</tr>
+</table>
 
-<div id="list"></div>
+<div style="margin-top:20px;" id="list"></div>
 
 {% include_relative styles-local.html %}
 {% include_relative scripts-local.html %}

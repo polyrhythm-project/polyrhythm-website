@@ -4,7 +4,8 @@
 
 var CGI = {};      // CGI parameters from URL
 var SORTCOLUMN = 1;
-var METADATA = [];
+var EXAMPLELIST = [];
+var WORKLIST = [];
 
 
 //////////////////////////////
@@ -28,15 +29,15 @@ document.addEventListener("DOMContentLoaded", function () {
 	var url = "https://docs.google.com/spreadsheets/d/";
 	url += sid + "/export?gid=" + gid + "&format=tsv";
 
-//	if (sessionStorage.METADATA) {
-//		METADATA = JSON.parse(sessionStorage.METADATA);
-//		doAction(METADATA);
+//	if (sessionStorage.EXAMPLELIST) {
+//		EXAMPLELIST = JSON.parse(sessionStorage.EXAMPLELIST);
+//		doAction(EXAMPLELIST);
 //	} else {
 		var request = new XMLHttpRequest();
 		request.addEventListener("load", function () {
-			METADATA = ParseSpreadsheet(this.responseText);
-			sessionStorage.METADATA = JSON.stringify(METADATA);
-			doAction(METADATA);
+			EXAMPLELIST = ParseSpreadsheet(this.responseText);
+			sessionStorage.EXAMPLELIST = JSON.stringify(EXAMPLELIST);
+			doAction(EXAMPLELIST);
 		});
 		request.open("GET", url);
 		request.send();
@@ -50,9 +51,16 @@ document.addEventListener("DOMContentLoaded", function () {
 // doAction --
 //
 
-function doAction(metadata) {
-	console.log("metadata", metadata);
-	displayList(metadata);
+function doAction(examplelist) {
+	WORKLIST = GenerateWorklist(examplelist);
+	console.log("examplelist", examplelist);
+
+	var selement = document.querySelector("#table-scope");
+	if (selement && selement.value === "work") {
+		displayList(WORKLIST);
+	} else {
+		displayList(examplelist);
+	}
 }
 
 

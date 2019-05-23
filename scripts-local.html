@@ -5,27 +5,51 @@
 <script>
 // vim: ts=3
 
-function displayList(list, query) {
-	reportMatches(list);
+function displayList(entries, query) {
+
+	var dtype = "example";
+	var selement = document.querySelector("#table-scope");
+	if (selement && selement.value === "work") {
+		dtype = "work";
+	}
+
+	reportMatches(entries);
+
 	var output = "";
 
 	output += "<table id='metadata-list'>";
 
-	output += "<thead>";
-	output += "<tr>";
-	output += "<th title='Sort by composer' onclick='SortByText(0, \"#metadata-list\")'>ID</th>";
-	output += "<th title='Sort by composer' onclick='SortByText(1, \"#metadata-list\")'>Composer</th>";
-	output += "<th title='Sort by title' onclick='SortByText(2, \"#metadata-list\")'>Title</th>";
-	output += "<th title='Sort by title' onclick='SortByText(3, \"#metadata-list\")'>Genre</th>";
-	output += "<th title='Sort by title' onclick='SortByText(4, \"#metadata-list\")'>Composed</th>";
-	output += "<th style='padding-right:10px;' title='Sort by title' onclick='SortByText(5, \"#metadata-list\")'>Premiered</th>";
-	output += "<th title='Sort by title' onclick='SortByText(6, \"#metadata-list\")'>Published</th>";
-	output += "</tr>";
-	output += "</thead>";
+	if (dtype === "example") {
+		output += "<thead>";
+		output += "<tr>";
+		output += "<th title='Sort by composer' onclick='SortByText(0, \"#metadata-list\")'>ID</th>";
+		// missing example count
+		output += "<th title='Sort by composer' onclick='SortByText(1, \"#metadata-list\")'>Composer</th>";
+		output += "<th title='Sort by title' onclick='SortByText(2, \"#metadata-list\")'>Title</th>";
+		output += "<th title='Sort by title' onclick='SortByText(3, \"#metadata-list\")'>Genre</th>";
+		output += "<th title='Sort by title' onclick='SortByText(4, \"#metadata-list\")'>Composed</th>";
+		output += "<th style='padding-right:10px;' title='Sort by title' onclick='SortByText(5, \"#metadata-list\")'>Premiered</th>";
+		output += "<th title='Sort by title' onclick='SortByText(6, \"#metadata-list\")'>Published</th>";
+		output += "</tr>";
+		output += "</thead>";
+	} else {
+		output += "<thead>";
+		output += "<tr>";
+		output += "<th title='Sort by composer' onclick='SortByWorkID(0, \"#metadata-list\")'>ID</th>";
+		output += "<th title='Sort by composer' onclick='SortByNumber(1, \"#metadata-list\", true)'>Examples&nbsp;&nbsp;</th>";
+		output += "<th title='Sort by composer' onclick='SortByText(2, \"#metadata-list\")'>Composer</th>";
+		output += "<th title='Sort by title' onclick='SortByText(3, \"#metadata-list\")'>Title</th>";
+		output += "<th title='Sort by title' onclick='SortByText(4, \"#metadata-list\")'>Genre</th>";
+		output += "<th title='Sort by title' onclick='SortByText(5, \"#metadata-list\")'>Composed</th>";
+		output += "<th style='padding-right:10px;' title='Sort by title' onclick='SortByText(6, \"#metadata-list\")'>Premiered</th>";
+		output += "<th title='Sort by title' onclick='SortByText(7, \"#metadata-list\")'>Published</th>";
+		output += "</tr>";
+		output += "</thead>";
+	}
 
 	output += "<tbody>";
 
-	output += makeMetaTableRows(list);
+	output += makeMetaTableRows(entries, dtype);
 
 	output += "</tbody>";
 	output += "</table>";
@@ -38,7 +62,7 @@ function displayList(list, query) {
 			inp.value = query;
 			doSearch(query);
 		}
-	} else if (list.length == 0) {
+	} else if (entries.length == 0) {
 		element.innerHTML = "";
 	} else {
 		element.innerHTML = output;
@@ -57,19 +81,32 @@ function displayList(list, query) {
 // makeMetaTableRows
 //
 
-function makeMetaTableRows(list) {
+function makeMetaTableRows(list, dtype) {
 	var output = "";
+
 	for (var i=0; i<list.length; i++) {
 		if (!list[i]["Work Title"]) {
 			continue;
 		}
 		output += "<tr class='data'>";
 
-		output += "<td style='min-width:150px;'>";
-		if (list[i]["Example No."]) {
-		 	output += list[i]["Example No."];
+		output += "<td style='white-space:pre;'>";
+		if (dtype === "example") {
+			if (list[i]["Example No."]) {
+		 		output += list[i]["Example No."];
+			}
+		} else {	
+			if (list[i]["Work ID"]) {
+		 		output += list[i]["Work ID"];
+			}
 		}
 		output += "</td>";
+
+		if (dtype === "work") {
+			output += "<td style='text-align:center;'>";
+			output += list[i]["@examples"].length;
+			output += "</td>";
+		}
 
 		output += "<td style='min-width:150px;'>";
 		if (list[i]["Composer Name"]) {
@@ -127,14 +164,13 @@ function doSearch(text) {
 		var element = document.querySelector("input#search");
 		text = element.value;
 	}
-console.log("QUERY IS ", text);
 
-	var entries = METADATA;
+	var entries = EXAMPLELIST;;
 
 	var selement = document.querySelector("#table-scope");
 	if (selement && selement.value === "work") {
 		// only show works, not examples
-		entries = filterByWorks(entries);
+		entries = WORKLIST;
 	}
 
 	text = text.trim();
