@@ -31,6 +31,13 @@ summary:
 <td>
 <span id="search-count"></span>
 </td>
+
+<td>
+<select id="genre" onchange="doSearch();">
+</select>
+</td>
+
+
 </tr>
 </table>
 

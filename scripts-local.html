@@ -165,8 +165,6 @@ function makeMetaTableRows(list, dtype) {
 
 function doSearch(text) {
 
-console.log("TEXT FOR SEARCHING", text);
-
 	if (!text) {
 		var element = document.querySelector("input#search");
 		text = element.value;
@@ -187,6 +185,19 @@ console.log("TEXT FOR SEARCHING", text);
 	}
 	composer = composer.replace(/,.*/, "");
 
+	var gelement = document.querySelector("#genre");
+	var genre = "";
+	var subgenre = ""
+	if (gelement) {
+		var m = gelement.value.match(/(.*)\/(.*)/);
+		if (m) {
+			genre = m[1];
+			subgenre = m[2];
+		} else {
+			genre = gelement.value;
+		}
+	}
+
 	text = text.trim();
 	text = escape(text);
 	text = text.replace(/%u0([A-F0-9][A-F0-9][A-F0-9])/g, "&#x$1;");
@@ -206,6 +217,22 @@ console.log("TEXT FOR SEARCHING", text);
 		console.log("COMPSER", composer);
 		for (i=0; i<oldentries.length; i++) {
 			if (oldentries[i]["Composer Name"] && oldentries[i]["Composer Name"].match(creg)) {
+				entries.push(oldentries[i]);
+				continue;
+			}
+		}
+	}
+
+	// filter by genre/subgenre if needed
+	var oldentries;
+	if (genre) {
+		oldentries = entries;
+		entries = [];
+		var greg = new RegExp(genre, "i");
+		var sgreg = new RegExp(subgenre, "i");
+		for (i=0; i<oldentries.length; i++) {
+			if (oldentries[i]["Genre"] && oldentries[i]["Genre"].match(greg) &&
+			    oldentries[i]["Sub-Genre"] && oldentries[i]["Sub-Genre"].match(sgreg)) {
 				entries.push(oldentries[i]);
 				continue;
 			}
@@ -286,6 +313,7 @@ function reportMatches(list) {
 }
 
 
+
 //////////////////////////////
 //
 // buildComposerSelect --
@@ -300,10 +328,7 @@ function buildComposerSelect(list, selector) {
 		composers[composer] = 1;
 	}
 	var clist = Object.keys(composers).sort();
-console.log("CLIST", clist);
-console.log("SELECTOR", selector);
 	var element = document.querySelector(selector);
-console.log("ELEMENT", element);
 	if (!element) {
 		return;
 	}
@@ -315,7 +340,40 @@ console.log("ELEMENT", element);
 		}
 		output += "<option value='" + clist[i] + "'>" + clist[i] + "</option>\n";
 	}
-console.log("OUTOUT", output);
+	element.innerHTML = output;
+}
+
+
+
+//////////////////////////////
+//
+// buildGenreSelect --
+//
+
+function buildGenreSelect(list, selector) {
+	var genres = {};
+	var genre;
+	var i;
+	for (i=0; i<list.length; i++) {
+		genre = list[i]["Genre"];
+		if (list[i]["Sub-Genre"]) {
+	 		genre += "/" + list[i]["Sub-Genre"];
+		}
+		genres[genre] = 1;
+	}
+	var clist = Object.keys(genres).sort();
+	var element = document.querySelector(selector);
+	if (!element) {
+		return;
+	}
+	var output = "";
+	output += "<option value=''>all genres</a>\n";
+	for (i=0; i<clist.length; i++) {
+		if (!clist) {
+			continue;
+		}
+		output += "<option value='" + clist[i] + "'>" + clist[i] + "</option>\n";
+	}
 	element.innerHTML = output;
 }
 
