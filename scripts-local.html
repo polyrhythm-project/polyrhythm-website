@@ -183,7 +183,7 @@ function doSearch(text) {
 	if (celement) {
 		composer = celement.value;
 	}
-	composer = composer.replace(/,.*/, "");
+	composer = composer.replace(/,.*/, ",");
 
 	var gelement = document.querySelector("#genre");
 	var genre = "";
@@ -345,11 +345,18 @@ function buildComposerSelect(list, selector) {
 function buildGenreSelect(list, selector) {
 	var genres = {};
 	var genre;
+	var subgenre;
 	var i;
 	for (i=0; i<list.length; i++) {
 		genre = list[i]["Genre"];
+		if (!genre) {
+			continue;
+		}
+		genre = genre.replace(/\s+$/, "").replace(/^\s+/, "");
 		if (list[i]["Sub-Genre"]) {
-	 		genre += "/" + list[i]["Sub-Genre"];
+			subgenre = list[i]["Sub-Genre"];
+			subgenre = subgenre.replace(/\s+$/, "").replace(/^\s+/, "");
+	 		genre += "/" + subgenre;
 		}
 		genres[genre] = 1;
 	}
