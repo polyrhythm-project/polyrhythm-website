@@ -71,6 +71,17 @@ function PreparePerson(name) {
 
 //////////////////////////////
 //
+// PrepareTitle --
+//
+
+function PrepareTitle(name) {
+	return name.replace(/\(.*?\)/g, "");
+}
+
+
+
+//////////////////////////////
+//
 // FlipName --
 //
 

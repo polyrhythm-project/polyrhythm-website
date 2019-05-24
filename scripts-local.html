@@ -67,7 +67,11 @@ function displayList(entries, query) {
 	} else {
 		element.innerHTML = output;
 	}
-	SortByNumber(SORTCOLUMN, "#metadata-list");
+	if (dtype === "example") {
+		SortByNumber(SORTCOLUMN, "#metadata-list");
+	} else {
+		SortByWorkID(SORTCOLUMN, "#metadata-list");
+	}
 
 	if (query) {
 		element.style.display = "block";
@@ -116,7 +120,7 @@ function makeMetaTableRows(list, dtype) {
 
 		output += "<td style='max-width:450px;'>";
 		if (list[i]["Work Title"]) {
-		 	output += list[i]["Work Title"];
+		 	output += PrepareTitle(list[i]["Work Title"]);
 		}
 		output += "</td>";
 
@@ -160,18 +164,28 @@ function makeMetaTableRows(list, dtype) {
 //
 
 function doSearch(text) {
+
+console.log("TEXT FOR SEARCHING", text);
+
 	if (!text) {
 		var element = document.querySelector("input#search");
 		text = element.value;
 	}
 
-	var entries = EXAMPLELIST;;
+	var entries = EXAMPLELIST;
 
 	var selement = document.querySelector("#table-scope");
 	if (selement && selement.value === "work") {
 		// only show works, not examples
 		entries = WORKLIST;
 	}
+
+	var celement = document.querySelector("#composer");
+	var composer = "";
+	if (celement) {
+		composer = celement.value;
+	}
+	composer = composer.replace(/,.*/, "");
 
 	text = text.trim();
 	text = escape(text);
@@ -181,8 +195,24 @@ function doSearch(text) {
 	text = text.replace(/\&#x([0-7][0-9A-F]);/g, "%$1");
 	text = unescape(text);
 	var fields = text.split(/\s+/);
+	var i;
+
+	// filter by composer if needed
 	var oldentries;
-	for (var i=0; i<fields.length; i++) { 
+	if (composer) {
+		oldentries = entries;
+		entries = [];
+		var creg = new RegExp(composer, "i");
+		console.log("COMPSER", composer);
+		for (i=0; i<oldentries.length; i++) {
+			if (oldentries[i]["Composer Name"] && oldentries[i]["Composer Name"].match(creg)) {
+				entries.push(oldentries[i]);
+				continue;
+			}
+		}
+	}
+
+	for (i=0; i<fields.length; i++) { 
 		if (fields[i].match(/^\s*$/)) {
 			continue;
 		}
@@ -196,11 +226,6 @@ function doSearch(text) {
 					continue;
 				}
 			} else {
-
-				if (oldentries[j]["Composer Name"] && oldentries[j]["Composer Name"].match(regexp)) {
-					entries.push(oldentries[j]);
-					continue;
-				}
 
 				if (oldentries[j]["Work Title"] && oldentries[j]["Work Title"].match(regexp)) {
 					entries.push(oldentries[j]);
@@ -221,6 +246,7 @@ function doSearch(text) {
 		}
 		
 	}
+console.log("GOT EHRE QQQ");
 
 	displayList(entries, null);
 }
@@ -256,6 +282,40 @@ function reportMatches(list) {
 	}
 */
 	var output = "" + list.length;
+	element.innerHTML = output;
+}
+
+
+//////////////////////////////
+//
+// buildComposerSelect --
+//
+
+function buildComposerSelect(list, selector) {
+	var composers = {};
+	var composer;
+	var i;
+	for (i=0; i<list.length; i++) {
+		composer = PreparePerson(list[i]["Composer Name"]);
+		composers[composer] = 1;
+	}
+	var clist = Object.keys(composers).sort();
+console.log("CLIST", clist);
+console.log("SELECTOR", selector);
+	var element = document.querySelector(selector);
+console.log("ELEMENT", element);
+	if (!element) {
+		return;
+	}
+	var output = "";
+	output += "<option value=''>all composers</a>\n";
+	for (i=0; i<clist.length; i++) {
+		if (!clist) {
+			continue;
+		}
+		output += "<option value='" + clist[i] + "'>" + clist[i] + "</option>\n";
+	}
+console.log("OUTOUT", output);
 	element.innerHTML = output;
 }
 

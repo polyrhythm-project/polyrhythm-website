@@ -11,10 +11,16 @@ summary:
 
 <table>
 <tr>
+
 <td>
 <select onchange="doSearch();" id="table-scope">
 	<option value="work">work list</option>
 	<option value="example">example list</option>
+</select>
+</td>
+
+<td>
+<select id="composer" onchange="doSearch();">
 </select>
 </td>
 
@@ -28,7 +34,8 @@ summary:
 </tr>
 </table>
 
-<div style="margin-top:20px;" id="list"></div>
+<div style="margin-bottom:50px; margin-top:20px;" id="list"></div>
+
 
 {% include_relative styles-local.html %}
 {% include_relative scripts-local.html %}

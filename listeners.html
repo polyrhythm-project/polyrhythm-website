@@ -3,7 +3,7 @@
 // vim: ts=3
 
 var CGI = {};      // CGI parameters from URL
-var SORTCOLUMN = 1;
+var SORTCOLUMN = 0;
 var EXAMPLELIST = [];
 var WORKLIST = [];
 
@@ -54,6 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
 function doAction(examplelist) {
 	WORKLIST = GenerateWorklist(examplelist);
 	console.log("examplelist", examplelist);
+
+	buildComposerSelect(WORKLIST, "#composer");
 
 	var selement = document.querySelector("#table-scope");
 	if (selement && selement.value === "work") {
