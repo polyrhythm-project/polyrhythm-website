@@ -259,21 +259,10 @@ function doSearch(text) {
 					continue;
 				}
 
-				if (oldentries[j]["Genre"] && oldentries[j]["Genre"].match(regexp)) {
-					entries.push(oldentries[j]);
-					continue;
-				}
-
-				if (oldentries[j]["Sub-Genre"] && oldentries[j]["Sub-Genre"].match(regexp)) {
-					entries.push(oldentries[j]);
-					continue;
-				}
-
 			}
 		}
 		
 	}
-console.log("GOT EHRE QQQ");
 
 	displayList(entries, null);
 }

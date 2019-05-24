@@ -214,14 +214,12 @@ function SortByDruid(index, selector, reverse) {
 //
 
 function SortByWorkID(index, selector) {
-console.log("SORTING WORK IDS");
 	var data = document.querySelectorAll(selector + " > tbody > tr");
 	var datalist = [];
 	var i;
 	for (i=0; i<data.length; i++) {
 		datalist.push(data[i]);
 	}
-console.log("DATALIST", datalist);
 	datalist.sort(function(a, b) {
 		var A = a.cells[index].textContent;
 		var B = b.cells[index].textContent;
