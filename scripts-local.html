@@ -183,7 +183,7 @@ function doSearch(text) {
 	if (celement) {
 		composer = celement.value;
 	}
-	composer = composer.replace(/,.*/, ",");
+	composer = composer.replace(/\s*,.*/, "");
 
 	var gelement = document.querySelector("#genre");
 	var genre = "";
@@ -216,10 +216,14 @@ function doSearch(text) {
 	if (composer) {
 		oldentries = entries;
 		entries = [];
-		var creg = new RegExp(composer, "i");
-		console.log("COMPSER", composer);
+		var testcomp;
 		for (i=0; i<oldentries.length; i++) {
-			if (oldentries[i]["Composer Name"] && oldentries[i]["Composer Name"].match(creg)) {
+			testcomp = PreparePerson(oldentries[i]["Composer Name"]);
+			if (!testcomp) {
+				continue;
+			}
+			testcomp = testcomp.replace(/\s*,.*/, "");
+			if (testcomp === composer) {
 				entries.push(oldentries[i]);
 				continue;
 			}
