@@ -53,17 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function doAction(examplelist) {
 	WORKLIST = GenerateWorklist(examplelist);
-	console.log("examplelist", examplelist);
-
-	buildComposerSelect(WORKLIST, "#composer");
-	buildGenreSelect(WORKLIST, "#genre");
-
-	var selement = document.querySelector("#table-scope");
-	if (selement && selement.value === "work") {
-		displayList(WORKLIST);
-	} else {
-		displayList(examplelist);
-	}
+	displayComposerList();
 }
 
 

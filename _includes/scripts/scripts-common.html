@@ -354,5 +354,65 @@ function GenerateWorklist(list) {
 
 
 
+///////////////////////////////
+//
+// CreateComposerList -- make a list of the composers sorted alphabetically
+//     by last name, with arrays of the works by that composers that are included
+//     in the database.
+//
+// Other information about composer:
+//    "Birth Date"
+//    "Birth Place"
+//    "Death Date"
+//    "Death Place"
+//    "Nationality"
+// 
+//
+
+function CreateComposerList(worklist) {
+	var cinfo = {};
+	var name;
+	var born;
+	var died;
+	var bornloc;
+	var diedloc;
+	var nationality;
+	var i;
+	for (i=0; i<worklist.length; i++) {
+		name = worklist[i]["Composer Name"];
+		if (!name) {
+			continue;
+		}
+		born = worklist[i]["Birth Date"];
+		died = worklist[i]["Death Date"];
+		bornloc = worklist[i]["Birth Place"];
+		diedloc = worklist[i]["Death Place"];
+		nationality = worklist[i]["Nationality"];
+		if (!cinfo[name]) {
+			// create a name
+			cinfo[name] = {};
+			cinfo[name]["Composer Name"] = name;
+			cinfo[name]["Birth Date"] = born;
+			cinfo[name]["Death Date"] = died;
+			cinfo[name]["Birth Place"] = bornloc;
+			cinfo[name]["Death Place"] = diedloc;
+			cinfo[name]["Nationality"] = nationality.replace(/,\s*/g, ", ");
+			cinfo[name]["@works"] = [];
+			cinfo[name]["@works"].push(worklist[i]);
+		} else {
+			// add a work to the composer's list
+			cinfo[name]["@works"].push(worklist[i]);
+		}
+	}
+	var composers = Object.keys(cinfo).sort();
+	var output = [];
+	for (i=0; i<composers.length; i++) {
+		output.push(cinfo[composers[i]]);
+	}
+
+	return output;
+}
+
+
 </script>
 
