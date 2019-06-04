@@ -210,7 +210,8 @@ function SortByDruid(index, selector, reverse) {
 
 //////////////////////////////
 //
-// SortByWorkId --
+// SortByWorkId -- Sort by 3-letter composer code first, then numerically by
+//      work number for composer.
 //
 
 function SortByWorkID(index, selector) {
@@ -251,7 +252,7 @@ function SortByWorkID(index, selector) {
 			return A.localeCompare(B);
 		}
 
-		return anum < bnum;
+		return anum - bnum;
 	});
 
 	var body = document.querySelector(selector + " tbody");
@@ -411,6 +412,28 @@ function CreateComposerList(worklist) {
 	}
 
 	return output;
+}
+
+
+
+//////////////////////////////
+//
+// FindExampleById --
+//
+
+function FindExampleById(exid, examples) {
+	if (!exid) {
+		return null;
+	}
+	if (!examples) {
+		examples = EXAMPLELIST;
+	}
+	for (var i=0; i<examples.length; i++) {
+		if (examples[i]["Example No."] === exid) {
+			return examples[i];
+		}
+	}
+	return null;
 }
 
 

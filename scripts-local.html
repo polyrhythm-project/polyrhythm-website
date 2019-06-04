@@ -28,7 +28,7 @@ function displayList(entries, query) {
 	if (dtype === "example") {
 		output += "<thead>";
 		output += "<tr>";
-		output += "<th title='Sort by composer' onclick='SortByText(0, \"#metadata-list\")'>ID</th>";
+		output += "<th title='Sort by composer' onclick='SortByWorkId(0, \"#metadata-list\")'>ID</th>";
 		// missing example count
 		output += "<th title='Sort by composer' onclick='SortByText(1, \"#metadata-list\")'>Composer</th>";
 		output += "<th title='Sort by title' onclick='SortByText(2, \"#metadata-list\")'>Title</th>";
@@ -101,7 +101,13 @@ function makeMetaTableRows(list, dtype) {
 		output += "<td style='white-space:pre;'>";
 		if (dtype === "example") {
 			if (list[i]["Example No."]) {
-		 		output += list[i]["Example No."];
+				if (list[i]["Work Dataset"] === "R") {
+					output += "<b>";
+		 			output += list[i]["Example No."];
+					output += "</b>";
+				} else {
+		 			output += list[i]["Example No."];
+				}
 			}
 		} else {	
 			if (list[i]["Work ID"]) {
