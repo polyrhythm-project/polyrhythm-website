@@ -91,6 +91,8 @@ function displayList(entries, query) {
 
 function makeMetaTableRows(list, dtype) {
 	var output = "";
+	var i;
+	var j;
 
 	for (var i=0; i<list.length; i++) {
 		if (!list[i]["Work Title"]) {
@@ -100,6 +102,7 @@ function makeMetaTableRows(list, dtype) {
 
 		output += "<td style='white-space:pre;'>";
 		if (dtype === "example") {
+
 			if (list[i]["Example No."]) {
 				if (list[i]["Work Dataset"] === "R") {
 					output += "<b>";
@@ -109,10 +112,26 @@ function makeMetaTableRows(list, dtype) {
 		 			output += list[i]["Example No."];
 				}
 			}
+
 		} else {	
+			var hasReserve = 0;
+			var elist = list[i]["@examples"];
+			for (j=0; j<elist.length; j++) {
+				if (elist[j]["Work Dataset"] === "R") {
+					hasReserve = 1;
+					break;
+				}
+			}
+			if (hasReserve) {
+				output += "<b>";
+			}
 			if (list[i]["Work ID"]) {
 		 		output += list[i]["Work ID"];
 			}
+			if (hasReserve) {
+				output += "</b>";
+			}
+
 		}
 		output += "</td>";
 

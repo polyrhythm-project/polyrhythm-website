@@ -11,67 +11,43 @@
 
 //////////////////////////////
 //
-// displayExample --
+// displayWork --
 //
 
-function displayExample(exid, examples) {
-	var element = document.querySelector("div#example");
+function displayWork(wid, works) {
+	var element = document.querySelector("div#work");
 	if (!element) {
-		console.log("Error: could not find #example");
+		console.log("Error: could not find #work");
 		return;
 	}
 
-	if (!examples) {
-		examples = EXAMPLELIST;
+	if (!works) {
+		works = WORKLIST;
 	}
 
-	if (!exid) {
-		exid = "129"
+	if (!wid) {
+		wid = "Jan-30"
 	}
 
-	var entry = FindExampleById(exid, examples);
+	var entry = FindWorkById(wid, works);
 
 	if (!entry) {
-		console.log("Error: did not find entry for example", exid);
+		console.log("Error: did not find entry for example", wid);
 		return;
 	}
 
 	var output = "";
 
-	output += "<table id='example-info'>";
+	output += "<table id='work-info'>";
 
 	output += "<tr>";
 	output += "<td>";
-	output += "Example ID:";
+	output += "Work ID:";
 	output += "</td>";
 	output += "<td>";
-	output += exid;
+	output += wid;
 	output += "</td>";
 	output += "</tr>";
-
-	// work ID
-	var workid = entry["Work ID"];
-	if (workid) {
-		output += "<tr>";
-		output += "<td>";
-		output += "Work ID:";
-		if (entry["@examples"]) {
-			var ecount = entry["@examples"].length;
-			ecount--;
-			if (ecount > 0) {
-				output += " (" + ecount + " other example";
-				if (ecount != 1) {
-					output += "s";
-				}
-				output += " in this work)";
-			}
-		}
-		output += "</td>";
-		output += "<td>";
-		output += workid;
-		output += "</td>";
-		output += "</tr>";
-	}
 
 	// title of source work
 	var title = entry["Work Title"];
@@ -210,25 +186,119 @@ function displayExample(exid, examples) {
 	output += "</table>";
 
 	element.innerHTML = output;
-	var url = "https://raw.githubusercontent.com/epoudrier/RDS_Scores_2018/";
-	url += "Reserve_Dataset/kern/";
-	url += entry["Filename"];
-	url += ".krn";
+	displayExamples(entry);
+}
 
-	console.log("URI", url);
-	var dset = entry["Example Dataset"];
-	if (dset === "R") {
-		// T dataset is not online yet...
-		displayHumdrum({
-			source: "example-notation",
-			url: url
-		});
+
+
+//////////////////////////////
+//
+// displayExamples --
+//
+
+function displayExamples(work) {
+	elist = work["@examples"];
+	if (!elist) {
+		return;
+	}
+
+	var element = document.querySelector("#examples");
+	if (!element) {
+		return;
+	}
+
+	var output = "";
+	output += "<h2>";
+	output += "Examples";
+	output += " (";
+	output += elist.length;
+	output += ")";
+	output += "</h2>";
+
+	console.log("CREATE EXAMPLES FOR WORK", work);
+
+	var i;
+	for (i=0; i<elist.length; i++) {
+		output += displayExample(elist[i]);
+		if (i < elist.length - 1) {
+			output += "<hr noshade>";
+		}
+	}
+
+	element.innerHTML = output;
+
+	for (i=0; i<elist.length; i++) {
+		if (elist[i]["Work Dataset"] === "R") {
+			var container = document.querySelector("#notation-container-" + elist[i]["Example No."]);
+			if (container) {
+				var script = document.createElement("script");
+				script.type = "text/x-humdrum";
+				script.id = "example-notation-" + elist[i]["Example No."];
+				container.appendChild(script);
+			}
+
+			var url = "https://raw.githubusercontent.com/epoudrier/RDS_Scores_2018/";
+			url += "Reserve_Dataset/kern/";
+			url += elist[i]["Filename"];
+			url += ".krn";
+			displayHumdrum({
+				source: "example-notation-" + elist[i]["Example No."],
+				url: url
+			});
+		}
 	}
 
 }
 
 
+
+//////////////////////////////
+//
+// displayExample --
+//
+
+function displayExample(entry) {
+	var output = "";
+	output += "<table id='example-info'>";
+
+
+	// starting measure
+	var startm = entry["Example Start Measure"];
+	if (startm) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Starting measure:";
+		output += "</td>";
+		output += "<td>";
+		output += startm;
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	// ending measure
+	var endm = entry["Example End Measure"];
+	if (endm) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Ending measure:";
+		output += "</td>";
+		output += "<td>";
+		output += endm;
+		output += "</td>";
+		output += "</tr>";
+	}
+	
+	output += "</table>";
+	output += "<div id='notation-container-" + entry["Example No."];
+	output += "'></div>";
+
+	return output;
+}
+
+
+
 </script>
+
 
 
 

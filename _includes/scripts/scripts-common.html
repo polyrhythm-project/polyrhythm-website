@@ -437,5 +437,27 @@ function FindExampleById(exid, examples) {
 }
 
 
+
+//////////////////////////////
+//
+// FindWorkById --
+//
+
+function FindWorkById(wid, works) {
+	if (!wid) {
+		return null;
+	}
+	if (!works) {
+		works = WORKLIST;
+	}
+	for (var i=0; i<works.length; i++) {
+		if (works[i]["Work ID"] === wid) {
+			return works[i];
+		}
+	}
+	return null;
+}
+
+
 </script>
 
