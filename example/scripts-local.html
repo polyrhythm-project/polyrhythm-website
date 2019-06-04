@@ -86,19 +86,6 @@ function displayExample(exid, examples) {
 		output += "</tr>";
 	}
 
-	// composer's name
-	var composer = entry["Composer Name"];
-	if (composer) {
-		output += "<tr>";
-		output += "<td>";
-		output += "Composer:";
-		output += "</td>";
-		output += "<td>";
-		output += composer;
-		output += "</td>";
-		output += "</tr>";
-	}
-
 	// genre
 	var genre = entry["Genre"];
 	if (genre) {
@@ -112,6 +99,19 @@ function displayExample(exid, examples) {
 		if (subgenre) {
 			output += " / " + subgenre;
 		}
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	// composer's name
+	var composer = entry["Composer Name"];
+	if (composer) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Composer:";
+		output += "</td>";
+		output += "<td>";
+		output += composer;
 		output += "</td>";
 		output += "</tr>";
 	}
@@ -142,25 +142,12 @@ function displayExample(exid, examples) {
 		output += "</tr>";
 	}
 
-	// Premier location
-	var premier = entry["Premier Location"];
-	if (premier) {
-		output += "<tr>";
-		output += "<td>";
-		output += "Premier location:";
-		output += "</td>";
-		output += "<td>";
-		output += premier.replace(/,\s*/g, ", ");;
-		output += "</td>";
-		output += "</tr>";
-	}
-
-	// Premier date
-	var premierdate = entry["Premier Date"];
+	// Premiere date
+	var premierdate = entry["Premiere Date"];
 	if (premierdate) {
 		output += "<tr>";
 		output += "<td>";
-		output += "Premier location:";
+		output += "Premiere date:";
 		output += "</td>";
 		output += "<td>";
 		output += premierdate.replace(/-/g, " ");;
@@ -168,12 +155,25 @@ function displayExample(exid, examples) {
 		output += "</tr>";
 	}
 
-	// Premier ensemble
+	// Premiere location
+	var premier = entry["Premiere Location"];
+	if (premier) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Premiere location:";
+		output += "</td>";
+		output += "<td>";
+		output += premier.replace(/,\s*/g, ", ");;
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	// Premiere ensemble
 	var ensemble = entry["Ensemble"];
 	if (ensemble && (ensemble !== "none")) {
 		output += "<tr>";
 		output += "<td>";
-		output += "Premier ensemble:";
+		output += "Premiere ensemble:";
 		output += "</td>";
 		output += "<td>";
 		output += ensemble;
@@ -181,25 +181,25 @@ function displayExample(exid, examples) {
 		output += "</tr>";
 	}
 
-	// Premier conductor
+	// Premiere conductor
 	var conductor = entry["Conductor"];
 	if (conductor && (conductor !== "none")) {
 		output += "<tr>";
 		output += "<td>";
-		output += "Premier conductor:";
+		output += "Premiere conductor:";
 		output += "</td>";
 		output += "<td>";
-		output += conductor;
+		output += conductor.replace(/,\s*/g, ", ");
 		output += "</td>";
 		output += "</tr>";
 	}
 
-	// Premier soloists
+	// Premiere soloists
 	var soloists = entry["Soloists"];
 	if (soloists && (soloists !== "none")) {
 		output += "<tr>";
 		output += "<td>";
-		output += "Premier soloists:";
+		output += "Premiere soloists:";
 		output += "</td>";
 		output += "<td>";
 		output += soloists.replace(/,\s*/g, ", ").replace(/;\s*/g, "; ");;
