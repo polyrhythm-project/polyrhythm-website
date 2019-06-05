@@ -9,6 +9,8 @@ summary:
 ---
 
 <div style="margin-bottom:50px; margin-top:20px;" id="example"></div>
+
+<span id="vbutton"></span>
 <script type="text/x-humdrum" id="example-notation"></script>
 
 {% include_relative styles-local.html %}

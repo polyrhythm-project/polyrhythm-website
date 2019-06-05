@@ -314,6 +314,7 @@ function displayExample(entry) {
 	}
 
 	output += "</table>";
+
 	if (entry["Work Dataset"] === "R") {
 		output += "<span ";
 		output += " onclick='window.open(\"https://verovio.humdrum.org/?file=";
@@ -323,6 +324,7 @@ function displayExample(entry) {
 		output += "\", \"_blank\")'"; 
 		output += " class='vhv-button'>VHV</span>";
 	}
+
 	output += "<div id='notation-container-" + entry["Example No."];
 	output += "'></div>";
 
