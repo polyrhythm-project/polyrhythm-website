@@ -208,7 +208,7 @@ function displayExamples(work) {
 	}
 
 	var output = "";
-	output += "<h2>";
+	output += "<h2 style='margin-bottom:20px;'>";
 	output += "Examples";
 	output += " (";
 	output += elist.length;
@@ -261,7 +261,20 @@ function displayExample(entry) {
 	var output = "";
 	output += "<table id='example-info'>";
 
-
+	var exid = entry["Example No."];
+	if (exid) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Example ID:";
+		output += "</td>";
+		output += "<td>";
+		output += "<a target='_blank' href='/example?id=" + exid + "'>";
+		output += exid;
+		output += "</a>";
+		output += "</td>";
+		output += "</tr>";
+	}
+	
 	// starting measure
 	var startm = entry["Example Start Measure"];
 	if (startm) {
@@ -299,8 +312,17 @@ function displayExample(entry) {
 		output += "</td>";
 		output += "</tr>";
 	}
-	
+
 	output += "</table>";
+	if (entry["Work Dataset"] === "R") {
+		output += "<span ";
+		output += " onclick='window.open(\"https://verovio.humdrum.org/?file=";
+		output += "https://raw.githubusercontent.com/epoudrier/RDS_Scores_2018/Reserve_Dataset/";
+		output += "kern/";
+		output += entry["Filename"] + ".krn";
+		output += "\", \"_blank\")'"; 
+		output += " class='vhv-button'>VHV</span>";
+	}
 	output += "<div id='notation-container-" + entry["Example No."];
 	output += "'></div>";
 

@@ -68,6 +68,12 @@ function displayExample(exid, examples) {
 		output += "<tr>";
 		output += "<td>";
 		output += "Work ID:";
+		output += "</td>";
+		output += "<td>";
+		output += "<a target='_blank' href='/work?id=" + workid + "'>";
+		output += workid;
+		output += "</a>";
+
 		if (entry["@examples"]) {
 			var ecount = entry["@examples"].length;
 			ecount--;
@@ -79,9 +85,7 @@ function displayExample(exid, examples) {
 				output += " in this work)";
 			}
 		}
-		output += "</td>";
-		output += "<td>";
-		output += workid;
+
 		output += "</td>";
 		output += "</tr>";
 	}
@@ -95,6 +99,32 @@ function displayExample(exid, examples) {
 		output += "</td>";
 		output += "<td>";
 		output += title;
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	// starting measure
+	var startm = entry["Example Start Measure"];
+	if (startm) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Starting measure:";
+		output += "</td>";
+		output += "<td>";
+		output += startm;
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	// ending measure
+	var endm = entry["Example End Measure"];
+	if (endm) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Ending measure:";
+		output += "</td>";
+		output += "<td>";
+		output += endm;
 		output += "</td>";
 		output += "</tr>";
 	}
