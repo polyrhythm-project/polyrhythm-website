@@ -267,7 +267,19 @@ function displayExample(entry) {
 	if (startm) {
 		output += "<tr>";
 		output += "<td>";
-		output += "Starting measure:";
+		output += "St"
+		if (entry["Work Dataset"] === "R") {
+			var pu = "https://raw.githubusercontent.com/epoudrier/RDS_Scores_2018/";
+			pu += "Reserve_Dataset/pdf/";
+			pu += entry["Filename"];
+			pu += ".pdf";
+			output += "<a target='_blank' style='color:#696969;' href='" + pu + "'>";
+			output += "a"
+			output += "</a>";
+		} else {
+			output += "a"
+		}
+		output += "rting measure:";
 		output += "</td>";
 		output += "<td>";
 		output += startm;

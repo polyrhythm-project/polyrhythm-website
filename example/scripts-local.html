@@ -42,7 +42,20 @@ function displayExample(exid, examples) {
 
 	output += "<tr>";
 	output += "<td>";
-	output += "Example ID:";
+	output += "Ex";
+	if (entry["Work Dataset"] === "R") {
+		var pu = "https://raw.githubusercontent.com/epoudrier/RDS_Scores_2018/";
+		pu += "Reserve_Dataset/pdf/";
+		pu += entry["Filename"];
+		pu += ".pdf";
+		output += "<a target='_blank' style='color:#696969;' href='" + pu + "'>";
+		output += "a"
+		output += "</a>";
+	} else {
+		output += "a"
+	}
+	output += "mple ID:";
+
 	output += "</td>";
 	output += "<td>";
 	output += exid;
