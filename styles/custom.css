@@ -93,4 +93,23 @@ a.searchworks:hover, a.purl:hover {
 }
 
 
+.vhv-button {
+	/* background: #aa0000; */
+	background: #f2c82c;
+	float: right;
+	border-radius: 1rem;
+	font-family: Arial;
+	color: #fafafa;
+	font-size: 1rem;
+	padding: 0px 5px 0px 5px;
+	text-decoration: none;
+	margin-left: 1px;
+	margin-right: 1px;
+	cursor: pointer;
+}
+
+.vhv-button:hover {
+	background: #d2980c;
+}
+
 

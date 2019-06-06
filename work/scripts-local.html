@@ -228,7 +228,7 @@ function displayExamples(work) {
 	element.innerHTML = output;
 
 	for (i=0; i<elist.length; i++) {
-		if (elist[i]["Work Dataset"] === "R") {
+		//if (elist[i]["Work Dataset"] === "R") {
 			var container = document.querySelector("#notation-container-" + elist[i]["Example No."]);
 			if (container) {
 				var script = document.createElement("script");
@@ -237,15 +237,15 @@ function displayExamples(work) {
 				container.appendChild(script);
 			}
 
-			var url = "https://raw.githubusercontent.com/epoudrier/RDS_Scores_2018/";
-			url += "Reserve_Dataset/kern/";
+			var url = "https://raw.githubusercontent.com/craigsapp";
+			url += "/polyrhythm-scores/master/kern/";
 			url += elist[i]["Filename"];
 			url += ".krn";
 			displayHumdrum({
 				source: "example-notation-" + elist[i]["Example No."],
 				url: url
 			});
-		}
+		//}
 	}
 
 }
@@ -282,8 +282,8 @@ function displayExample(entry) {
 		output += "<td>";
 		output += "St"
 		if (entry["Work Dataset"] === "R") {
-			var pu = "https://raw.githubusercontent.com/epoudrier/RDS_Scores_2018/";
-			pu += "Reserve_Dataset/pdf/";
+			var pu = "https://github.com/epoudrier/RDS_Scores_2018/raw/Reserve_Dataset/";
+			pu += "pdf/";
 			pu += entry["Filename"];
 			pu += ".pdf";
 			output += "<a target='_blank' style='color:#696969;' href='" + pu + "'>";
@@ -315,15 +315,18 @@ function displayExample(entry) {
 
 	output += "</table>";
 
-	if (entry["Work Dataset"] === "R") {
+	//if (entry["Work Dataset"] === "R") {
 		output += "<span ";
 		output += " onclick='window.open(\"https://verovio.humdrum.org/?file=";
-		output += "https://raw.githubusercontent.com/epoudrier/RDS_Scores_2018/Reserve_Dataset/";
+		output += "https://raw.githubusercontent.com/craigsapp/polyrhythm-scores/";
 		output += "kern/";
 		output += entry["Filename"] + ".krn";
 		output += "\", \"_blank\")'"; 
+		output += " title='";
+		output += "Load example score into Verovio Humdrum Viewer editor";
+		output += "'";
 		output += " class='vhv-button'>VHV</span>";
-	}
+	//}
 
 	output += "<div id='notation-container-" + entry["Example No."];
 	output += "'></div>";
