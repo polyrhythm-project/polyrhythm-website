@@ -6,6 +6,8 @@ var CGI = {};      // CGI parameters from URL
 var SORTCOLUMN = 0;
 var EXAMPLELIST = [];
 var WORKLIST = [];
+var NAVIGATION = {};
+var CURRENTWORK = "";
 
 
 //////////////////////////////
@@ -54,6 +56,34 @@ document.addEventListener("DOMContentLoaded", function () {
 function doAction(examplelist) {
 	WORKLIST = GenerateWorklist(examplelist, EXAMPLELIST);
 	displayWork(CGI.id, WORKLIST);
+	NAVIGATION = buildNextPreviousWork(WORKLIST);
+
+console.log("NAVIGATION", NAVIGATION);
+
+	var nextbutton = document.querySelector("#next-work");
+	if (nextbutton) {
+		nextbutton.addEventListener("click", function() {
+console.log("CLICKING ON NEXT WORK");
+			var exid = CURRENTWORK;
+			var nextid = NAVIGATION[exid]["next"]["Work ID"];
+			displayWork(nextid, EXAMPLELIST);
+		});
+	} else {
+		console.log("Warning: cannot find #next-work");
+	}
+
+	var prevbutton = document.querySelector("#previous-work");
+	if (prevbutton) {
+		prevbutton.addEventListener("click", function() {
+console.log("CLICKING ON PREVIOUS WORK");
+			var exid = CURRENTWORK;
+			var previd = NAVIGATION[exid]["previous"]["Work ID"];
+			displayWork(previd, EXAMPLELIST);
+		});
+	} else {
+		console.log("Warning: cannot find #previous-work");
+	}
+
 }
 
 

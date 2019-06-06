@@ -26,8 +26,12 @@ function displayWork(wid, works) {
 	}
 
 	if (!wid) {
+		wid = CURRENTWORK;
+	}
+	if (!wid) {
 		wid = "Jan-30"
 	}
+	CURRENTWORK = wid;
 
 	var entry = FindWorkById(wid, works);
 
@@ -334,6 +338,35 @@ function displayExample(entry) {
 	return output;
 }
 
+
+
+//////////////////////////////
+//
+// buildNextPreviousWork --
+//
+
+function buildNextPreviousWork(works) {
+	output = {};
+	for (var i=0; i<works.length; i++) {
+		var wid = works[i]["Work ID"];
+		if (!wid) {
+			console.log("ERROR in buildNextPreviousWork()");
+			continue;
+		}
+		var nexti = i + 1;
+		var lasti = i - 1;
+		if (nexti >= works.length) {
+			nexti = 0;
+		}
+		if (lasti < 0) {
+			lasti = works.length - 1;
+		}
+		output[wid] = {};
+		output[wid].next = works[nexti];
+		output[wid].previous = works[lasti];
+	}
+	return output;
+}
 
 
 </script>

@@ -26,8 +26,12 @@ function displayExample(exid, examples) {
 	}
 
 	if (!exid) {
+		exid = CURRENTEXAMPLE;
+	}
+	if (!exid) {
 		exid = "129"
 	}
+	CURRENTEXAMPLE = exid;
 
 	var entry = FindExampleById(exid, examples);
 
@@ -253,28 +257,28 @@ function displayExample(exid, examples) {
 	output += "</table>";
 
 	element.innerHTML = output;
-	var url = "https://raw.githubusercontent.com/epoudrier/RDS_Scores_2018/";
-	url += "Reserve_Dataset/kern/";
+	var url = "https://raw.githubusercontent.com/craigsapp/polyrhythm-scores/";
+	url += "master/kern/";
 	url += entry["Filename"];
 	url += ".krn";
 
 	console.log("URI", url);
 	var dset = entry["Example Dataset"];
-	if (dset === "R") {
+	//if (dset === "R") {
 		// T dataset is not online yet...
 		displayHumdrum({
 			source: "example-notation",
 			url: url
 		});
-	}
+	//}
 
-	if (entry["Work Dataset"] === "R") {
+	//if (entry["Work Dataset"] === "R") {
 		var button = document.querySelector("#vbutton");
 		if (button) {
 			button.addEventListener("click", function() {
 				var url = "https://verovio.humdrum.org/?file=";
-				url += "https://raw.githubusercontent.com/epoudrier/";
-				url += "RDS_Scores_2018/Reserve_Dataset/";
+				url += "https://raw.githubusercontent.com/craigsapp/";
+				url += "polyrhyth-scores/master/";
 				url += "kern/";
 				url += entry["Filename"];
 				url += ".krn";
@@ -284,7 +288,36 @@ function displayExample(exid, examples) {
 			button.title = "Load example score into Verovio Humdrum Viewer editor";
 			button.innerHTML = "VHV";
 		}
+	//}
+}
+
+
+//////////////////////////////
+//
+// buildNextPrevious --
+//
+
+function buildNextPrevious(examples) {
+	output = {};
+	for (var i=0; i<examples.length; i++) {
+		var exid = examples[i]["Example No."];
+		if (!exid) {
+			console.log("ERROR in buildNextPrevious()");
+			continue;
+		}
+		var nexti = i + 1;
+		var lasti = i - 1;
+		if (nexti >= examples.length) {
+			nexti = 0;
+		}
+		if (lasti < 0) {
+			lasti = examples.length - 1;
+		}
+		output[exid] = {};
+		output[exid].next = examples[nexti];
+		output[exid].previous = examples[lasti];
 	}
+	return output;
 }
 
 

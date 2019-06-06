@@ -6,6 +6,8 @@ var CGI = {};      // CGI parameters from URL
 var SORTCOLUMN = 0;
 var EXAMPLELIST = [];
 var WORKLIST = [];
+var NAVIGATION = {};
+var CURRENTEXAMPLE = "";
 
 
 //////////////////////////////
@@ -54,6 +56,26 @@ document.addEventListener("DOMContentLoaded", function () {
 function doAction(examplelist) {
 	WORKLIST = GenerateWorklist(examplelist, EXAMPLELIST);
 	displayExample(CGI.id, EXAMPLELIST);
+	NAVIGATION = buildNextPrevious(EXAMPLELIST);
+
+	var nextbutton = document.querySelector("#next-example");
+	if (nextbutton) {
+		nextbutton.addEventListener("click", function() {
+			var exid = CURRENTEXAMPLE;
+			var nextid = NAVIGATION[exid]["next"]["Example No."];
+			displayExample(nextid, EXAMPLELIST);
+		});
+	}
+
+	var prevbutton = document.querySelector("#previous-example");
+	if (prevbutton) {
+		prevbutton.addEventListener("click", function() {
+			var exid = CURRENTEXAMPLE;
+			var previd = NAVIGATION[exid]["previous"]["Example No."];
+			displayExample(previd, EXAMPLELIST);
+		});
+	}
+
 }
 
 
