@@ -8,10 +8,9 @@ template: default
 summary: 
 ---
 
-<input id="search" placeholder="search" value="" autocomplete="off">
-<span id="search-count"></span>
 
-<div id="list"></div>
+Content goes here
+
 
 {% include_relative styles-local.html %}
 {% include_relative scripts-local.html %}
