@@ -17,7 +17,7 @@ One of the most widely observed responses to music listening is the spontaneous 
 
 
 
-For comments on the website, or if you would like to contribute to this project, please contact Dr. Ève Poudrier at eve.poudrier@ubc.ca(mailto:eve.poudrier@ubc.ca).
+For comments on the website, or if you would like to contribute to this project, please contact Dr. Ève Poudrier at eve.poudrier@ubc.ca.
 
 
 
