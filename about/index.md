@@ -21,7 +21,8 @@ For comments on the website, or if you would like to contribute to this project,
 
 
 
-<span style="text-decoration: underline;">Research Team</span>:
+Research Team:
+-------------
 
 
 
