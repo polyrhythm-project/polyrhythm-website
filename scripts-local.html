@@ -41,7 +41,7 @@ function displayList(entries, query) {
 	} else {
 		output += "<thead>";
 		output += "<tr>";
-		output += "<th title='Sort by composer' onclick='SortByWorkID(0, \"#metadata-list\")'>ID</th>";
+		output += "<th title='Sort by composer' onclick='SortByWorkId(0, \"#metadata-list\")'>ID</th>";
 		output += "<th title='Sort by composer' onclick='SortByNumber(1, \"#metadata-list\", true)'>Examples&nbsp;&nbsp;</th>";
 		output += "<th title='Sort by composer' onclick='SortByText(2, \"#metadata-list\")'>Composer</th>";
 		output += "<th title='Sort by title' onclick='SortByText(3, \"#metadata-list\")'>Title</th>";
@@ -74,12 +74,49 @@ function displayList(entries, query) {
 	if (dtype === "example") {
 		SortByNumber(SORTCOLUMN, "#metadata-list");
 	} else {
-		SortByWorkID(SORTCOLUMN, "#metadata-list");
+		SortByWorkId(SORTCOLUMN, "#metadata-list");
 	}
 
 	if (query) {
 		element.style.display = "block";
 	}
+}
+
+
+
+//////////////////////////////
+//
+// prepareNavigationOrder --
+//
+
+function prepareNavigationOrder(selector) {
+	var data = document.querySelectorAll(selector + " > tbody > tr");
+	if (data.length == 0) {
+		return;
+	}
+	var datalist = [];
+	var i;
+	var dtype = "";
+	var idIndex = 0;
+	for (i=0; i<data.length; i++) {
+		var text = data[i].cells[idIndex].textContent;
+		var matches;
+		matches = text.match(/^[TR](\d+)/);
+		if (matches) {
+			dtype = "example";
+			datalist.push(matches[1]);
+		} else {
+			dtype = "work";
+			datalist.push(text);
+		}
+	}
+	
+	if (dtype == "work") {
+		sessionStorage["NAVIGATION_WORK"] = JSON.stringify(datalist);
+	} else{
+		sessionStorage["NAVIGATION_EXAMPLE"] = JSON.stringify(datalist);
+	}
+
 }
 
 
@@ -105,11 +142,11 @@ function makeMetaTableRows(list, dtype) {
 
 			if (list[i]["Example No."]) {
 				if (list[i]["Work Dataset"] === "R") {
-					output += "<b>";
+					output += "<b>R";
 		 			output += list[i]["Example No."];
 					output += "</b>";
 				} else {
-		 			output += list[i]["Example No."];
+		 			output += "T" + list[i]["Example No."];
 				}
 			}
 

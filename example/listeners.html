@@ -56,7 +56,13 @@ document.addEventListener("DOMContentLoaded", function () {
 function doAction(examplelist) {
 	WORKLIST = GenerateWorklist(examplelist, EXAMPLELIST);
 	displayExample(CGI.id, EXAMPLELIST);
-	NAVIGATION = buildNextPrevious(EXAMPLELIST);
+	var navigationByExample = localStorage["NAVIGATION_EXAMPLE"];
+	if (navigationByExample) {
+		navigationByExample = JSON.parse(navigationByExample);
+		NAVIGATION = buildNextPrevious2(EXAMPLELIST, navigationByExample);
+	} else {
+		NAVIGATION = buildNextPrevious(EXAMPLELIST);
+	}
 
 	var nextbutton = document.querySelector("#next-example");
 	if (nextbutton) {

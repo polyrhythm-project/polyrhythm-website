@@ -47,7 +47,7 @@ function displayExample(exid, examples) {
 	output += "<tr>";
 	output += "<td>";
 	output += "Ex";
-	if (entry["Work Dataset"] === "R") {
+	if (entry["Entry Dataset"] === "R") {
 		var pu = "https://raw.githubusercontent.com/epoudrier/RDS_Scores_2018/";
 		pu += "Reserve_Dataset/pdf/";
 		pu += entry["Filename"];
@@ -62,6 +62,11 @@ function displayExample(exid, examples) {
 
 	output += "</td>";
 	output += "<td>";
+	if (entry["Example Dataset"] === "R") {
+		output += "R";
+	} else {
+		output += "T";
+	}
 	output += exid;
 	output += "</td>";
 	output += "</tr>";
@@ -292,10 +297,46 @@ function displayExample(exid, examples) {
 }
 
 
+
 //////////////////////////////
 //
 // buildNextPrevious --
 //
+
+function buildNextPrevious2(examples, order) {
+	var lookup = {};
+	var i;
+	for (i=0; i<examples.length; i++) {
+		lookup[examples[i]["Example No."]] = examples[i];
+	}
+	var newexamples = [];
+	for (i=0; i<order.length; i++) {
+		newexamples.push(lookup[order[i]]);
+	}
+
+	output = {};
+	for (i=0; i<newexamples.length; i++) {
+		var exid = newexamples[i]["Example No."];
+		if (!exid) {
+			console.log("ERROR in buildNextPrevious2()");
+			continue;
+		}
+		var nexti = i + 1;
+		var lasti = i - 1;
+		if (nexti >= newexamples.length) {
+			nexti = 0;
+		}
+		if (lasti < 0) {
+			lasti = newexamples.length - 1;
+		}
+		output[exid] = {};
+		output[exid].next = newexamples[nexti];
+		output[exid].previous = newexamples[lasti];
+	}
+	return output;
+}
+
+
 
 function buildNextPrevious(examples) {
 	output = {};
