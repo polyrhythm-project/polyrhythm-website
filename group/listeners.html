@@ -1,0 +1,89 @@
+
+<script>
+// vim: ts=3
+
+var CGI = {};      // CGI parameters from URL
+var SORTCOLUMN = 0;
+var EXAMPLELIST = [];
+var WORKLIST = [];
+var NAVIGATION = {};
+var CURRENTEXAMPLE = "";
+
+
+//////////////////////////////
+//
+// DOMContentLoaded event listener --
+//
+
+document.addEventListener("DOMContentLoaded", function () {
+	CGI = GetCgiParameters();
+
+	var element = document.querySelector("input#search");
+	if (element) {
+		element.addEventListener("input", function() {
+			doSearch();
+		});
+	}
+
+	// Create URL for metadata index to download:
+	var sid = "17rjKQ3lXJHEHAcDfOXTDNX5a0A_jVqwokcaqhd3Ddng";
+	var gid = "900860769";
+	var url = "https://docs.google.com/spreadsheets/d/";
+	url += sid + "/export?gid=" + gid + "&format=tsv";
+
+	if (sessionStorage.EXAMPLELIST) {
+		EXAMPLELIST = JSON.parse(sessionStorage.EXAMPLELIST);
+		doAction(EXAMPLELIST);
+	} else {
+		var request = new XMLHttpRequest();
+		request.addEventListener("load", function () {
+			EXAMPLELIST = ParseSpreadsheet(this.responseText);
+			sessionStorage.EXAMPLELIST = JSON.stringify(EXAMPLELIST);
+			doAction(EXAMPLELIST);
+		});
+		request.open("GET", url);
+		request.send();
+	}
+});
+
+
+
+//////////////////////////////
+//
+// doAction --
+//
+
+function doAction(examplelist) {
+	WORKLIST = GenerateWorklist(examplelist, EXAMPLELIST);
+	displayExample(CGI.id, EXAMPLELIST);
+	var navigationByExample = localStorage["NAVIGATION_EXAMPLE"];
+	if (navigationByExample) {
+		navigationByExample = JSON.parse(navigationByExample);
+		NAVIGATION = buildNextPrevious2(EXAMPLELIST, navigationByExample);
+	} else {
+		NAVIGATION = buildNextPrevious(EXAMPLELIST);
+	}
+
+	var nextbutton = document.querySelector("#next-example");
+	if (nextbutton) {
+		nextbutton.addEventListener("click", function() {
+			var exid = CURRENTEXAMPLE;
+			var nextid = NAVIGATION[exid]["next"]["Example No."];
+			displayExample(nextid, EXAMPLELIST);
+		});
+	}
+
+	var prevbutton = document.querySelector("#previous-example");
+	if (prevbutton) {
+		prevbutton.addEventListener("click", function() {
+			var exid = CURRENTEXAMPLE;
+			var previd = NAVIGATION[exid]["previous"]["Example No."];
+			displayExample(previd, EXAMPLELIST);
+		});
+	}
+
+}
+
+
+
+</script>

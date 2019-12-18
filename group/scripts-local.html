@@ -1,0 +1,369 @@
+<script src="https://verovio-script.humdrum.org/scripts/verovio-toolkit.js"></script>
+<script src="https://plugin.humdrum.org/scripts/humdrum-notation-plugin.js"></script>
+<script>var vrvToolkit = new verovio.toolkit()</script>
+
+{% include_relative listeners.html %}
+{% include scripts/scripts-common.html %}
+
+<script>
+// vim: ts=3
+
+
+//////////////////////////////
+//
+// displayExample --
+//
+
+function displayExample(exid, examples) {
+	var element = document.querySelector("div#example");
+	if (!element) {
+		console.log("Error: could not find #example");
+		return;
+	}
+
+	if (!examples) {
+		examples = EXAMPLELIST;
+	}
+
+	if (!exid) {
+		exid = CURRENTEXAMPLE;
+	}
+	if (!exid) {
+		exid = "129"
+	}
+	CURRENTEXAMPLE = exid;
+
+	var entry = FindExampleById(exid, examples);
+
+	if (!entry) {
+		console.log("Error: did not find entry for example", exid);
+		return;
+	}
+
+	var output = "";
+
+	output += "<table id='example-info'>";
+
+	output += "<tr>";
+	output += "<td>";
+	output += "Ex";
+	if (entry["Entry Dataset"] === "R") {
+		var pu = "https://raw.githubusercontent.com/epoudrier/RDS_Scores_2018/";
+		pu += "Reserve_Dataset/pdf/";
+		pu += entry["Filename"];
+		pu += ".pdf";
+		output += "<a target='_blank' style='color:#696969;' href='" + pu + "'>";
+		output += "a"
+		output += "</a>";
+	} else {
+		output += "a"
+	}
+	output += "mple ID:";
+
+	output += "</td>";
+	output += "<td>";
+	if (entry["Example Dataset"] === "R") {
+		output += "R";
+	} else {
+		output += "T";
+	}
+	output += exid;
+	output += "</td>";
+	output += "</tr>";
+
+	// work ID
+	var workid = entry["Work ID"];
+	if (workid) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Work ID:";
+		output += "</td>";
+		output += "<td>";
+		output += "<a target='_blank' href='/work?id=" + workid + "'>";
+		output += workid;
+		output += "</a>";
+
+		if (entry["@examples"]) {
+			var ecount = entry["@examples"].length;
+			ecount--;
+			if (ecount > 0) {
+				output += " (" + ecount + " other example";
+				if (ecount != 1) {
+					output += "s";
+				}
+				output += " in this work)";
+			}
+		}
+
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	// title of source work
+	var title = entry["Work Title"];
+	if (title) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Work title:";
+		output += "</td>";
+		output += "<td>";
+		output += title;
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	// starting measure
+	var startm = entry["Example Start Measure"];
+	if (startm) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Starting measure:";
+		output += "</td>";
+		output += "<td>";
+		output += startm;
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	// ending measure
+	var endm = entry["Example End Measure"];
+	if (endm) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Ending measure:";
+		output += "</td>";
+		output += "<td>";
+		output += endm;
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	// genre
+	var genre = entry["Genre"];
+	if (genre) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Genre:";
+		output += "</td>";
+		output += "<td>";
+		output += genre;
+		var subgenre = entry["Sub-Genre"];
+		if (subgenre) {
+			output += " / " + subgenre;
+		}
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	// composer's name
+	var composer = entry["Composer Name"];
+	if (composer) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Composer:";
+		output += "</td>";
+		output += "<td>";
+		output += composer;
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	// composition date
+	var cdate = entry["Composition Year"];
+	if (cdate) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Composition date:";
+		output += "</td>";
+		output += "<td>";
+		output += cdate;
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	// first published
+	var fdate = entry["First Publication Year"];
+	if (fdate) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Publication date:";
+		output += "</td>";
+		output += "<td>";
+		output += fdate;
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	// Premiere date
+	var premierdate = entry["Premiere Date"];
+	if (premierdate) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Premiere date:";
+		output += "</td>";
+		output += "<td>";
+		output += premierdate.replace(/-/g, " ");;
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	// Premiere location
+	var premier = entry["Premiere Location"];
+	if (premier) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Premiere location:";
+		output += "</td>";
+		output += "<td>";
+		output += premier.replace(/,\s*/g, ", ");;
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	// Premiere ensemble
+	var ensemble = entry["Ensemble"];
+	if (ensemble && (ensemble !== "none")) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Premiere ensemble:";
+		output += "</td>";
+		output += "<td>";
+		output += ensemble;
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	// Premiere conductor
+	var conductor = entry["Conductor"];
+	if (conductor && (conductor !== "none")) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Premiere conductor:";
+		output += "</td>";
+		output += "<td>";
+		output += conductor.replace(/,\s*/g, ", ");
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	// Premiere soloists
+	var soloists = entry["Soloists"];
+	if (soloists && (soloists !== "none")) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Premiere soloists:";
+		output += "</td>";
+		output += "<td>";
+		output += soloists.replace(/,\s*/g, ", ").replace(/;\s*/g, "; ");;
+		output += "</td>";
+		output += "</tr>";
+	}
+
+	output += "</table>";
+
+	element.innerHTML = output;
+	var url = "https://raw.githubusercontent.com/craigsapp/polyrhythm-scores/";
+	url += "master/kern/";
+	url += entry["Filename"];
+	url += ".krn";
+
+	console.log("URI", url);
+	var dset = entry["Example Dataset"];
+	//if (dset === "R") {
+		// T dataset is not online yet...
+		displayHumdrum({
+			source: "example-notation",
+			url: url,
+			filter: 'shed -e "s/grp:A/color:crimson/Il s/grp:B/color:dodgerblue/I"'
+		});
+	//}
+
+	//if (entry["Work Dataset"] === "R") {
+		var button = document.querySelector("#vbutton");
+		if (button) {
+			button.addEventListener("click", function() {
+				var url = "https://verovio.humdrum.org/?k=e&file=";
+				url += "https://raw.githubusercontent.com/craigsapp/";
+				url += "polyrhythm-scores/master/";
+				url += "kern/";
+				url += entry["Filename"];
+				url += ".krn";
+				window.open(url, '_blank'); 
+			});
+			button.classList.add("vhv-button");
+			button.title = "Load example score into Verovio Humdrum Viewer editor";
+			button.innerHTML = "VHV";
+		}
+	//}
+}
+
+
+
+//////////////////////////////
+//
+// buildNextPrevious --
+//
+
+function buildNextPrevious2(examples, order) {
+	var lookup = {};
+	var i;
+	for (i=0; i<examples.length; i++) {
+		lookup[examples[i]["Example No."]] = examples[i];
+	}
+	var newexamples = [];
+	for (i=0; i<order.length; i++) {
+		newexamples.push(lookup[order[i]]);
+	}
+
+	output = {};
+	for (i=0; i<newexamples.length; i++) {
+		var exid = newexamples[i]["Example No."];
+		if (!exid) {
+			console.log("ERROR in buildNextPrevious2()");
+			continue;
+		}
+		var nexti = i + 1;
+		var lasti = i - 1;
+		if (nexti >= newexamples.length) {
+			nexti = 0;
+		}
+		if (lasti < 0) {
+			lasti = newexamples.length - 1;
+		}
+		output[exid] = {};
+		output[exid].next = newexamples[nexti];
+		output[exid].previous = newexamples[lasti];
+	}
+	return output;
+}
+
+
+
+function buildNextPrevious(examples) {
+	output = {};
+	for (var i=0; i<examples.length; i++) {
+		var exid = examples[i]["Example No."];
+		if (!exid) {
+			console.log("ERROR in buildNextPrevious()");
+			continue;
+		}
+		var nexti = i + 1;
+		var lasti = i - 1;
+		if (nexti >= examples.length) {
+			nexti = 0;
+		}
+		if (lasti < 0) {
+			lasti = examples.length - 1;
+		}
+		output[exid] = {};
+		output[exid].next = examples[nexti];
+		output[exid].previous = examples[lasti];
+	}
+	return output;
+}
+
+
+</script>
+
+
+
