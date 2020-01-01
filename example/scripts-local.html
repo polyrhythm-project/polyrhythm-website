@@ -9,6 +9,8 @@
 // vim: ts=3
 
 
+var GROUP = 0;
+
 //////////////////////////////
 //
 // displayExample --
@@ -261,6 +263,29 @@ function displayExample(exid, examples) {
 
 	output += "</table>";
 
+	output += "<span ";
+	output += " onclick='copyLink(\"" + CURRENTEXAMPLE + "\")'";
+	output += " title='";
+	output += "Copy page link";
+	output += "'";
+	output += " class='vhv-button'>link</span>";
+
+	output += "<span ";
+	output += " onclick='copyData(\"" + CURRENTEXAMPLE + "\")'";
+	output += " title='";
+	output += "Copy Humdrum data to the system clipboard";
+	output += "'";
+	output += " class='vhv-button'>copy</span>";
+
+	if (hasGroupInfo(CURRENTEXAMPLE)) {
+		output += "<span ";
+		output += " onclick='toggleGroup()'";
+		output += " title='";
+		output += "Toogle display of groupings";
+		output += "'";
+		output += " class='vhv-button'>group</span>";
+	}
+
 	element.innerHTML = output;
 	var url = "https://raw.githubusercontent.com/craigsapp/polyrhythm-scores/";
 	url += "master/kern/";
@@ -277,7 +302,8 @@ function displayExample(exid, examples) {
 		});
 	//}
 
-	//if (entry["Work Dataset"] === "R") {
+	/* VHV loading button
+	if (entry["Work Dataset"] === "R") {
 		var button = document.querySelector("#vbutton");
 		if (button) {
 			button.addEventListener("click", function() {
@@ -293,7 +319,95 @@ function displayExample(exid, examples) {
 			button.title = "Load example score into Verovio Humdrum Viewer editor";
 			button.innerHTML = "VHV";
 		}
-	//}
+	}
+	*/
+}
+
+
+
+//////////////////////////////
+//
+// hasGroupInfo -- true if there is group info such as *grp:A in data.
+//
+
+function hasGroupInfo(exampleNum) {
+	return 1;
+	if (!exampleNum) {
+		exampleNum = CURRENTEXAMPLE;
+	}
+	var script = document.querySelector("#example-notation");
+	if (!script) {
+		// console.log("Error: cannot find data script for example");
+		// have to set as a callback to displayHumdrum since don't know if data has
+		// grouping until it is loaded.
+		return 1;
+	}
+	var data = script.textContent;
+	if (data.match(/\*grp:/)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
+
+/////////////////////////////
+//
+// toggleGroup --
+//
+
+function toggleGroup() {
+	GROUP = !GROUP;
+	var exampleNum = CURRENTEXAMPLE;
+	// var id = "example-notation-" + exampleNum;
+	var id = "example-notation";
+
+	var options = {};
+	options.source = id;
+	if (GROUP) {
+		options.filter = "shed -e 's/grp:A/color:crimson/I; s/grp:B/color:dodgerblue/I'";
+	} else {
+		options.filter = "";
+	}
+	displayHumdrum(options);
+}
+
+
+
+/////////////////////////////
+//
+// copyLink --
+//
+
+function copyLink(exampleNum) {
+	if (!exampleNum) {
+		exampleNum = CURRENTEXAMPLE;
+	}
+	var data = window.location.href
+	data = data.replace(/id=\d+/, "id=" + exampleNum);
+	CopyToClipboard(data);
+}
+
+
+
+/////////////////////////////
+//
+// copyData --
+//
+
+function copyData(exampleNum) {
+	if (!exampleNum) {
+		exampleNum = CURRENTEXAMPLE;
+	}
+	// var script = document.querySelector("#example-notation-" + exampleNum);
+	var script = document.querySelector("#example-notation");
+	if (!script) {
+		console.log("Error: cannot data script for emxaple");
+		return;
+	}
+	var data = script.textContent;
+	CopyToClipboard(data);
 }
 
 
