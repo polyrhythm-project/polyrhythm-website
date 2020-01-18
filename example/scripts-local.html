@@ -17,6 +17,7 @@ var GROUP = 0;
 //
 
 function displayExample(exid, examples) {
+	exid = exid.replace(/^[TR]/, "");   // R129 maps to 129
 	var element = document.querySelector("div#example");
 	if (!element) {
 		console.log("Error: could not find #example");
