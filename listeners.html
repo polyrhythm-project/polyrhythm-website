@@ -70,12 +70,33 @@ function doAction(examplelist) {
 
 //////////////////////////////
 //
+// GetPath --
+//
+
+function GetPath(event) {
+console.log("EVENT", event);
+	if (event.path) {
+		return event.path;
+	}
+	var output = [];
+	var target = event.target;
+	while (target) {
+		output.push(target);
+		target = target.parentNode;
+	}
+	return output;
+}
+
+
+//////////////////////////////
+//
 // click event listener -- event delegation for links to work/example pages.
 //
 
 document.addEventListener("click", function (event) {
 	console.log("EVENT", event);
-	var path = event.path;
+
+	var path = GetPath(event);
 	var tr = null;
 	var i;
 	for (i=0; i<path.length; i++) {
