@@ -70,12 +70,11 @@ function doAction(examplelist) {
 
 //////////////////////////////
 //
-// GetPath --
+// GetPath -- Fix for Safari and Firefox.
 //
 
 function GetPath(event) {
-console.log("EVENT", event);
-	if (event.path) {
+	if (event.hasOwnProperty("path")) {
 		return event.path;
 	}
 	var output = [];
