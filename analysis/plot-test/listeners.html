@@ -1,0 +1,52 @@
+
+
+
+<script>
+
+
+//////////////////////////////
+//
+// DOMContentLoaded event listener --
+//
+document.addEventListener("DOMContentLoaded", function() {
+	CGI = GetCgiParameters();
+	var rebuildPlot = 0;
+	var rebuildData = 0;
+
+	if (CGI.plot) {
+		PLOT = CGI.plot;
+	}
+	if (CGI.plotFile) {
+		PLOT_FILE = CGI.plotFile;
+		rebuildPlot = 1;
+	}
+	if (CGI.plotUrlBase) {
+		PLOT_URL_BASE = CGI.plotUrlBase;
+		rebuildPlot = 1;
+	}
+	if (rebuildPlot) {
+		PLOT = PLOT_URL_BASE + "/" + PLOT_FILE;
+	}
+
+	if (CGI.data) {
+		DATA = CGI.data;
+	}
+	if (CGI.dataFile) {
+		DATA_FILE = CGI.dataFile;
+		rebuildData = 1;
+	}
+	if (CGI.dataUrlBase) {
+		DATA_URL_BASE = CGI.dataUrlBase;
+		rebuildData = 1;
+	}
+	if (rebuildData) {
+		DATA = DATA_URL_BASE + "/" + DATA_FILE;
+	}
+
+	loadVegaScript();
+});
+
+
+
+
+</script>

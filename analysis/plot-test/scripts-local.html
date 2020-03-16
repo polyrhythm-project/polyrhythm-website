@@ -1,0 +1,99 @@
+
+{% include_relative listeners.html %}
+{% include scripts/scripts-common.html %}
+
+<script>
+
+// CGI parameters known to this page:
+// 
+//     plot__url_base  == base URL for vega plot script
+//     plot__file      == filename for vega plot script
+//     plot            == plot_script_url_base + plot_script_file
+//     data_url_base   == base URL for data
+//     data_file       == filename for data
+//     data            == data_url_base + data_file
+
+var CGI = {};
+var PLOT_JSON = {};
+
+var PLOT_URL_BASE = "https://raw.githubusercontent.com/polyrhythm-project/vegalitetest/master";
+var PLOT_FILE     = "stacked_layered_accents_grouped_butterfly.JSON";
+var PLOT          = PLOT_URL_BASE + "/" + PLOT_FILE;
+
+var DATA_URL_BASE = "https://raw.githubusercontent.com/polyrhythm-project/vegalitetest/master";
+var DATA_FILE     = "161S.tsv";
+var DATA          = DATA_URL_BASE + "/" + DATA_FILE;
+
+
+
+//////////////////////////////
+//
+// loadVegaScript --
+//
+
+function loadVegaScript(plotUrl) {
+	if (!plotUrl) {
+		plotUrl = PLOT;
+	}
+	PLOT = plotUrl;
+	var request = new XMLHttpRequest();
+	request.open('GET', plotUrl);
+	request.onload = function() {
+		// console.log("REQUESTED DATA", request.responseText);
+		PLOT_JSON = JSON.parse(request.responseText);
+		displayDataPlot("#plotRegion");
+	}
+	request.send();
+}
+
+
+
+//////////////////////////////
+//
+// displayDataPlot --
+//
+
+function displayDataPlot(plotId) {
+	if (!plotId) {
+		plotId = "#plotRegion";
+	}
+	PLOT_JSON.data.url = DATA;
+	vegaEmbed(plotId, PLOT_JSON);
+	displayPlotInfo();
+}
+
+
+
+//////////////////////////////
+//
+// displayPlotInfo --
+//
+
+function displayPlotInfo() {
+	var pelement = document.querySelector("#plot_info");
+	var delement = document.querySelector("#data_info");
+	var uelement = document.querySelector("#url_info");
+	var pageelement = document.querySelector("#page_info");
+	if (!(pelement && delement && uelement)) {
+		return;
+	}
+	if (pageelement) {
+		pageelement.innerHTML = '<a target="_blank" href="' + document.location.origin + '">' + document.location.origin + '</a>';
+	}
+	pelement.innerHTML = '<a target="_blank" href="' + PLOT + '">' + PLOT + '</a>';
+	delement.innerHTML = '<a target="_blank" href="' + DATA + '">' + DATA + '</a>';
+	var purl = encodeURIComponent(PLOT);
+	var durl = encodeURIComponent(DATA);
+	var url = document.location.origin + "/" + document.location.pathname + "?plot=" + purl + "&data=" + durl;
+	uelement.innerHTML = '<a target="_blank" href="' + url + '">' + url + '</a>';
+
+
+}
+
+
+</script>
+
+
+
+
+
