@@ -18,8 +18,18 @@ vega-lite: true
 </tr>
 
 <tr>
+	<td> <b>plotFile</b>: </td>
+	<td> <span id="plotfile_info"></span> </td>
+</tr>
+
+<tr>
 	<td> <b>data</b>: </td>
 	<td> <span id="data_info"></span> </td>
+</tr>
+
+<tr>
+	<td> <b>dataFile</b>: </td>
+	<td> <span id="datafile_info"></span> </td>
 </tr>
 
 <tr>

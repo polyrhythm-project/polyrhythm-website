@@ -72,6 +72,8 @@ function displayDataPlot(plotId) {
 function displayPlotInfo() {
 	var pelement = document.querySelector("#plot_info");
 	var delement = document.querySelector("#data_info");
+	var pfelement = document.querySelector("#plotfile_info");
+	var dfelement = document.querySelector("#datafile_info");
 	var uelement = document.querySelector("#url_info");
 	var pageelement = document.querySelector("#page_info");
 	if (!(pelement && delement && uelement)) {
@@ -80,14 +82,59 @@ function displayPlotInfo() {
 	if (pageelement) {
 		pageelement.innerHTML = '<a target="_blank" href="' + document.location.origin + '">' + document.location.origin + '</a>';
 	}
+	var matches;
+	var plotbase = "";
+	var database = "";
+
+	var datafile = "";
+	var plotfile = "";
+
+	if (pfelement) {
+		matches = PLOT.match(/(.*)\/([^\/]*)/);
+		if (matches) {
+			plotbase = matches[1];
+			plotfile = matches[2];
+			pfelement.innerHTML = '<a target="_blank" href="' + PLOT + '">' + plotfile + '</a>';
+		}
+	}
+
+	if (dfelement) {
+		matches = DATA.match(/(.*)\/([^\/]*)/);
+		if (matches) {
+			datafile = matches[2];
+			database = matches[1];
+			dfelement.innerHTML = '<a target="_blank" href="' + DATA + '">' + datafile + '</a>';
+		}
+	}
+
 	pelement.innerHTML = '<a target="_blank" href="' + PLOT + '">' + PLOT + '</a>';
 	delement.innerHTML = '<a target="_blank" href="' + DATA + '">' + DATA + '</a>';
-	var purl = encodeURIComponent(PLOT);
-	var durl = encodeURIComponent(DATA);
-	var url = document.location.origin + "/" + document.location.pathname + "?plot=" + purl + "&data=" + durl;
+
+	var shortenPlot = 0;
+	var shortenData = 0;
+	if ((database === DATA_URL_BASE)) {
+		shortenData = 1;
+	}
+	if ((plotbase === PLOT_URL_BASE)) {
+		shortenPlot = 1;
+	}
+
+	var url = document.location.origin + "/" + document.location.pathname + "?";
+
+	if (shortenPlot) {
+		url += "plotFile=" + encodeURIComponent(plotfile);
+	} else {
+		url += "plot=" + encodeURIComponent(PLOT); 
+	}
+
+	if (shortenData) {
+		url += "&dataFile=" + encodeURIComponent(datafile);
+	} else {
+		url += "&data=" + encodeURIComponent(DATA); 
+	}
+
+	url = url.replace("///", "//", "g");
 	uelement.innerHTML = '<a target="_blank" href="' + url + '">' + url + '</a>';
-
-
 }
 
 
