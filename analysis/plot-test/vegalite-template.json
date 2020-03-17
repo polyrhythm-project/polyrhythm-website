@@ -5,7 +5,7 @@
     "text": "Stacked Accentual Features per Group"
   },
   "data": {
-    "url": "https://polyrhythm-project.github.io/vegalitetest/129S.tsv",
+    "url": "https://polyrhythm-project.github.io/accentuation-analysis/old/129S.tsv",
     "format": {"parse": 
       {"Position": "number", "Measure": "number", "NotesA": "number", "NotesB": "number"}
     }
