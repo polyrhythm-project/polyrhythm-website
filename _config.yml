@@ -29,13 +29,15 @@ BASE_PATH: http://polyrhythm.humdrum.org/
 # Location of CSS files and fonts.
 css: style
 
+# exclude: these are the files and directories that jekyll will 
+# not copy into the compiled website.
 exclude:
   - .idea/
   - .gitignore
-# these are the files and directories that jekyll will exclude from the build
+  - resources/recordings/wav
 
+# highlighter: library used for syntax highlighting
 highlighter: rouge
-# library used for syntax highlighting
 
 markdown: kramdown
 kramdown:
