@@ -17,4 +17,5 @@ summary:
 
 {% include_relative styles-local.html %}
 {% include_relative scripts-local.html %}
+{% include_relative scripts-audio.html %}
 
