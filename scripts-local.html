@@ -326,8 +326,11 @@ function doSearch(text) {
 					continue;
 				}
 			} else {
-
 				if (oldentries[j]["Work Title"] && oldentries[j]["Work Title"].match(regexp)) {
+					entries.push(oldentries[j]);
+					continue;
+				}
+				if (oldentries[j]["Filename"] && oldentries[j]["Filename"].match(regexp)) {
 					entries.push(oldentries[j]);
 					continue;
 				}
