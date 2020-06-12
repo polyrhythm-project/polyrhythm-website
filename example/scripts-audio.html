@@ -1,10 +1,22 @@
 
 <script>
 
-var AUDIOINDEX = {};
+var AUDIOINDEX_ACOUSTIC = {};
+var AUDIOINDEX_SIBELIUS = {};
 
 document.addEventListener("DOMContentLoaded", function() {
-	var url = "/resources/recordings/index.txt";
+	loadAcousticAudio();
+	loadSibeliusAudio();
+});
+
+
+//////////////////////////////
+//
+// loadAcousticAudio --
+//
+
+function loadAcousticAudio() {
+	var url = "/resources/recordings/acoustic/index.txt";
 	var request = new XMLHttpRequest();
 	request.addEventListener("load", function () {
 		var lines = this.responseText.split("\n");
@@ -13,12 +25,40 @@ document.addEventListener("DOMContentLoaded", function() {
 			if (!item.match(/^\d+[A-Z]?$/)) {
 				continue;
 			}
-			AUDIOINDEX[item] = "/resources/recordings/acoustic/m4a/" + item + ".m4a";
+			AUDIOINDEX_ACOUSTIC[item] = "/resources/recordings/acoustic/m4a/" + item + ".m4a";
 		}
-		console.log("AUDIOINDEX", AUDIOINDEX);
+		console.log("AUDIOINDEX_ACOUSTIC", AUDIOINDEX_ACOUSTIC);
 	});
 	request.open("GET", url);
 	request.send();
-});
+}
+
+
+
+//////////////////////////////
+//
+// loadSibeliusAudio --
+//
+
+function loadSibeliusAudio() {
+	var url = "/resources/recordings/sibelius/index.txt";
+	var request = new XMLHttpRequest();
+	request.addEventListener("load", function () {
+		var lines = this.responseText.split("\n");
+		for (var i=0; i<lines.length; i++) {
+			var item = lines[i];
+			if (!item.match(/^\d+[A-Z]?$/)) {
+				continue;
+			}
+			AUDIOINDEX_SIBELIUS[item] = "/resources/recordings/sibelius/m4a/" + item + ".m4a";
+		}
+		console.log("AUDIOINDEX_SIBELIUS", AUDIOINDEX_SIBELIUS);
+	});
+	request.open("GET", url);
+	request.send();
+}
+
+
 
 </script>
+

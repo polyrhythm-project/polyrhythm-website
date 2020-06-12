@@ -35,6 +35,7 @@ exclude:
   - .idea/
   - .gitignore
   - resources/recordings/acoustic/wav
+  - resources/recordings/sibelius/wav
 
 # highlighter: library used for syntax highlighting
 highlighter: rouge
