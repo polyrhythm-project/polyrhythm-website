@@ -34,7 +34,7 @@ css: style
 exclude:
   - .idea/
   - .gitignore
-  - resources/recordings/wav
+  - resources/recordings/acoustic/wav
 
 # highlighter: library used for syntax highlighting
 highlighter: rouge
