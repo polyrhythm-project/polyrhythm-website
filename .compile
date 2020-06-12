@@ -18,5 +18,15 @@
 #     http://127.0.0.1:3000
 #
 
+# Clear out old compiled website:
+rm -rf _site
+
+# Generate new website files:
 bundle exec jekyll build
+
+# Link to non-repo files:
+(cd _site; ln -s ../../polyrhythm-resources resources)
+
+# Allow access through SELinux:
+chcon -R -t httpd_sys_content_t _site
 
