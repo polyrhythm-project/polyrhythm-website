@@ -291,6 +291,10 @@ function displayExample(exid, examples) {
 	output += "<a target='_pdf' href='/resources/pdf/sibelius/" + CURRENTEXAMPLE + ".pdf'>pdf</a>";
 	output += "</span>";
 
+	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button suter-region'>";
+	output += "<a target='_suter' href='/resources/pdf/suter/" + CURRENTEXAMPLE + ".pdf'>suter</a>";
+	output += "</span>";
+
 	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button audio-region'>";
 	output += "<a target='_audio' href='/resources/recordings/sibelius/m4a/" + CURRENTEXAMPLE + ".m4a'>synthetic</a>";
 	output += "</span>";
