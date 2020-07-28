@@ -3,6 +3,7 @@ title: Polyrhythm Work
 author: Craig Stuart Sapp
 keywords: polyrhythm work
 permalink: /work/index.html
+verovio: true
 vim: ts=3
 template: default
 summary: 

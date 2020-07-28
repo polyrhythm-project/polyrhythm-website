@@ -4,6 +4,7 @@ author: Craig Stuart Sapp
 keywords: polyrhythm example
 permalink: /example/index.html
 vim: ts=3
+verovio: true
 template: default
 summary: 
 ---

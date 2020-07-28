@@ -3,6 +3,7 @@ title: Polyrhythm Example
 author: Craig Stuart Sapp
 keywords: polyrhythm example
 permalink: /group/index.html
+verovio: true
 vim: ts=3
 template: default
 summary: 
