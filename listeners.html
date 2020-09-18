@@ -4,7 +4,6 @@
 
 var CGI = {};      // CGI parameters from URL
 var SORTCOLUMN = 0;
-var EXAMPLELIST = [];
 var WORKLIST = [];
 
 
@@ -15,32 +14,14 @@ var WORKLIST = [];
 
 document.addEventListener("DOMContentLoaded", function () {
 	CGI = GetCgiParameters();
+	DownloadSpreadsheetData(doAction);
 
+	// Setup callback action for search field:
 	var element = document.querySelector("input#search");
 	if (element) {
 		element.addEventListener("input", function() {
 			doSearch();
 		});
-	}
-
-	// Create URL for metadata index to download:
-	var sid = "17rjKQ3lXJHEHAcDfOXTDNX5a0A_jVqwokcaqhd3Ddng";
-	var gid = "900860769";
-	var url = "https://docs.google.com/spreadsheets/d/";
-	url += sid + "/export?gid=" + gid + "&format=tsv";
-
-	if (sessionStorage.EXAMPLELIST) {
-		EXAMPLELIST = JSON.parse(sessionStorage.EXAMPLELIST);
-		doAction(EXAMPLELIST);
-	} else {
-		var request = new XMLHttpRequest();
-		request.addEventListener("load", function () {
-			EXAMPLELIST = ParseSpreadsheet(this.responseText);
-			sessionStorage.EXAMPLELIST = JSON.stringify(EXAMPLELIST);
-			doAction(EXAMPLELIST);
-		});
-		request.open("GET", url);
-		request.send();
 	}
 });
 
@@ -52,6 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
 //
 
 function doAction(examplelist) {
+	if (!examplelist) {
+		examplelist = EXAMPLELIST;
+	}
 	WORKLIST = GenerateWorklist(examplelist);
 	console.log("examplelist", examplelist);
 
@@ -85,6 +69,7 @@ function GetPath(event) {
 	}
 	return output;
 }
+
 
 
 //////////////////////////////
@@ -128,9 +113,6 @@ document.addEventListener("click", function (event) {
 		window.open("/work?id=" + id, "_blank");
 	}
 });
-
-
-
 
 
 
