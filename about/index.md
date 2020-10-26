@@ -25,7 +25,7 @@ For comments on the website, or if you would like to contribute to this project,
     
        
          
-**Research Team**:
+##Research Team##
 
 
 
@@ -40,23 +40,58 @@ For comments on the website, or if you would like to contribute to this project,
 
 **George Tzanetakis**, collaborator (University of Victoria)
 
-**Melissa Liang**, senior research assistant
+**Claudio de Freitas**, research assistant 
 
-**Meiying Ding**, research assistant
+**Aaron Graham**, research assistant
 
-**Alexandre Negri**, research assistant
+**Rafael Laurindo**, research assistant
 
-**Jasper Yoo**, research assistant
+**Kelsey Lussier**, research assistant
+
+**Walker Williams**, research assistant
+
+**Daniel Wright**, research assistant
 
 
-  
+##Past Contributors##
 
+
+Annelies Andries 
+
+Austin Culler
+
+Natalie Dietterich 
+
+Meiying Ding
+
+Marina Gallagher
+
+Felicia Hartono 
+
+Michael Kirchmayer
+
+Melissa Liang
+
+Amita Mahey
+
+Alexandre Negri
+
+Sarah Pratt
+
+Jasper Yoo
+
+Anna Wright
+
+Qianqian Wu
+
+
+##Project Funding##
 
 The building of the Suter (1980) Corpus was supported by research grants from the Whitney Humanities Center (Yale University) and the Hampton Research Fund (University of British Columbia).
 
   
 
-This project is supported by an Insight grant from the Social Sciences and Humanities Research Council of Canada.
+This research is supported by the Social Sciences and Humanities Research Council of Canada.
 
 
 
