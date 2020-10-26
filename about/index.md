@@ -25,7 +25,8 @@ For comments on the website, or if you would like to contribute to this project,
     
        
          
-##Research Team##
+## Research Team ##
+
 
 
 
@@ -53,7 +54,7 @@ For comments on the website, or if you would like to contribute to this project,
 **Daniel Wright**, research assistant
 
 
-##Past Contributors##
+## Past Contributors ##
 
 
 Annelies Andries 
@@ -85,7 +86,7 @@ Anna Wright
 Qianqian Wu
 
 
-##Project Funding##
+## Project Funding ##
 
 The building of the Suter (1980) Corpus was supported by research grants from the Whitney Humanities Center (Yale University) and the Hampton Research Fund (University of British Columbia).
 
