@@ -2,6 +2,7 @@
 // vim: ts=3
 
 var EXAMPLELIST = [];  // Data downloaded from Google spreadsheets.
+var FILEINDEX = {};     // List of various resource files.
 
 
 //////////////////////////////
@@ -267,7 +268,7 @@ function SortByDruid(index, selector, reverse) {
 
 //////////////////////////////
 //
-// SortByWorkId -- Sort by "R" or "T" prefix, then 3-letter composer code, 
+// SortByWorkId -- Sort by "R" or "T" prefix, then 3-letter composer code,
 //       then numerically by work number for composer.
 //
 
@@ -285,7 +286,7 @@ function SortByWorkId(index, selector) {
 		if (A.match(/^\s*$/)) { return +1; }
 		if (B.match(/^\s*$/)) { return -1; }
 
-		var atext = ""; 
+		var atext = "";
 		var anum = "";
 		var btext = "";
 		var bnum = "";
@@ -457,7 +458,7 @@ function GenerateWorklist(list) {
 //    "Death Date"
 //    "Death Place"
 //    "Nationality"
-// 
+//
 //
 
 function CreateComposerList(worklist) {
@@ -566,6 +567,57 @@ function CopyToClipboard(data) {
   document.execCommand('copy');
   document.body.removeChild(element);
 };
+
+
+
+//////////////////////////////
+//
+// PrepareResourceFileIndex --
+//  e1, /resources/pdf/e1/index.txt == Supplementary edition for scores.
+//
+
+function PrepareResourceFileIndex(tag, indexfile, callback) {
+	var storagename = tag + "_INDEX";
+	if (sessionStorage[storagename] && !sessionStorage[storagename].match(/^\s*$/)) {
+		var index = JSON.parse(sessionStorage[storagename]);
+		FILEINDEX[tag] = index;
+		if (callback) {
+			callback(tag, FILEINDEX);
+		}
+	} else {
+		// download and store
+		var request = new XMLHttpRequest();
+		request.addEventListener("load", function () {
+         if (this.responseText.match(/<\/html>/)) {
+				console.log("WARNING: file", indexfile, "not found.");
+				console.log("CONTENTS:", this.responseText);
+				return;
+			}
+			var list = this.responseText.split(/\r?\n/);
+			var index = {};
+			for (var i=0; i<list.length; i++) {
+				var item = list[i];
+				if (!item) {
+					continue;
+				}
+				if (item.match(/^\s*$/)) {
+					continue;
+				}
+				if (item.match(/^\s*#/)) {
+					continue;
+				}
+				index[item] = 1;
+			}
+			sessionStorage[storagename] = JSON.stringify(index);
+			FILEINDEX[tag] = index;
+			if (callback) {
+				callback(tag, FILEINDEX);
+			}
+		});
+		request.open("GET", indexfile);
+		request.send();
+	}
+}
 
 
 </script>

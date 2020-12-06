@@ -6,7 +6,7 @@ permalink: /example/index.html
 vim: ts=3
 verovio: true
 template: default
-summary: 
+summary:
 ---
 <div title="Click to go to previous example" id="previous-example"><i class="navigate glyphicon glyphicon-arrow-left"></i></div>
 <div title="Click to go to next example" id="next-example"><i class="navigate glyphicon glyphicon-arrow-right"></i></div>

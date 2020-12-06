@@ -286,7 +286,11 @@ function displayExample(exid, examples) {
 	}
 
 	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button pdf-region'>";
-	output += "<a target='_pdf' href='/resources/pdf/sibelius/" + CURRENTEXAMPLE + ".pdf'>pdf</a>";
+	output += "<a target='_pdf' href='/resources/pdf/sibelius/" + CURRENTEXAMPLE + ".pdf'>sibpdf</a>";
+	output += "</span>";
+
+	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button e1-region'>";
+	output += "<a target='_e1' href='/resources/pdf/e1/" + CURRENTEXAMPLE + "-e1.pdf'>E1</a>";
 	output += "</span>";
 
 	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button suter-region'>";
@@ -294,7 +298,7 @@ function displayExample(exid, examples) {
 	output += "</span>";
 
 	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button audio-region'>";
-	output += "<a target='_audio' href='/resources/recordings/sibelius/m4a/" + CURRENTEXAMPLE + ".m4a'>synthetic</a>";
+	output += "<a target='_audio' href='/resources/recordings/sibelius/m4a/" + CURRENTEXAMPLE + ".m4a'>sibaudio</a>";
 	output += "</span>";
 
 	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button audio-region'>";
@@ -317,6 +321,8 @@ function displayExample(exid, examples) {
 		});
 	//}
 
+	PrepareResourceFileIndex("e1", "/resources/pdf/e1/index.txt", hideUnavailableE1);
+
 	/* VHV loading button
 	if (entry["Work Dataset"] === "R") {
 		var button = document.querySelector("#vbutton");
@@ -328,7 +334,7 @@ function displayExample(exid, examples) {
 				url += "kern/";
 				url += entry["Filename"];
 				url += ".krn";
-				window.open(url, '_blank'); 
+				window.open(url, '_blank');
 			});
 			button.classList.add("vhv-button");
 			button.title = "Load example score into Verovio Humdrum Viewer editor";
@@ -467,6 +473,11 @@ function buildNextPrevious2(examples, order) {
 
 
 
+//////////////////////////////
+//
+// buildNextPrevious --
+//
+
 function buildNextPrevious(examples) {
 	output = {};
 	for (var i=0; i<examples.length; i++) {
@@ -488,6 +499,43 @@ function buildNextPrevious(examples) {
 		output[exid].previous = examples[lasti];
 	}
 	return output;
+}
+
+
+
+//////////////////////////////
+//
+// hideUnavailableE1 -- Check E1 buttons to see if there is an E1
+//     score for that button.  If there is none, then hide the button.
+//
+
+function hideUnavailableE1(tag, index) {
+	var database = index[tag];
+	if (!database) {
+		console.log("ERROR: cannot find file index for", tag);
+		return;
+	}
+	console.log("TAG", tag, "INDEX", index);
+	var e1regions = document.querySelectorAll(".e1-region");
+	console.log("E1REGIONS", e1regions);
+	for (var i=0; i<e1regions.length; i++) {
+		var id = e1regions[i].dataset.id;
+		console.log("ID", id);
+		if (!id) {
+			continue;
+		}
+		if (id.match(/^\s*$/)) {
+			continue;
+		}
+		var state = database[id + "-e1"];
+		if (state) {
+			// file found so do nothing
+			continue;
+		} else {
+			// file not found so hide it on page
+			e1regions[i].style.display = "none";
+		}
+	}
 }
 
 
