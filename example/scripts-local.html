@@ -4,7 +4,7 @@
 {% include scripts/scripts-common.html %}
 
 <script>
-// vim: ts=3
+// vim: ts=3:nowrap
 
 
 var GROUP = 0;
@@ -306,10 +306,19 @@ function displayExample(exid, examples) {
 	output += "</span>";
 
 	element.innerHTML = output;
-	var url = "https://raw.githubusercontent.com/craigsapp/polyrhythm-scores/";
-	url += "master/kern/";
-	url += entry["Filename"];
-	url += ".krn";
+	var fname = entry["Filename"];
+	var url = "";
+	if (fname.match(/^R/)) {
+		url = "https://raw.githubusercontent.com/polyrhythm-project/rds-scores/";
+		url += "master/kern/";
+		url += fname;
+		url += ".krn";
+	} else {
+		url = "https://raw.githubusercontent.com/craigsapp/polyrhythm-scores/";
+		url += "master/kern/";
+		url += fname;
+		url += ".krn";
+	}
 
 	console.log("URI", url);
 	var dset = entry["Example Dataset"];
@@ -317,6 +326,7 @@ function displayExample(exid, examples) {
 		// T dataset is not online yet...
 		displayHumdrum({
 			source: "example-notation",
+			postFunction: addProblemIcons,
 			url: url
 		});
 	//}
@@ -534,6 +544,29 @@ function hideUnavailableE1(tag, index) {
 		} else {
 			// file not found so hide it on page
 			e1regions[i].style.display = "none";
+		}
+	}
+}
+
+
+
+//////////////////////////////
+//
+// addProbemIcons --
+//
+
+function addProblemIcons(id) {
+	var query = "#" + id + "-container svg";
+	var svg = document.querySelector(query);
+	if (svg) {
+		// Mark encoding problem messages with red caution symbol.
+		spans = svg.querySelectorAll("g.dir.problem tspan.rend tspan.text tspan.text");
+		for (i=0; i<spans.length; i++) {
+			s = spans[i];
+			if (s.innerHTML === "P") {
+				s.innerHTML = "&#xf071;";
+				s.classList.add("p");
+			}
 		}
 	}
 }
