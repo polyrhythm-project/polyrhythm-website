@@ -1,0 +1,4 @@
+
+# Link to non-repo files:
+(cd _site && rm -f ./resources && ln -s ../../polyrhythm-resources resources)
+

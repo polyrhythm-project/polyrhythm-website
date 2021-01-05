@@ -297,11 +297,11 @@ function displayExample(exid, examples) {
 	output += "<a target='_suter' href='/resources/pdf/suter/" + CURRENTEXAMPLE + ".pdf'>suter</a>";
 	output += "</span>";
 
-	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button audio-region'>";
+	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button sibelius-region'>";
 	output += "<a target='_audio' href='/resources/recordings/sibelius/m4a/" + CURRENTEXAMPLE + ".m4a'>sibaudio</a>";
 	output += "</span>";
 
-	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button audio-region'>";
+	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button recording-region'>";
 	output += "<a target='_audio' href='/resources/recordings/acoustic/m4a/" + CURRENTEXAMPLE + ".m4a'>recording</a>";
 	output += "</span>";
 
@@ -332,6 +332,7 @@ function displayExample(exid, examples) {
 	//}
 
 	PrepareResourceFileIndex("e1", "/resources/pdf/e1/index.txt", hideUnavailableE1);
+	// PrepareResourceFileIndex("recording", "/resources/recordings/acoustic/index.txt", hideUnavailableRecording);
 
 	/* VHV loading button
 	if (entry["Work Dataset"] === "R") {
@@ -544,6 +545,43 @@ function hideUnavailableE1(tag, index) {
 		} else {
 			// file not found so hide it on page
 			e1regions[i].style.display = "none";
+		}
+	}
+}
+
+
+
+//////////////////////////////
+//
+// hideUnavailableRecording -- Check recording buttons to see if there is an
+//     acoustic recording for that button.  If there is none, then hide the button.
+//
+
+function hideUnavailableRecording(tag, index) {
+	var database = index[tag];
+	if (!database) {
+		console.log("ERROR: cannot find file index for", tag);
+		return;
+	}
+	console.log("TAG", tag, "INDEX", index);
+	var regions = document.querySelectorAll(".recording-region");
+	console.log("RECORDINGREGIONS", recordingregions);
+	for (var i=0; i<recordingregions.length; i++) {
+		var id = recordingregions[i].dataset.id;
+		console.log("ID", id);
+		if (!id) {
+			continue;
+		}
+		if (id.match(/^\s*$/)) {
+			continue;
+		}
+		var state = database[id + "-recording"];
+		if (state) {
+			// file found so do nothing
+			continue;
+		} else {
+			// file not found so hide it on page
+			recordingregions[i].style.display = "none";
 		}
 	}
 }
