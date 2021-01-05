@@ -1,37 +1,11 @@
 
 <script>
 
-var AUDIOINDEX_ACOUSTIC = {};
 var AUDIOINDEX_SIBELIUS = {};
 
 document.addEventListener("DOMContentLoaded", function() {
-	loadAcousticAudio();
 	loadSibeliusAudio();
 });
-
-
-//////////////////////////////
-//
-// loadAcousticAudio --
-//
-
-function loadAcousticAudio() {
-	var url = "/resources/recordings/acoustic/index.txt";
-	var request = new XMLHttpRequest();
-	request.addEventListener("load", function () {
-		var lines = this.responseText.split("\n");
-		for (var i=0; i<lines.length; i++) {
-			var item = lines[i];
-			if (!item.match(/^\d+[A-Za-z]?$/)) {
-				continue;
-			}
-			AUDIOINDEX_ACOUSTIC[item] = "/resources/recordings/acoustic/m4a/" + item + ".m4a";
-		}
-		console.log("AUDIOINDEX_ACOUSTIC", AUDIOINDEX_ACOUSTIC);
-	});
-	request.open("GET", url);
-	request.send();
-}
 
 
 
