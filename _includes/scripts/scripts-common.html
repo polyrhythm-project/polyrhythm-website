@@ -122,6 +122,10 @@ function GetCgiParameters() {
 //
 
 function PreparePerson(name) {
+	if (!name) {
+		console.log("Error empty name in PreparePerson():", name);
+		return name;
+	}
 	return name.replace(/\(.*?\)/g, "").replace(/\[(.*?)\]/g, "");
 }
 
@@ -573,7 +577,8 @@ function CopyToClipboard(data) {
 //////////////////////////////
 //
 // PrepareResourceFileIndex --
-//  e1, /resources/pdf/e1/index.txt == Supplementary edition for scores.
+//  e1, /resources/pdf/e1/index.txt == Supplementary edition for scores (first additional editon).
+//  e2, /resources/pdf/e2/index.txt == Supplementary edition for scores (second additional editon).
 //  recording, /resources/recordings/acoustic/index.txt == Audio recording of example
 //
 

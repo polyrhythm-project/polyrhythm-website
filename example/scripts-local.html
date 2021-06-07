@@ -289,6 +289,10 @@ function displayExample(exid, examples) {
 	output += "<a target='_pdf' href='/resources/pdf/sibelius/" + CURRENTEXAMPLE + ".pdf'>sibpdf</a>";
 	output += "</span>";
 
+	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button e2-region'>";
+	output += "<a target='_e2' href='/resources/pdf/e2/" + CURRENTEXAMPLE + "-e2.pdf'>E2</a>";
+	output += "</span>";
+
 	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button e1-region'>";
 	output += "<a target='_e1' href='/resources/pdf/e1/" + CURRENTEXAMPLE + "-e1.pdf'>E1</a>";
 	output += "</span>";
@@ -297,15 +301,20 @@ function displayExample(exid, examples) {
 	output += "<a target='_suter' href='/resources/pdf/suter/" + CURRENTEXAMPLE + ".pdf'>suter</a>";
 	output += "</span>";
 
-	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button sibelius-region'>";
-	output += "<a target='_audio' href='/resources/recordings/sibelius/m4a/" + CURRENTEXAMPLE + ".m4a'>sibaudio</a>";
+	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button sibelius-region hidden'>";
+	output += "<a target='_audio' href='/resources/recordings/sibelius/" + CURRENTEXAMPLE + ".m4a'>sibaudio</a>";
+	output += "</span>";
+
+	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button eastwest-region hidden'>";
+	output += "<a target='_audio' href='/resources/recordings/eastwest/" + CURRENTEXAMPLE + ".m4a'>eastwest</a>";
 	output += "</span>";
 
 	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button acoustic-region'>";
-	output += "<a target='_audio' href='/resources/recordings/acoustic/m4a/" + CURRENTEXAMPLE + ".m4a'>recording</a>";
+	output += "<a target='_audio' href='/resources/recordings/acoustic/" + CURRENTEXAMPLE + ".m4a'>recording</a>";
 	output += "</span>";
 
 	element.innerHTML = output;
+	showCurrentAudio();
 	var fname = entry["Filename"];
 	var url = "";
 	if (fname.match(/^R/)) {
@@ -332,6 +341,7 @@ function displayExample(exid, examples) {
 	//}
 
 	PrepareResourceFileIndex("e1", "/resources/pdf/e1/index.txt", hideUnavailableE1);
+	PrepareResourceFileIndex("e2", "/resources/pdf/e2/index.txt", hideUnavailableE2);
 	PrepareResourceFileIndex("acoustic", "/resources/recordings/acoustic/index.txt", hideUnavailableAcoustic);
 
 	/* VHV loading button
@@ -516,6 +526,43 @@ function buildNextPrevious(examples) {
 
 //////////////////////////////
 //
+// hideUnavailableE2 -- Check E2 buttons to see if there is an E2
+//     score for that button.  If there is none, then hide the button.
+//
+
+function hideUnavailableE2(tag, index) {
+	var database = index[tag];
+	if (!database) {
+		console.log("ERROR: cannot find file index for", tag);
+		return;
+	}
+	console.log("TAG", tag, "INDEX", index);
+	var e2regions = document.querySelectorAll(".e2-region");
+	console.log("E2REGIONS", e2regions);
+	for (var i=0; i<e2regions.length; i++) {
+		var id = e2regions[i].dataset.id;
+		console.log("ID", id);
+		if (!id) {
+			continue;
+		}
+		if (id.match(/^\s*$/)) {
+			continue;
+		}
+		var state = database[id + "-e2"];
+		if (state) {
+			// file found so do nothing
+			continue;
+		} else {
+			// file not found so hide it on page
+			e2regions[i].style.display = "none";
+		}
+	}
+}
+
+
+
+//////////////////////////////
+//
 // hideUnavailableE1 -- Check E1 buttons to see if there is an E1
 //     score for that button.  If there is none, then hide the button.
 //
@@ -558,9 +605,7 @@ function hideUnavailableE1(tag, index) {
 //
 
 function hideUnavailableAcoustic(tag, index) {
-console.log("TAG IS ", tag);
 	var database = index[tag];
-console.log("DATABASE IS", database);
 	if (!database) {
 		console.log("ERROR: cannot find file index for", tag);
 		return;
@@ -578,7 +623,6 @@ console.log("DATABASE IS", database);
 			continue;
 		}
 		var state = database[id];
-console.log("CHECKING ID", id, "STATE", state, "DATABASE", database);
 		if (state) {
 			// file found so do nothing
 			continue;
