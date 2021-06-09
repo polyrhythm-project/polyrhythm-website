@@ -141,12 +141,16 @@ function makeMetaTableRows(list, dtype) {
 		if (dtype === "example") {
 
 			if (list[i]["Example No."]) {
+				let number = list[i]["Example No."];
+				if (number < 100) {
+					number = "0" + number;
+				}
 				if (list[i]["Example Dataset"] === "R") {
 					output += "<b>R";
-		 			output += list[i]["Example No."];
+		 			output += number;
 					output += "</b>";
 				} else {
-		 			output += "T" + list[i]["Example No."];
+		 			output += "T" + number;
 				}
 			}
 
