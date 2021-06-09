@@ -286,7 +286,7 @@ function displayExample(exid, examples) {
 	}
 
 	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button pdf-region'>";
-	output += "<a target='_pdf' href='/resources/pdf/sibelius/" + CURRENTEXAMPLE + ".pdf'>sibpdf</a>";
+	output += "<a target='_pdf' href='/resources/pdf/sibelius/" + CURRENTEXAMPLE + "-sib.pdf'>sibpdf</a>";
 	output += "</span>";
 
 	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button e2-region'>";
@@ -342,6 +342,7 @@ function displayExample(exid, examples) {
 
 	PrepareResourceFileIndex("e1", "/resources/pdf/e1/index.txt", hideUnavailableE1);
 	PrepareResourceFileIndex("e2", "/resources/pdf/e2/index.txt", hideUnavailableE2);
+	PrepareResourceFileIndex("sibpdf", "/resources/pdf/sibelius/index.txt", hideUnavailableSibPdf);
 	PrepareResourceFileIndex("acoustic", "/resources/recordings/acoustic/index.txt", hideUnavailableAcoustic);
 
 	/* VHV loading button
@@ -592,6 +593,43 @@ function hideUnavailableE1(tag, index) {
 		} else {
 			// file not found so hide it on page
 			e1regions[i].style.display = "none";
+		}
+	}
+}
+
+
+
+//////////////////////////////
+//
+// hideUnavailableSibPdf -- Check sibpdf buttons to see if there is a sibpdf
+//     score for that button.  If there is none, then hide the button.
+//
+
+function hideUnavailableSibPdf(tag, index) {
+	var database = index[tag];
+	if (!database) {
+		console.log("ERROR: cannot find file index for", tag);
+		return;
+	}
+	console.log("TAG", tag, "INDEX", index);
+	var sibpdfregions = document.querySelectorAll(".pdf-region");
+	console.log("SIBPDFREGIONS", sibpdfregions);
+	for (var i=0; i<sibpdfregions.length; i++) {
+		var id = sibpdfregions[i].dataset.id;
+		console.log("ID", id);
+		if (!id) {
+			continue;
+		}
+		if (id.match(/^\s*$/)) {
+			continue;
+		}
+		var state = database[id + "-sib"];
+		if (state) {
+			// file found so do nothing
+			continue;
+		} else {
+			// file not found so hide it on page
+			sibpdfregions[i].style.display = "none";
 		}
 	}
 }
