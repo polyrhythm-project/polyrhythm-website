@@ -43,11 +43,13 @@ For comments on the website, or if you would like to contribute to this project,
 
 **Claudio de Freitas**, research assistant 
 
-**Aaron Graham**, research assistant
-
 **Rafael Laurindo**, research assistant
 
 **Kelsey Lussier**, research assistant
+
+**Ethan Tong**, research assistant
+
+**Gabriella Vici**, research assistant
 
 **Walker Williams**, research assistant
 
@@ -66,6 +68,8 @@ Natalie Dietterich
 Meiying Ding
 
 Marina Gallagher
+
+Aaron Graham
 
 Felicia Hartono 
 
@@ -88,7 +92,7 @@ Qianqian Wu
 
 ## Project Funding ##
 
-The building of the Suter (1980) Corpus was supported by research grants from the Whitney Humanities Center (Yale University) and the Hampton Research Fund (University of British Columbia).
+The digitization of the Suter (1980) Corpus was supported by research grants from the Whitney Humanities Center (Yale University) and the Hampton Research Fund (University of British Columbia).
 
   
 
