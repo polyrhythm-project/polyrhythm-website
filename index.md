@@ -13,8 +13,8 @@ summary:
 
 <td>
 <select onchange="doSearch();" id="table-scope">
-	<option value="work">work list</option>
 	<option value="example">example list</option>
+	<option value="work">work list</option>
 </select>
 </td>
 

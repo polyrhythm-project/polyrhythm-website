@@ -7,8 +7,6 @@
 // vim: ts=3:nowrap
 
 
-var GROUP = 0;
-
 //////////////////////////////
 //
 // displayExample --
@@ -277,12 +275,49 @@ function displayExample(exid, examples) {
 	output += " class='vhv-button'>copy</span>";
 
 	if (hasGroupInfo(CURRENTEXAMPLE)) {
-		output += "<span ";
+
+		output += "<span id='analysis-only'";
+		output += " onclick='toggleAnalysisOnly()'";
+		output += " title='";
+		output += "Toogle analysis only";
+		output += "'";
+		output += " class='vhv-button'>only&nbsp;analysis</span>";
+
+		output += "<span id='mark'";
+		output += " onclick='toggleMark()'";
+		output += " title='";
+		output += "Toogle coincidence marks";
+		output += "'";
+		output += " class='vhv-button'>mark</span>";
+
+		output += "<span id='coincidence'";
+		output += " onclick='toggleCoincidence()'";
+		output += " title='";
+		output += "Toogle coincidence analysis by group";
+		output += "'";
+		output += " class='vhv-button'>coincidence</span>";
+
+		output += "<span id='group'";
 		output += " onclick='toggleGroup()'";
 		output += " title='";
-		output += "Toogle display of groupings";
+		output += "Toogle composite analysis by group";
 		output += "'";
 		output += " class='vhv-button'>group</span>";
+
+		output += "<span id='composite'";
+		output += " onclick='toggleComposite()'";
+		output += " title='";
+		output += "Toogle composite analysis";
+		output += "'";
+		output += " class='vhv-button'>composite</span>";
+
+		output += "<span id='color'";
+		output += " onclick='toggleColor()'";
+		output += " title='";
+		output += "Toogle group coloring";
+		output += "'";
+		output += " class='vhv-button'>color</span>";
+
 	}
 
 	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button pdf-region'>";
@@ -344,6 +379,9 @@ function displayExample(exid, examples) {
 	PrepareResourceFileIndex("e2", "/resources/pdf/e2/index.txt", hideUnavailableE2);
 	PrepareResourceFileIndex("sibpdf", "/resources/pdf/sibelius/index.txt", hideUnavailableSibPdf);
 	PrepareResourceFileIndex("acoustic", "/resources/recordings/acoustic/index.txt", hideUnavailableAcoustic);
+	PrepareResourceFileIndex("eastwest", "/resources/recordings/eastwest/index.txt", hideUnavailableEastWest);
+
+	setButtonStates();
 
 	/* VHV loading button
 	if (entry["Work Dataset"] === "R") {
@@ -366,6 +404,39 @@ function displayExample(exid, examples) {
 	*/
 }
 
+
+
+//////////////////////////////
+//
+// setButtonStates --
+//
+
+function setButtonStates() {
+	if (COLOR) {
+		var element = document.querySelector("#color");
+		element.classList.add("highlight-button");
+	}
+	if (GROUP) {
+		var groupelement = document.querySelector("#group");
+		groupelement.classList.add("highlight");
+	}
+	if (MARK) {
+		var element = document.querySelector("#mark");
+		element.classList.add("highlight-button");
+	}
+	if (COMPOSITE) {
+		var element = document.querySelector("#composite");
+		element.classList.add("highlight-button");
+	}
+	if (ANALYSIS) {
+		var element = document.querySelector("#analysis-only");
+		element.classList.add("highlight-button");
+	}
+	if (COINCIDENCE) {
+		var element = document.querySelector("#coincidence");
+		element.classList.add("highlight-button");
+	}
+}
 
 
 //////////////////////////////
@@ -402,17 +473,202 @@ function hasGroupInfo(exampleNum) {
 
 function toggleGroup() {
 	GROUP = !GROUP;
-	var exampleNum = CURRENTEXAMPLE;
-	// var id = "example-notation-" + exampleNum;
+	var groupelement = document.querySelector("#group");
+	if (groupelement) {
+		if (GROUP) {
+			groupelement.classList.add("highlight-button");
+		} else {
+			groupelement.classList.remove("highlight-button");
+		}
+	}
+	var options = {};
 	var id = "example-notation";
+	options.source = id;
+	options.filter = prepareFilter();
+	displayHumdrum(options);
+}
 
+
+
+/////////////////////////////
+//
+// toggleComposite --
+//
+
+function toggleComposite() {
+	COMPOSITE = !COMPOSITE;
+	var compositeelement = document.querySelector("#composite");
+	if (compositeelement) {
+		if (COMPOSITE) {
+			compositeelement.classList.add("highlight-button");
+		} else {
+			compositeelement.classList.remove("highlight-button");
+		}
+	}
+	var options = {};
+	var id = "example-notation";
+	options.source = id;
+	options.filter = prepareFilter();
+	displayHumdrum(options);
+}
+
+
+
+/////////////////////////////
+//
+// toggleCoincidence --
+//
+
+function toggleCoincidence() {
+	COINCIDENCE = !COINCIDENCE;
+	var coincidenceelement = document.querySelector("#coincidence");
+	if (coincidenceelement) {
+		if (COINCIDENCE) {
+			coincidenceelement.classList.add("highlight-button");
+		} else {
+			coincidenceelement.classList.remove("highlight-button");
+		}
+	}
+	var options = {};
+	var id = "example-notation";
+	options.source = id;
+	options.filter = prepareFilter();
+	displayHumdrum(options);
+}
+
+
+
+//////////////////////////////
+//
+// prepareFilter --
+//
+
+function prepareFilter() {
+	FILTER = "";
+
+	if (GROUP) {
+		if (!FILTER.match(/^\s*$/)) {
+			FILTER += " | ";
+		}
+		FILTER += "composite -u";
+		if (COINCIDENCE && !COMPOSITE) {
+			FILTER += "c";
+		}
+		if (MARK) {
+			FILTER += "M";
+		}
+	}
+
+	if (COMPOSITE) {
+		if (!FILTER.match(/^\s*$/)) {
+			FILTER += " | ";
+		}
+		FILTER += "composite -Gu";
+		if (COINCIDENCE) {
+			FILTER += "c";
+		}
+		if (MARK) {
+			FILTER += "M";
+		}
+	}
+
+	if (COINCIDENCE && !(COMPOSITE || GROUP)) {
+		if (!FILTER.match(/^\s*$/)) {
+			FILTER += " | ";
+		}
+		FILTER += "composite -Guc";
+		if (MARK) {
+			FILTER += "M";
+		}
+		FILTER += " | extract -s '1-$2,$'";
+	}
+
+	if (ANALYSIS && (COMPOSITE || GROUP || COINCIDENCE)) {
+		if (!FILTER.match(/^\s*$/)) {
+			FILTER += " | ";
+		}
+		FILTER += "extract -g 'Composite|Group A|Group B|Coincidence'";
+	}
+
+	if (COLOR) {
+		if (!FILTER.match(/^\s*$/)) {
+			FILTER += " | ";
+		}
+		FILTER += "shed -e 's/grp:A/color:crimson/I; s/grp:B/color:dodgerblue/I'";
+	}
+
+	return FILTER;
+}
+
+
+
+/////////////////////////////
+//
+// toggleColor --
+//
+
+function toggleColor() {
+	COLOR = !COLOR;
+	var colorelement = document.querySelector("#color");
+	if (colorelement) {
+		if (COLOR) {
+			colorelement.classList.add("highlight-button");
+		} else {
+			colorelement.classList.remove("highlight-button");
+		}
+	}
+	var id = "example-notation";
 	var options = {};
 	options.source = id;
-	if (GROUP) {
-		options.filter = "shed -e 's/grp:A/color:crimson/I; s/grp:B/color:dodgerblue/I'";
-	} else {
-		options.filter = "";
+	options.filter = prepareFilter();
+	displayHumdrum(options);
+}
+
+
+
+/////////////////////////////
+//
+// toggleAnalysisOnly --
+//
+
+function toggleAnalysisOnly() {
+	ANALYSIS = !ANALYSIS;
+	var analysiselement = document.querySelector("#analysis-only");
+	if (analysiselement) {
+		if (ANALYSIS) {
+			analysiselement.classList.add("highlight-button");
+		} else {
+			analysiselement.classList.remove("highlight-button");
+		}
 	}
+	var id = "example-notation";
+	var options = {};
+	options.source = id;
+	options.filter = prepareFilter();
+	displayHumdrum(options);
+}
+
+
+
+/////////////////////////////
+//
+// toggleMark --
+//
+
+function toggleMark() {
+	MARK = !MARK;
+	var markelement = document.querySelector("#mark");
+	if (markelement) {
+		if (MARK) {
+			markelement.classList.add("highlight-button");
+		} else {
+			markelement.classList.remove("highlight-button");
+		}
+	}
+	var id = "example-notation";
+	var options = {};
+	options.source = id;
+	options.filter = prepareFilter();
 	displayHumdrum(options);
 }
 
@@ -450,6 +706,12 @@ function copyData(exampleNum) {
 		return;
 	}
 	var data = script.textContent;
+	if (!FILTER.match(/^\s*$/)) {
+		if (data.slice(-1) !== "\n") {
+			data += "\n";
+		}
+		data += `!!!filter: ${FILTER}\n`;
+	}
 	CopyToClipboard(data);
 }
 
@@ -667,6 +929,44 @@ function hideUnavailableAcoustic(tag, index) {
 		} else {
 			// file not found so hide it on page
 			acousticregions[i].style.display = "none";
+		}
+	}
+}
+
+
+
+//////////////////////////////
+//
+// hideUnavailableEastWest -- Check acoustic recording buttons to see if there is a
+//     recording for that button.  If there is none, then hide the button.
+//
+
+function hideUnavailableEastWest(tag, index) {
+	var database = index[tag];
+	if (!database) {
+		console.log("ERROR: cannot find file index for", tag);
+		return;
+	}
+	console.log("TAG", tag, "INDEX", index);
+	var eastwestregions = document.querySelectorAll(".eastwest-region");
+	console.log("EASTWESTREGIONS", eastwestregions);
+	for (var i=0; i<eastwestregions.length; i++) {
+		var id = eastwestregions[i].dataset.id;
+		console.log("ID", id);
+		if (!id) {
+			continue;
+		}
+		if (id.match(/^\s*$/)) {
+			continue;
+		}
+		var state = database[id];
+console.log("EASTWEST", id, state);
+		if (state) {
+			// file found so do nothing
+			continue;
+		} else {
+			// file not found so hide it on page
+			eastwestregions[i].style.display = "none";
 		}
 	}
 }
