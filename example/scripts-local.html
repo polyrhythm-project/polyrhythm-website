@@ -14,7 +14,7 @@
 
 function displayExample(exid, examples) {
 	exid = exid.replace(/^[TR]/, "");   // R129 maps to 129
-	var element = document.querySelector("div#example");
+	let element = document.querySelector("div#example");
 	if (!element) {
 		console.log("Error: could not find #example");
 		return;
@@ -32,14 +32,14 @@ function displayExample(exid, examples) {
 	}
 	CURRENTEXAMPLE = exid;
 
-	var entry = FindExampleById(exid, examples);
+	let entry = FindExampleById(exid, examples);
 
 	if (!entry) {
 		console.log("Error: did not find entry for example", exid);
 		return;
 	}
 
-	var output = "";
+	let output = "";
 
 	output += "<table id='example-info'>";
 
@@ -47,7 +47,7 @@ function displayExample(exid, examples) {
 	output += "<td>";
 	output += "Ex";
 	if (entry["Entry Dataset"] === "R") {
-		var pu = "https://raw.githubusercontent.com/epoudrier/RDS_Scores_2018/";
+		let pu = "https://raw.githubusercontent.com/epoudrier/RDS_Scores_2018/";
 		pu += "Reserve_Dataset/pdf/";
 		pu += entry["Filename"];
 		pu += ".pdf";
@@ -71,7 +71,7 @@ function displayExample(exid, examples) {
 	output += "</tr>";
 
 	// work ID
-	var workid = entry["Work ID"];
+	let workid = entry["Work ID"];
 	if (workid) {
 		output += "<tr>";
 		output += "<td>";
@@ -83,7 +83,7 @@ function displayExample(exid, examples) {
 		output += "</a>";
 
 		if (entry["@examples"]) {
-			var ecount = entry["@examples"].length;
+			let ecount = entry["@examples"].length;
 			ecount--;
 			if (ecount > 0) {
 				output += " (" + ecount + " other example";
@@ -99,7 +99,7 @@ function displayExample(exid, examples) {
 	}
 
 	// title of source work
-	var title = entry["Work Title"];
+	let title = entry["Work Title"];
 	if (title) {
 		output += "<tr>";
 		output += "<td>";
@@ -112,7 +112,7 @@ function displayExample(exid, examples) {
 	}
 
 	// starting measure
-	var startm = entry["Example Start Measure"];
+	let startm = entry["Example Start Measure"];
 	if (startm) {
 		output += "<tr>";
 		output += "<td>";
@@ -125,7 +125,7 @@ function displayExample(exid, examples) {
 	}
 
 	// ending measure
-	var endm = entry["Example End Measure"];
+	let endm = entry["Example End Measure"];
 	if (endm) {
 		output += "<tr>";
 		output += "<td>";
@@ -138,7 +138,7 @@ function displayExample(exid, examples) {
 	}
 
 	// genre
-	var genre = entry["Genre"];
+	let genre = entry["Genre"];
 	if (genre) {
 		output += "<tr>";
 		output += "<td>";
@@ -146,7 +146,7 @@ function displayExample(exid, examples) {
 		output += "</td>";
 		output += "<td>";
 		output += genre;
-		var subgenre = entry["Sub-Genre"];
+		let subgenre = entry["Sub-Genre"];
 		if (subgenre) {
 			output += " / " + subgenre;
 		}
@@ -155,7 +155,7 @@ function displayExample(exid, examples) {
 	}
 
 	// composer's name
-	var composer = entry["Composer Name"];
+	let composer = entry["Composer Name"];
 	if (composer) {
 		output += "<tr>";
 		output += "<td>";
@@ -168,7 +168,7 @@ function displayExample(exid, examples) {
 	}
 
 	// composition date
-	var cdate = entry["Composition Year"];
+	let cdate = entry["Composition Year"];
 	if (cdate) {
 		output += "<tr>";
 		output += "<td>";
@@ -181,7 +181,7 @@ function displayExample(exid, examples) {
 	}
 
 	// first published
-	var fdate = entry["First Publication Year"];
+	let fdate = entry["First Publication Year"];
 	if (fdate) {
 		output += "<tr>";
 		output += "<td>";
@@ -194,7 +194,7 @@ function displayExample(exid, examples) {
 	}
 
 	// Premiere date
-	var premierdate = entry["Premiere Date"];
+	let premierdate = entry["Premiere Date"];
 	if (premierdate) {
 		output += "<tr>";
 		output += "<td>";
@@ -207,7 +207,7 @@ function displayExample(exid, examples) {
 	}
 
 	// Premiere location
-	var premier = entry["Premiere Location"];
+	let premier = entry["Premiere Location"];
 	if (premier) {
 		output += "<tr>";
 		output += "<td>";
@@ -220,7 +220,7 @@ function displayExample(exid, examples) {
 	}
 
 	// Premiere ensemble
-	var ensemble = entry["Ensemble"];
+	let ensemble = entry["Ensemble"];
 	if (ensemble && (ensemble !== "none")) {
 		output += "<tr>";
 		output += "<td>";
@@ -233,7 +233,7 @@ function displayExample(exid, examples) {
 	}
 
 	// Premiere conductor
-	var conductor = entry["Conductor"];
+	let conductor = entry["Conductor"];
 	if (conductor && (conductor !== "none")) {
 		output += "<tr>";
 		output += "<td>";
@@ -246,7 +246,7 @@ function displayExample(exid, examples) {
 	}
 
 	// Premiere soloists
-	var soloists = entry["Soloists"];
+	let soloists = entry["Soloists"];
 	if (soloists && (soloists !== "none")) {
 		output += "<tr>";
 		output += "<td>";
@@ -265,14 +265,14 @@ function displayExample(exid, examples) {
 	output += " title='";
 	output += "Copy page link";
 	output += "'";
-	output += " class='vhv-button'>link</span>";
+	output += " class='vhv-button group3'>link</span>";
 
 	output += "<span ";
 	output += " onclick='copyData(\"" + CURRENTEXAMPLE + "\")'";
 	output += " title='";
 	output += "Copy Humdrum data to the system clipboard";
 	output += "'";
-	output += " class='vhv-button'>copy</span>";
+	output += " class='vhv-button group3'>copy</span>";
 
 	if (hasGroupInfo(CURRENTEXAMPLE)) {
 
@@ -281,77 +281,95 @@ function displayExample(exid, examples) {
 		output += " title='";
 		output += "Toogle analysis only";
 		output += "'";
-		output += " class='vhv-button'>only&nbsp;analysis</span>";
+		output += " class='vhv-button group2'>only&nbsp;analysis</span>";
+
+		output += "<span id='event-counts'";
+		output += " onclick='toggleEventCounts()'";
+		output += " title='";
+		output += "Show/Hide composite event counts";
+		output += "'";
+		output += " class='vhv-button group2'>event counts</span>";
 
 		output += "<span id='mark'";
 		output += " onclick='toggleMark()'";
 		output += " title='";
 		output += "Toogle coincidence marks";
 		output += "'";
-		output += " class='vhv-button'>mark</span>";
+		output += " class='vhv-button group2'>mark</span>";
 
 		output += "<span id='coincidence'";
 		output += " onclick='toggleCoincidence()'";
 		output += " title='";
 		output += "Toogle coincidence analysis by group";
 		output += "'";
-		output += " class='vhv-button'>coincidence</span>";
+		output += " class='vhv-button group2'>coincidence</span>";
 
-		output += "<span id='group'";
-		output += " onclick='toggleGroup()'";
+		output += "<span id='colorFullComposite'";
+		output += " onclick='toggleColorFullComposite()'";
 		output += " title='";
-		output += "Toogle composite analysis by group";
+		output += "Toogle full-composite coloring";
 		output += "'";
-		output += " class='vhv-button'>group</span>";
+		output += " class='vhv-button group2'>comp. color</span>";
 
 		output += "<span id='composite'";
 		output += " onclick='toggleComposite()'";
 		output += " title='";
 		output += "Toogle composite analysis";
 		output += "'";
-		output += " class='vhv-button'>composite</span>";
+		output += " class='vhv-button group2'>composite</span>";
 
 		output += "<span id='color'";
 		output += " onclick='toggleColor()'";
 		output += " title='";
-		output += "Toogle group coloring";
+		output += "Toogle group colorg";
 		output += "'";
-		output += " class='vhv-button'>color</span>";
+		output += " class='vhv-button group2'>group color</span>";
+
+		output += "<span id='group'";
+		output += " onclick='toggleGroup()'";
+		output += " title='";
+		output += "Toogle composite analysis by group";
+		output += "'";
+		output += " class='vhv-button group2'>group</span>";
 
 	}
 
-	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button pdf-region'>";
+	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 pdf-region'>";
 	output += "<a target='_pdf' href='/resources/pdf/sibelius/" + CURRENTEXAMPLE + "-sib.pdf'>sibpdf</a>";
 	output += "</span>";
 
-	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button e2-region'>";
+	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 e3-region'>";
+	output += "<a target='_e3' href='/resources/pdf/e3/" + CURRENTEXAMPLE + "-e3.pdf'>E3</a>";
+	output += "</span>";
+
+	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 e2-region'>";
 	output += "<a target='_e2' href='/resources/pdf/e2/" + CURRENTEXAMPLE + "-e2.pdf'>E2</a>";
 	output += "</span>";
 
-	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button e1-region'>";
+	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 e1-region'>";
 	output += "<a target='_e1' href='/resources/pdf/e1/" + CURRENTEXAMPLE + "-e1.pdf'>E1</a>";
 	output += "</span>";
 
-	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button suter-region'>";
-	output += "<a target='_suter' href='/resources/pdf/suter/" + CURRENTEXAMPLE + ".pdf'>suter</a>";
+	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 e0-region'>";
+	output += "<a target='_e0' href='/resources/pdf/e0/" + CURRENTEXAMPLE + "-e0.pdf'>suter</a>";
 	output += "</span>";
 
-	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button sibelius-region hidden'>";
+	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 sibelius-region hidden'>";
 	output += "<a target='_audio' href='/resources/recordings/sibelius/" + CURRENTEXAMPLE + ".m4a'>sibaudio</a>";
 	output += "</span>";
 
-	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button eastwest-region hidden'>";
+	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 eastwest-region hidden'>";
 	output += "<a target='_audio' href='/resources/recordings/eastwest/" + CURRENTEXAMPLE + ".m4a'>eastwest</a>";
 	output += "</span>";
 
-	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button acoustic-region'>";
+	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 acoustic-region'>";
 	output += "<a target='_audio' href='/resources/recordings/acoustic/" + CURRENTEXAMPLE + ".m4a'>recording</a>";
 	output += "</span>";
 
 	element.innerHTML = output;
 	showCurrentAudio();
-	var fname = entry["Filename"];
-	var url = "";
+	let fname = entry["Filename"];
+	let url = "";
 	if (fname.match(/^R/)) {
 		url = "https://raw.githubusercontent.com/polyrhythm-project/rds-scores/";
 		url += "master/kern/";
@@ -365,7 +383,7 @@ function displayExample(exid, examples) {
 	}
 
 	console.log("URI", url);
-	var dset = entry["Example Dataset"];
+	let dset = entry["Example Dataset"];
 	//if (dset === "R") {
 		// T dataset is not online yet...
 		displayHumdrum({
@@ -375,8 +393,10 @@ function displayExample(exid, examples) {
 		});
 	//}
 
+	PrepareResourceFileIndex("e0", "/resources/pdf/e0/index.txt", hideUnavailableE0);
 	PrepareResourceFileIndex("e1", "/resources/pdf/e1/index.txt", hideUnavailableE1);
 	PrepareResourceFileIndex("e2", "/resources/pdf/e2/index.txt", hideUnavailableE2);
+	PrepareResourceFileIndex("e3", "/resources/pdf/e3/index.txt", hideUnavailableE3);
 	PrepareResourceFileIndex("sibpdf", "/resources/pdf/sibelius/index.txt", hideUnavailableSibPdf);
 	PrepareResourceFileIndex("acoustic", "/resources/recordings/acoustic/index.txt", hideUnavailableAcoustic);
 	PrepareResourceFileIndex("eastwest", "/resources/recordings/eastwest/index.txt", hideUnavailableEastWest);
@@ -385,10 +405,10 @@ function displayExample(exid, examples) {
 
 	/* VHV loading button
 	if (entry["Work Dataset"] === "R") {
-		var button = document.querySelector("#vbutton");
+		let button = document.querySelector("#vbutton");
 		if (button) {
 			button.addEventListener("click", function() {
-				var url = "https://verovio.humdrum.org/?k=e&file=";
+				let url = "https://verovio.humdrum.org/?k=e&file=";
 				url += "https://raw.githubusercontent.com/craigsapp/";
 				url += "polyrhythm-scores/master/";
 				url += "kern/";
@@ -413,29 +433,46 @@ function displayExample(exid, examples) {
 
 function setButtonStates() {
 	if (COLOR) {
-		var element = document.querySelector("#color");
+		let element = document.querySelector("#color");
 		element.classList.add("highlight-button");
 	}
+
 	if (GROUP) {
-		var groupelement = document.querySelector("#group");
-		groupelement.classList.add("highlight");
+		let groupelement = document.querySelector("#group");
+		groupelement.classList.add("highlight-button");
 	}
+
 	if (MARK) {
-		var element = document.querySelector("#mark");
+		let element = document.querySelector("#mark");
 		element.classList.add("highlight-button");
 	}
+
+	if (EVENTCOUNTS) {
+		let element = document.querySelector("#event-counts");
+		element.classList.add("highlight-button");
+	}
+
 	if (COMPOSITE) {
-		var element = document.querySelector("#composite");
+		let element = document.querySelector("#composite");
 		element.classList.add("highlight-button");
 	}
+
+	if (FULLCOLOR) {
+		output += "<span id='colorFullComposite'";
+		let element = document.querySelector("#colorFullComposite");
+		element.classList.add("highlight-button");
+	}
+
 	if (ANALYSIS) {
-		var element = document.querySelector("#analysis-only");
+		let element = document.querySelector("#analysis-only");
 		element.classList.add("highlight-button");
 	}
+
 	if (COINCIDENCE) {
-		var element = document.querySelector("#coincidence");
+		let element = document.querySelector("#coincidence");
 		element.classList.add("highlight-button");
 	}
+
 }
 
 
@@ -449,14 +486,14 @@ function hasGroupInfo(exampleNum) {
 	if (!exampleNum) {
 		exampleNum = CURRENTEXAMPLE;
 	}
-	var script = document.querySelector("#example-notation");
+	let script = document.querySelector("#example-notation");
 	if (!script) {
 		// console.log("Error: cannot find data script for example");
 		// have to set as a callback to displayHumdrum since don't know if data has
 		// grouping until it is loaded.
 		return 1;
 	}
-	var data = script.textContent;
+	let data = script.textContent;
 	if (data.match(/\*grp:/)) {
 		return true;
 	} else {
@@ -473,7 +510,7 @@ function hasGroupInfo(exampleNum) {
 
 function toggleGroup() {
 	GROUP = !GROUP;
-	var groupelement = document.querySelector("#group");
+	let groupelement = document.querySelector("#group");
 	if (groupelement) {
 		if (GROUP) {
 			groupelement.classList.add("highlight-button");
@@ -481,8 +518,8 @@ function toggleGroup() {
 			groupelement.classList.remove("highlight-button");
 		}
 	}
-	var options = {};
-	var id = "example-notation";
+	let options = {};
+	let id = "example-notation";
 	options.source = id;
 	options.filter = prepareFilter();
 	displayHumdrum(options);
@@ -497,7 +534,7 @@ function toggleGroup() {
 
 function toggleComposite() {
 	COMPOSITE = !COMPOSITE;
-	var compositeelement = document.querySelector("#composite");
+	let compositeelement = document.querySelector("#composite");
 	if (compositeelement) {
 		if (COMPOSITE) {
 			compositeelement.classList.add("highlight-button");
@@ -505,8 +542,8 @@ function toggleComposite() {
 			compositeelement.classList.remove("highlight-button");
 		}
 	}
-	var options = {};
-	var id = "example-notation";
+	let options = {};
+	let id = "example-notation";
 	options.source = id;
 	options.filter = prepareFilter();
 	displayHumdrum(options);
@@ -521,7 +558,7 @@ function toggleComposite() {
 
 function toggleCoincidence() {
 	COINCIDENCE = !COINCIDENCE;
-	var coincidenceelement = document.querySelector("#coincidence");
+	let coincidenceelement = document.querySelector("#coincidence");
 	if (coincidenceelement) {
 		if (COINCIDENCE) {
 			coincidenceelement.classList.add("highlight-button");
@@ -529,8 +566,8 @@ function toggleCoincidence() {
 			coincidenceelement.classList.remove("highlight-button");
 		}
 	}
-	var options = {};
-	var id = "example-notation";
+	let options = {};
+	let id = "example-notation";
 	options.source = id;
 	options.filter = prepareFilter();
 	displayHumdrum(options);
@@ -544,58 +581,60 @@ function toggleCoincidence() {
 //
 
 function prepareFilter() {
-	FILTER = "";
 
-	if (GROUP) {
-		if (!FILTER.match(/^\s*$/)) {
-			FILTER += " | ";
-		}
-		FILTER += "composite -u";
-		if (COINCIDENCE && !COMPOSITE) {
-			FILTER += "c";
-		}
-		if (MARK) {
-			FILTER += "M";
-		}
+	if (!FULLCOLOR && !COLOR && !COMPOSITE && !GROUP && !COINCIDENCE && !MARK && !EVENTCOUNTS) {
+		return "";
 	}
+
+	FILTER = "composite -u";
 
 	if (COMPOSITE) {
-		if (!FILTER.match(/^\s*$/)) {
-			FILTER += " | ";
+		FILTER += "";
+	}
+	if (GROUP) {
+		FILTER += "g";
+		if (!COMPOSITE) {
+			FILTER += "F";
 		}
-		FILTER += "composite -Gu";
-		if (COINCIDENCE) {
-			FILTER += "c";
+	}
+	if (FULLCOLOR) {
+		FILTER += "C";
+	}
+	if (COINCIDENCE) {
+		FILTER += "c";
+		if ((!COMPOSITE) && (!FILTER.match(/F/))) {
+			FILTER += "F";
 		}
-		if (MARK) {
+	}
+	if (EVENTCOUNTS) {
+		FILTER += "e";
+	}
+	if (MARK) {
+		if (!COMPOSITE && !GROUP && !COINCIDENCE) {
 			FILTER += "M";
+		} else {
+			FILTER += "m";
+		}
+	}
+	if (ANALYSIS) {
+		if (!COMPOSITE && !GROUP && !COINCIDENCE) {
+			// no analyses to do, but want to keep marks in input.
+		} else {
+			FILTER += "x";
 		}
 	}
 
-	if (COINCIDENCE && !(COMPOSITE || GROUP)) {
-		if (!FILTER.match(/^\s*$/)) {
-			FILTER += " | ";
-		}
-		FILTER += "composite -Guc";
-		if (MARK) {
-			FILTER += "M";
-		}
-		FILTER += " | extract -s '1-$2,$'";
-	}
-
-	if (ANALYSIS && (COMPOSITE || GROUP || COINCIDENCE)) {
-		if (!FILTER.match(/^\s*$/)) {
-			FILTER += " | ";
-		}
-		FILTER += "extract -g 'Composite|Group A|Group B|Coincidence'";
-	}
 
 	if (COLOR) {
-		if (!FILTER.match(/^\s*$/)) {
-			FILTER += " | ";
+		if (COMPOSITE || GROUP || COINCIDENCE || MARK || EVENTCOUNTS) {
+			FILTER += "| "
+		} else {
+			FILTER = "";
 		}
 		FILTER += "shed -e 's/grp:A/color:crimson/I; s/grp:B/color:dodgerblue/I'";
+	
 	}
+console.warn("FILTER", FILTER);
 
 	return FILTER;
 }
@@ -609,7 +648,7 @@ function prepareFilter() {
 
 function toggleColor() {
 	COLOR = !COLOR;
-	var colorelement = document.querySelector("#color");
+	let colorelement = document.querySelector("#color");
 	if (colorelement) {
 		if (COLOR) {
 			colorelement.classList.add("highlight-button");
@@ -617,8 +656,32 @@ function toggleColor() {
 			colorelement.classList.remove("highlight-button");
 		}
 	}
-	var id = "example-notation";
-	var options = {};
+	let id = "example-notation";
+	let options = {};
+	options.source = id;
+	options.filter = prepareFilter();
+	displayHumdrum(options);
+}
+
+
+
+/////////////////////////////
+//
+// toggleColorFullComposite --
+//
+
+function toggleColorFullComposite() {
+	FULLCOLOR = !FULLCOLOR;
+	let colorelement = document.querySelector("#colorFullComposite");
+	if (colorelement) {
+		if (FULLCOLOR) {
+			colorelement.classList.add("highlight-button");
+		} else {
+			colorelement.classList.remove("highlight-button");
+		}
+	}
+	let id = "example-notation";
+	let options = {};
 	options.source = id;
 	options.filter = prepareFilter();
 	displayHumdrum(options);
@@ -633,7 +696,7 @@ function toggleColor() {
 
 function toggleAnalysisOnly() {
 	ANALYSIS = !ANALYSIS;
-	var analysiselement = document.querySelector("#analysis-only");
+	let analysiselement = document.querySelector("#analysis-only");
 	if (analysiselement) {
 		if (ANALYSIS) {
 			analysiselement.classList.add("highlight-button");
@@ -641,8 +704,8 @@ function toggleAnalysisOnly() {
 			analysiselement.classList.remove("highlight-button");
 		}
 	}
-	var id = "example-notation";
-	var options = {};
+	let id = "example-notation";
+	let options = {};
 	options.source = id;
 	options.filter = prepareFilter();
 	displayHumdrum(options);
@@ -657,7 +720,7 @@ function toggleAnalysisOnly() {
 
 function toggleMark() {
 	MARK = !MARK;
-	var markelement = document.querySelector("#mark");
+	let markelement = document.querySelector("#mark");
 	if (markelement) {
 		if (MARK) {
 			markelement.classList.add("highlight-button");
@@ -665,8 +728,32 @@ function toggleMark() {
 			markelement.classList.remove("highlight-button");
 		}
 	}
-	var id = "example-notation";
-	var options = {};
+	let id = "example-notation";
+	let options = {};
+	options.source = id;
+	options.filter = prepareFilter();
+	displayHumdrum(options);
+}
+
+
+
+/////////////////////////////
+//
+// toggleEventCounts --
+//
+
+function toggleEventCounts() {
+	EVENTCOUNTS = !EVENTCOUNTS;
+	let eventelement = document.querySelector("#event-counts");
+	if (eventelement) {
+		if (EVENTCOUNTS) {
+			eventelement.classList.add("highlight-button");
+		} else {
+			eventelement.classList.remove("highlight-button");
+		}
+	}
+	let id = "example-notation";
+	let options = {};
 	options.source = id;
 	options.filter = prepareFilter();
 	displayHumdrum(options);
@@ -683,7 +770,7 @@ function copyLink(exampleNum) {
 	if (!exampleNum) {
 		exampleNum = CURRENTEXAMPLE;
 	}
-	var data = window.location.href
+	let data = window.location.href
 	data = data.replace(/id=\d+/, "id=" + exampleNum);
 	CopyToClipboard(data);
 }
@@ -699,18 +786,25 @@ function copyData(exampleNum) {
 	if (!exampleNum) {
 		exampleNum = CURRENTEXAMPLE;
 	}
-	// var script = document.querySelector("#example-notation-" + exampleNum);
-	var script = document.querySelector("#example-notation");
+	// let script = document.querySelector("#example-notation-" + exampleNum);
+	let script = document.querySelector("#example-notation");
 	if (!script) {
 		console.log("Error: cannot data script for emxaple");
 		return;
 	}
-	var data = script.textContent;
+	let data = script.textContent;
 	if (!FILTER.match(/^\s*$/)) {
 		if (data.slice(-1) !== "\n") {
 			data += "\n";
 		}
 		data += `!!!filter: ${FILTER}\n`;
+	   if (ANALYSIS) {
+      	if (!COMPOSITE && !GROUP && !COINCIDENCE) {
+         	// no analyses to do, but want to keep marks in input.
+      	} else {
+         	data += "!!!verovio: spacingStaff 22\n";
+      	}
+   	}
 	}
 	CopyToClipboard(data);
 }
@@ -723,25 +817,24 @@ function copyData(exampleNum) {
 //
 
 function buildNextPrevious2(examples, order) {
-	var lookup = {};
-	var i;
-	for (i=0; i<examples.length; i++) {
+	let lookup = {};
+	for (let i=0; i<examples.length; i++) {
 		lookup[examples[i]["Example No."]] = examples[i];
 	}
-	var newexamples = [];
+	let newexamples = [];
 	for (i=0; i<order.length; i++) {
 		newexamples.push(lookup[order[i]]);
 	}
 
 	output = {};
-	for (i=0; i<newexamples.length; i++) {
-		var exid = newexamples[i]["Example No."];
+	for (let i=0; i<newexamples.length; i++) {
+		let exid = newexamples[i]["Example No."];
 		if (!exid) {
 			console.log("ERROR in buildNextPrevious2()");
 			continue;
 		}
-		var nexti = i + 1;
-		var lasti = i - 1;
+		let nexti = i + 1;
+		let lasti = i - 1;
 		if (nexti >= newexamples.length) {
 			nexti = 0;
 		}
@@ -764,14 +857,14 @@ function buildNextPrevious2(examples, order) {
 
 function buildNextPrevious(examples) {
 	output = {};
-	for (var i=0; i<examples.length; i++) {
-		var exid = examples[i]["Example No."];
+	for (let i=0; i<examples.length; i++) {
+		let exid = examples[i]["Example No."];
 		if (!exid) {
 			console.log("ERROR in buildNextPrevious()");
 			continue;
 		}
-		var nexti = i + 1;
-		var lasti = i - 1;
+		let nexti = i + 1;
+		let lasti = i - 1;
 		if (nexti >= examples.length) {
 			nexti = 0;
 		}
@@ -789,21 +882,21 @@ function buildNextPrevious(examples) {
 
 //////////////////////////////
 //
-// hideUnavailableE2 -- Check E2 buttons to see if there is an E2
+// hideUnavailableE3 -- Check E3 buttons to see if there is an E3
 //     score for that button.  If there is none, then hide the button.
 //
 
-function hideUnavailableE2(tag, index) {
-	var database = index[tag];
+function hideUnavailableE3(tag, index) {
+	let database = index[tag];
 	if (!database) {
 		console.log("ERROR: cannot find file index for", tag);
 		return;
 	}
 	console.log("TAG", tag, "INDEX", index);
-	var e2regions = document.querySelectorAll(".e2-region");
-	console.log("E2REGIONS", e2regions);
-	for (var i=0; i<e2regions.length; i++) {
-		var id = e2regions[i].dataset.id;
+	let e3regions = document.querySelectorAll(".e3-region");
+	console.log("E3REGIONS", e3regions);
+	for (let i=0; i<e3regions.length; i++) {
+		let id = e3regions[i].dataset.id;
 		console.log("ID", id);
 		if (!id) {
 			continue;
@@ -811,7 +904,42 @@ function hideUnavailableE2(tag, index) {
 		if (id.match(/^\s*$/)) {
 			continue;
 		}
-		var state = database[id + "-e2"];
+		let state = database[id + "-e3"];
+		if (state) {
+			// file found so do nothing
+			continue;
+		} else {
+			// file not found so hide it on page
+			e3regions[i].style.display = "none";
+		}
+	}
+}
+
+//////////////////////////////
+//
+// hideUnavailableE2 -- Check E2 buttons to see if there is an E2
+//     score for that button.  If there is none, then hide the button.
+//
+
+function hideUnavailableE2(tag, index) {
+	let database = index[tag];
+	if (!database) {
+		console.log("ERROR: cannot find file index for", tag);
+		return;
+	}
+	console.log("TAG", tag, "INDEX", index);
+	let e2regions = document.querySelectorAll(".e2-region");
+	console.log("E2REGIONS", e2regions);
+	for (let i=0; i<e2regions.length; i++) {
+		let id = e2regions[i].dataset.id;
+		console.log("ID", id);
+		if (!id) {
+			continue;
+		}
+		if (id.match(/^\s*$/)) {
+			continue;
+		}
+		let state = database[id + "-e2"];
 		if (state) {
 			// file found so do nothing
 			continue;
@@ -826,21 +954,24 @@ function hideUnavailableE2(tag, index) {
 
 //////////////////////////////
 //
-// hideUnavailableE1 -- Check E1 buttons to see if there is an E1
+// hideUnavailableE0 -- Check E0 (suter) buttons to see if there is an E0
 //     score for that button.  If there is none, then hide the button.
 //
 
-function hideUnavailableE1(tag, index) {
-	var database = index[tag];
+function hideUnavailableE0(tag, index) {
+	let database = index[tag];
+console.error("DATABASE", database);
 	if (!database) {
 		console.log("ERROR: cannot find file index for", tag);
 		return;
 	}
 	console.log("TAG", tag, "INDEX", index);
-	var e1regions = document.querySelectorAll(".e1-region");
-	console.log("E1REGIONS", e1regions);
-	for (var i=0; i<e1regions.length; i++) {
-		var id = e1regions[i].dataset.id;
+	let e0regions = document.querySelectorAll(".e0-region");
+	console.warn("================================================");
+	console.log("E0REGIONS", e0regions);
+	console.warn("================================================");
+	for (let i=0; i<e0regions.length; i++) {
+		let id = e0regions[i].dataset.id;
 		console.log("ID", id);
 		if (!id) {
 			continue;
@@ -848,7 +979,44 @@ function hideUnavailableE1(tag, index) {
 		if (id.match(/^\s*$/)) {
 			continue;
 		}
-		var state = database[id + "-e1"];
+		let state = database[id + "-e0"];
+		if (state) {
+			// file found so do nothing
+			continue;
+		} else {
+			// file not found so hide it on page
+			e0regions[i].style.display = "none";
+		}
+	}
+}
+
+
+
+//////////////////////////////
+//
+// hideUnavailableE1 -- Check E1 buttons to see if there is an E1
+//     score for that button.  If there is none, then hide the button.
+//
+
+function hideUnavailableE1(tag, index) {
+	let database = index[tag];
+	if (!database) {
+		console.log("ERROR: cannot find file index for", tag);
+		return;
+	}
+	console.log("TAG", tag, "INDEX", index);
+	let e1regions = document.querySelectorAll(".e1-region");
+	console.log("E1REGIONS", e1regions);
+	for (let i=0; i<e1regions.length; i++) {
+		let id = e1regions[i].dataset.id;
+		console.log("ID", id);
+		if (!id) {
+			continue;
+		}
+		if (id.match(/^\s*$/)) {
+			continue;
+		}
+		let state = database[id + "-e1"];
 		if (state) {
 			// file found so do nothing
 			continue;
@@ -868,16 +1036,16 @@ function hideUnavailableE1(tag, index) {
 //
 
 function hideUnavailableSibPdf(tag, index) {
-	var database = index[tag];
+	let database = index[tag];
 	if (!database) {
 		console.log("ERROR: cannot find file index for", tag);
 		return;
 	}
 	console.log("TAG", tag, "INDEX", index);
-	var sibpdfregions = document.querySelectorAll(".pdf-region");
+	let sibpdfregions = document.querySelectorAll(".pdf-region");
 	console.log("SIBPDFREGIONS", sibpdfregions);
-	for (var i=0; i<sibpdfregions.length; i++) {
-		var id = sibpdfregions[i].dataset.id;
+	for (let i=0; i<sibpdfregions.length; i++) {
+		let id = sibpdfregions[i].dataset.id;
 		console.log("ID", id);
 		if (!id) {
 			continue;
@@ -885,7 +1053,7 @@ function hideUnavailableSibPdf(tag, index) {
 		if (id.match(/^\s*$/)) {
 			continue;
 		}
-		var state = database[id + "-sib"];
+		let state = database[id + "-sib"];
 		if (state) {
 			// file found so do nothing
 			continue;
@@ -905,16 +1073,16 @@ function hideUnavailableSibPdf(tag, index) {
 //
 
 function hideUnavailableAcoustic(tag, index) {
-	var database = index[tag];
+	let database = index[tag];
 	if (!database) {
 		console.log("ERROR: cannot find file index for", tag);
 		return;
 	}
 	console.log("TAG", tag, "INDEX", index);
-	var acousticregions = document.querySelectorAll(".acoustic-region");
+	let acousticregions = document.querySelectorAll(".acoustic-region");
 	console.log("ACOUSTICREGIONS", acousticregions);
-	for (var i=0; i<acousticregions.length; i++) {
-		var id = acousticregions[i].dataset.id;
+	for (let i=0; i<acousticregions.length; i++) {
+		let id = acousticregions[i].dataset.id;
 		console.log("ID", id);
 		if (!id) {
 			continue;
@@ -922,7 +1090,7 @@ function hideUnavailableAcoustic(tag, index) {
 		if (id.match(/^\s*$/)) {
 			continue;
 		}
-		var state = database[id];
+		let state = database[id];
 		if (state) {
 			// file found so do nothing
 			continue;
@@ -942,16 +1110,16 @@ function hideUnavailableAcoustic(tag, index) {
 //
 
 function hideUnavailableEastWest(tag, index) {
-	var database = index[tag];
+	let database = index[tag];
 	if (!database) {
 		console.log("ERROR: cannot find file index for", tag);
 		return;
 	}
 	console.log("TAG", tag, "INDEX", index);
-	var eastwestregions = document.querySelectorAll(".eastwest-region");
+	let eastwestregions = document.querySelectorAll(".eastwest-region");
 	console.log("EASTWESTREGIONS", eastwestregions);
-	for (var i=0; i<eastwestregions.length; i++) {
-		var id = eastwestregions[i].dataset.id;
+	for (let i=0; i<eastwestregions.length; i++) {
+		let id = eastwestregions[i].dataset.id;
 		console.log("ID", id);
 		if (!id) {
 			continue;
@@ -959,7 +1127,7 @@ function hideUnavailableEastWest(tag, index) {
 		if (id.match(/^\s*$/)) {
 			continue;
 		}
-		var state = database[id];
+		let state = database[id];
 console.log("EASTWEST", id, state);
 		if (state) {
 			// file found so do nothing
@@ -979,8 +1147,8 @@ console.log("EASTWEST", id, state);
 //
 
 function addProblemIcons(id) {
-	var query = "#" + id + "-container svg";
-	var svg = document.querySelector(query);
+	let query = "#" + id + "-container svg";
+	let svg = document.querySelector(query);
 	if (svg) {
 		// Mark encoding problem messages with red caution symbol.
 		spans = svg.querySelectorAll("g.dir.problem tspan.rend tspan.text tspan.text");

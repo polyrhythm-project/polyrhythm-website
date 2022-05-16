@@ -31,7 +31,6 @@ function loadSibeliusAudio() {
 			}
 			AUDIOINDEX_SIBELIUS[item] = "/resources/recordings/sibelius/m4a/" + item + ".m4a";
 		}
-		console.log("AUDIOINDEX_SIBELIUS", AUDIOINDEX_SIBELIUS);
 		showCurrentAudio();
 	});
 	request.open("GET", url);
@@ -57,7 +56,6 @@ function loadEastwestAudio() {
 			}
 			AUDIOINDEX_EASTWEST[item] = "/resources/recordings/eastwest/m4a/" + item + ".m4a";
 		}
-		console.log("AUDIOINDEX_EASTWEST", AUDIOINDEX_EASTWEST);
 		showCurrentAudio();
 	});
 	request.open("GET", url);

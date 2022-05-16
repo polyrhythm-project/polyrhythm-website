@@ -13,15 +13,15 @@
 
 function displayList(entries, query) {
 
-	var dtype = "example";
-	var selement = document.querySelector("#table-scope");
+	let dtype = "example";
+	let selement = document.querySelector("#table-scope");
 	if (selement && selement.value === "work") {
 		dtype = "work";
 	}
 
 	reportMatches(entries);
 
-	var output = "";
+	let output = "";
 
 	output += "<table id='metadata-list'>";
 
@@ -58,10 +58,10 @@ function displayList(entries, query) {
 	output += "</tbody>";
 	output += "</table>";
 
-	var element = document.querySelector("div#list");
+	let element = document.querySelector("div#list");
 	if (query) {
 		element.style.display = "none";
-		var inp = document.querySelector("input#search");
+		let inp = document.querySelector("input#search");
 		if (inp) {
 			inp.value = query;
 			doSearch(query);
@@ -90,17 +90,16 @@ function displayList(entries, query) {
 //
 
 function prepareNavigationOrder(selector) {
-	var data = document.querySelectorAll(selector + " > tbody > tr");
+	let data = document.querySelectorAll(selector + " > tbody > tr");
 	if (data.length == 0) {
 		return;
 	}
-	var datalist = [];
-	var i;
-	var dtype = "";
-	var idIndex = 0;
-	for (i=0; i<data.length; i++) {
-		var text = data[i].cells[idIndex].textContent;
-		var matches;
+	let datalist = [];
+	let dtype = "";
+	let idIndex = 0;
+	for (let i=0; i<data.length; i++) {
+		let text = data[i].cells[idIndex].textContent;
+		let matches;
 		matches = text.match(/^[TR](\d+)/);
 		if (matches) {
 			dtype = "example";
@@ -127,11 +126,9 @@ function prepareNavigationOrder(selector) {
 //
 
 function makeMetaTableRows(list, dtype) {
-	var output = "";
-	var i;
-	var j;
+	let output = "";
 
-	for (var i=0; i<list.length; i++) {
+	for (let i=0; i<list.length; i++) {
 		if (!list[i]["Work Title"]) {
 			continue;
 		}
@@ -142,9 +139,6 @@ function makeMetaTableRows(list, dtype) {
 
 			if (list[i]["Example No."]) {
 				let number = list[i]["Example No."];
-				if (number < 100) {
-					number = "0" + number;
-				}
 				if (list[i]["Example Dataset"] === "R") {
 					output += "<b>R";
 		 			output += number;
@@ -155,9 +149,9 @@ function makeMetaTableRows(list, dtype) {
 			}
 
 		} else {	
-			var hasReserve = 0;
-			var elist = list[i]["@examples"];
-			for (j=0; j<elist.length; j++) {
+			let hasReserve = 0;
+			let elist = list[i]["@examples"];
+			for (let j=0; j<elist.length; j++) {
 				if (elist[j]["Work Dataset"] === "R") {
 					hasReserve = 1;
 					break;
@@ -236,30 +230,30 @@ function makeMetaTableRows(list, dtype) {
 function doSearch(text) {
 
 	if (!text) {
-		var element = document.querySelector("input#search");
+		let element = document.querySelector("input#search");
 		text = element.value;
 	}
 
-	var entries = EXAMPLELIST;
+	let entries = EXAMPLELIST;
 
-	var selement = document.querySelector("#table-scope");
+	let selement = document.querySelector("#table-scope");
 	if (selement && selement.value === "work") {
 		// only show works, not examples
 		entries = WORKLIST;
 	}
 
-	var celement = document.querySelector("#composer");
-	var composer = "";
+	let celement = document.querySelector("#composer");
+	let composer = "";
 	if (celement) {
 		composer = celement.value;
 	}
 	composer = composer.replace(/\s*,.*/, "");
 
-	var gelement = document.querySelector("#genre");
-	var genre = "";
-	var subgenre = ""
+	let gelement = document.querySelector("#genre");
+	let genre = "";
+	let subgenre = ""
 	if (gelement) {
-		var m = gelement.value.match(/(.*)\/(.*)/);
+		let m = gelement.value.match(/(.*)\/(.*)/);
 		if (m) {
 			genre = m[1];
 			subgenre = m[2];
@@ -278,16 +272,15 @@ function doSearch(text) {
 	text = text.replace(/%([A-F0-9][A-F0-9])/g, "&#x$1;");
 	text = text.replace(/\&#x([0-7][0-9A-F]);/g, "%$1");
 	text = unescape(text);
-	var fields = text.split(/\s+/);
-	var i;
+	let fields = text.split(/\s+/);
 
 	// filter by composer if needed
-	var oldentries;
+	let oldentries;
 	if (composer) {
 		oldentries = entries;
 		entries = [];
-		var testcomp;
-		for (i=0; i<oldentries.length; i++) {
+		let testcomp;
+		for (let i=0; i<oldentries.length; i++) {
 			testcomp = PreparePerson(oldentries[i]["Composer Name"]);
 			if (!testcomp) {
 				continue;
@@ -301,13 +294,12 @@ function doSearch(text) {
 	}
 
 	// filter by genre/subgenre if needed
-	var oldentries;
 	if (genre) {
 		oldentries = entries;
 		entries = [];
-		var greg = new RegExp(genre, "i");
-		var sgreg = new RegExp(subgenre, "i");
-		for (i=0; i<oldentries.length; i++) {
+		let greg = new RegExp(genre, "i");
+		let sgreg = new RegExp(subgenre, "i");
+		for (let i=0; i<oldentries.length; i++) {
 			if (oldentries[i]["Genre"] && oldentries[i]["Genre"].match(greg) &&
 			    oldentries[i]["Sub-Genre"] && oldentries[i]["Sub-Genre"].match(sgreg)) {
 				entries.push(oldentries[i]);
@@ -316,14 +308,14 @@ function doSearch(text) {
 		}
 	}
 
-	for (i=0; i<fields.length; i++) { 
+	for (let i=0; i<fields.length; i++) { 
 		if (fields[i].match(/^\s*$/)) {
 			continue;
 		}
 		oldentries = entries;
 		entries = [];
-		var regexp = new RegExp(fields[i], "i");
-		for (var j=0; j<oldentries.length; j++) {
+		let regexp = new RegExp(fields[i], "i");
+		for (let j=0; j<oldentries.length; j++) {
 			if (CGI.f) {
 				if (oldentries[j][CGI.f] && oldentries[j][CGI.f].match(regexp)) {
 					entries.push(oldentries[j]);
@@ -354,7 +346,7 @@ function doSearch(text) {
 //
 
 function filterByWorks(entries) {
-	var items = {};
+	let items = {};
 
 
 
@@ -367,7 +359,7 @@ function filterByWorks(entries) {
 //
 
 function reportMatches(list) {
-	var element = document.querySelector("#search-count");
+	let element = document.querySelector("#search-count");
 	if (!element) {
 		return;
 	}
@@ -377,7 +369,7 @@ function reportMatches(list) {
 		return;
 	}
 */
-	var output = "" + list.length;
+	let output = "" + list.length;
 	element.innerHTML = output;
 }
 
@@ -389,21 +381,20 @@ function reportMatches(list) {
 //
 
 function buildComposerSelect(list, selector) {
-	var composers = {};
-	var composer;
-	var i;
-	for (i=0; i<list.length; i++) {
+	let composers = {};
+	let composer;
+	for (let i=0; i<list.length; i++) {
 		composer = PreparePerson(list[i]["Composer Name"]);
 		composers[composer] = 1;
 	}
-	var clist = Object.keys(composers).sort();
-	var element = document.querySelector(selector);
+	let clist = Object.keys(composers).sort();
+	let element = document.querySelector(selector);
 	if (!element) {
 		return;
 	}
-	var output = "";
+	let output = "";
 	output += "<option value=''>all composers</a>\n";
-	for (i=0; i<clist.length; i++) {
+	for (let i=0; i<clist.length; i++) {
 		if (!clist) {
 			continue;
 		}
@@ -420,11 +411,10 @@ function buildComposerSelect(list, selector) {
 //
 
 function buildGenreSelect(list, selector) {
-	var genres = {};
-	var genre;
-	var subgenre;
-	var i;
-	for (i=0; i<list.length; i++) {
+	let genres = {};
+	let genre;
+	let subgenre;
+	for (let i=0; i<list.length; i++) {
 		genre = list[i]["Genre"];
 		if (!genre) {
 			continue;
@@ -437,14 +427,14 @@ function buildGenreSelect(list, selector) {
 		}
 		genres[genre] = 1;
 	}
-	var clist = Object.keys(genres).sort();
-	var element = document.querySelector(selector);
+	let clist = Object.keys(genres).sort();
+	let element = document.querySelector(selector);
 	if (!element) {
 		return;
 	}
-	var output = "";
+	let output = "";
 	output += "<option value=''>all genres</a>\n";
-	for (i=0; i<clist.length; i++) {
+	for (let i=0; i<clist.length; i++) {
 		if (!clist) {
 			continue;
 		}
