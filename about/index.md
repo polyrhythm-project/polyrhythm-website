@@ -45,8 +45,6 @@ For comments on the website, or if you would like to contribute to this project,
 
 **Rafael Laurindo**, research assistant
 
-**Kelsey Lussier**, research assistant
-
 **Ethan Tong**, research assistant
 
 **Gabriella Vici**, research assistant
@@ -59,35 +57,35 @@ For comments on the website, or if you would like to contribute to this project,
 ## Past Contributors ##
 
 
-Annelies Andries 
+**Annelies Andries**, research assistant
 
-Austin Culler
+**Austin Culler**, research assistant
 
-Natalie Dietterich 
+**Natalie Dietterich**, transcriber
 
-Meiying Ding
+**Meiying Ding**, research assistant
 
-Marina Gallagher
+**Marina Gallagher**, research assistant
 
-Aaron Graham
+**Aaron Graham**, research assistant
 
-Felicia Hartono 
+**Felicia Hartono**, research assistant
 
-Michael Kirchmayer
+**Melissa Liang**, research assistant
 
-Melissa Liang
+**Kelsey Lussier**, research assistant
 
-Amita Mahey
+**Amita Mahey**, research assistant
 
-Alexandre Negri
+**Alexandre Negri**, research assistant
 
-Sarah Pratt
+**Sarah Pratt**, research assistant
 
-Jasper Yoo
+**Jasper Yoo**, research assistant
 
-Anna Wright
+**Anna Wright**, research assistant
 
-Qianqian Wu
+**Qianqian Wu**, research assistant
 
 
 ## Project Funding ##
