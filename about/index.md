@@ -53,7 +53,6 @@ For comments on the website, or if you would like to contribute to this project,
 
 **Daniel Wright**, research assistant
 
-Test
 
 ## Past Contributors ##
 
