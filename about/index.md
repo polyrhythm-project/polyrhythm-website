@@ -41,51 +41,51 @@ For comments on the website, or if you would like to contribute to this project,
 
 **George Tzanetakis**, collaborator (University of Victoria)
 
-**Claudio de Freitas**, research assistant 
+**Claudio de Freitas**, DMA (composition), editor (music data)
 
-**Rafael Laurindo**, research assistant
+**Rafael Laurindo**, DMA (voice), editor (music data, website)
 
-**Ethan Tong**, research assistant
+**Ethan Tong**, BA (music education), research assistant (metadata (team leader))
 
-**Gabriella Vici**, research assistant
+**Gabriella Vici**, MA (music theory), editor	(music data)
 
-**Walker Williams**, research assistant
+**Walker Williams**, DMA (composition), editor (audio synthesis)
 
-**Daniel Wright**, research assistant
+**Daniel Wright**, MA (composition), editor (music data, audio synthesis)
 
 
 ## Past Contributors ##
 
 
-**Annelies Andries**, research assistant
+**Annelies Andries**, PhD (music history), research assistant (metadata), 2012–2015
 
-**Austin Culler**, research assistant
+**Austin Culler**, BA (music scholarship), research assistant (metadata), 2017–2018
 
-**Natalie Dietterich**, transcriber
+**Natalie Dietterich**, DMA (composition), transcriber (music data), 2012–2017
 
-**Meiying Ding**, research assistant
+**Meiying Ding**, BS (statistics, computer science), research assistant (data analysis), 2019–2019
 
-**Marina Gallagher**, research assistant
+**Marina Gallagher**, PhD (music history), research assistant (metadata), 2015–2017
 
-**Aaron Graham**, research assistant
+**Aaron Graham**, DMA (performance), editor (music data), 2020–2021
 
-**Felicia Hartono**, research assistant
+**Felicia Hartono**, BA (music), research assistant (metadata), 2016–2016
 
-**Melissa Liang**, research assistant
+**Melissa Liang**, BA (music), research assistant (metadata), 2018–2019
 
-**Kelsey Lussier**, research assistant
+**Kelsey Lussier**, MA (music theory), research assistant (music data, metadata (team leader)), 2019–2021
 
-**Amita Mahey**, research assistant
+**Amita Mahey**, BA, research assistant (metadata), 2017–2018
 
-**Alexandre Negri**, research assistant
+**Alexandre Negri**, PhD (music theory), research assistant (music data), 2019–2019
 
-**Sarah Pratt**, research assistant
+**Sarah Pratt**, Dual BA (political science, computer science, applied music technology minor), research assistant (geocoding), 2017–2018
 
-**Jasper Yoo**, research assistant
+**Anna Wright**, MA (music history), research assistant (metadata), 2019–2020
 
-**Anna Wright**, research assistant
+**Qianqian Wu**, BUCS (business, computer science), research assistant (data analysis), 2017–2018
 
-**Qianqian Wu**, research assistant
+**Jasper Yoo**, BS (life science, statistics, earth and environmental sciences), research assistant (metadata), 2017–2019
 
 
 ## Project Funding ##
