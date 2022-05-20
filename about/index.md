@@ -43,7 +43,7 @@ For comments on the website, or if you would like to contribute to this project,
 
 **Claudio de Freitas**, DMA (composition), editor (music data)
 
-**Rafael Laurindo**, DMA (voice), editor (music data, website)
+**Rafael Laurindo**, DMA (voice), editor (music data)
 
 **Ethan Tong**, BA (music education), research assistant (metadata (team leader))
 
