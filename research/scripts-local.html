@@ -1,0 +1,215 @@
+
+{% include_relative listeners.html %}
+{% include scripts/scripts-common.html %}
+
+<script>
+// vim: ts=3
+
+
+//////////////////////////////
+//
+// displayComposerList --
+//
+
+function displayComposerList() {
+	var element = document.querySelector("div#list");
+	if (!element) {
+		return;
+	}
+
+	var composerinfo = CreateComposerList(WORKLIST);
+	console.log("COMPOSER LIST", composerinfo);
+
+	var output = "";
+
+	output += "<table id='composer-list'>";
+	
+	output += "<thead>";
+	output += "<tr>";
+	output += "<th title='Sort by composer' onclick='SortByText(0, \"#composer-list\")'>Composer</th>";
+	output += "<th title='Sort by work count' onclick='SortByNumber(1, \"#composer-list\", true)'>Works</th>";
+	output += "<th title='Sort by example count' onclick='SortByNumber(2, \"#composer-list\", true)'>Examples</th>";
+	output += "<th title='Sort by example count' onclick='SortByNumber(3, \"#composer-list\", false)'>Born</th>";
+	output += "<th title='Sort by example count' onclick='SortByNumber(4, \"#composer-list\", false)'>Died</th>";
+	output += "<th title='Sort by nationality' onclick='SortByText(5, \"#composer-list\")'>Nationality</th>";
+	output += "</tr>";
+	output += "</thead>";
+
+	output += "<tbody>";
+	for (var i=0; i<composerinfo.length; i++) {
+		output += makeComposerRow(composerinfo[i]);
+	}
+	output += "</tbody>";
+	output += "</table>";
+
+	element.innerHTML = output;
+}
+
+
+
+//////////////////////////////
+//
+// makeComposerRow --
+// 
+// Rows:
+//  1: composer's name
+//  2: number of works by composer
+//  3: number of examples by composer
+//  4: birth year
+//  5: death year
+//
+
+function makeComposerRow(centry) {
+	var output = "";
+	output += "<tr>";
+
+	output += "<td>";
+	if (centry["Composer Name"]) {
+	 	output += PreparePerson(centry["Composer Name"]);
+	}
+	output += "</td>";
+
+	// Work count:
+	var workcount = getWorkCount(centry);
+	output += "<td>";
+	if (workcount > 0) {
+		output += workcount;
+	}
+	output += "</td>";
+
+	// Example count:
+	var examplecount = getExampleCount(centry);
+	output += "<td>";
+	if (examplecount > 0) {
+		output += examplecount;
+	}
+	output += "</td>";
+
+	// Birth year:
+	var born = getBirthYear(centry);
+	output += "<td>";
+	if (born > 0) {
+		output += born;
+	}
+	output += "</td>";
+
+	// Death year:
+	var died = getDeathYear(centry);
+	output += "<td>";
+	if (died > 0) {
+		output += died;
+	}
+	output += "</td>";
+
+	// Nationality:
+	var nationality = getNationality(centry);
+	output += "<td>";
+	if (nationality) {
+		output += nationality;
+	}
+	output += "</td>";
+
+
+	output += "</tr>";
+	return output;
+}
+
+
+
+//////////////////////////////
+//
+// getWorkCount --
+//
+
+function getWorkCount(centry) {
+	if (centry["@works"]) {
+		return centry["@works"].length;
+	} else {
+		return 0;
+	}
+}
+
+
+
+//////////////////////////////
+//
+// getExampleCount --
+//
+
+function getExampleCount(centry) {
+	var works = centry["@works"];
+	if (!works) {
+		return 0;
+	}
+	var sum = 0;
+	for (var i=0; i<works.length; i++) {
+		var examples = works[i]["@examples"];
+		if (examples) {
+			sum += examples.length;
+		}
+	}
+	return sum;
+}
+
+
+
+////////////////////
+//
+// getBirthYear --
+//
+
+function getBirthYear(centry) {
+	var year = centry["Birth Date"];
+	if (!year) {
+		return "";
+	}
+	var matches = year.match(/(\d{4})/);
+	if (matches) {
+		return matches[1];
+	} else {
+		return "";
+	}
+}
+
+
+
+////////////////////
+//
+// getDeathYear --
+//
+
+function getDeathYear(centry) {
+	var year = centry["Death Date"];
+	if (!year) {
+		return "";
+	}
+	var matches = year.match(/(\d{4})/);
+	if (matches) {
+		return matches[1];
+	} else {
+		return "";
+	}
+}
+
+
+
+////////////////////
+//
+// getNationality --
+//
+
+function getNationality(centry) {
+	var nationality = centry["Nationality"];
+	if (!nationality) {
+		return "";
+	} else {
+		return nationality;
+	}
+}
+
+
+</script>
+
+
+
+
