@@ -2,7 +2,7 @@
 title: Polyrhythm Conferences
 author: 
 keywords: List of conferences
-permalink: /research/index.html
+permalink: /conferences/index.html
 vim: ts=3
 template: default
 summary: 
