@@ -1,8 +1,8 @@
 ---
-title: Polyrhythm Research
-author: Craig Stuart Sapp
+title: Polyrhythm Publications
+author: 
 keywords: List of research
-permalink: /research/index.html
+permalink: /publications/index.html
 vim: ts=3
 template: default
 summary: 
@@ -12,5 +12,5 @@ summary:
 {% include_relative scripts-local.html %}
 
 
-Here is where you put information about Research.
+Here is where you put information about Publications.
 
