@@ -66,8 +66,15 @@ div#stats {
 }
 
 h1 {
+	font-size: 40px;
 	font-weight: 500;
 	color: #8c1515;
+}
+
+h2 {
+	margin-top: 20px;
+	font-size: 30px;
+
 }
 
 td {
@@ -155,8 +162,6 @@ a.searchworks:hover, a.purl:hover {
 .vhv-button.highlight-button.group3 {
 
 }
-
-
 
 
 

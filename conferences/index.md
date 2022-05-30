@@ -11,6 +11,7 @@ summary:
 {% include_relative styles-local.html %}
 {% include_relative scripts-local.html %}
 
+# Conferences #
 
 Here is where you put information about Conferences.
 
