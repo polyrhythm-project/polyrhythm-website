@@ -1,8 +1,8 @@
 ---
-title: Polyrhythm Conferences
+title: Polyrhythm Research Documents 
 author: 
-keywords: List of conferences
-permalink: /conferences/index.html
+keywords: List of Research Documents 
+permalink: /research/index.html
 vim: ts=3
 template: default
 summary: 
@@ -11,7 +11,7 @@ summary:
 {% include_relative styles-local.html %}
 {% include_relative scripts-local.html %}
 
-# Conferences #
+# Research Documents #
 
 Here is where you put information about Conferences.
 
