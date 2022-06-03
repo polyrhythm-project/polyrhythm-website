@@ -1,5 +1,5 @@
 ---
-title: Editorial 
+title: Editorial policies 
 author: 
 keywords: List of research
 permalink: /editorial/index.html
@@ -11,7 +11,7 @@ summary:
 {% include_relative styles-local.html %}
 {% include_relative scripts-local.html %}
 
-# Publications #
+# Editorial policies #
 
 Here is where you put information about Editorial.
 

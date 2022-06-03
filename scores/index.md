@@ -11,7 +11,7 @@ summary:
 {% include_relative styles-local.html %}
 {% include_relative scripts-local.html %}
 
-# Publications #
+# Scores #
 
 Here is where you put information about Scores.
 
