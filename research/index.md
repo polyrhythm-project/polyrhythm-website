@@ -13,5 +13,5 @@ summary:
 
 # Research Documents #
 
-Here is where you put information about Conferences.
+Here is where you put information about Research Documents.
 
