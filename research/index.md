@@ -1,7 +1,7 @@
 ---
-title: Polyrhythm Research Documents 
+title: Presentations 
 author: 
-keywords: List of Research Documents 
+keywords: List of Presentations 
 permalink: /research/index.html
 vim: ts=3
 template: default
@@ -11,7 +11,7 @@ summary:
 {% include_relative styles-local.html %}
 {% include_relative scripts-local.html %}
 
-# Research Documents #
+# Presentations #
 
-Here is where you put information about Research Documents.
+Here is where you put information about Presentations.
 
