@@ -2,7 +2,7 @@
 title: Presentations 
 author: 
 keywords: List of Presentations 
-permalink: /research/index.html
+permalink: /presentations/index.html
 vim: ts=3
 template: default
 summary: 
