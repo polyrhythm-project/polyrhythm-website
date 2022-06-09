@@ -86,6 +86,8 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
      - Polymetric examples—for which the beat rate is, for instance, “56;56”—mean that both meters are proceeding at the same beat rate. Therefore, the Full Unit Start Mean Beat Rate is simply “56” (refer to T585).
      - If no opening beat rates are notated, writing “none” will suffice.
 
+[^1]: If the theme and variations is a movement in a multi-movement work, then we will treat the entirety as SWFU; if it is a single movement work, then we will treat the relevant _theme_ or _variation_ as the SWFU.
+
 </details>
 
 
@@ -151,6 +153,3 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
    - Non-formulaic comments can be written as well, noting issues with editions, exceptions to protocol, or other information that may be useful for researchers, validators, or proofreaders in the future.
 
 </details>
-
-
-[^1]: If the theme and variations is a movement in a multi-movement work, then we will treat the entirety as SWFU; if it is a single movement work, then we will treat the relevant _theme_ or _variation_ as the SWFU.
