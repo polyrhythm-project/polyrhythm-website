@@ -57,7 +57,7 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
 1. If no scores are listed, refer to the [Guide and Resources for Sourcing Additional Scores](https://drive.google.com/file/d/1adxhtt7fi_PmdaoCfj8Rs_egZDO6-YNY/view?usp=sharing) in order to find a new score. Once a new score is found, record the publication information of the new score in the FDS Source Scores Master spreadsheet (refer to step 7 of the [Scanning TDS E1/E2/E3 Protocol](https://drive.google.com/file/d/1iAn3BtUFatYhZOzv1vM9-FkRrM5JmrL2/view?usp=sharing)).
 
 
-<details>
+<details markdown="1">
 <summary>Full Unit Start Metadata (columns affected are AK, AL, AO, AP, AQ, and AR)</summary>
 
    
@@ -89,13 +89,12 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
 </details>
 
 
-<details>
+<details markdown="1">
 <summary>Example-Specific Metadata (columns affected are AK, AL, AO, AP, AQ, and AR)</summary>
 
 
 1. For columns BA, BB, and BF (Example Start Tsig, Example Start Tsig Beat, and Example Start Tsig Type):
-<ul>
-   <li>Validate the meter of the _first measure_ of the example. You may have to go back a few lines or even pages in order to find the meter. Refer to the protocol for columns AK and AL in order to fill out columns BA and BF, respectively.</li>
+   - Validate the meter of the _first measure_ of the example. You may have to go back a few lines or even pages in order to find the meter. Refer to the protocol for columns AK and AL in order to fill out columns BA and BF, respectively.
    <li>Column BB is simply the beat division of BA; in other words, write down the denominator of the meter (in most cases) in the BB column (i.e. for 4/4, write “quarter”; for 2/2, write “half”; for 6/8;2/4, write “dotted-quarter;quarter”). For 6/8, 9/8, amd other compound meters, writing the larger beat division is preferred (i.e. “dotted-quarter” rather than “eighth”).</li>
    <li>For unmetered examples, fill in the aforementioned columns with a “calculated” time signature, in which you decide what the meter of the _first measure_ of the example is. Place the “calculated” information in curly brackets (i.e. {4/4}, {quarter}, {quadruple}; refer to T617).</li>
 </ul>
@@ -114,7 +113,7 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
 </details>
 
 
-<details>
+<details markdown="1">
 <summary>Measure Number Metadata (columns affected are AI, AU, AV, and AW)</summary>
 
    
@@ -133,7 +132,7 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
 </details>
 
 
-<details>
+<details markdown="1">
 <summary>Editorial Comment Metadata</summary>
 
 
