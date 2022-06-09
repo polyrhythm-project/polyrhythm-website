@@ -45,3 +45,28 @@ Poudrier, È. “Modeling polyrhythm in twentieth-century Western music.” [Con
 Poudrier, È. & Shanahan, D. “Modeling rhythmic complexity in a corpus of polyrhythm examples from Europe and America, 1900-1950.” [15<sup>th</sup>  International Conference on Music Perception and Cognition and 10<sup>th</sup> Conference of the European Society for the Cognitive Sciences of Music](https://music-psychology-conference2018.uni-graz.at/en/about/#:~:text=The%20International%20Conference%20on%20Music%20Perception%20and%20Cognition,Society%20for%20the%20Cognitive%20Sciences%20of%20Music%20%28ESCOM%29.), Montreal (QC), Canada, 23-28 July 2018. 
 
 [Poster](https://drive.google.com/file/d/1tQvN77iFEwHX7wm2ghyoi_wwBaF6roH0/view?usp=sharing)
+
+## Invited Talks ##
+
+Poudrier, È. “Polyrhythm perception and action: A tool for community building.” General audience talk for “Wellness Wednesdays,” Brain Wellness Program, Djavad Mowafaghian Centre for Brain Health, University of British Columbia, Vancouver (BC), Canada, 2 June 2021.
+
+[Slides] (https://drive.google.com/file/d/19-mLwjCVCP0HeCA4A-9R3SHFgpKstlrV/view?usp=sharing)
+
+Poudrier, È., Lussier, K., Wright, D., de Freitas, C., & Laurindo, R. “Modeling polyrhythmic experience: An introduction to music research in the digital era.” [Pixellating Project Showcase Series](https://libcal.library.ubc.ca/calendar/vancouver/pixellating-20210514), Digital Scholarship Lab, Research Commons, Koerner Library, University of British Columbia, Vancouver (BC), Canada, 14 May 2021.
+
+[Slides](https://drive.google.com/file/d/1ibEbXf65EfEYjRFxR_OPULJiSvCwOxaa/view?usp=sharing)
+
+Poudrier, È. “Rhythm Computation & Cognition Lab: Polyrhythmic Experience.” “[UBC Music Initiative Workshop Series](https://www.ubcmusicinitiative.com/pastevents),” University of British Columbia, Vancouver (BC), Canada, 18 March 2021.
+
+[Slides](https://drive.google.com/file/d/1ZXXPwhUyN3XTEqqRLfAmBLWyAJa6eFte/view?usp=sharing)
+
+Poudrier, È. & Castonguay, R. “Music scholarship and digital technologies: Perspectives on collaborative corpus building and text analysis.” MusCan/CAML Plenary Session, [Congress 2019/Canadian University Music Society/Canadian Music Library Association](https://www.caml-acbm.org/en/conference/), University of British Columbia, Vancouver (BC), Canada, 6 June 2019.
+
+[Slides](https://drive.google.com/file/d/1Sve8IOjYsIq4HHAu2PCi2FKC5xosq4yA/view?usp=sharing)
+
+Sapp, C. “UBC Rhythm Research Cluster Workshop: Music as text: Search and analysis of digital 
+musical scores,” Irving K. Barber Learning Centre, University of British Columbia, Vancouver (BC), 
+Canada, 15 August 2018.
+
+[Slides](https://drive.google.com/file/d/110XHF65iLDLn1yqO6CUlQEk1BosQURX8/view?usp=sharing)
+
