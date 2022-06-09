@@ -94,9 +94,11 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
 
 
 1. For columns BA, BB, and BF (Example Start Tsig, Example Start Tsig Beat, and Example Start Tsig Type):
-   - Validate the meter of the _first measure_ of the example. You may have to go back a few lines or even pages in order to find the meter. Refer to the protocol for columns AK and AL in order to fill out columns BA and BF, respectively.
-   - Column BB is simply the beat division of BA; in other words, write down the denominator of the meter (in most cases) in the BB column (i.e. for 4/4, write “quarter”; for 2/2, write “half”; for 6/8;2/4, write “dotted-quarter;quarter”). For 6/8, 9/8, amd other compound meters, writing the larger beat division is preferred (i.e. “dotted-quarter” rather than “eighth”).
-   - For unmetered examples, fill in the aforementioned columns with a “calculated” time signature, in which you decide what the meter of the _first measure_ of the example is. Place the “calculated” information in curly brackets (i.e. {4/4}, {quarter}, {quadruple}; refer to T617).
+<ul>
+   <li>Validate the meter of the _first measure_ of the example. You may have to go back a few lines or even pages in order to find the meter. Refer to the protocol for columns AK and AL in order to fill out columns BA and BF, respectively.</li>
+   <li>Column BB is simply the beat division of BA; in other words, write down the denominator of the meter (in most cases) in the BB column (i.e. for 4/4, write “quarter”; for 2/2, write “half”; for 6/8;2/4, write “dotted-quarter;quarter”). For 6/8, 9/8, amd other compound meters, writing the larger beat division is preferred (i.e. “dotted-quarter” rather than “eighth”).</li>
+   <li>For unmetered examples, fill in the aforementioned columns with a “calculated” time signature, in which you decide what the meter of the _first measure_ of the example is. Place the “calculated” information in curly brackets (i.e. {4/4}, {quarter}, {quadruple}; refer to T617).</li>
+</ul>
 2. For columns BD and BE (Example Start Notated Beat and Example Start Notated Beat Rate):
    - Validate the notated beat and beat rate in the respective columns. Square, editorial brackets are used for beat and beat rates that are most recently notated prior to the relevant example measures. Curly brackets are used for calculated beat and beat rates that are determined by calculating how many beats per minute the example contains (number of certain note values x 60 / Example Duration in seconds). All brackets should be accompanied with correlative editorial comments in column D.
 3. For column BC (Example Start Tsig Mean Beat Rate):
