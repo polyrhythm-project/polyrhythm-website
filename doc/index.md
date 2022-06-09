@@ -61,5 +61,27 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
 - Refer to the first page of the SWFU for the following columns. For SWFU’s that do not have a clear-cut beginning (such as certain movements in operatic works or with attacca notations), defer to Dr. Poudrier for the preferred metadata.[^1]
 1. For columns AK and AL (Full Unit Start Time Signature and Full Unit Start Tsig Type):
    - Validate the opening time signature for the SWFU as written on the score. The Full Unit Start Tsig Type is determined by the time signature and its subdivisions, the latter of which is also dependent on the tempo of the piece (2/2=duple, 3/2=triple, 4/8=quadruple, 5/4=odd, 6/4=compound, 7/4=odd, 8/4=other, 9/8=compound, 12/8=compound, 3/4;9/8=polymetric, etc.).
+     -  For unmetered examples, “calculate” a time signature by counting the number of beats and grouping them according to your musical discretion and sense. Place the “calculated” time signature within curly brackets (refer to T518). Follow the same curly-bracket-convention with column AL (if the Full Unit Start Time Signature is “{4/4}”, then the Full Unit Start Tsig Type will be “{quadruple}”).
+     -  For unmeasured examples that start with cadenzas or significantly longer measures (refer to T620), add an editorial comment under column D stating the circumstance, and “calculate” the time signature of the following measure to provide a time signature more indicative of the SWFU’s metric quality.
+     -  As you write time signatures according to the way they are notated on the score, you may see that parenthetical brackets are occasionally used (i.e. “(3/8)”; refer to T500).
+     -  Check the meter for ALL instruments, in case the work may be polymetric. 4/4(12/8) vs. 3/4;9/8 vs. 2/8’3/8 (T613) vs. 10/4(4+2+4);3/4+3/4+4/4 (T585).
+     -  Double check common time (C) vs. cut time.
+2. For column AO (Full Unit Start Tempo Expression):
+   - Validate the opening tempo expression, which is typically notated above SWFU m. 1, as written on the score (i.e. “Allegro”, “Andante (Poco moderato)”, “Moderato, poco allegro”, “Sehr mäßig (very moderately), Tempo I”, etc.). Maintain the original language, and note any specific capitalizations or linguistic accents as you validate. For examples that are missing tempo expressions at the beginning of the SWFU, writing “none” will suffice.
+3. For columns AP, and AQ (Full Unit Start Notated Beat and Full Unit Start Notated Beat Rate):
+   - Validate the opening notated beat and beat rate. Most pieces will follow the following format: “beat=beat-rate” (i.e. quarter=120).
+     - For column AP, dotted beat rates (such as dotted-quarter, dotted-half, etc.) should be notated with a hyphen rather than a space: use “dotted-quarter” rather than “dotted quarter”.
+       - Polymetric (quarter;dotted-quarter).
+       - In the case of beat rates that are notated with ties (such as a half note tied to an eighth note), notate it as “half+eighth” (refer to T356).
+       - Be on the lookout for Full Unit Start Notated Beats that are not displayed through the standard notation, but are represented by text instead (refer to T613).
+     - For column AQ, validate the beat rate as it appears on the score (i.e. “100”. “36-44”, “72(66)”etc.). Avoid using spaces, even for beat rates with ranges.
+       - Some examples have two beat rates, with the latter in parentheses. Notate these examples without spaces as follows: “92(96)” (refer to T465).
+       - Polymetric examples (T585).
+     - If no opening beats or beat rates are notated, writing “none” in the respective boxes will suffice.
+4. For column AR (Full Unit Start Mean Beat Rate):
+   - Only validate once you have already validated column AQ; calculate the average beat rate of the opening notated beat rate. If the notated beat rate is “60”: 60/1 = 60; if the notated beat rate is “126-132”: (126+132)/2 = 129; if the notated beat rate is “63-58”: (63+58)/2 = 60.5, which will be rounded up to 61 (apply standard rules of rounding: if the relevant decimal place is 5 or above, round upwards; if the relevant decimal place is 4 or below, round downwards, etc.); if the notated beat rate is “72(66)”: (72+66)/2 = 69, etc.
+     - Polymetric examples—for which the beat rate is, for instance, “56;56”—mean that both meters are proceeding at the same beat rate. Therefore, the Full Unit Start Mean Beat Rate is simply “56” (refer to T585).
+     - If no opening beat rates are notated, writing “none” will suffice.
+
 
 [^1]: If the theme and variations is a movement in a multi-movement work, then we will treat the entirety as SWFU; if it is a single movement work, then we will treat the relevant _theme_ or _variation_ as the SWFU.
