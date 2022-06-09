@@ -85,6 +85,7 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
    - Only validate once you have already validated column AQ; calculate the average beat rate of the opening notated beat rate. If the notated beat rate is “60”: 60/1 = 60; if the notated beat rate is “126-132”: (126+132)/2 = 129; if the notated beat rate is “63-58”: (63+58)/2 = 60.5, which will be rounded up to 61 (apply standard rules of rounding: if the relevant decimal place is 5 or above, round upwards; if the relevant decimal place is 4 or below, round downwards, etc.); if the notated beat rate is “72(66)”: (72+66)/2 = 69, etc.
      - Polymetric examples—for which the beat rate is, for instance, “56;56”—mean that both meters are proceeding at the same beat rate. Therefore, the Full Unit Start Mean Beat Rate is simply “56” (refer to T585).
      - If no opening beat rates are notated, writing “none” will suffice.
+
 </details>
 
 
@@ -107,6 +108,7 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
    - Validate whether the measures in the example change time signatures. Columns BI (Changing Tsig) and BK (More than 5 Tsig Changes) only need to be answered with yes or no. For column BJ (Other Tsigs), document any and all time signature changes within the length of the example.
    - In column BJ, concurrent (poly)meters are connected by semicolons, subsequent meters are separated by commas.
    - In the case of unmetered examples curly brackets are used for all three columns to denote “calculated” meters.
+
 </details>
 
 
@@ -125,6 +127,7 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
    - If an example starts with a pick-up measure, use 0 as starting measure number, plus the decimal that corresponds to the portion of the measure that is unused.
 3. For column AW (Example Total Measures):
    - Example End Measure - Example Start Measure + 1 = Example Total Measures.
+
 </details>
 
 
@@ -146,6 +149,7 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
      - Editorial Note: Full Unit Start Time Signature {9/16} based on a calculation of the number of sixteenth beats in the first unmetered measure, which subsequently changes. Full Unit Start Tsig Type (none) is used as there are no regular groupings of beats.
      - Editorial Note: Full Unit Start Time Signature {2/4} based on a calculation of the number of quarter beats in the first unmetered measure, which establishes a regular grouping of beats for four measures. Full Unit Start Tsig Type {duple} is used as there are two groups of 8-thirty-second note subdivisions in the initial measures, despite later metric shifts that are not expressed through changing meters.
    - Non-formulaic comments can be written as well, noting issues with editions, exceptions to protocol, or other information that may be useful for researchers, validators, or proofreaders in the future.
+
 </details>
 
 
