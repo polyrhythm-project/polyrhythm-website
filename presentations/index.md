@@ -42,6 +42,6 @@ Poudrier, È. “Modeling polyrhythm in twentieth-century Western music.” [Con
 
 [Slides](https://drive.google.com/file/d/1M4ic5Uj1pz7ThW855VM-wDMXFx2OPAWu/view?usp=sharing)
 
-Poudrier, È. & Shanahan, D. “Modeling rhythmic complexity in a corpus of polyrhythm examples from Europe and America, 1900-1950.” [15<sup>th</sup>  International Conference on Music Perception and Cognition and 10th Conference of the European Society for the Cognitive Sciences of Music](https://music-psychology-conference2018.uni-graz.at/en/about/#:~:text=The%20International%20Conference%20on%20Music%20Perception%20and%20Cognition,Society%20for%20the%20Cognitive%20Sciences%20of%20Music%20%28ESCOM%29.), Montreal (QC), Canada, 23-28 July 2018. 
+Poudrier, È. & Shanahan, D. “Modeling rhythmic complexity in a corpus of polyrhythm examples from Europe and America, 1900-1950.” [15<sup>th</sup>  International Conference on Music Perception and Cognition and 10<sup>th</sup> Conference of the European Society for the Cognitive Sciences of Music](https://music-psychology-conference2018.uni-graz.at/en/about/#:~:text=The%20International%20Conference%20on%20Music%20Perception%20and%20Cognition,Society%20for%20the%20Cognitive%20Sciences%20of%20Music%20%28ESCOM%29.), Montreal (QC), Canada, 23-28 July 2018. 
 
 [Poster](https://drive.google.com/file/d/1tQvN77iFEwHX7wm2ghyoi_wwBaF6roH0/view?usp=sharing)
