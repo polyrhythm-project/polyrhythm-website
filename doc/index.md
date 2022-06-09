@@ -57,8 +57,8 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
 1. If no scores are listed, refer to the [Guide and Resources for Sourcing Additional Scores](https://drive.google.com/file/d/1adxhtt7fi_PmdaoCfj8Rs_egZDO6-YNY/view?usp=sharing) in order to find a new score. Once a new score is found, record the publication information of the new score in the FDS Source Scores Master spreadsheet (refer to step 7 of the [Scanning TDS E1/E2/E3 Protocol](https://drive.google.com/file/d/1iAn3BtUFatYhZOzv1vM9-FkRrM5JmrL2/view?usp=sharing)).
 
 
-<details markdown="1" style="display:inline-block !important">
-<summary style="display:inline-block !important">Full Unit Start Metadata (columns affected are AK, AL, AO, AP, AQ, and AR)</summary>
+<details markdown="1" style="display:list-item !important">
+<summary style="display:list-item !important">Full Unit Start Metadata (columns affected are AK, AL, AO, AP, AQ, and AR)</summary>
 
    
 - Refer to the first page of the SWFU for the following columns. For SWFU’s that do not have a clear-cut beginning (such as certain movements in operatic works or with attacca notations), defer to Dr. Poudrier for the preferred metadata.[^1]
@@ -89,8 +89,8 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
 </details>
 
 
-<details markdown="1" style="display:inline-block !important">
-<summary style="display:inline-block !important">Example-Specific Metadata (columns affected are AK, AL, AO, AP, AQ, and AR)</summary>
+<details markdown="1" style="display:list-item !important">
+<summary style="display:list-item !important">Example-Specific Metadata (columns affected are AK, AL, AO, AP, AQ, and AR)</summary>
 
 
 1. For columns BA, BB, and BF (Example Start Tsig, Example Start Tsig Beat, and Example Start Tsig Type):
@@ -112,8 +112,8 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
 </details>
 
 
-<details markdown="1" style="display:inline-block !important">
-<summary style="display:inline-block !important">Measure Number Metadata (columns affected are AI, AU, AV, and AW)</summary>
+<details markdown="1" style="display:list-item !important">
+<summary style="display:list-item !important">Measure Number Metadata (columns affected are AI, AU, AV, and AW)</summary>
 
    
 1. For column AI (Full Unit Total Measures):
@@ -131,8 +131,8 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
 </details>
 
 
-<details markdown="1" style="display:inline-block !important">
-<summary style="display:inline-block !important">Editorial Comment Metadata</summary>
+<details markdown="1" style="display:list-item !important">
+<summary style="display:list-item !important">Editorial Comment Metadata</summary>
 
 
 1. For column D (Editorial Comments):
