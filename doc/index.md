@@ -104,5 +104,37 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
    - In the case of unmetered examples curly brackets are used for all three columns to denote “calculated” meters.
 
 
+#### Measure Number Metadata ####
+- Columns affected are AI, AU, AV, and AW
+1. For column AI (Full Unit Total Measures):
+   - Validate the total number of measures. 
+   - In the case of bar lines, dotted bar lines do not count, unless notated measure numbers on the score count dotted bar lines as proper and full measures. 
+   - In cases of polymetric scores, the smaller measures are counted, unless notated measure numbers on the score count the larger polymetric bars as proper and full measures.
+2. For columns AU and AV (Example Start Measure and Example End Measure):
+   - Validate the first and last measure of the example in the context of the SWFU.
+   - In scores with notated measure numbers that are either incorrect (due to editorial mistakes) or encompassing measures from previous movements and not just the relevant SWFU, the measure numbers of the example (in the context of the SWFU) are written first, followed by the notated measure numbers in the score within parenthetical brackets. 
+     - For instance, if a SWFU, which contains 100 total measures, is from the second scene of an opera act, and the notated measure numbers on the score are continuous through the scenes, data of the Example Start Measure may look as follows: 15(204). While 204 is certainly a larger number than 100 (total measures in the SWFU), the parenthetical 204 only reflects the notated measure on the score, whereas the 15 reflects that the example begins on the 15th measure of the second scene.
+   - If an example starts with a pick-up measure, use 0 as starting measure number, plus the decimal that corresponds to the portion of the measure that is unused.
+3. For column AW (Example Total Measures):
+   - Example End Measure - Example Start Measure + 1 = Example Total Measures.
+
+
+#### Editorial Comment Metadata ####
+1. For column D (Editorial Comments):
+   - Square and curly brackets used in metadata cells should have corresponding comments in the editorial comment column.
+     - For instance, Example Start Notated Beat (BD), Example Start Notated Beat Rate (BE), and Example Start Tempo Expression (BL) use the following formula:
+       - Example Start Notated Beat and Example Start Notated Beat Rate [quarter=54] based on most recent notated beat rate (SWFU, m.  1). Example Start Tempo Expression [Langsam] based on most recent notated tempo expression (SWFU, m. 1).
+     - For Example Start Tempo Expressions that refer back to previous tempos:
+       - Example Start Tempo Expression [Même mouvement et très soutenu (Toujours en animant)] based on most recent notated tempo expressions (SWFU, m. 55 and m. 44).
+     - Calculated tempos use the following formula:
+       - No notated tempo. Example Start Notated Beat and Example Start Notated Beat Rate {quarter=60} calculated from [recording](https://ubc-nml3-naxosmusiclibrary-com.eu1.proxy.openathens.net/catalogue/item.asp?cid=DSL-90909).
+       - If the calculated beat and beat rate do not align with columns O and P in the [Audio Synthesis Spreadsheet](https://docs.google.com/spreadsheets/d/1nGsd7TlSWtmxrNv_2C1lTOWwLtfz1IH0O2pqhm7bj_A/edit?pli=1#gid=0), then the following formula can be added to the above formula:
+         - “; tempo for audio synthesis {quarter=58} was calculated using a Digital Audio Workstation (DAW).”
+   - Calculated time signatures in columns AK (Full Unit Start Time Signature) and AL (Full Unit Start Tsig Type) must have corresponding editorial comments as well. For instance:
+     - Editorial Note: Full Unit Start Time Signature {9/16} based on a calculation of the number of sixteenth beats in the first unmetered measure, which subsequently changes. Full Unit Start Tsig Type (none) is used as there are no regular groupings of beats.
+     - Editorial Note: Full Unit Start Time Signature {2/4} based on a calculation of the number of quarter beats in the first unmetered measure, which establishes a regular grouping of beats for four measures. Full Unit Start Tsig Type {duple} is used as there are two groups of 8-thirty-second note subdivisions in the initial measures, despite later metric shifts that are not expressed through changing meters.
+   - Non-formulaic comments can be written as well, noting issues with editions, exceptions to protocol, or other information that may be useful for researchers, validators, or proofreaders in the future.
+
+
 
 [^1]: If the theme and variations is a movement in a multi-movement work, then we will treat the entirety as SWFU; if it is a single movement work, then we will treat the relevant _theme_ or _variation_ as the SWFU.
