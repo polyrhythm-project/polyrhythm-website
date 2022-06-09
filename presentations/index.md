@@ -13,12 +13,14 @@ summary:
 
 # Presentations #
 
+
 ## Upcoming ##
 
-Poudrier, È. & Sapp, C. “Polyrhythm analysis using the composite tool.” (upcoming) [9<sup>th</sup> International Conference on Digital Libraries for Musicology](https://dlfm.web.ox.ac.uk/), Municipal Library, Prague, Czech Republic, 28 July 2022.
+Poudrier, È. & Sapp, C. “Polyrhythm analysis using the _composite_ tool.” (upcoming) [9<sup>th</sup> International Conference on Digital Libraries for Musicology](https://dlfm.web.ox.ac.uk/), Municipal Library, Prague, Czech Republic, 28 July 2022.
 
 ABSTRACT: We introduce a computational tool that allows comparison and classification of polyrhythms in notated music. By reducing different musical textures into unpitched rhythmic strands, the composite tool visualizes these rhythmic reductions as well as extracts features related to polyrhythmic design, such as event density, nestedness, and polarity. The visualizations and extracted data can then be used to compare polyrhythms within a specific repertoire or between music in contrasting styles. The composite tool is available for on-
 line or offline use and is incorporated into the Polyrhythm Project website for exploration of polyrhythmic examples from the Suter 1980 Corpus.
+
 
 ## Peer-reviewed Conference Presentations ##
 	
@@ -46,6 +48,7 @@ Poudrier, È. & Shanahan, D. “Modeling rhythmic complexity in a corpus of poly
 
 - [Poster](https://drive.google.com/file/d/1tQvN77iFEwHX7wm2ghyoi_wwBaF6roH0/view?usp=sharing)
 
+
 ## Invited Talks ##
 
 Poudrier, È. “Polyrhythm perception and action: A tool for community building.” General audience talk for “Wellness Wednesdays,” Brain Wellness Program, Djavad Mowafaghian Centre for Brain Health, University of British Columbia, Vancouver (BC), Canada, 2 June 2021.
@@ -70,12 +73,13 @@ Canada, 15 August 2018.
 
 - [Slides](https://drive.google.com/file/d/110XHF65iLDLn1yqO6CUlQEk1BosQURX8/view?usp=sharing)
 
+
 ## Other Presentations ##
 
 Poudrier, È. “On-going research: Modeling Polyrhythmic Experience.” School of Music, University of British Columbia, Vancouver (BC), 13 February 2019.
 
 - [Slides](https://drive.google.com/file/d/1_e9jOCE3F2ynfmHsDzoUqwdzZDjRPsQ1/view?usp=sharing)
 
-Poudrier, È., Culler, A., & Pratt, S.  “Polyrhythm in the works of twenty composers from Europe to America, 1900-1950: The Suter (1980) Corpus.” Music Colloquium Series, School of Music, University of British Columbia, Vancouver (BC), Canada, 24 November 2017.
+Poudrier, È., Culler, A., & Pratt, S.  “Polyrhythm in the works of twenty composers from Europe to America, 1900-1950: _The Suter (1980) Corpus_.” Music Colloquium Series, School of Music, University of British Columbia, Vancouver (BC), Canada, 24 November 2017.
 
 - [Slides](https://drive.google.com/file/d/1fg9STy0TBi0V-086XvSmTPEWk1nqmq0J/view?usp=sharing)
