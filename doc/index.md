@@ -57,8 +57,10 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
 1. If no scores are listed, refer to the [Guide and Resources for Sourcing Additional Scores](https://drive.google.com/file/d/1adxhtt7fi_PmdaoCfj8Rs_egZDO6-YNY/view?usp=sharing) in order to find a new score. Once a new score is found, record the publication information of the new score in the FDS Source Scores Master spreadsheet (refer to step 7 of the [Scanning TDS E1/E2/E3 Protocol](https://drive.google.com/file/d/1iAn3BtUFatYhZOzv1vM9-FkRrM5JmrL2/view?usp=sharing)).
 
 
-#### Full Unit Start Metadata ####
-- Columns affected are AK, AL, AO, AP, AQ, and AR):
+<details>
+<summary>Full Unit Start Metadata (columns affected are AK, AL, AO, AP, AQ, and AR)</summary>
+
+   
 - Refer to the first page of the SWFU for the following columns. For SWFU’s that do not have a clear-cut beginning (such as certain movements in operatic works or with attacca notations), defer to Dr. Poudrier for the preferred metadata.[^1]
 1. For columns AK and AL (Full Unit Start Time Signature and Full Unit Start Tsig Type):
    - Validate the opening time signature for the SWFU as written on the score. The Full Unit Start Tsig Type is determined by the time signature and its subdivisions, the latter of which is also dependent on the tempo of the piece (2/2=duple, 3/2=triple, 4/8=quadruple, 5/4=odd, 6/4=compound, 7/4=odd, 8/4=other, 9/8=compound, 12/8=compound, 3/4;9/8=polymetric, etc.).
@@ -83,10 +85,13 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
    - Only validate once you have already validated column AQ; calculate the average beat rate of the opening notated beat rate. If the notated beat rate is “60”: 60/1 = 60; if the notated beat rate is “126-132”: (126+132)/2 = 129; if the notated beat rate is “63-58”: (63+58)/2 = 60.5, which will be rounded up to 61 (apply standard rules of rounding: if the relevant decimal place is 5 or above, round upwards; if the relevant decimal place is 4 or below, round downwards, etc.); if the notated beat rate is “72(66)”: (72+66)/2 = 69, etc.
      - Polymetric examples—for which the beat rate is, for instance, “56;56”—mean that both meters are proceeding at the same beat rate. Therefore, the Full Unit Start Mean Beat Rate is simply “56” (refer to T585).
      - If no opening beat rates are notated, writing “none” will suffice.
+</details>
 
 
-#### Example-Specific Metadata ####
-- Columns affected are AK, AL, AO, AP, AQ, and AR.
+<details>
+<summary>Example-Specific Metadata (columns affected are AK, AL, AO, AP, AQ, and AR)</summary>
+
+
 1. For columns BA, BB, and BF (Example Start Tsig, Example Start Tsig Beat, and Example Start Tsig Type):
    - Validate the meter of the _first measure_ of the example. You may have to go back a few lines or even pages in order to find the meter. Refer to the protocol for columns AK and AL in order to fill out columns BA and BF, respectively.
    - Column BB is simply the beat division of BA; in other words, write down the denominator of the meter (in most cases) in the BB column (i.e. for 4/4, write “quarter”; for 2/2, write “half”; for 6/8;2/4, write “dotted-quarter;quarter”). For 6/8, 9/8, amd other compound meters, writing the larger beat division is preferred (i.e. “dotted-quarter” rather than “eighth”).
@@ -102,10 +107,13 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
    - Validate whether the measures in the example change time signatures. Columns BI (Changing Tsig) and BK (More than 5 Tsig Changes) only need to be answered with yes or no. For column BJ (Other Tsigs), document any and all time signature changes within the length of the example.
    - In column BJ, concurrent (poly)meters are connected by semicolons, subsequent meters are separated by commas.
    - In the case of unmetered examples curly brackets are used for all three columns to denote “calculated” meters.
+</details>
 
 
-#### Measure Number Metadata ####
-- Columns affected are AI, AU, AV, and AW
+<details>
+<summary>Measure Number Metadata (columns affected are AI, AU, AV, and AW)</summary>
+
+   
 1. For column AI (Full Unit Total Measures):
    - Validate the total number of measures. 
    - In the case of bar lines, dotted bar lines do not count, unless notated measure numbers on the score count dotted bar lines as proper and full measures. 
@@ -117,9 +125,13 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
    - If an example starts with a pick-up measure, use 0 as starting measure number, plus the decimal that corresponds to the portion of the measure that is unused.
 3. For column AW (Example Total Measures):
    - Example End Measure - Example Start Measure + 1 = Example Total Measures.
+</details>
 
 
-#### Editorial Comment Metadata ####
+<details>
+<summary>Editorial Comment Metadata</summary>
+
+
 1. For column D (Editorial Comments):
    - Square and curly brackets used in metadata cells should have corresponding comments in the editorial comment column.
      - For instance, Example Start Notated Beat (BD), Example Start Notated Beat Rate (BE), and Example Start Tempo Expression (BL) use the following formula:
@@ -134,7 +146,7 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
      - Editorial Note: Full Unit Start Time Signature {9/16} based on a calculation of the number of sixteenth beats in the first unmetered measure, which subsequently changes. Full Unit Start Tsig Type (none) is used as there are no regular groupings of beats.
      - Editorial Note: Full Unit Start Time Signature {2/4} based on a calculation of the number of quarter beats in the first unmetered measure, which establishes a regular grouping of beats for four measures. Full Unit Start Tsig Type {duple} is used as there are two groups of 8-thirty-second note subdivisions in the initial measures, despite later metric shifts that are not expressed through changing meters.
    - Non-formulaic comments can be written as well, noting issues with editions, exceptions to protocol, or other information that may be useful for researchers, validators, or proofreaders in the future.
-
+</details>
 
 
 [^1]: If the theme and variations is a movement in a multi-movement work, then we will treat the entirety as SWFU; if it is a single movement work, then we will treat the relevant _theme_ or _variation_ as the SWFU.
