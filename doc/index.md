@@ -60,6 +60,6 @@ Open the [TDS Metadata Validation Working Document](https://docs.google.com/spre
 - Columns affected are AK, AL, AO, AP, AQ, and AR):
 - Refer to the first page of the SWFU for the following columns. For SWFU’s that do not have a clear-cut beginning (such as certain movements in operatic works or with attacca notations), defer to Dr. Poudrier for the preferred metadata.[^1]
 1. For columns AK and AL (Full Unit Start Time Signature and Full Unit Start Tsig Type):
-   a. Validate the opening time signature for the SWFU as written on the score. The Full Unit Start Tsig Type is determined by the time signature and its subdivisions, the latter of which is also dependent on the tempo of the piece (2/2=duple, 3/2=triple, 4/8=quadruple, 5/4=odd, 6/4=compound, 7/4=odd, 8/4=other, 9/8=compound, 12/8=compound, 3/4;9/8=polymetric, etc.).
+   - Validate the opening time signature for the SWFU as written on the score. The Full Unit Start Tsig Type is determined by the time signature and its subdivisions, the latter of which is also dependent on the tempo of the piece (2/2=duple, 3/2=triple, 4/8=quadruple, 5/4=odd, 6/4=compound, 7/4=odd, 8/4=other, 9/8=compound, 12/8=compound, 3/4;9/8=polymetric, etc.).
 
 [^1]: If the theme and variations is a movement in a multi-movement work, then we will treat the entirety as SWFU; if it is a single movement work, then we will treat the relevant _theme_ or _variation_ as the SWFU.
