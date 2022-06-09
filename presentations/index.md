@@ -50,7 +50,7 @@ Poudrier, È. & Shanahan, D. “Modeling rhythmic complexity in a corpus of poly
 
 Poudrier, È. “Polyrhythm perception and action: A tool for community building.” General audience talk for “Wellness Wednesdays,” Brain Wellness Program, Djavad Mowafaghian Centre for Brain Health, University of British Columbia, Vancouver (BC), Canada, 2 June 2021.
 
-[Slides] (https://drive.google.com/file/d/19-mLwjCVCP0HeCA4A-9R3SHFgpKstlrV/view?usp=sharing)
+[Slides](https://drive.google.com/file/d/19-mLwjCVCP0HeCA4A-9R3SHFgpKstlrV/view?usp=sharing)
 
 Poudrier, È., Lussier, K., Wright, D., de Freitas, C., & Laurindo, R. “Modeling polyrhythmic experience: An introduction to music research in the digital era.” [Pixellating Project Showcase Series](https://libcal.library.ubc.ca/calendar/vancouver/pixellating-20210514), Digital Scholarship Lab, Research Commons, Koerner Library, University of British Columbia, Vancouver (BC), Canada, 14 May 2021.
 
@@ -70,3 +70,12 @@ Canada, 15 August 2018.
 
 [Slides](https://drive.google.com/file/d/110XHF65iLDLn1yqO6CUlQEk1BosQURX8/view?usp=sharing)
 
+## Other Presentations ##
+
+Poudrier, È. “On-going research: Modeling Polyrhythmic Experience.” School of Music, University of British Columbia, Vancouver (BC), 13 February 2019.
+
+[Slides](https://drive.google.com/file/d/1_e9jOCE3F2ynfmHsDzoUqwdzZDjRPsQ1/view?usp=sharing)
+
+Poudrier, È., Culler, A., & Pratt, S.  “Polyrhythm in the works of twenty composers from Europe to America, 1900-1950: The Suter (1980) Corpus.” Music Colloquium Series, School of Music, University of British Columbia, Vancouver (BC), Canada, 24 November 2017.
+
+[Slides](https://drive.google.com/file/d/1fg9STy0TBi0V-086XvSmTPEWk1nqmq0J/view?usp=sharing)
