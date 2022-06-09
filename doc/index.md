@@ -49,3 +49,17 @@ For each example that is to be validated, make sure you are able to locate and u
 The audio-related columns that can be validated are as follows: D (Editorial Comments),
 AH (Source Work Full Unit), AJ (Full Unit Duration), AT (Naxos Recording Link), AX
 (Example Start Time), AY (Example End Time), and AZ (Example Duration), which are all addressed in the [Audio Metadata Validation Protocol](https://drive.google.com/file/d/1dfp1h0XFpkJkB6H7MZppSwHPjq8GEPAQ/view?usp=sharing).
+
+
+### Specific Task Instructions ###
+
+Open the [TDS Metadata Validation Working Document](https://docs.google.com/spreadsheets/d/1s06QHpHWrL55cEraj3peph4WrV69yj-9tGYT40_XeT8/edit#gid=1738702283) and choose an example in column A to validate. Having decided on an example, locate an E1, E2, or E3 score by searching for the same example in the [FDS Source Scores Master Working Document](https://docs.google.com/spreadsheets/d/1_2uFSZHJ0AclYKc_DDzN25JWKTTC5uFQVyfwH7oHC7c/edit#gid=900860769).
+1. If no scores are listed, refer to the [Guide and Resources for Sourcing Additional Scores](https://drive.google.com/file/d/1adxhtt7fi_PmdaoCfj8Rs_egZDO6-YNY/view?usp=sharing) in order to find a new score. Once a new score is found, record the publication information of the new score in the FDS Source Scores Master spreadsheet (refer to step 7 of the [Scanning TDS E1/E2/E3 Protocol](https://drive.google.com/file/d/1iAn3BtUFatYhZOzv1vM9-FkRrM5JmrL2/view?usp=sharing)).
+
+#### Full Unit Start Metadata ####
+- Columns affected are AK, AL, AO, AP, AQ, and AR):
+- Refer to the first page of the SWFU for the following columns. For SWFU’s that do not have a clear-cut beginning (such as certain movements in operatic works or with attacca notations), defer to Dr. Poudrier for the preferred metadata.[^1]
+1. For columns AK and AL (Full Unit Start Time Signature and Full Unit Start Tsig Type):
+   a. Validate the opening time signature for the SWFU as written on the score. The Full Unit Start Tsig Type is determined by the time signature and its subdivisions, the latter of which is also dependent on the tempo of the piece (2/2=duple, 3/2=triple, 4/8=quadruple, 5/4=odd, 6/4=compound, 7/4=odd, 8/4=other, 9/8=compound, 12/8=compound, 3/4;9/8=polymetric, etc.).
+
+[^1]: If the theme and variations is a movement in a multi-movement work, then we will treat the entirety as SWFU; if it is a single movement work, then we will treat the relevant _theme_ or _variation_ as the SWFU.
