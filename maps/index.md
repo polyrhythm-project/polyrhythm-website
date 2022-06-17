@@ -23,6 +23,10 @@ The Suter (1980) Corpus is represented by three interactive maps:
 
 3. <a target="_blank" href="https://epoudrier.carto.com/builder/b5f7b654-fd92-443b-b6aa-26804492b148/embed">Timeline</a> &mdash; An animated timeline of the location of the first performance of the works
 
+
+## How to use the maps ##
+
+
 There are many ways to interact with the maps. You can zoom in and
 out to regions of interest or use the search box on the lower
 left-hand side to instantly zoom to a location. You can then click
