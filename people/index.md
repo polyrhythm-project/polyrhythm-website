@@ -69,7 +69,7 @@ summary:
 ## Past Contributors ##
 
 
-![Past Contributors](/people/past-contributors.JPG)
+![Past Contributors](/people/past-contributors.jpg)
 
 **Nori Jacoby**, collaborator (Max Planck Institute for Empirical Aesthetics, Frankfurt)
 
