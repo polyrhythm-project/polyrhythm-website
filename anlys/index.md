@@ -11,7 +11,7 @@ summary:
 {% include_relative styles-local.html %}
 {% include_relative scripts-local.html %}
 
-# Scores #
+# Analysis #
 
 Here is where you put information about Analysis.
 
