@@ -60,12 +60,9 @@ Different types of example-specific data are listed below, with the labels provi
 
 </details>
 
+### Reference Documents ###
 
-<details markdown="1">
-<summary style="display:list-item !important">Reference Documents</summary>
 
 Guide to Read Suter Example IDs (linked to document)
-   
-</details>
 
 
