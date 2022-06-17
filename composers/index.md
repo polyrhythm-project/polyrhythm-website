@@ -8,6 +8,8 @@ template: default
 summary: 
 ---
 
+# Composers #
+
 Here is a list of composers represented in the dataset.  Click on a table heading to 
 sort the list by that column.
 
