@@ -22,10 +22,6 @@ summary:
 
 **Craig Sapp**, consultant (CCARH at Stanford University)
 
-**Nori Jacoby**, collaborator (Max Planck Institute for Empirical Aesthetics, Frankfurt)
-
-**George Tzanetakis**, collaborator (University of Victoria)
-
 **Claudio de Freitas**, DMA (composition), transcriber/editor (music data)
 
 **Rafael Laurindo**, DMA (voice), transcriber/editor (music data, website, lyrics)
@@ -43,6 +39,10 @@ summary:
 
 ## Past Contributors ##
 
+
+**Nori Jacoby**, collaborator (Max Planck Institute for Empirical Aesthetics, Frankfurt)
+
+**George Tzanetakis**, collaborator (University of Victoria)
 
 **Annelies Andries**, PhD (music history), research assistant (metadata), 2012–2015
 
