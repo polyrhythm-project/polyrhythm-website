@@ -12,6 +12,9 @@ summary:
 {% include_relative scripts-local.html %}
 
 
+# Maps #
+
+
 The Suter (1980) Corpus is represented by three interactive maps:
 
 1. <a target="_blank" href="https://epoudrier.carto.com/builder/74c170e5-eaf8-4b2c-8569-155af79d8f58/embed">Composers</a> &mdash; The locations of birth and death for the twenty composers surveyed in this study 
