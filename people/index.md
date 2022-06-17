@@ -13,32 +13,63 @@ summary:
 
 # People #
 
-## Research Team ##
+## Current Members ##
 
 
 **Ève Poudrier**, principal investigator (University of British Columbia)
 
+![Ève Poudrier](/people/person-placeholder.jpg)
+
+
 **Daniel Shanahan**, co-investigator (Ohio State University)
+
+![Daniel Shanahan](/people/person-placeholder.jpg)
+
 
 **Craig Sapp**, consultant (CCARH at Stanford University)
 
+![Craig Sapp](/people/person-placeholder.jpg)
+
+
 **Claudio de Freitas**, DMA (composition), transcriber/editor (music data)
+
+![Claudio de Freitas](/people/person-placeholder.jpg)
+
 
 **Rafael Laurindo**, DMA (voice), transcriber/editor (music data, website, lyrics)
 
+![Rafael Laurindo](/people/person-placeholder.jpg)
+
+
 **Jason Lee**, MA (music theory), editor (music data)
+
+![Jason Lee](/people/person-placeholder.jpg)
+
 
 **Ethan Tong**, BA (music education), research assistant (metadata team leader)
 
+![Ethan Tong](/people/person-placeholder.jpg)
+
+
 **Gabriella Vici**, MA (music theory), editor	(music data)
+
+![Gabriella Vici](/people/person-placeholder.jpg)
+
 
 **Walker Williams**, DMA (composition), arranger/editor (audio synthesis)
 
+![Walker Williams](/people/person-placeholder.jpg)
+
+
 **Daniel Wright**, MA (composition), arranger/editor (music data, audio synthesis)
+
+![Daniel Wright](/people/person-placeholder.jpg)
 
 
 ## Past Contributors ##
 
+
+![Past Contributors](/people/past-contributors.JPG)
 
 **Nori Jacoby**, collaborator (Max Planck Institute for Empirical Aesthetics, Frankfurt)
 
