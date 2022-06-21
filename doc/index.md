@@ -22,7 +22,7 @@ Here is text about project metadata, including editorial comments.
 
 ### Composers ###
 
-Coming soon!
+Coming very soon!
 
 
 ### Works ###
