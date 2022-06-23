@@ -8,203 +8,247 @@
 
 //////////////////////////////
 //
-// displayComposerList --
+// createWorkList -- Convert the individual examples in to an array of
+//     objects by work id.
 //
 
-function displayComposerList() {
-	var element = document.querySelector("div#list");
-	if (!element) {
-		return;
+function createWorkList(exampleList) {
+// console.error("EXAMPLE LIST", exampleList);
+	let works = {};
+	for (let i=0; i<exampleList.length; i++) {
+		let workid = exampleList[i]["Work ID"];
+		if (!workid) {
+			console.warn("NO WORKID FOR", exampleList[i]);
+			continue;
+		}
+		if (!workid.match(/^[A-Z][a-z][a-z]-\d+x?$/)) {
+			console.error("WORKID", workid, "IS INVALID FOR", exampleList[i]);
+			continue;
+		}
+		if (typeof works[workid] === "undefined") {
+			works[workid] = [ exampleList[i] ];
+		} else {
+			works[workid].push(exampleList[i]);
+		}
 	}
 
-	var composerinfo = CreateComposerList(WORKLIST);
-	console.log("COMPOSER LIST", composerinfo);
+	let keys = Object.getOwnPropertyNames(works);
+	keys.sort(function (a, b) {
+		let matchesA = a.match(/^(.*)-(.*)(x?)/);
+		let matchesB = b.match(/^(.*)-(.*)(x?)/);
+		let nameA = matchesA[1];
+		let nameB = matchesB[1];
+		let numA  = parseInt(matchesA[2]);
+		let numB  = parseInt(matchesB[2]);
+		let extA  = matchesA[3] || "";
+		let extB  = matchesB[3] || "";
 
-	var output = "";
+		if (nameA !== nameB) {
+			return nameA.localeCompare(nameB);
+		}
+		if (numA != numB) {
+			return numA - numB;
+		}
 
-	output += "<table id='composer-list'>";
-	
-	output += "<thead>";
-	output += "<tr>";
-	output += "<th title='Sort by composer' onclick='SortByText(0, \"#composer-list\")'>Composer</th>";
-	output += "<th title='Sort by work count' onclick='SortByNumber(1, \"#composer-list\", true)'>Works</th>";
-	output += "<th title='Sort by example count' onclick='SortByNumber(2, \"#composer-list\", true)'>Examples</th>";
-	output += "<th title='Sort by example count' onclick='SortByNumber(3, \"#composer-list\", false)'>Born</th>";
-	output += "<th title='Sort by example count' onclick='SortByNumber(4, \"#composer-list\", false)'>Died</th>";
-	output += "<th title='Sort by nationality' onclick='SortByText(5, \"#composer-list\")'>Nationality</th>";
-	output += "</tr>";
-	output += "</thead>";
+		// Deal with such as Mai-6x:
+		if (extA == "") {
+			return -1;
+		} else {
+			return 1;
+		}
+	});
 
-	output += "<tbody>";
-	for (var i=0; i<composerinfo.length; i++) {
-		output += makeComposerRow(composerinfo[i]);
+	let output = [];
+	for (let i=0; i<keys.length; i++) {
+		output[i] = works[keys[i]];
 	}
-	output += "</tbody>";
-	output += "</table>";
 
-	element.innerHTML = output;
-}
-
-
-
-//////////////////////////////
-//
-// makeComposerRow --
-// 
-// Rows:
-//  1: composer's name
-//  2: number of works by composer
-//  3: number of examples by composer
-//  4: birth year
-//  5: death year
-//
-
-function makeComposerRow(centry) {
-	var output = "";
-	output += "<tr>";
-
-	output += "<td>";
-	if (centry["Composer Name"]) {
-	 	output += PreparePerson(centry["Composer Name"]);
-	}
-	output += "</td>";
-
-	// Work count:
-	var workcount = getWorkCount(centry);
-	output += "<td>";
-	if (workcount > 0) {
-		output += workcount;
-	}
-	output += "</td>";
-
-	// Example count:
-	var examplecount = getExampleCount(centry);
-	output += "<td>";
-	if (examplecount > 0) {
-		output += examplecount;
-	}
-	output += "</td>";
-
-	// Birth year:
-	var born = getBirthYear(centry);
-	output += "<td>";
-	if (born > 0) {
-		output += born;
-	}
-	output += "</td>";
-
-	// Death year:
-	var died = getDeathYear(centry);
-	output += "<td>";
-	if (died > 0) {
-		output += died;
-	}
-	output += "</td>";
-
-	// Nationality:
-	var nationality = getNationality(centry);
-	output += "<td>";
-	if (nationality) {
-		output += nationality;
-	}
-	output += "</td>";
-
-
-	output += "</tr>";
 	return output;
 }
 
 
-
 //////////////////////////////
 //
-// getWorkCount --
+// displayScoreList --
 //
 
-function getWorkCount(centry) {
-	if (centry["@works"]) {
-		return centry["@works"].length;
-	} else {
-		return 0;
+let WORKLIST;
+
+function displayScoreList(workList) {
+
+	if (!WORKLIST) {
+		WORKLIST = workList;
 	}
+	if (!workList) {
+		workList = WORKLIST;
+	}
+
+	console.warn("THE SCORE LIST INPUT IS", workList);
+
+	let container = document.querySelector("#score-list");
+	if (!container) {
+		console.error("Error: cannot find score list container");
+		return;
+	}
+
+	let output = "";
+	output += "<table id='work-list'>";
+
+	for (let i=0; i<workList.length; i++) {
+		output += generateWorkEntry(workList[i]);
+	}
+
+	output += "</table>";
+	container.innerHTML = output;
+
 }
 
 
 
 //////////////////////////////
 //
-// getExampleCount --
+// printScoreEntry -- print one entry in the score list.
+//
+// Example entry:
+// 
+// Composer Name: "Martinů, Bohuslav (Jan)"
+// Composition Year: "1940"
+// Composition Year(s): "1940"
+// E0 Edition/Catalogue Number: "Not listed"
+// E0 Publisher: "Associated Music Publishers"
+// E1 Edition/Catalogue number: "Not listed"
+// E1 Publication Year: "1951"
+// E1 Publisher: "Associated Music Publishers"
+// Example ID: "Mau-63/5/30-33"
+// Filename: "T500_Mau-w63p5m30-33"
+// Publisher (Abbreviation): "AMP"
+// Reason for use: "Metadata Validation"
+// Source Location (UBC Library call number; URL; print source purchased from publishing company; nkoda; hathi trust catalogue number): "IMSLP: https://imslp.org/wiki/Fantaisie_et_Toccata%2C_H.281_(Martin%C5%AF%2C_Bohuslav)"
+// Work ID: "Mau-63"
+// Work Name: "Fantaisie et Toccata pour piano"
+// Work Title: "Fantazie a toccata (Fantasy and Toccata) for Piano"
 //
 
-function getExampleCount(centry) {
-	var works = centry["@works"];
-	if (!works) {
-		return 0;
+function generateWorkEntry(entry) {
+console.log("ENTRY", entry);
+	let first = entry[0];
+	if (!first) {
+		console.warn("ERROR: Problem with entry", entry);
+		return;
 	}
-	var sum = 0;
-	for (var i=0; i<works.length; i++) {
-		var examples = works[i]["@examples"];
-		if (examples) {
-			sum += examples.length;
+
+	let workid   = first["Work ID"] || "";
+	let composer = first["Composer Name"] || "";
+	let title    = first["Work Title"] || "";
+	let year     = first["Composition Year"] || "";
+	if (year.match(/\(/)) {
+		year = year.replace(/ \(/g, "; ").replace(/\)/g, " ");
+	}
+	let e = [];
+	for (let i=0; i<entry.length; i++) {
+		let id = entry[i]["Example ID"];
+		id = id.replace(/^[A-Z][a-z][a-z]-\d+\//, "");
+		let filename = entry[i]["Filename"];
+		let exid = "";
+		let matches = filename.match(/^[RT]?(\d+[AB]?x?)_/);
+		if (matches) {
+			exid = matches[1];
+		}
+		matches = exid.match(/(\d+)/);
+		let num = 0;
+		if (matches) {
+			num = matches[1];
+		}
+		
+		if (!num) {
+			console.warn("Missing example number in entry", entry[i]);
+			continue;
+		}
+		if (!exid) {
+			console.warn("Missing example ID", entry[i]);
+			continue;
+		}
+		e[i] = { id: id, exid: exid, num: num };
+	}
+
+	let elist = "";
+	for (let i=0; i<e.length; i++) {
+		elist += `<a href="/example/?id=${e[i].num}">${e[i].id}</a>`;
+		if (i < e.length - 1) {
+			elist += ", ";
 		}
 	}
-	return sum;
-}
 
-
-
-////////////////////
-//
-// getBirthYear --
-//
-
-function getBirthYear(centry) {
-	var year = centry["Birth Date"];
-	if (!year) {
-		return "";
+	let e0name = first["Work Name"] || "";
+	let e0pub = first["E0 Publisher"] || "";
+	let e0cat = first["E0 Edition/Catalogue Number"] || "";
+	if (e0cat.match(/not listed/i)) {
+		e0cat = "";
 	}
-	var matches = year.match(/(\d{4})/);
-	if (matches) {
-		return matches[1];
+	e0cat = e0cat.replace("(PP)", "");
+
+	let e1pub  = first["E1 Publisher"] || "";
+	let e1cat  = first["E1 Edition/Catalogue number"] || ""
+	let e1year = first["E1 Edition Year"] || "";
+	if (e1year.match(/\(/)) {
+		if (!e1year.match(/; /)) {
+			e1year = e1year.replace(/\(/g, "; ").replace(/\)/, " ");
+		}
+	}
+	if (e1year) {
+		e1year = `(${e1year})`;
+	}
+	let e1url  = first["Source Location (UBC Library call number; URL; print source purchased from publishing company; nkoda; hathi trust catalogue number)"] || "";
+	if (!e1url.match(/http/)) {
+		e1url = "";
+	}
+	e1url = e1url.replace(/.*http/, "http");
+	
+
+
+	let output = "";
+	output += "<tr>";
+
+	output += "<td>";
+	output += `<span class="workid" title="${composer}">${workid}`;
+	output += `</span>`;
+	output += "</td>";
+
+	output += "<td class='workinfo'>";
+	output += `<span class="worktitle">${title}`;
+	if (year.match(/\(/)) {
+		if (!year.match(/; /)) {
+			year = year.replace(/\(/g, "; ").replace(/\)/, " ");
+		}
+	}
+	if (year) {
+		output += ` (${year})`;
+	}
+	output += `</span>`;
+	output += "<br/>";
+	if (e.length == 1) {
+		output += "<span class='example'>Example:</span> ";
 	} else {
-		return "";
+		output += "<span class='example'>Examples:</span> ";
 	}
-}
-
-
-
-////////////////////
-//
-// getDeathYear --
-//
-
-function getDeathYear(centry) {
-	var year = centry["Death Date"];
-	if (!year) {
-		return "";
+	output += elist;
+	if (e0pub) {
+		output += `<br/><span class="publication">${e0pub} <span class="catnum">${e0cat}</span></span>\n`;
 	}
-	var matches = year.match(/(\d{4})/);
-	if (matches) {
-		return matches[1];
-	} else {
-		return "";
+	if (e0pub) {
+		if (e1url) {
+			output += `<a target="_blank" href="${e1url}">`;
+		}
+		output += `<br/><span class="publication">${e1pub} <span class="catnum">${e1cat}</span> ${e1year}</span>\n`;
+		if (e1url) {
+			output += `</a>`;
+		}
 	}
-}
+	
+	output += "</td>";
 
-
-
-////////////////////
-//
-// getNationality --
-//
-
-function getNationality(centry) {
-	var nationality = centry["Nationality"];
-	if (!nationality) {
-		return "";
-	} else {
-		return nationality;
-	}
+	output += "</tr>";
+	return output;
 }
 
 

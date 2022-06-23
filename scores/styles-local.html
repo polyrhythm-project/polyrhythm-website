@@ -2,6 +2,15 @@
 
 <style>
 
+table#work-list {
+	line-height: 1.0;
+}
+
+table#work-list tr td {
+	padding-bottom: 20px;
+}
+
+
 #main-content {
 	font-size: 2.5rem;
 }
@@ -10,16 +19,38 @@ a {
 	color: #691818;
 }
 
-table#composer-list td, table#composer-list th {
-	padding-right: 50px;
+.workid {
+	font-size: 2.25rem;
+	cursor: default;
+	display: inline-block;
+	white-space: pre;
 }
 
-table#composer-list td:nth-child(2) {
-	text-align: center;
+.worktitle {
 }
 
-table#composer-list td:nth-child(3) {
-	text-align: center;
+.publication {
+	display: inline-block;
+	padding-left: 50px;
+	text-indent: -30px;
 }
+
+.example, .catnum {
+	font-weight: 300;
+}
+
+.workinfo {
+	font-size: 2rem;
+}
+
+
+.workid:after {
+	content: " ";
+}
+
+.workid:hover {
+	color: black;
+}
+
 
 </style>

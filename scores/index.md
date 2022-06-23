@@ -13,5 +13,5 @@ summary:
 
 # Scores #
 
-Here is where you put information about Scores.
+<div id="score-list"></div>
 
