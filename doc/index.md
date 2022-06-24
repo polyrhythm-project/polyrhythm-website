@@ -21,7 +21,7 @@ The corpus examples are associated with different types of metadata (see Table 1
 
 
 <details markdown="1">
-<summary markdown="1" style="display:list-item !important"> <b>Composers</b>
+<summary markdown="1" style="display:list-item !important"> <span><b>Composers</b></span>
 
 
 The _Suter 1980 Corpus_ features twenty composers from Europe and North-America. Basic biographical information was collected using authoritative sources, including [Oxford Music Online](https://www.oxfordmusiconline.com/), scholarly editions of the composers&#39; works, and scholarly biographies. Of special interest in this corpus is the emigration of several composers due to two world wars in the period covered. A map of composers&#39; birth and death cities can be accessed on the [Maps](/maps) page.
