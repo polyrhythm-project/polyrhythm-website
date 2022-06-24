@@ -13,7 +13,7 @@
 //
 
 function createWorkList(exampleList) {
-console.error("EXAMPLE LIST", exampleList);
+	// console.error("EXAMPLE LIST", exampleList);
 	let works = {};
 	for (let i=0; i<exampleList.length; i++) {
 		let workid = exampleList[i]["Work ID"];
@@ -41,9 +41,9 @@ console.error("EXAMPLE LIST", exampleList);
 // displayScoreList --
 //
 
-let WORKLIST;
-
 function displayScoreList(workList) {
+	document.body.classList.remove("waiting");
+
 
 	if (!WORKLIST) {
 		WORKLIST = workList;
@@ -87,6 +87,19 @@ function displayScoreList(workList) {
 			sortedList[i] = workList[keys[i]];
 		}
 
+	} else if (sortType === "exid") {
+		let keys = Object.getOwnPropertyNames(workList);
+		for (let i=0; i<keys.length; i++) {
+			sortedList[i] = workList[keys[i]];
+		}
+
+		sortedList.sort(function (a, b) {
+			let exidA = a[0].Filename.replace(/_.*/, "").replace(/^[TR]/, "");
+			let exidB = b[0].Filename.replace(/_.*/, "").replace(/^[TR]/, "");
+			return exidA.localeCompare(b);
+		});
+
+		console.warn("NEW SORTED LIST", sortedList);
 	} else if (sortType === "year") {
 
 		let keys = Object.getOwnPropertyNames(workList);
@@ -192,11 +205,11 @@ function generateWorkEntry(entry) {
 	}
 	let e = [];
 	for (let i=0; i<entry.length; i++) {
-		let id = entry[i]["Example ID"];
-		id = id.replace(/^[A-Z][a-z][a-z]-\d+\//, "");
+		let eid = entry[i]["Filename"];
+		eid = eid.replace(/_.*/, "");
 		let filename = entry[i]["Filename"];
 		let exid = "";
-		let matches = filename.match(/^[RT]?(\d+[AB]?x?)_/);
+		let matches = filename.match(/^[RT]?(\d+[ABCD]?x?)_/);
 		if (matches) {
 			exid = matches[1];
 		}
@@ -214,12 +227,12 @@ function generateWorkEntry(entry) {
 			console.warn("Missing example ID", entry[i]);
 			continue;
 		}
-		e[i] = { id: id, exid: exid, num: num };
+		e[i] = { eid: eid, exid: exid, num: num };
 	}
 
 	let elist = "";
 	for (let i=0; i<e.length; i++) {
-		elist += `<a href="/example/?id=${e[i].num}">${e[i].id}</a>`;
+		elist += `<a href="/example/?id=${e[i].eid}">${e[i].eid}</a>`;
 		if (i < e.length - 1) {
 			elist += ", ";
 		}
@@ -232,10 +245,16 @@ function generateWorkEntry(entry) {
 		e0cat = "";
 	}
 	e0cat = e0cat.replace("(PP)", "");
+	if (!e0cat.match(/^\s*$/)) {
+		e0pub += ":";
+	}
 
 	let e1pub  = first["E1 Publisher"] || "";
 	let e1cat  = first["E1 Edition/Catalogue number"] || ""
 	e1cat = e1cat.replace(/\(?not listed\)?/gi, " ");
+	if (!e1cat.match(/^\s*$/)) {
+		e1pub += ":";
+	}
 	let e1year = first["E1 Edition Year"] || "";
 	if (e1year.match(/\(/)) {
 		if (!e1year.match(/; /)) {

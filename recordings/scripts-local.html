@@ -156,11 +156,11 @@ console.warn("RECLIST", sortedList);
 // printScoreEntry -- print one entry in the score list.
 //
 // Example entry:
-// A0 Naxos Recording URL: "https://open.spotify.com/track/67n0A39MXBnnAnhTYltXj4?si=AyW8buuMQ2CGZ0-XvU5mRQ"
-// A0 Recording Album Title: "Charles Ives Chamber Music: Four First Recordings"
-// A0 Recording Catalogue No.: "B00BMYFDJ6"
-// A0 Recording Label: "soundmark"
-// A1 Recording Release Year: "2011"
+// Recording URL: "https://open.spotify.com/track/67n0A39MXBnnAnhTYltXj4?si=AyW8buuMQ2CGZ0-XvU5mRQ"
+// Recording Album Title: "Charles Ives Chamber Music: Four First Recordings"
+// Recording Catalogue No.: "B00BMYFDJ6"
+// Recording Label: "soundmark"
+// Recording Release Year: "2011"
 // Composer Name: "Ives, Charles"
 // Composition Year: "1909"
 // Example ID: "Ive-21/3-4/16-19"
@@ -187,17 +187,9 @@ function generateWorkEntry(entry) {
 		let id = entry[i]["Example ID"];
 		id = id.replace(/^[A-Z][a-z][a-z]-\d+\//, "");
 		let filename = entry[i]["Filename"];
-		let exid = "";
-		let matches = filename.match(/^[RT]?(\d+[ABCD]?x?)_/);
-		if (matches) {
-			exid = matches[1];
-		}
-		matches = exid.match(/(\d+)/);
-		let num = 0;
-		if (matches) {
-			num = matches[1];
-		}
-		
+		let exid = filename.replace(/_.*/, "");
+		let num = exid;
+
 		if (!num) {
 			console.warn("Missing example number in entry", entry[i]);
 			continue;
@@ -211,26 +203,29 @@ function generateWorkEntry(entry) {
 
 	let elist = "";
 	for (let i=0; i<e.length; i++) {
-		elist += `<a href="/example/?id=${e[i].num}">${e[i].id}</a>`;
+		elist += `<a href="/example/?id=${e[i].exid}">${e[i].exid}</a>`;
 		if (i < e.length - 1) {
 			elist += ", ";
 		}
 	}
 
-	let a0url   = first["A0 Naxos Recording URL"] || "";
+	let a0url   = first["Recording URL"] || "";
 	if (!a0url.match(/http/)) {
 		a0url = "";
 	}
-	let a0title = first["A0 Recording Album Title"] || "";
-	let a0cat   = first["A0 Recording Catalogue No."] || "";
-	let a0label = first["A0 Recording Label"] || "";
-	let a0year  = first["A1 Recording Release Year"] || "";
+	let a0title = first["Recording Album Title"] || "";
+	let a0cat   = first["Recording Catalogue No."] || "";
+	let a0label = first["Recording Label"] || "";
+	let a0year  = first["Recording Release Year"] || "";
 	if (!a0year.match(/\d{4}/)) {
 		a0year = "";
 	} else {
 		a0year = `(${a0year})`;
 	}
 
+	if (a0cat) {
+		a0label += ":";
+	}
 
 	////////////////////////////////////////////////////////////////
 
@@ -268,7 +263,11 @@ function generateWorkEntry(entry) {
 
 	if (a0url && !a0title) {
 		output += `<a target="_blank" href="${a0url}">`;
-		output += `${a0url}`;
+		if (a0url.match(/naxos/)) {
+			output += "Naxos link";
+		} else {
+			output += `${a0url}`;
+		}
 		output += `</a>`;
 	} else if (a0title) {
 		if (a0url) {
