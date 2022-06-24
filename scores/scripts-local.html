@@ -13,7 +13,7 @@
 //
 
 function createWorkList(exampleList) {
-// console.error("EXAMPLE LIST", exampleList);
+console.error("EXAMPLE LIST", exampleList);
 	let works = {};
 	for (let i=0; i<exampleList.length; i++) {
 		let workid = exampleList[i]["Work ID"];
@@ -32,38 +32,7 @@ function createWorkList(exampleList) {
 		}
 	}
 
-	let keys = Object.getOwnPropertyNames(works);
-	keys.sort(function (a, b) {
-		let matchesA = a.match(/^(.*)-(.*)(x?)/);
-		let matchesB = b.match(/^(.*)-(.*)(x?)/);
-		let nameA = matchesA[1];
-		let nameB = matchesB[1];
-		let numA  = parseInt(matchesA[2]);
-		let numB  = parseInt(matchesB[2]);
-		let extA  = matchesA[3] || "";
-		let extB  = matchesB[3] || "";
-
-		if (nameA !== nameB) {
-			return nameA.localeCompare(nameB);
-		}
-		if (numA != numB) {
-			return numA - numB;
-		}
-
-		// Deal with such as Mai-6x:
-		if (extA == "") {
-			return -1;
-		} else {
-			return 1;
-		}
-	});
-
-	let output = [];
-	for (let i=0; i<keys.length; i++) {
-		output[i] = works[keys[i]];
-	}
-
-	return output;
+	return works;
 }
 
 
@@ -83,7 +52,85 @@ function displayScoreList(workList) {
 		workList = WORKLIST;
 	}
 
-	console.warn("THE SCORE LIST INPUT IS", workList);
+	let sortedList = [];
+
+	let sortElement = document.querySelector("#sort-method");
+	let sortType = sortElement.value;
+	console.warn("SORT TYPE", sortType);
+
+	if (sortType === "workid") {
+
+		let keys = Object.getOwnPropertyNames(workList);
+		keys.sort(function (a, b) {
+			let matchesA = a.match(/^(.*)-(.*)(x?)/);
+			let matchesB = b.match(/^(.*)-(.*)(x?)/);
+			let nameA = matchesA[1];
+			let nameB = matchesB[1];
+			let numA  = parseInt(matchesA[2]);
+			let numB  = parseInt(matchesB[2]);
+			let extA  = matchesA[3] || "";
+			let extB  = matchesB[3] || "";
+			if (nameA !== nameB) {
+				return nameA.localeCompare(nameB);
+			}
+			if (numA != numB) {
+				return numA - numB;
+			}
+			// Deal with such as Mai-6x:
+			if (extA == "") {
+				return -1;
+			} else {
+				return 1;
+			}
+		});
+		for (let i=0; i<keys.length; i++) {
+			sortedList[i] = workList[keys[i]];
+		}
+
+	} else if (sortType === "year") {
+
+		let keys = Object.getOwnPropertyNames(workList);
+		keys.sort(function (a, b) {
+			let matchesA;
+			let matchesb;
+			let yearA = workList[a][0]["Composition Year"] || "";
+			let yearB = workList[b][0]["Composition Year"] || "";
+			matchesA = yearA.match(/(1[89]\d{2})/);
+			if (matchesA) {
+				yearA = parseInt(matchesA[1]);
+			}
+			matchesB = yearB.match(/(1[89]\d{2})/);
+			if (matchesB) {
+				yearB = parseInt(matchesB[1]);
+			}
+			if (yearA != yearB) {
+				return yearA - yearB;
+			}
+			matchesA = a.match(/^(.*)-(.*)(x?)/);
+			matchesB = b.match(/^(.*)-(.*)(x?)/);
+			let nameA = matchesA[1];
+			let nameB = matchesB[1];
+			let numA  = parseInt(matchesA[2]);
+			let numB  = parseInt(matchesB[2]);
+			let extA  = matchesA[3] || "";
+			let extB  = matchesB[3] || "";
+			if (nameA !== nameB) {
+				return nameA.localeCompare(nameB);
+			}
+			if (numA != numB) {
+				return numA - numB;
+			}
+			// Deal with such as Mai-6x:
+			if (extA == "") {
+				return -1;
+			} else {
+				return 1;
+			}
+		});
+		for (let i=0; i<keys.length; i++) {
+			sortedList[i] = workList[keys[i]];
+		}
+	}
 
 	let container = document.querySelector("#score-list");
 	if (!container) {
@@ -94,8 +141,8 @@ function displayScoreList(workList) {
 	let output = "";
 	output += "<table id='work-list'>";
 
-	for (let i=0; i<workList.length; i++) {
-		output += generateWorkEntry(workList[i]);
+	for (let i=0; i<sortedList.length; i++) {
+		output += generateWorkEntry(sortedList[i]);
 	}
 
 	output += "</table>";
@@ -130,7 +177,6 @@ function displayScoreList(workList) {
 //
 
 function generateWorkEntry(entry) {
-console.log("ENTRY", entry);
 	let first = entry[0];
 	if (!first) {
 		console.warn("ERROR: Problem with entry", entry);
@@ -189,6 +235,7 @@ console.log("ENTRY", entry);
 
 	let e1pub  = first["E1 Publisher"] || "";
 	let e1cat  = first["E1 Edition/Catalogue number"] || ""
+	e1cat = e1cat.replace(/\(?not listed\)?/gi, " ");
 	let e1year = first["E1 Edition Year"] || "";
 	if (e1year.match(/\(/)) {
 		if (!e1year.match(/; /)) {
@@ -198,13 +245,16 @@ console.log("ENTRY", entry);
 	if (e1year) {
 		e1year = `(${e1year})`;
 	}
+	if (e1year.match(/Not listed/)) {
+		e1year = "";
+	}
 	let e1url  = first["Source Location (UBC Library call number; URL; print source purchased from publishing company; nkoda; hathi trust catalogue number)"] || "";
 	if (!e1url.match(/http/)) {
 		e1url = "";
 	}
 	e1url = e1url.replace(/.*http/, "http");
 	
-
+	////////////////////////////////////////////////////////////////
 
 	let output = "";
 	output += "<tr>";
@@ -232,18 +282,23 @@ console.log("ENTRY", entry);
 		output += "<span class='example'>Examples:</span> ";
 	}
 	output += elist;
+	
+	output += "<ul class='publication'>";
 	if (e0pub) {
-		output += `<br/><span class="publication">${e0pub} <span class="catnum">${e0cat}</span></span>\n`;
+		output += `<li><span class="publication">${e0pub} <span class="catnum">${e0cat}</span></span></li>\n`;
 	}
-	if (e0pub) {
+	if (e1pub) {
+		output += "<li>";
 		if (e1url) {
 			output += `<a target="_blank" href="${e1url}">`;
 		}
-		output += `<br/><span class="publication">${e1pub} <span class="catnum">${e1cat}</span> ${e1year}</span>\n`;
+		output += `<span class="publication">${e1pub} <span class="catnum">${e1cat}</span> ${e1year}</span>\n`;
 		if (e1url) {
 			output += `</a>`;
 		}
+		output += "</li>";
 	}
+	output += "</ul>";
 	
 	output += "</td>";
 

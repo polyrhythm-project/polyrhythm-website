@@ -7,13 +7,19 @@
 // DOMContentLoaded event listener --
 //
 
+document.body.classList.add("waiting");
+
 document.addEventListener("DOMContentLoaded", async function () {
 
 	// Create URL for metadata index to download:
-	url = "https://script.google.com/macros/s/AKfycbzrt-H71aH844BF60TrWoYSdWzcACcOzNKpSQRqAZJptIbgfUFQ69wtfHMmVE-begOzVg/exec";
+	let id = "AKfycbzrt-H71aH844BF60TrWoYSdWzcACcOzNKpSQRqAZJptIbgfUFQ69wtfHMmVE-begOzVg";
+	let url = `https://script.google.com/macros/s/${id}/exec`;
 	fetch(url)
 		.then(response => response.json())
-		.then (json => displayScoreList(createWorkList(json)))
+		.then (json => {
+			displayScoreList(createWorkList(json));
+			document.body.classList.remove("waiting");
+		})
 		.catch(error => console.error(error));
 });
 

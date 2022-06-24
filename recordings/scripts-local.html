@@ -8,203 +8,285 @@
 
 //////////////////////////////
 //
-// displayComposerList --
+// createRecordingList -- Convert the individual examples in to an array of
+//     objects by work id.
 //
 
-function displayComposerList() {
-	var element = document.querySelector("div#list");
-	if (!element) {
+function createRecordingList(exampleList) {
+	let works = {};
+	for (let i=0; i<exampleList.length; i++) {
+		let workid = exampleList[i]["Work ID"];
+		if (!workid) {
+			console.warn("NO WORKID FOR", exampleList[i]);
+			continue;
+		}
+		if (!workid.match(/^[A-Z][a-z][a-z]-\d+x?$/)) {
+			console.error("WORKID", workid, "IS INVALID FOR", exampleList[i]);
+			continue;
+		}
+		if (typeof works[workid] === "undefined") {
+			works[workid] = [ exampleList[i] ];
+		} else {
+			works[workid].push(exampleList[i]);
+		}
+	}
+
+	return works;
+}
+
+
+//////////////////////////////
+//
+// displayRecordingList --
+//
+
+let RECLIST;
+
+function displayRecordingList(workList) {
+
+	if (!RECLIST) {
+		RECLIST = workList;
+	}
+	if (!workList) {
+		workList = RECLIST;
+	}
+
+	let sortedList = [];
+
+	sortType = "workid";
+
+	if (sortType === "workid") {
+
+		let keys = Object.getOwnPropertyNames(workList);
+		keys.sort(function (a, b) {
+			let matchesA = a.match(/^(.*)-(.*)(x?)/);
+			let matchesB = b.match(/^(.*)-(.*)(x?)/);
+			let nameA = matchesA[1];
+			let nameB = matchesB[1];
+			let numA  = parseInt(matchesA[2]);
+			let numB  = parseInt(matchesB[2]);
+			let extA  = matchesA[3] || "";
+			let extB  = matchesB[3] || "";
+			if (nameA !== nameB) {
+				return nameA.localeCompare(nameB);
+			}
+			if (numA != numB) {
+				return numA - numB;
+			}
+			// Deal with such as Mai-6x:
+			if (extA == "") {
+				return -1;
+			} else {
+				return 1;
+			}
+		});
+		for (let i=0; i<keys.length; i++) {
+			sortedList[i] = workList[keys[i]];
+		}
+
+	} else if (sortType === "year") {
+
+		let keys = Object.getOwnPropertyNames(workList);
+		keys.sort(function (a, b) {
+			let matchesA;
+			let matchesb;
+			let yearA = workList[a][0]["Composition Year"] || "";
+			let yearB = workList[b][0]["Composition Year"] || "";
+			matchesA = yearA.match(/(1[89]\d{2})/);
+			if (matchesA) {
+				yearA = parseInt(matchesA[1]);
+			}
+			matchesB = yearB.match(/(1[89]\d{2})/);
+			if (matchesB) {
+				yearB = parseInt(matchesB[1]);
+			}
+			if (yearA != yearB) {
+				return yearA - yearB;
+			}
+			matchesA = a.match(/^(.*)-(.*)(x?)/);
+			matchesB = b.match(/^(.*)-(.*)(x?)/);
+			let nameA = matchesA[1];
+			let nameB = matchesB[1];
+			let numA  = parseInt(matchesA[2]);
+			let numB  = parseInt(matchesB[2]);
+			let extA  = matchesA[3] || "";
+			let extB  = matchesB[3] || "";
+			if (nameA !== nameB) {
+				return nameA.localeCompare(nameB);
+			}
+			if (numA != numB) {
+				return numA - numB;
+			}
+			// Deal with such as Mai-6x:
+			if (extA == "") {
+				return -1;
+			} else {
+				return 1;
+			}
+		});
+		for (let i=0; i<keys.length; i++) {
+			sortedList[i] = workList[keys[i]];
+		}
+	}
+
+	let container = document.querySelector("#recording-list");
+	if (!container) {
+		console.error("Error: cannot find recording list container");
 		return;
 	}
 
-	var composerinfo = CreateComposerList(WORKLIST);
-	console.log("COMPOSER LIST", composerinfo);
+	let output = "";
+	output += "<table id='work-list'>";
 
-	var output = "";
-
-	output += "<table id='composer-list'>";
-	
-	output += "<thead>";
-	output += "<tr>";
-	output += "<th title='Sort by composer' onclick='SortByText(0, \"#composer-list\")'>Composer</th>";
-	output += "<th title='Sort by work count' onclick='SortByNumber(1, \"#composer-list\", true)'>Works</th>";
-	output += "<th title='Sort by example count' onclick='SortByNumber(2, \"#composer-list\", true)'>Examples</th>";
-	output += "<th title='Sort by example count' onclick='SortByNumber(3, \"#composer-list\", false)'>Born</th>";
-	output += "<th title='Sort by example count' onclick='SortByNumber(4, \"#composer-list\", false)'>Died</th>";
-	output += "<th title='Sort by nationality' onclick='SortByText(5, \"#composer-list\")'>Nationality</th>";
-	output += "</tr>";
-	output += "</thead>";
-
-	output += "<tbody>";
-	for (var i=0; i<composerinfo.length; i++) {
-		output += makeComposerRow(composerinfo[i]);
+	for (let i=0; i<sortedList.length; i++) {
+		output += generateWorkEntry(sortedList[i]);
 	}
-	output += "</tbody>";
+
 	output += "</table>";
+	container.innerHTML = output;
 
-	element.innerHTML = output;
+console.warn("RECLIST", sortedList);
+
 }
 
 
 
 //////////////////////////////
 //
-// makeComposerRow --
+// printScoreEntry -- print one entry in the score list.
+//
+// Example entry:
+// A0 Naxos Recording URL: "https://open.spotify.com/track/67n0A39MXBnnAnhTYltXj4?si=AyW8buuMQ2CGZ0-XvU5mRQ"
+// A0 Recording Album Title: "Charles Ives Chamber Music: Four First Recordings"
+// A0 Recording Catalogue No.: "B00BMYFDJ6"
+// A0 Recording Label: "soundmark"
+// A1 Recording Release Year: "2011"
+// Composer Name: "Ives, Charles"
+// Composition Year: "1909"
+// Example ID: "Ive-21/3-4/16-19"
+// Filename: "T243_Ive-w21p3-4m16-19"
+// Work ID: "Ive-21"
+// Work Title: "Largo Risoluto No. 1 for Piano and String Quartet"
 // 
-// Rows:
-//  1: composer's name
-//  2: number of works by composer
-//  3: number of examples by composer
-//  4: birth year
-//  5: death year
-//
-
-function makeComposerRow(centry) {
-	var output = "";
-	output += "<tr>";
-
-	output += "<td>";
-	if (centry["Composer Name"]) {
-	 	output += PreparePerson(centry["Composer Name"]);
+function generateWorkEntry(entry) {
+	let first = entry[0];
+	if (!first) {
+		console.warn("ERROR: Problem with entry", entry);
+		return;
 	}
-	output += "</td>";
 
-	// Work count:
-	var workcount = getWorkCount(centry);
-	output += "<td>";
-	if (workcount > 0) {
-		output += workcount;
+	let workid   = first["Work ID"] || "";
+	let composer = first["Composer Name"] || "";
+	let title    = first["Work Title"] || "";
+	let year     = first["Composition Year"] || "";
+	if (year.match(/\(/)) {
+		year = year.replace(/ \(/g, "; ").replace(/\)/g, " ");
 	}
-	output += "</td>";
-
-	// Example count:
-	var examplecount = getExampleCount(centry);
-	output += "<td>";
-	if (examplecount > 0) {
-		output += examplecount;
+	let e = [];
+	for (let i=0; i<entry.length; i++) {
+		let id = entry[i]["Example ID"];
+		id = id.replace(/^[A-Z][a-z][a-z]-\d+\//, "");
+		let filename = entry[i]["Filename"];
+		let exid = "";
+		let matches = filename.match(/^[RT]?(\d+[ABCD]?x?)_/);
+		if (matches) {
+			exid = matches[1];
+		}
+		matches = exid.match(/(\d+)/);
+		let num = 0;
+		if (matches) {
+			num = matches[1];
+		}
+		
+		if (!num) {
+			console.warn("Missing example number in entry", entry[i]);
+			continue;
+		}
+		if (!exid) {
+			console.warn("Missing example ID", entry[i]);
+			continue;
+		}
+		e[i] = { id: id, exid: exid, num: num };
 	}
-	output += "</td>";
 
-	// Birth year:
-	var born = getBirthYear(centry);
-	output += "<td>";
-	if (born > 0) {
-		output += born;
-	}
-	output += "</td>";
-
-	// Death year:
-	var died = getDeathYear(centry);
-	output += "<td>";
-	if (died > 0) {
-		output += died;
-	}
-	output += "</td>";
-
-	// Nationality:
-	var nationality = getNationality(centry);
-	output += "<td>";
-	if (nationality) {
-		output += nationality;
-	}
-	output += "</td>";
-
-
-	output += "</tr>";
-	return output;
-}
-
-
-
-//////////////////////////////
-//
-// getWorkCount --
-//
-
-function getWorkCount(centry) {
-	if (centry["@works"]) {
-		return centry["@works"].length;
-	} else {
-		return 0;
-	}
-}
-
-
-
-//////////////////////////////
-//
-// getExampleCount --
-//
-
-function getExampleCount(centry) {
-	var works = centry["@works"];
-	if (!works) {
-		return 0;
-	}
-	var sum = 0;
-	for (var i=0; i<works.length; i++) {
-		var examples = works[i]["@examples"];
-		if (examples) {
-			sum += examples.length;
+	let elist = "";
+	for (let i=0; i<e.length; i++) {
+		elist += `<a href="/example/?id=${e[i].num}">${e[i].id}</a>`;
+		if (i < e.length - 1) {
+			elist += ", ";
 		}
 	}
-	return sum;
-}
 
-
-
-////////////////////
-//
-// getBirthYear --
-//
-
-function getBirthYear(centry) {
-	var year = centry["Birth Date"];
-	if (!year) {
-		return "";
+	let a0url   = first["A0 Naxos Recording URL"] || "";
+	if (!a0url.match(/http/)) {
+		a0url = "";
 	}
-	var matches = year.match(/(\d{4})/);
-	if (matches) {
-		return matches[1];
+	let a0title = first["A0 Recording Album Title"] || "";
+	let a0cat   = first["A0 Recording Catalogue No."] || "";
+	let a0label = first["A0 Recording Label"] || "";
+	let a0year  = first["A1 Recording Release Year"] || "";
+	if (!a0year.match(/\d{4}/)) {
+		a0year = "";
 	} else {
-		return "";
+		a0year = `(${a0year})`;
 	}
-}
 
 
+	////////////////////////////////////////////////////////////////
 
-////////////////////
-//
-// getDeathYear --
-//
+	let output = "";
+	output += "<tr>";
 
-function getDeathYear(centry) {
-	var year = centry["Death Date"];
-	if (!year) {
-		return "";
+	output += "<td>";
+	output += `<span class="workid" title="${composer}">${workid}`;
+	output += `</span>`;
+	output += "</td>";
+
+	output += "<td class='workinfo'>";
+
+	output += `<span class="worktitle">${title}`;
+	if (year.match(/\(/)) {
+		if (!year.match(/; /)) {
+			year = year.replace(/\(/g, "; ").replace(/\)/, " ");
+		}
 	}
-	var matches = year.match(/(\d{4})/);
-	if (matches) {
-		return matches[1];
+	if (year) {
+		output += ` (${year})`;
+	}
+	output += `</span>`;
+
+	output += "<br/>";
+	if (e.length == 1) {
+		output += "<span class='example'>Example:</span> ";
 	} else {
-		return "";
+		output += "<span class='example'>Examples:</span> ";
 	}
-}
+	output += elist;
 
+	output += "<ul>\n";
+	output += "<li>\n";
 
-
-////////////////////
-//
-// getNationality --
-//
-
-function getNationality(centry) {
-	var nationality = centry["Nationality"];
-	if (!nationality) {
-		return "";
-	} else {
-		return nationality;
+	if (a0url && !a0title) {
+		output += `<a target="_blank" href="${a0url}">`;
+		output += `${a0url}`;
+		output += `</a>`;
+	} else if (a0title) {
+		if (a0url) {
+			output += `<a target="_blank" href="${a0url}">`;
+		}
+		output += `${a0title}`;
+		if (a0url) {
+			output += `</a>`;
+		}
+		output += `, ${a0label} <span class="catnum">${a0cat}<span> ${a0year}`;
 	}
+
+	output += "</li>\n";
+	output += "</ul>\n";
+	output += "</td>\n";
+
+	output += "</tr>\n";
+	return output;
 }
 
 

@@ -2,60 +2,29 @@
 <script>
 // vim: ts=3
 
-var CGI = {};      // CGI parameters from URL
-var SORTCOLUMN = 0;
-var EXAMPLELIST = [];
-var WORKLIST = [];
-
-
 //////////////////////////////
 //
 // DOMContentLoaded event listener --
 //
 
-document.addEventListener("DOMContentLoaded", function () {
-	CGI = GetCgiParameters();
+document.body.classList.add("waiting");
 
-	var element = document.querySelector("input#search");
-	if (element) {
-		element.addEventListener("input", function() {
-			doSearch();
-		});
-	}
+document.addEventListener("DOMContentLoaded", async function () {
 
 	// Create URL for metadata index to download:
-	var sid = "17rjKQ3lXJHEHAcDfOXTDNX5a0A_jVqwokcaqhd3Ddng";
-	var gid = "900860769";
-	var url = "https://docs.google.com/spreadsheets/d/";
-	url += sid + "/export?gid=" + gid + "&format=tsv";
-
-	if (sessionStorage.EXAMPLELIST) {
-		EXAMPLELIST = JSON.parse(sessionStorage.EXAMPLELIST);
-		doAction(EXAMPLELIST);
-	} else {
-		var request = new XMLHttpRequest();
-		request.addEventListener("load", function () {
-			EXAMPLELIST = ParseSpreadsheet(this.responseText);
-			sessionStorage.EXAMPLELIST = JSON.stringify(EXAMPLELIST);
-			doAction(EXAMPLELIST);
-		});
-		request.open("GET", url);
-		request.send();
-	}
+	let id = "AKfycbzumkvS65CsktdjD7s8JGPxc_e-ISZjkG8XADKJDpcTdRknrtphdODQjkfpy-Xm9fLgmA";
+	let url = `https://script.google.com/macros/s/${id}/exec`;
+	fetch(url)
+		.then(response => response.json())
+		.then (json => {
+			displayRecordingList(createRecordingList(json));
+			document.body.classList.remove("waiting");
+		})
+		.catch(error => console.error(error));
 });
 
 
-
-//////////////////////////////
-//
-// doAction --
-//
-
-function doAction(examplelist) {
-	WORKLIST = GenerateWorklist(examplelist);
-	displayComposerList();
-}
-
-
-
 </script>
+
+
+

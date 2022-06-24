@@ -13,5 +13,5 @@ summary:
 
 # Recordings #
 
-Here is where you put information about Recordings.
+<div id="recording-list"></div>
 

@@ -3,23 +3,64 @@
 <style>
 
 #main-content {
-	font-size: 2.5rem;
+	min-height: 800px;
 }
 
-a {
-	color: #691818;
+.waiting {
+	cursor: wait;
 }
 
-table#composer-list td, table#composer-list th {
-	padding-right: 50px;
+table#work-list {
+	line-height: 1.0;
 }
 
-table#composer-list td:nth-child(2) {
-	text-align: center;
+table#work-list tr td {
+	padding-bottom: 20px;
 }
 
-table#composer-list td:nth-child(3) {
-	text-align: center;
+
+#main-content {
+	font-size: 2.25rem;
+}
+
+a, table#work-list ul li a {
+	color: #691818 !important;
+}
+
+table#work-list ul li {
+	color: #696969 !important;
+}
+
+.workid {
+	font-size: 2.25rem;
+	cursor: default;
+	display: inline-block;
+	white-space: pre;
+}
+
+.worktitle {
+}
+
+.example, .catnum {
+	font-weight: 300;
+}
+
+.workinfo {
+	font-size: 2rem;
+}
+
+
+.workid:after {
+	content: " ";
+}
+
+.workid:hover {
+	color: black;
+}
+
+
+table#work-list ul li {
+	line-height: 1;
 }
 
 </style>

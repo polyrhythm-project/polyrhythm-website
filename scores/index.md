@@ -13,5 +13,15 @@ summary:
 
 # Scores #
 
+<p>
+Sort scores by: 
+
+<select id="sort-method" onchange="displayScoreList()">
+<option value="workid">Work ID</option>
+<option value="year">Composition Date</option>
+</select>
+
+</p>
+
 <div id="score-list"></div>
 

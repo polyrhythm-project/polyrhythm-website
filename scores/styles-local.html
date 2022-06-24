@@ -2,6 +2,14 @@
 
 <style>
 
+#main-content {
+	min-height: 800px;
+}
+
+.waiting {
+	cursor: wait;
+}
+
 table#work-list {
 	line-height: 1.0;
 }
@@ -12,11 +20,15 @@ table#work-list tr td {
 
 
 #main-content {
-	font-size: 2.5rem;
+	font-size: 2.25rem;
 }
 
-a {
-	color: #691818;
+a, table#work-list ul li a {
+	color: #691818 !important;
+}
+
+table#work-list ul li {
+	color: #696969 !important;
 }
 
 .workid {
@@ -27,12 +39,6 @@ a {
 }
 
 .worktitle {
-}
-
-.publication {
-	display: inline-block;
-	padding-left: 50px;
-	text-indent: -30px;
 }
 
 .example, .catnum {
@@ -52,5 +58,9 @@ a {
 	color: black;
 }
 
+
+table#work-list ul li {
+	line-height: 1;
+}
 
 </style>
