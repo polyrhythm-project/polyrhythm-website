@@ -24,7 +24,7 @@ The corpus examples are associated with different types of metadata (see Table 1
 <summary markdown="1" style="display:list-item !important"> <b>Composers</b>
 
 
-The _Suter 1980 Corpus_ features twenty composers from Europe and North-America. Basic biographical information was collected using authoritative sources, including [Oxford Music Online](https://www.oxfordmusiconline.com/), scholarly editions of the composers&#39; works, and scholarly biographies. Of special interest in this corpus is the emigration of several composers due to two world wars in the period covered. A map of composers&#39; birth and death cities can be accessed on the [Maps](/maps/index.md) page.
+The _Suter 1980 Corpus_ features twenty composers from Europe and North-America. Basic biographical information was collected using authoritative sources, including [Oxford Music Online](https://www.oxfordmusiconline.com/), scholarly editions of the composers&#39; works, and scholarly biographies. Of special interest in this corpus is the emigration of several composers due to two world wars in the period covered. A map of composers&#39; birth and death cities can be accessed on the [Maps](/maps) page.
 
 </summary>
 
@@ -40,7 +40,7 @@ The _Suter 1980 Corpus_ features twenty composers from Europe and North-America.
 <summary markdown="1" style="display:list-item !important"> <b>Works</b>
 
 
-The examples in this corpus were extracted by Suter (1980) from 450 works that were selected among 913 works surveyed.  The surveyed works were not selected based on their use of polyrhythm, but on their representation of each composer&#39;s output in terms of life period and genre. Each work is identified by Suter&#39;s Work ID, which consists of a three-letter abbreviation of the composer&#39;s last name and a number, which corresponds roughly to its composition year. A list of composers and their corpus representation by works and examples is accessible on the [Composers](/composers/index.md) page.
+The examples in this corpus were extracted by Suter (1980) from 450 works that were selected among 913 works surveyed.  The surveyed works were not selected based on their use of polyrhythm, but on their representation of each composer&#39;s output in terms of life period and genre. Each work is identified by Suter&#39;s Work ID, which consists of a three-letter abbreviation of the composer&#39;s last name and a number, which corresponds roughly to its composition year. A list of composers and their corpus representation by works and examples is accessible on the [Composers](/composers) page.
 
 </summary>
 
@@ -56,7 +56,7 @@ The examples in this corpus were extracted by Suter (1980) from 450 works that w
 <summary markdown="1" style="display:list-item !important"> <b>Premieres</b>
 
 
-Because of the historical and geographical features of the corpus, information about work premieres was gathered using multiple sources, including internet resources. Geocoding of premieres venues or cities was used to create a heat map and an interactive timeline of the corpus using Carto. The maps can be accessed from the [Maps](/maps/index.md) page.
+Because of the historical and geographical features of the corpus, information about work premieres was gathered using multiple sources, including internet resources. Geocoding of premieres venues or cities was used to create a heat map and an interactive timeline of the corpus using Carto. The maps can be accessed from the [Maps](/maps) page.
 
 </summary>
 
