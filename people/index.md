@@ -15,25 +15,25 @@ summary:
 
 ## Current Members ##
 
+|Ève Poudrier | |
+|--- | --- |
+|Principal investigator (University of British Columbia)| |
+|![Ève Poudrier](/people/person-placeholder.jpg)| |
 
-**Ève Poudrier**, principal investigator (University of British Columbia)
-
-![Ève Poudrier](/people/person-placeholder.jpg)
-
-
-**Daniel Shanahan**, co-investigator (Ohio State University)
-
-![Daniel Shanahan](/people/person-placeholder.jpg)
-
-
-**Craig Sapp**, consultant (CCARH at Stanford University)
-
-![Craig Sapp](/people/person-placeholder.jpg)
+|Daniel Shanahan | |
+|--- | --- |
+|![Daniel Shanahan](/people/person-placeholder.jpg)|Co-investigator (Ohio State University)|
 
 
-**Claudio de Freitas**, DMA (composition), transcriber/editor (music data)
+|Craig Sapp | |
+|--- | --- |
+|![Craig Sapp](/people/person-placeholder.jpg)|Consultant (CCARH at Stanford University)|
 
-![Claudio de Freitas](/people/person-placeholder.jpg)
+
+|Claudio de Freitas | |
+|--- | --- |
+|DMA (composition), transcriber/editor (music data)||
+|![Claudio de Freitas](/people/person-placeholder.jpg)|Claudio de Freitas, a bassoonist and composer from Brazil, is currently a DMA in Composition Candidate at UBC Vancouver. He holds a Bachelor of Music from The Harid Conservatory, Boca Raton, Florida, and a Master of Arts from The University of São Paulo, Brazil. He was a contrabassoonist with The São Paulo State Symphony Orchestra (OSESP) for twelve years, and recorded more than thirty albums for BIS, CHANDOS, and NAXOS. With an annual season of 120 concerts, he toured with OSESP through South America, the United States and Europe, performing in important theaters and venues such as Teatro Colón, Avery Fisher Hall, Segerstrom Center for the Arts (Orange County), Strathmore Center, Broward Center, Frankfurt Opera, Kölner Philharmonie, Musikverein, Mozarteum, Teatr Naradowy (Warsaw), as well as in Spain, Croatia, Slovenia, Switzerland, Uruguay and Chile. Freitas's orchestral works have been performed by important Brazilian orchestras in the states of São Paulo, Rio de Janeiro, Minas Gerais, Espírito Santo, Sergipe e Paraná.|
 
 
 **Rafael Laurindo**, DMA (voice), transcriber/editor (music data, website, lyrics)
