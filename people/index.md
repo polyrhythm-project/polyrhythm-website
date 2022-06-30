@@ -22,12 +22,14 @@ summary:
 
 |Daniel Shanahan | |
 |--- | --- |
-|![Daniel Shanahan](/people/person-placeholder.jpg)|Co-investigator (Ohio State University)|
+|Co-investigator (Ohio State University) | |
+|![Daniel Shanahan](/people/person-placeholder.jpg)||
 
 
 |Craig Sapp | |
 |--- | --- |
-|![Craig Sapp](/people/person-placeholder.jpg)|Consultant (CCARH at Stanford University)|
+|Consultant (CCARH at Stanford University) | |
+|![Craig Sapp](/people/person-placeholder.jpg)||
 
 
 |Claudio de Freitas | |
