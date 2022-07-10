@@ -18,14 +18,14 @@ summary:
 <table>
 <tbody>
   <tr>
-    <td colspan="2"><b>Ève Poudrier</b></td>
+    <td class="description" colspan="2"><b>Ève Poudrier</b></td>
   </tr>
   <tr>
-    <td colspan="2">Principal investigator (University of British Columbia)</td>
+    <td class="description" colspan="2">Principal investigator (University of British Columbia)</td>
   </tr>
   <tr>
-    <td><img src="/people/EvePoudrier.jpg"></td>
-    <td>I am an Assistant Professor in music theory at the School of Music of the University of British Columbia, where I teach courses on compositional practice in Europe in the 18th and 19th centuries, techniques of graphic linear analysis, and music psychology. My research has been presented in interdisciplinary conferences in North-America, Europe and the Middle East, and published in Music Perception and Empirical Musicology Review. My current projects focus on the experience of listening to polyrhythm and the cognition of complex rhythmic structures, combining methods of close study, computer-aided musicology, and corpus studies.</td>
+    <td class="description"><img src="/people/EvePoudrier.jpg"></td>
+    <td class="description">I am an Assistant Professor in music theory at the School of Music of the University of British Columbia, where I teach courses on compositional practice in Europe in the 18th and 19th centuries, techniques of graphic linear analysis, and music psychology. My research has been presented in interdisciplinary conferences in North-America, Europe and the Middle East, and published in Music Perception and Empirical Musicology Review. My current projects focus on the experience of listening to polyrhythm and the cognition of complex rhythmic structures, combining methods of close study, computer-aided musicology, and corpus studies.</td>
   </tr>
   <tr>
     <td colspan="2"><b>Daniel Shanahan</b></td>
