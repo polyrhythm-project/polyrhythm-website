@@ -18,7 +18,7 @@ summary:
 
 Poudrier, È. & Sapp, C. “Polyrhythm analysis using the _composite_ tool.” (upcoming) [9<sup>th</sup> International Conference on Digital Libraries for Musicology](https://dlfm.web.ox.ac.uk/), Municipal Library, Prague, Czech Republic, 28 July 2022.
 
-ABSTRACT: We introduce a computational tool that allows comparison and classification of polyrhythms in notated music. By reducing different musical textures into unpitched rhythmic strands, the composite tool visualizes these rhythmic reductions as well as extracts features related to polyrhythmic design, such as event density, nestedness, and polarity. The visualizations and extracted data can then be used to compare polyrhythms within a specific repertoire or between music in contrasting styles. The composite tool is available for on-
+> ABSTRACT: We introduce a computational tool that allows comparison and classification of polyrhythms in notated music. By reducing different musical textures into unpitched rhythmic strands, the composite tool visualizes these rhythmic reductions as well as extracts features related to polyrhythmic design, such as event density, nestedness, and polarity. The visualizations and extracted data can then be used to compare polyrhythms within a specific repertoire or between music in contrasting styles. The composite tool is available for on-
 line or offline use and is incorporated into the Polyrhythm Project website for exploration of polyrhythmic examples from the Suter 1980 Corpus.
 
 
