@@ -64,7 +64,7 @@ Because of the historical and geographical features of the corpus, information a
 <summary style="display:list-item !important"><b>Examples</b></summary>
 
 
-Each example is identified with a filename adapted from the original example identifiers, which are visible on the scores accessed through each example page (E0 button). The filenames begin with “R” (reserve dataset) or “T” (testing dataset), followed by the example number used in Suter (1980) and a translation of the original Suter example ID. Please read this [document](https://drive.google.com/file/d/1fzA7iakBfjbyc_Fwsnhsdmyk0lMiCAMp/view?usp=sharing) for more details on how to decode the Suter examples IDs.
+Each example is identified with a filename adapted from the original example identifiers, which are visible on the scores accessed through each example page (E0 button). The filenames begin with “R” (reserve dataset) or “T” (testing dataset), followed by the example number used in Suter (1980) and a translation of the original Suter example ID. For more details on how to decode Suter’s example identifiers: [PDF document with translation and original excerpt from Suter 1980](https://drive.google.com/file/d/1fzA7iakBfjbyc_Fwsnhsdmyk0lMiCAMp/view?usp=sharing).
 
 
 - Source Work
