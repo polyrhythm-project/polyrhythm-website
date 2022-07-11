@@ -41,8 +41,8 @@ Poudrier, È. & Shanahan, D. (2018). Modeling rhythmic complexity in a corpus of
 ## In Progress ##
 
 	
-Poudrier, È. & Shanahan, D. “The cognitive and affective correlates of rhythmic complexity.” 
+Poudrier, È. & Shanahan, D. The cognitive and affective correlates of rhythmic complexity.
 
-Poudrier, È. “The classification of polyrhythms based on composite rhythms.” 
+Poudrier, È. The classification of polyrhythms based on composite rhythms.
 
-Poudrier, È. & Sapp, C. S. “Polyrhythm in the works of twenty composers from Western Europe to North America, 1900-1950: _The Suter (1980) Corpus._”
+Poudrier, È. & Sapp, C. S. Polyrhythm in the works of twenty composers from Western Europe to North America, 1900-1950: _The Suter (1980) Corpus._
