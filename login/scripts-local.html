@@ -1,0 +1,22 @@
+
+{% include_relative listeners.html %}
+{% include scripts/scripts-common.html %}
+
+<script>
+// vim: ts=3
+
+function processPassword() {
+	let input = document.querySelector("input#password");
+	if (!input) {
+		console.error("ERROR: Cannot find password intput");
+		return;
+	}
+	let password = input.value;
+	localStorage.access = password;
+}
+
+</script>
+
+
+
+

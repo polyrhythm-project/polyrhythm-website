@@ -14,7 +14,7 @@ summary:
 <td>
 <select onchange="doSearch();" id="table-scope">
 	<option value="example">example list</option>
-	<option value="work">work list</option>
+<!--	<option value="work">work list</option> -->
 </select>
 </td>
 
@@ -39,6 +39,8 @@ summary:
 
 </tr>
 </table>
+
+<i>Bold IDs indicate examples with interactive musical scores</i>
 
 <div style="margin-bottom:50px; margin-top:20px;" id="list"></div>
 

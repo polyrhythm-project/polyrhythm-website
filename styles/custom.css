@@ -91,7 +91,7 @@ tr:hover {
 	background: #f3f3f3;
 }
 
-a {
+.vhv-button > a, a {
 	text-decoration: none;
 }
 
@@ -102,7 +102,6 @@ a.searchworks:hover, a.purl:hover {
 
 .vhv-button.group1{
 	background: #f2c82c;
-	/* float: right; */
 	border-radius: 2rem;
 	font-family: Arial;
 	color: #fafafa;
@@ -116,7 +115,6 @@ a.searchworks:hover, a.purl:hover {
 
 .vhv-button.group2 {
 	background: limegreen;
-	/* float: right; */
 	border-radius: 2rem;
 	font-family: Arial;
 	color: #fafafa;
@@ -130,7 +128,6 @@ a.searchworks:hover, a.purl:hover {
 
 .vhv-button.group3 {
 	background: dodgerblue;
-	/* float: right; */
 	border-radius: 2rem;
 	font-family: Arial;
 	color: #fafafa;
@@ -144,14 +141,18 @@ a.searchworks:hover, a.purl:hover {
 
 .vhv-button.group1:hover {
 	background: #d2980c;
+	color: black !important;
+	text-decoration: none !important;
 }
 
 .vhv-button.group2:hover {
 	background: green;
+	text-decoration: none !important;
 }
 
 .vhv-button.group3:hover {
 	background: indigo;
+	text-decoration: none !important;
 }
 
 .vhv-button.highlight-button.group2 {

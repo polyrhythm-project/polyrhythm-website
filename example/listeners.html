@@ -19,6 +19,8 @@ var EXAMPLELIST    = [];
 var WORKLIST       = [];
 var NAVIGATION     = {};
 var CURRENTEXAMPLE = "";
+var ACCESS         = 0;
+var SUPERACCESS    = 0;
 
 
 //////////////////////////////
@@ -28,7 +30,33 @@ var CURRENTEXAMPLE = "";
 
 document.addEventListener("DOMContentLoaded", function () {
 	CGI = GetCgiParameters();
+	let url = `https://data.polyrhythm.humdrum.org/${CGI.id}.validate?a=${localStorage.access}`;
+		fetch(url)
+		.then(response => response.text())
+		.then(function(text) {
+			console.warn("TEXT " + text + " FOR " + url);
+			if (text.match("SUPERVALID")) {
+				ACCESS = 1;
+				SUPERACCESS = 1;
+			} else if (text.match("INVALID")) {
+				ACCESS = 0;
+				SUPERACCESS = 0;
+			} else if (text.match("VALID")) {
+				ACCESS = 1;
+				SUPERACCESS = 0;
+			}
+			continueListener();
+		});
+});
 
+
+
+//////////////////////////////
+//
+// continueListener --
+//
+
+function continueListener() {
 	var element = document.querySelector("input#search");
 	if (element) {
 		element.addEventListener("input", function() {
@@ -55,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		request.open("GET", url);
 		request.send();
 	}
-});
+}
 
 
 

@@ -4,7 +4,7 @@
 {% include scripts/scripts-common.html %}
 
 <script>
-// vim: ts=3:nowrap
+// vim: ts=3:nowrap:ft=javascript
 
 
 //////////////////////////////
@@ -260,142 +260,144 @@ function displayExample(exid, examples) {
 
 	output += "</table>";
 
+	output += "<!- ================================== ->\n";
 	output += "<div class='buttons'>";
 
-	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 acoustic-region'>";
-	output += "<a target='_audio' href='/resources/recordings/acoustic/" + CURRENTEXAMPLE + ".m4a'>recording</a>";
-	output += "</span>";
+	if (SUPERACCESS) {
+		output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 acoustic-region'>";
+		output += "<a target='_audio' href='/resources/recordings/acoustic/" + CURRENTEXAMPLE + ".m4a'>recording</a>";
+		output += "</span> ";
+	}
 
 	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 eastwest-region hidden'>";
 	output += "<a target='_audio' href='/resources/recordings/eastwest/" + CURRENTEXAMPLE + ".m4a'>eastwest</a>";
-	output += "</span>";
+	output += "</span> ";
 
 	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 sibelius-region hidden'>";
 	output += "<a target='_audio' href='/resources/recordings/sibelius/" + CURRENTEXAMPLE + ".m4a'>sibaudio</a>";
-	output += "</span>";
+	output += "</span> ";
 
-	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 e0-region'>";
-	output += "<a target='_e0' href='/resources/pdf/e0/" + CURRENTEXAMPLE + "-e0.pdf'>suter</a>";
-	output += "</span>";
+	if (SUPERACCESS) {
+		output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 e0-region'>";
+		output += "<a target='_e0' href='/resources/pdf/e0/" + CURRENTEXAMPLE + "-e0.pdf'>suter</a>";
+		output += "</span> ";
+	}
 
-	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 e1-region'>";
-	output += "<a target='_e1' href='/resources/pdf/e1/" + CURRENTEXAMPLE + "-e1.pdf'>E1</a>";
-	output += "</span>";
+	if (SUPERACCESS) {
+		output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 e1-region'>";
+		output += "<a target='_e1' href='/resources/pdf/e1/" + CURRENTEXAMPLE + "-e1.pdf'>E1</a>";
+		output += "</span> ";
+	}
 
-	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 e2-region'>";
-	output += "<a target='_e2' href='/resources/pdf/e2/" + CURRENTEXAMPLE + "-e2.pdf'>E2</a>";
-	output += "</span>";
+	if (SUPERACCESS) {
+		output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 e2-region'>";
+		output += "<a target='_e2' href='/resources/pdf/e2/" + CURRENTEXAMPLE + "-e2.pdf'>E2</a>";
+		output += "</span> ";
+	}
 
-	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 e3-region'>";
-	output += "<a target='_e3' href='/resources/pdf/e3/" + CURRENTEXAMPLE + "-e3.pdf'>E3</a>";
-	output += "</span>";
+	if (SUPERACCESS) {
+		output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 e3-region'>";
+		output += "<a target='_e3' href='/resources/pdf/e3/" + CURRENTEXAMPLE + "-e3.pdf'>E3</a>";
+		output += "</span> ";
+	}
 
 	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 pdf-region'>";
 	output += "<a target='_pdf' href='/resources/pdf/sibelius/" + CURRENTEXAMPLE + "-sib.pdf'>sibpdf</a>";
-	output += "</span>";
+	output += "</span> ";
 
-	if (hasGroupInfo(CURRENTEXAMPLE)) {
+	if (ACCESS && hasGroupInfo(CURRENTEXAMPLE)) {
 
 		output += "<span id='group'";
 		output += " onclick='toggleGroup()'";
 		output += " title='";
 		output += "Toogle composite analysis by group";
 		output += "'";
-		output += " class='vhv-button group2'>group</span>";
+		output += " class='vhv-button group2'>group</span> ";
 
 		output += "<span id='color'";
 		output += " onclick='toggleColor()'";
 		output += " title='";
 		output += "Toogle group colorg";
 		output += "'";
-		output += " class='vhv-button group2'>group color</span>";
+		output += " class='vhv-button group2'>group&nbsp;color</span> ";
 
 		output += "<span id='composite'";
 		output += " onclick='toggleComposite()'";
 		output += " title='";
 		output += "Toogle composite analysis";
 		output += "'";
-		output += " class='vhv-button group2'>composite</span>";
+		output += " class='vhv-button group2'>composite</span> ";
 
 		output += "<span id='colorFullComposite'";
 		output += " onclick='toggleColorFullComposite()'";
 		output += " title='";
 		output += "Toogle full-composite coloring";
 		output += "'";
-		output += " class='vhv-button group2'>comp. color</span>";
+		output += " class='vhv-button group2'>comp.&nbsp;color</span> ";
 
 		output += "<span id='coincidence'";
 		output += " onclick='toggleCoincidence()'";
 		output += " title='";
 		output += "Toogle coincidence analysis by group";
 		output += "'";
-		output += " class='vhv-button group2'>coincidence</span>";
+		output += " class='vhv-button group2'>coincidence</span> ";
 
 		output += "<span id='mark'";
 		output += " onclick='toggleMark()'";
 		output += " title='";
 		output += "Toogle coincidence marks";
 		output += "'";
-		output += " class='vhv-button group2'>mark</span>";
+		output += " class='vhv-button group2'>mark</span> ";
 
 		output += "<span id='event-counts'";
 		output += " onclick='toggleEventCounts()'";
 		output += " title='";
 		output += "Show/Hide composite event counts";
 		output += "'";
-		output += " class='vhv-button group2'>event counts</span>";
+		output += " class='vhv-button group2'>event&nbsp;counts</span> ";
 
 		output += "<span id='analysis-only'";
 		output += " onclick='toggleAnalysisOnly()'";
 		output += " title='";
 		output += "Show analysis without original score";
 		output += "'";
-		output += " class='vhv-button group2'>only&nbsp;analysis</span>";
+		output += " class='vhv-button group2'>only&nbsp;analysis</span> ";
 
 	}
 
-	output += "<span ";
-	output += " onclick='copyData(\"" + CURRENTEXAMPLE + "\")'";
-	output += " title='";
-	output += "Copy Humdrum data to the system clipboard";
-	output += "'";
-	output += " class='vhv-button group3'>copy</span>";
+	if (ACCESS) {
+		output += "<span ";
+		output += " onclick='copyData(\"" + CURRENTEXAMPLE + "\")'";
+		output += " title='";
+		output += "Copy Humdrum data to the system clipboard";
+		output += "'";
+		output += " class='vhv-button group3'>copy</span> ";
+	}
 
 	output += "<span ";
 	output += " onclick='copyLink(\"" + CURRENTEXAMPLE + "\")'";
 	output += " title='";
 	output += "Copy page link";
 	output += "'";
-	output += " class='vhv-button group3'>link</span>";
+	output += " class='vhv-button group3'>link</span> ";
 
 	output += "</div>";
+	output += "<!- ================================== ->\n";
 
 	element.innerHTML = output;
 	showCurrentAudio();
 	let fname = entry["Filename"];
-	let url = "";
-	if (fname.match(/^R/)) {
-		url = "https://raw.githubusercontent.com/polyrhythm-project/rds-scores/";
-		url += "master/kern/";
-		url += fname;
-		url += ".krn";
-	} else {
-		url = "https://raw.githubusercontent.com/craigsapp/polyrhythm-scores/";
-		url += "master/kern/";
-		url += fname;
-		url += ".krn";
-	}
+	let url = `https://data.polyrhythm.humdrum.org/${fname}.krn?a=${localStorage.access}`;
 
 	console.log("URI", url);
 	let dset = entry["Example Dataset"];
-	//if (dset === "R") {
-		// T dataset is not online yet...
+	if (ACCESS) {
 		displayHumdrum({
 			source: "example-notation",
 			postFunction: addProblemIcons,
 			url: url
 		});
-	//}
+	}
 
 	PrepareResourceFileIndex("e0", "/resources/pdf/e0/index.txt", hideUnavailableE0);
 	PrepareResourceFileIndex("e1", "/resources/pdf/e1/index.txt", hideUnavailableE1);
