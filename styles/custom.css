@@ -102,12 +102,12 @@ a.searchworks:hover, a.purl:hover {
 
 .vhv-button.group1{
 	background: #f2c82c;
-	float: right;
-	border-radius: 1rem;
+	/* float: right; */
+	border-radius: 2rem;
 	font-family: Arial;
 	color: #fafafa;
-	font-size: 1rem;
-	padding: 0px 5px 0px 5px;
+	font-size: 1.5rem;
+	padding: 8px;
 	text-decoration: none;
 	margin-left: 1px;
 	margin-right: 1px;
@@ -116,12 +116,12 @@ a.searchworks:hover, a.purl:hover {
 
 .vhv-button.group2 {
 	background: limegreen;
-	float: right;
-	border-radius: 1rem;
+	/* float: right; */
+	border-radius: 2rem;
 	font-family: Arial;
 	color: #fafafa;
-	font-size: 1rem;
-	padding: 0px 5px 0px 5px;
+	font-size: 1.5rem;
+	padding: 8px;
 	text-decoration: none;
 	margin-left: 1px;
 	margin-right: 1px;
@@ -130,12 +130,12 @@ a.searchworks:hover, a.purl:hover {
 
 .vhv-button.group3 {
 	background: dodgerblue;
-	float: right;
-	border-radius: 1rem;
+	/* float: right; */
+	border-radius: 2rem;
 	font-family: Arial;
 	color: #fafafa;
-	font-size: 1rem;
-	padding: 0px 5px 0px 5px;
+	font-size: 1.5rem;
+	padding: 8px;
 	text-decoration: none;
 	margin-left: 1px;
 	margin-right: 1px;
