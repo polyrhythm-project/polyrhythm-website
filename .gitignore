@@ -9,6 +9,7 @@ Icon*
 Gemfile.lock
 .jekyll-metadata
 _site
+login
 no_archive
 resources
 err
