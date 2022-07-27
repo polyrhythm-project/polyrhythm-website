@@ -21,7 +21,7 @@ summary:
     <td class="nameline" valign="top" colspan="2"><b>Ève Poudrier</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2">Principal investigator (University of British Columbia)</td>
+    <td valign="top" colspan="2"><i>Principal investigator (University of British Columbia)</i></td>
   </tr>
   <tr>
     <td valign="top"><img src="/people/EvePoudrier.jpg"></td>
@@ -31,7 +31,7 @@ summary:
     <td class="nameline" valign="top" colspan="2"><b>Daniel Shanahan</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2">Co-investigator (Ohio State University)</td>
+    <td valign="top" colspan="2"><i>Co-investigator (Ohio State University)</i></td>
   </tr>
   <tr>
     <td valign="top"><img width="300" src="/people/DanShanahan.jpg"></td>
@@ -43,7 +43,7 @@ Dan is an associate professor of music theory and cognition in the Bienen School
     <td class="nameline" valign="top" colspan="2"><b>Craig Sapp</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2">Consultant (PHI/CCARH/Stanford University)</td>
+    <td valign="top" colspan="2"><i>Consultant (PHI/CCARH/Stanford University)</i></td>
   </tr>
   <tr>
     <td valign="top"><img width="300" src="/people/CraigSapp.jpg"></td>
@@ -61,7 +61,7 @@ and
     <td class="nameline" valign="top" colspan="2"><b>Claudio de Freitas</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2">DMA (composition), transcriber/editor (music data)</td>
+    <td valign="top" colspan="2"><i>DMA (composition), transcriber/editor (music data)</i></td>
   </tr>
   <tr>
     <td valign="top"><img src="/people/ClaudiodeFreitas.jpg"></td>
@@ -71,7 +71,7 @@ and
     <td class="nameline" valign="top" colspan="2"><b>Rafael Laurindo</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2">DMA (voice), transcriber/editor (music data, website, lyrics)</td>
+    <td valign="top" colspan="2"><i>DMA (voice), transcriber/editor (music data, website, lyrics)</i></td>
   </tr>
   <tr>
     <td valign="top"><img src="/people/RafaelLaurindo.jpg"></td>
@@ -81,7 +81,7 @@ and
     <td class="nameline" valign="top" colspan="2"><b>Jason Lee</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2">MA (music theory), editor (music data)</td>
+    <td valign="top" colspan="2"><i>MA (music theory), editor (music data)</i></td>
   </tr>
   <tr>
     <td valign="top"><img src="/people/JasonLee.jpg"></td>
@@ -91,7 +91,7 @@ and
     <td class="nameline" valign="top" colspan="2"><b>Ethan Tong</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2">BA (music education), research assistant (metadata team leader)</td>
+    <td valign="top" colspan="2"><i>BA (music education), research assistant (metadata team leader)</i></td>
   </tr>
   <tr>
     <td valign="top"><img src="/people/EthanTong.jpg"></td>
@@ -101,7 +101,7 @@ and
     <td class="nameline" valign="top" colspan="2"><b>Gabriella Vici</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2">MA (music theory), editor	(music data)</td>
+    <td valign="top" colspan="2"><i>MA (music theory), editor	(music data)</i></td>
   </tr>
   <tr>
     <td valign="top"><img src="/people/GabriellaVici.jpg"></td>
@@ -111,7 +111,7 @@ and
     <td class="nameline" valign="top" colspan="2"><b>Walker Williams</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2">DMA (composition), arranger/editor (audio synthesis)</td>
+    <td valign="top" colspan="2"><i>DMA (composition), arranger/editor (audio synthesis)</i></td>
   </tr>
   <tr>
     <td valign="top"><img src="/people/WalkerWilliams.jpg"></td>
@@ -121,7 +121,7 @@ and
     <td class="nameline" valign="top" colspan="2"><b>Daniel Wright</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2">MA (composition), arranger/editor (music data, audio synthesis)</td>
+    <td valign="top" colspan="2"><i>MA (composition), arranger/editor (music data, audio synthesis)</i></td>
   </tr>
   <tr>
     <td valign="top"><img src="/people/DanielWright.jpg"></td>
