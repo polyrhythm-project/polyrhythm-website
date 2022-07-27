@@ -15,9 +15,9 @@ summary:
 
 ## Forthcoming ##
 
-Poudrier, È., & Sapp, C. Polyrhythm analysis using the composite tool. (Proceedings for [9<sup>th</sup> International Conference on Digital Libraries for Musicology](https://dlfm.web.ox.ac.uk/))
+Poudrier, È., & Sapp, C. Polyrhythm analysis using the composite tool. (Proceedings of the [9<sup>th</sup> International Conference on Digital Libraries for Musicology](https://dlfm.web.ox.ac.uk/))
 
-- [Submission](https://drive.google.com/file/d/13ywmzOBdvYK2F5KS5qEvwfmZ9Cf1xyg9/view?usp=sharing)
+- <a target="_blank" href="https://drive.google.com/file/d/13ywmzOBdvYK2F5KS5qEvwfmZ9Cf1xyg9/view?usp=sharing">Paper</a>
 
 
 
@@ -33,9 +33,9 @@ Poudrier, È. & Shanahan, D. (2018). Modeling rhythmic complexity in a corpus of
 ## Web Resources ##
 
 
-- [_Composite_ Tool](https://doc.verovio.humdrum.org/filter/composite/)
+- [_Composite_ Tool documentation](https://doc.verovio.humdrum.org/filter/composite/)
 
-- [Polyrhythm Project Sampler](https://verovio.humdrum.org/?file=poly)
+- [Polyrhythm Project Sampler](https://verovio.humdrum.org/?file=poly) Sample of 80 examples&ndash;4 examples for each of 20 composers.
 
 
 ## In Progress ##
