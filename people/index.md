@@ -104,8 +104,8 @@ and
     <td valign="top" colspan="2">MA (music theory), editor	(music data)</td>
   </tr>
   <tr>
-    <td valign="top"><img src="/people/person-placeholder.jpg"></td>
-    <td valign="top"></td>
+    <td valign="top"><img src="/people/GabriellaVici.jpg"></td>
+    <td class="topalign">Originally from Australia, Gabriella Vici is currently undertaking her MA in music theory at the University of British Columbia, with a particular research focus on early twentieth-century music, including repertoire by Bartók, Mahler and Shostakovich. Prior to studying in Vancouver, she completed her Bachelor and Master’s degrees in composition at the Sydney Conservatorium of Music, the University of Sydney, and has had the pleasure of composing for leading Australian music groups and soloists, as well as studying under prolific Australian composer, Carl Vine AO.</td>
   </tr>
   <tr>
     <td class="nameline" valign="top" colspan="2"><b>Walker Williams</b></td>
@@ -124,8 +124,8 @@ and
     <td valign="top" colspan="2">MA (composition), arranger/editor (music data, audio synthesis)</td>
   </tr>
   <tr>
-    <td valign="top"><img src="/people/person-placeholder.jpg"></td>
-    <td valign="top"></td>
+    <td valign="top"><img src="/people/DanielWright.jpg"></td>
+    <td class="topalign">A recent graduate from UBC with a MMus in Composition, Daniel is interested in the intersections between music and theatre. He employs elements of extended techniques, extra-music elements, and improvisation to discover this space. Concerned with what he observes every day, music helps him to explore social issues and approach them through sound.  His work encompasses various Percussion Ensemble pieces, works for String Quartet, Chamber Ensemble, solo works, and stage performance. He has had his works performed at the Canadian Music Centre, the West Coast Composer’s Symposium, the Student Composer concert series both at UBC and at Wilfrid Laurier University, as well as with the Kitchener-Waterloo composer collective The Yacht Club. In his future he plans to explore pitch triggered audio/MIDI with the Marimba in addition to a continued focus on pertinent issues like climate change, and the rising rate of poverty.</td>
   </tr>
 
 </tbody>
