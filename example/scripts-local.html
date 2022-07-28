@@ -301,9 +301,11 @@ function displayExample(exid, examples) {
 		output += "</span> ";
 	}
 
-	output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 pdf-region'>";
-	output += "<a target='_pdf' href='/resources/pdf/sibelius/" + CURRENTEXAMPLE + "-sib.pdf'>sibpdf</a>";
-	output += "</span> ";
+	if (SUPERACCESS) {
+		output += "<span data-id='" + CURRENTEXAMPLE + "' class='vhv-button group1 pdf-region'>";
+		output += "<a target='_pdf' href='/resources/pdf/sibelius/" + CURRENTEXAMPLE + "-sib.pdf'>sibpdf</a>";
+		output += "</span> ";
+	}
 
 	if (ACCESS && hasGroupInfo(CURRENTEXAMPLE)) {
 
