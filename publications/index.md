@@ -13,15 +13,11 @@ summary:
 
 # Publications #
 
-## Forthcoming ##
-
-Poudrier, È., & Sapp, C. Polyrhythm analysis using the composite tool. (Proceedings of the [9<sup>th</sup> International Conference on Digital Libraries for Musicology](https://dlfm.web.ox.ac.uk/))
-
-- <a target="_blank" href="https://drive.google.com/file/d/13ywmzOBdvYK2F5KS5qEvwfmZ9Cf1xyg9/view?usp=sharing">Paper</a>
-
-
 
 ## Conference Proceedings ##
+
+
+Poudrier, È., Sapp, C. (2022). [Polyrhythm analysis using the _composite_ tool](https://drive.google.com/file/d/13ywmzOBdvYK2F5KS5qEvwfmZ9Cf1xyg9/view?usp=sharing). In [_9<sup>th</sup> International Conference on Digital Libraries for Musicology_](https://dlfm.web.ox.ac.uk/) (DLfM2022), July 28, 2022, Prague, Czech Republic. ACM, New York, NY, USA. Published [online](https://dl.acm.org/doi/10.1145/3543882.3543890)
 
 
 Poudrier, È., Sapp, C., & Shanahan, D. (2021). The cognitive and affective correlates of rhythmic complexity. In ICMPC ESCOM 2021: _Connectivity and diversity in music cognition, 28-31 July 2021_. Published [online](https://drive.google.com/file/d/1hCtYDdTHfb3Txo2ryT1ZS2JzL8tT5I6U/view)
