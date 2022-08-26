@@ -31,7 +31,7 @@ Poudrier, È. & Shanahan, D. (2018). Modeling rhythmic complexity in a corpus of
 
 - [_Composite_ Tool documentation](https://doc.verovio.humdrum.org/filter/composite/)
 
-- [Polyrhythm Project Sampler](https://verovio.humdrum.org/?file=poly) Sample of 80 examples&ndash;4 examples for each of 20 composers.
+- [Polyrhythm Project Sampler](https://verovio.humdrum.org/?file=poly) Sample of 80 examples&ndash;4 examples for each of the 20 composers.
 
 
 ## In Progress ##
