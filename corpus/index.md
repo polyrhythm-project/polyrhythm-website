@@ -26,9 +26,33 @@ summary:
   </tr>
   
   <tr>
+    <td valign="top" colspan="2">Conductor, pedagogue, and musicologist</td>
+  </tr>
+  
+  <tr>
+    <td class="topalign" colspan="2">Text to be added.</td>
+  </tr>
+
+  <tr>
+    <td valign="top" colspan="2"><img src="/corpus/Metadata Table.png"></td>
+  </tr>
+
+  <tr>
+    <td class="topalign" colspan="2">Text to be added.</td>
+  </tr>
+
+</tbody>
+</table>
+
+<h2>Composers</h2>
+
+<tbody>
+<table>
+
+  <tr>
     <td valign="top"><img width="300" src="/people/EvePoudrier.jpg"></td>
     <td class="topalign">I am an Assistant Professor in music theory.</td>
   </tr>
-
- </tbody>
+  
+</tbody>
 </table>
