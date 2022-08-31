@@ -59,8 +59,8 @@ summary:
     <td class="centeralign"><b>Death Region or Country</b></td>
   </tr>
   <tr>
-    <td valign="top"><img width="385" src="/corpus/Birth Region or Country.png"></td>
-    <td valign="top"><img width="385" src="/corpus/Death Region or Country.png"></td>
+    <td class="topalign"><img width="385" src="/corpus/Birth Region or Country.png"></td>
+    <td class="topalign"><img width="385" src="/corpus/Death Region or Country.png"></td>
   </tr>
 </tbody>
 </table>
