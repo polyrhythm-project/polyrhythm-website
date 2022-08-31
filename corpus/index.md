@@ -17,15 +17,13 @@ summary:
 <table>
 <tbody>
   <tr>
-    <td valign="top" colspan="2"><img width="300" src="/corpus/Suter Portrait.png"></td>
+    <td class="centeralign" colspan="2"><img width="300" src="/corpus/Suter Portrait.png"></td>
   </tr>
-  
-  <tr>
-    <td valign="top" colspan="2"><a target="_blank" href="https://www.musinfo.ch/de/personen/autoren/?pers_id=1022&abc=S">Louis-Marc Suter</a> (1928-2018)</td>
+    <tr>
+    <td class="centeralign" colspan="2"><a target="_blank" href="https://www.musinfo.ch/de/personen/autoren/?pers_id=1022&abc=S">Louis-Marc Suter</a> (1928-2018)</td>
   </tr>
-  
-  <tr>
-    <td valign="top" colspan="2">Conductor, pedagogue, and musicologist</td>
+    <tr>
+    <td class="centeralign" colspan="2">Conductor, pedagogue, and musicologist</td>
   </tr>
   
   <tr>
@@ -33,7 +31,7 @@ summary:
   </tr>
 
   <tr>
-    <td valign="top" colspan="2"><img width="800" src="/corpus/Metadata Table.png"></td>
+    <td class="topalign" colspan="2"><img width="800" src="/corpus/Metadata Table.png"></td>
   </tr>
 
   <tr>
@@ -51,7 +49,7 @@ summary:
     <td class="centeralign" colspan="2"><b>Timeline of Composers by Birth Year</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2"><img width="800" src="/corpus/Timeline of Composers by Birth Year graph.png"></td>
+    <td class="topalign" colspan="2"><img width="800" src="/corpus/Timeline of Composers by Birth Year graph.png"></td>
   </tr>
 
   <tr>
@@ -74,21 +72,21 @@ summary:
     <td class="centeralign" colspan="2"><b>Works by Composer</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2"><img width="800" src="/corpus/Works by Composer cloud.png"></td>
+    <td class="topalign" colspan="2"><img width="800" src="/corpus/Works by Composer cloud.png"></td>
   </tr>
 
   <tr>
     <td class="centeralign" colspan="2"><b>Works & Examples</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2"><img width="800" src="/corpus/Works _ Examples graph.png"></td>
+    <td class="topalign" colspan="2"><img width="800" src="/corpus/Works _ Examples graph.png"></td>
   </tr>
    
   <tr>
     <td class="centeralign" colspan="2"><b>Composition Year by Decade</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2"><img width="800" src="/corpus/Composition Year by Decade table _ graph.png"></td>
+    <td class="topalign" colspan="2"><img width="800" src="/corpus/Composition Year by Decade table _ graph.png"></td>
   </tr>  
   
   <tr>
@@ -96,8 +94,8 @@ summary:
     <td class="centeralign"><b>Sub-genre Percentage Distribution</b></td>
   </tr>
   <tr>
-    <td valign="top"><img width="385" src="/corpus/Genre Percentage Distribution graph.png"></td>
-    <td valign="top"><img width="385" src="/corpus/Sub-genre Percentage Distribution graph.png"></td>
+    <td class="topalign"><img width="385" src="/corpus/Genre Percentage Distribution graph.png"></td>
+    <td class="topalign"><img width="385" src="/corpus/Sub-genre Percentage Distribution graph.png"></td>
   </tr>
 </tbody>
 </table>
@@ -111,7 +109,7 @@ summary:
     <td class="centeralign" colspan="2"><b>Premieres Location</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2"><img width="800" src="/corpus/Premieres Location list.png"></td>
+    <td class="topalign" colspan="2"><img width="800" src="/corpus/Premieres Location list.png"></td>
   </tr>
   
   <tr>
@@ -119,15 +117,15 @@ summary:
     <td class="centeralign"><b>Conductors</b></td>
   </tr>
   <tr>
-    <td valign="top"><img width="385" src="/corpus/Ensembles cloud.png"></td>
-    <td valign="top"><img width="385" src="/corpus/Conductors cloud.png"></td>
+    <td class="topalign"><img width="385" src="/corpus/Ensembles cloud.png"></td>
+    <td class="topalign"><img width="385" src="/corpus/Conductors cloud.png"></td>
   </tr>
    
   <tr>
     <td class="centeralign" colspan="2"><b>Soloists</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2"><img width="800" src="/corpus/Soloists cloud.png"></td>
+    <td class="topalign" colspan="2"><img width="800" src="/corpus/Soloists cloud.png"></td>
   </tr>  
 </tbody>
 </table>
@@ -142,8 +140,8 @@ summary:
     <td class="centeralign"><b>Length of Examples by Composer</b></td>
   </tr>
   <tr>
-    <td valign="top"><img width="385" src="/corpus/Examples by Composers cloud.png"></td>
-    <td valign="top"><img width="385" src="/corpus/Length of Examples by Composer graph.png"></td>
+    <td class="topalign"><img width="385" src="/corpus/Examples by Composers cloud.png"></td>
+    <td class="topalign"><img width="385" src="/corpus/Length of Examples by Composer graph.png"></td>
   </tr>
 
   <tr>
@@ -151,15 +149,15 @@ summary:
     <td class="centeralign"><b>Example Start Tempo</b></td>
   </tr>
   <tr>
-    <td valign="top"><img width="385" src="/corpus/Full Unit Start Tempo cloud.png"></td>
-    <td valign="top"><img width="385" src="/corpus/Example Start Tempo cloud.png"></td>
+    <td class="topalign"><img width="385" src="/corpus/Full Unit Start Tempo cloud.png"></td>
+    <td class="topalign"><img width="385" src="/corpus/Example Start Tempo cloud.png"></td>
   </tr>  
   
   <tr>
     <td class="centeralign" colspan="2"><b>Start Time Signatures by Type</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2"><img width="800" src="/corpus/Start Time Signatures by Type graph.png"></td>
+    <td class="topalign" colspan="2"><img width="800" src="/corpus/Start Time Signatures by Type graph.png"></td>
   </tr>  
   
   <tr>
@@ -167,8 +165,8 @@ summary:
     <td class="centeralign"><b>Time Signatures Frequency (TDS)</b></td>
   </tr>
   <tr>
-    <td valign="top"><img width="385" src="/corpus/Time Signatures Frequency graph (RDS).png"></td>
-    <td valign="top"><img width="385" src="/corpus/Time Signatures Frequency graph (TDS).png"></td>
+    <td class="topalign"><img width="385" src="/corpus/Time Signatures Frequency graph (RDS).png"></td>
+    <td class="topalign"><img width="385" src="/corpus/Time Signatures Frequency graph (TDS).png"></td>
   </tr>
   
   <tr>
@@ -176,8 +174,8 @@ summary:
     <td class="centeralign"><b>Polymetric Time Signatures (TDS)</b></td>
   </tr>
   <tr>
-    <td valign="top"><img width="385" src="/corpus/Polymetric Time Signatures (RDS-2) chart.png"></td>
-    <td valign="top"><img width="385" src="/corpus/Polymetric Time Signatures (TDS-16) chart.png"></td>
+    <td class="topalign"><img width="385" src="/corpus/Polymetric Time Signatures (RDS-2) chart.png"></td>
+    <td class="topalign"><img width="385" src="/corpus/Polymetric Time Signatures (TDS-16) chart.png"></td>
   </tr>
 </tbody>
 </table>
