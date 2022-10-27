@@ -34,5 +34,9 @@ chcon --user system_u --type httpd_sys_content_t -Rv _site/
 chcon -Rv --type=httpd_sys_content_t /var/www/websites/polyrhythm
 chcon -Rv --type=httpd_sys_content_t /projects/polyrhythm-resources/
 
+restorecon _site/
+restorecon _site/resources
+#restorecon /projects/polyrhythm-resources/
+restorecon /var/www/websites/polyrhythm/
 
 
