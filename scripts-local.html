@@ -36,6 +36,8 @@ function displayList(entries, query) {
 		output += "<th title='Sort by title' onclick='SortByText(4, \"#metadata-list\")'>Composed</th>";
 		output += "<th style='padding-right:10px;' title='Sort by title' onclick='SortByText(5, \"#metadata-list\")'>Premiered</th>";
 		output += "<th title='Sort by title' onclick='SortByText(6, \"#metadata-list\")'>Published</th>";
+		output += "<th title='Sort by title' onclick='SortByText(7, \"#metadata-list\")'>Tempo</th>";
+		output += "<th title='Sort by title' onclick='SortByText(8, \"#metadata-list\")'>Time&nbsp;sig.</th>";
 		output += "</tr>";
 		output += "</thead>";
 	} else {
@@ -215,8 +217,109 @@ function makeMetaTableRows(list, dtype) {
 		}
 		output += "</td>";
 
+		if (dtype === "example") {
+
+			output += "<td style='text-align:center;'>";
+			if (list[i]["Example Start Notated Beat"]) {
+		 		output += createTempoMarking(list[i]["Example Start Notated Beat"], list[i]["Example Start Notated Beat Rate"]);
+			}
+			output += "</td>";
+
+			output += "<td style='text-align:center;'>";
+			if (list[i]["Example Start Tsig"]) {
+		 		output += list[i]["Example Start Tsig"];
+			}
+			output += "</td>";
+
+		}
+
 		output += "</tr>";
 	}
+	return output;
+}
+
+
+//////////////////////////////
+//
+// createTempoMarking --
+//
+
+function createTempoMarking(beat, value) {
+	let beatpieces = beat.split(/\s*;\s*/);
+	let valuepieces = value.split(/\s*;\s*/);
+	if (beatpieces.length != valuepieces.length) {
+		return "ERROR";
+	}
+	let output = "";
+	for (let i=0; i<beatpieces.length; i++) {
+		output += createSingleTempoMarking(beatpieces[i], valuepieces[i]);
+		if (i < beatpieces.lenght - 1) {
+			output += ", ";
+		}
+	}
+	return output;
+}
+
+
+//////////////////////////////
+//
+// createSingleTempoMarking --
+//
+
+function createSingleTempoMarking(beat, value) {
+	if (beat.match(/unavailable/)) {
+		return "";
+	}
+	let bracket = false;
+	let curley  = false;
+	if (beat.match(/^[[]/)) {
+		bracket = true;
+		beat = beat.replace(/\[/, "", "g");
+		beat = beat.replace(/\]/, "", "g");
+		value = value.replace(/\[/, "", "g");
+		value = value.replace(/\]/, "", "g");
+	} else if (beat.match(/[{}]/)) {
+		curley = true;
+		beat = beat.replace(/\{/, "", "g");
+		beat = beat.replace(/\}/, "", "g");
+		value = value.replace(/\{/, "", "g");
+		value = value.replace(/\}/, "", "g");
+	}
+	if (beat === "quarter") {
+		beat = "&#x2669;";
+	} else if (beat === "eighth") {
+		beat = "&#x266A;";
+	} else if (beat === "dotted-eighth") {
+		beat = "&#x266A;.";
+	} else if (beat === "eighth-dotted") {
+		beat = "&#x266A;.";
+	} else if (beat === "dotted-quarter") {
+		beat = "&#x2669;.";
+	} else if (beat === "quarter-dotted") {
+		beat = "&#x2669;.";
+	} else if (beat === "half") {
+		beat = "&#x1D15E;";
+	} else if (beat === "half-dotted") {
+		beat = "&#x1D15E;.";
+	} else if (beat === "dotted-half") {
+		beat = "&#x1D15E;.";
+	} else if (beat === "sixteenth") {
+		beat = "&#x1D161;";
+	} else if (beat === "dotted-sixteenth") {
+		beat = "&#x1D161;.";
+	} else if (beat === "sixteenth-dotted") {
+		beat = "&#x1D161;.";
+	}
+
+	value = value.replace(/-/, "&ndash;", "g");
+
+	let output = `${beat} = ${value}`;
+	if (bracket) {
+		output = `[${output}]`;
+	} else if (curley) {
+		output = `{${output}}`;
+	}
+	console.error("\tOUTPUT", output);
 	return output;
 }
 
