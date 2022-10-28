@@ -388,7 +388,8 @@ function displayExample(exid, examples) {
 
 	element.innerHTML = output;
 	showCurrentAudio();
-	let fname = entry["Filename"];
+	// let fname = entry["Filename"];
+	let fname = entry["Example No."];
 	let url = `https://data.polyrhythm.humdrum.org/${fname}.krn?a=${localStorage.access}`;
 
 	console.log("URI", url);
@@ -642,7 +643,6 @@ function prepareFilter() {
 		FILTER += "shed -e 's/grp:A/color:crimson/I; s/grp:B/color:dodgerblue/I'";
 	
 	}
-console.warn("FILTER", FILTER);
 
 	return FILTER;
 }
@@ -968,7 +968,6 @@ function hideUnavailableE2(tag, index) {
 
 function hideUnavailableE0(tag, index) {
 	let database = index[tag];
-console.error("DATABASE", database);
 	if (!database) {
 		console.log("ERROR: cannot find file index for", tag);
 		return;
@@ -1136,7 +1135,6 @@ function hideUnavailableEastWest(tag, index) {
 			continue;
 		}
 		let state = database[id];
-console.log("EASTWEST", id, state);
 		if (state) {
 			// file found so do nothing
 			continue;
