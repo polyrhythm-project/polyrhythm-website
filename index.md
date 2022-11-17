@@ -11,6 +11,9 @@ summary:
 <table>
 <tr>
 
+<table>
+<tr>
+
 <td>
 <select onchange="doSearch();" id="table-scope">
 	<option value="example">example list</option>
@@ -19,20 +22,34 @@ summary:
 </td>
 
 <td>
-<select id="composer" onchange="doSearch();">
-</select>
-</td>
-
-<td>
-<input id="search" placeholder="search" value="" autocomplete="off">
+<input id="search" style="width:220px;"  placeholder="search" value="" autocomplete="off">
 </td>
 
 <td>
 <span id="search-count"></span>
 </td>
 
+</tr>
+</table>
+</tr>
+
+<tr>
+
+<table style="margin-top:10px;" >
+<tr>
+
+<td>
+<select id="composer" onchange="doSearch();">
+</select>
+</td>
+
 <td>
 <select id="genre" onchange="doSearch();">
+</select>
+</td>
+
+<td>
+<select id="tsigtype" onchange="doSearch();">
 </select>
 </td>
 

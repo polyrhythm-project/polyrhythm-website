@@ -37,7 +37,7 @@ function displayList(entries, query) {
 		output += "<th style='padding-right:10px;' title='Sort by title' onclick='SortByText(5, \"#metadata-list\")'>Premiered</th>";
 		output += "<th title='Sort by title' onclick='SortByText(6, \"#metadata-list\")'>Published</th>";
 		output += "<th title='Sort by title' onclick='SortByText(7, \"#metadata-list\")'>Tempo</th>";
-		output += "<th title='Sort by title' onclick='SortByText(8, \"#metadata-list\")'>Time&nbsp;sig.</th>";
+		output += "<th title='Sort by title' onclick='SortByTimeSignature(8, \"#metadata-list\")'>Start time&nbsp;signature</th>";
 		output += "</tr>";
 		output += "</thead>";
 	} else {
@@ -227,7 +227,12 @@ function makeMetaTableRows(list, dtype) {
 
 			output += "<td style='text-align:center;'>";
 			if (list[i]["Example Start Tsig"]) {
-		 		output += list[i]["Example Start Tsig"];
+				let value = cleanTimeSignature(list[i]["Example Start Tsig"]);
+				if (value.match("\{")) {
+		 			output += "unmetered";
+				} else {
+		 			output += value;
+				}
 			}
 			output += "</td>";
 
@@ -237,6 +242,19 @@ function makeMetaTableRows(list, dtype) {
 	}
 	return output;
 }
+
+
+
+//////////////////////////////
+//
+// cleanTimeSignature --
+//
+
+function cleanTimeSignature(input) {
+	let output = input.replace(/;\s*/, "; ");
+	return output;
+}
+
 
 
 //////////////////////////////
@@ -253,8 +271,8 @@ function createTempoMarking(beat, value) {
 	let output = "";
 	for (let i=0; i<beatpieces.length; i++) {
 		output += createSingleTempoMarking(beatpieces[i], valuepieces[i]);
-		if (i < beatpieces.lenght - 1) {
-			output += ", ";
+		if (i < beatpieces.length - 1) {
+			output += "; ";
 		}
 	}
 	return output;
@@ -315,11 +333,11 @@ function createSingleTempoMarking(beat, value) {
 
 	let output = `${beat} = ${value}`;
 	if (bracket) {
-		output = `[${output}]`;
+		// output = `[${output}]`;
+		output = `${output}`;
 	} else if (curley) {
-		output = `{${output}}`;
+		output = `(${output})`;
 	}
-	console.error("\tOUTPUT", output);
 	return output;
 }
 
@@ -411,7 +429,19 @@ function doSearch(text) {
 		}
 	}
 
-	for (let i=0; i<fields.length; i++) { 
+	// Filter by "Start time signature" if needed
+	let tsigtype = document.querySelector("#tsigtype").value;
+	if (tsigtype) {
+		oldentries = entries;
+		entries = [];
+		for (let i=0; i<oldentries.length; i++) {
+			if (oldentries[i]["Example Start Tsig Type"] === tsigtype) {
+				entries.push(oldentries[i]);
+			}
+		}
+	}
+
+	for (let i=0; i<fields.length; i++) {
 		if (fields[i].match(/^\s*$/)) {
 			continue;
 		}
@@ -473,6 +503,11 @@ function reportMatches(list) {
 	}
 */
 	let output = "" + list.length;
+	if (list.length == 1) {
+		output += " entry";
+	} else {
+		output += " entries";
+	}
 	element.innerHTML = output;
 }
 
@@ -543,6 +578,74 @@ function buildGenreSelect(list, selector) {
 		}
 		output += "<option value='" + clist[i] + "'>" + clist[i] + "</option>\n";
 	}
+	element.innerHTML = output;
+}
+
+
+
+//////////////////////////////
+//
+// buildTimeSignatureTypeSelect --
+//
+
+function buildTimeSignatureTypeSelect(list, selector) {
+	let types = {};
+	let tsigtype;
+	for (let i=0; i<list.length; i++) {
+		tsigtype = list[i]["Example Start Tsig Type"];
+		if (!tsigtype) {
+			continue;
+		}
+		tsigtype = tsigtype.replace(/\s+$/, "").replace(/^\s+/, "");
+		types[tsigtype] = 1;
+	}
+	let clist = Object.keys(types).sort();
+	let element = document.querySelector(selector);
+	if (!element) {
+		return;
+	}
+	let output = "";
+	output += "<option value=''>all time signature types</a>\n";
+
+	// do a fixed list of known categories
+	let fixed = [];
+	fixed[0] = "simple duple";
+	fixed[1] = "simple quadruple";
+	fixed[2] = "simple triple";
+	fixed[3] = "simple other";
+	fixed[4] = "compound duple";
+	fixed[5] = "compound quadruple";
+	fixed[6] = "compound triple";
+	fixed[7] = "compound other";
+	fixed[8] = "unequal duple";
+	fixed[9] = "unequal triple";
+	fixed[10] = "changing";
+	fixed[11] = "polydurational";
+	fixed[12] = "polymetric";
+	fixed[13] = "unmetered";
+	fixed[14] = "unavailable";
+
+	let rfixed = {};
+
+	for (let i=0; i<fixed.length; i++) {
+		if (fixed[i].match(/^\s*$/)) {
+			continue;
+		}
+		rfixed[fixed[i]] = 1;
+		output += "<option value='" + fixed[i] + "'>" + fixed[i] + "</option>\n";
+	}
+
+	// Append all new time signature types (add to fixed order if not wanted at end of list):
+	for (let i=0; i<clist.length; i++) {
+		if (clist[i].match(/^\s*$/)) {
+			continue;
+		}
+		if (rfixed[clist[i]]) {
+			continue;
+		}
+		output += "<option value='" + clist[i] + "'>" + clist[i] + "</option>\n";
+	}
+
 	element.innerHTML = output;
 }
 
