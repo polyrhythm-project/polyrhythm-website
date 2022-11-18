@@ -424,7 +424,6 @@ function doSearch(text) {
 			if (oldentries[i]["Genre"] && oldentries[i]["Genre"].match(greg) &&
 			    oldentries[i]["Sub-Genre"] && oldentries[i]["Sub-Genre"].match(sgreg)) {
 				entries.push(oldentries[i]);
-				continue;
 			}
 		}
 	}
@@ -572,11 +571,22 @@ function buildGenreSelect(list, selector) {
 	}
 	let output = "";
 	output += "<option value=''>all genres</a>\n";
+	let lastgenre = "";
 	for (let i=0; i<clist.length; i++) {
-		if (!clist) {
+		if (!clist[i]) {
 			continue;
 		}
-		output += "<option value='" + clist[i] + "'>" + clist[i] + "</option>\n";
+		let matches = clist[i].match(/([^\/]+)\/([^\/]+)/);
+		let subgenre = "";
+		if (matches) {
+			let g = matches[1];
+			subgenre = matches[2];
+			if (g != lastgenre) {
+				output += "<option value='" + g + "'>" + g + "</option>\n";
+				lastgenre = g;
+			}
+		}
+		output += "<option value='" + clist[i] + "'>" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + subgenre + "</option>\n";
 	}
 	element.innerHTML = output;
 }
