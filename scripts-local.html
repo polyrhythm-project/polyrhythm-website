@@ -435,7 +435,19 @@ function doSearch(text) {
 		oldentries = entries;
 		entries = [];
 		for (let i=0; i<oldentries.length; i++) {
-			if (oldentries[i]["Example Start Tsig Type"] === tsigtype) {
+			if (tsigtype === "simple") {
+				if (oldentries[i]["Example Start Tsig Type"].match(/simple/i)) {
+					entries.push(oldentries[i]);
+				}
+			} else if (tsigtype === "compound") {
+				if (oldentries[i]["Example Start Tsig Type"].match(/compound/i)) {
+					entries.push(oldentries[i]);
+				}
+			} else if (tsigtype === "unequal") {
+				if (oldentries[i]["Example Start Tsig Type"].match(/unequal/i)) {
+					entries.push(oldentries[i]);
+				}
+			} else if (oldentries[i]["Example Start Tsig Type"] === tsigtype) {
 				entries.push(oldentries[i]);
 			}
 		}
@@ -472,18 +484,6 @@ function doSearch(text) {
 	displayList(entries, null);
 }
 
-
-//////////////////////////////
-//
-// filterByWorks --
-//
-
-function filterByWorks(entries) {
-	let items = {};
-
-
-
-}
 
 
 //////////////////////////////
@@ -609,21 +609,24 @@ function buildTimeSignatureTypeSelect(list, selector) {
 
 	// do a fixed list of known categories
 	let fixed = [];
-	fixed[0] = "simple duple";
-	fixed[1] = "simple quadruple";
-	fixed[2] = "simple triple";
-	fixed[3] = "simple other";
-	fixed[4] = "compound duple";
-	fixed[5] = "compound quadruple";
-	fixed[6] = "compound triple";
-	fixed[7] = "compound other";
-	fixed[8] = "unequal duple";
-	fixed[9] = "unequal triple";
-	fixed[10] = "changing";
-	fixed[11] = "polydurational";
-	fixed[12] = "polymetric";
-	fixed[13] = "unmetered";
-	fixed[14] = "unavailable";
+	fixed.push("simple");
+	fixed.push("simple duple");
+	fixed.push("simple quadruple");
+	fixed.push("simple triple");
+	fixed.push("simple other");
+	fixed.push("compound");
+	fixed.push("compound duple");
+	fixed.push("compound quadruple");
+	fixed.push("compound triple");
+	fixed.push("compound other");
+	fixed.push("unequal");
+	fixed.push("unequal duple");
+	fixed.push("unequal triple");
+	fixed.push("changing");
+	fixed.push("polydurational");
+	fixed.push("polymetric");
+	fixed.push("unmetered");
+	fixed.push("unavailable");
 
 	let rfixed = {};
 
