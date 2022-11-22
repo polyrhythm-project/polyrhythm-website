@@ -32,12 +32,12 @@ function displayList(entries, query) {
 		// missing example count
 		output += "<th title='Sort by composer' onclick='SortByText(1, \"#metadata-list\")'>Composer</th>";
 		output += "<th title='Sort by title' onclick='SortByText(2, \"#metadata-list\")'>Title</th>";
-		output += "<th title='Sort by title' onclick='SortByText(3, \"#metadata-list\")'>Genre</th>";
-		output += "<th title='Sort by title' onclick='SortByText(4, \"#metadata-list\")'>Composed</th>";
-		output += "<th style='padding-right:10px;' title='Sort by title' onclick='SortByText(5, \"#metadata-list\")'>Premiered</th>";
-		output += "<th title='Sort by title' onclick='SortByText(6, \"#metadata-list\")'>Published</th>";
-		output += "<th title='Sort by title' onclick='SortByText(7, \"#metadata-list\")'>Tempo</th>";
-		output += "<th title='Sort by title' onclick='SortByTimeSignature(8, \"#metadata-list\")'>Start time&nbsp;signature</th>";
+		output += "<th title='Sort by genre' onclick='SortByText(3, \"#metadata-list\")'>Genre</th>";
+		output += "<th title='Sort by composition date' onclick='SortByText(4, \"#metadata-list\")'>Composed</th>";
+		output += "<th style='padding-right:10px;' title='Sort by primier date' onclick='SortByText(5, \"#metadata-list\")'>Premiered</th>";
+		output += "<th title='Sort by publication date' onclick='SortByText(6, \"#metadata-list\")'>Published</th>";
+		output += "<th title='Sort by tempo' onclick='SortByTempo(7, \"#metadata-list\")'>Tempo</th>";
+		output += "<th title='Sort by time signature' onclick='SortByTimeSignature(8, \"#metadata-list\")'>Start time&nbsp;signature</th>";
 		output += "</tr>";
 		output += "</thead>";
 	} else {
@@ -47,10 +47,10 @@ function displayList(entries, query) {
 		output += "<th title='Sort by composer' onclick='SortByNumber(1, \"#metadata-list\", true)'>Examples&nbsp;&nbsp;</th>";
 		output += "<th title='Sort by composer' onclick='SortByText(2, \"#metadata-list\")'>Composer</th>";
 		output += "<th title='Sort by title' onclick='SortByText(3, \"#metadata-list\")'>Title</th>";
-		output += "<th title='Sort by title' onclick='SortByText(4, \"#metadata-list\")'>Genre</th>";
-		output += "<th title='Sort by title' onclick='SortByText(5, \"#metadata-list\")'>Composed</th>";
-		output += "<th style='padding-right:10px;' title='Sort by title' onclick='SortByText(6, \"#metadata-list\")'>Premiered</th>";
-		output += "<th title='Sort by title' onclick='SortByText(7, \"#metadata-list\")'>Published</th>";
+		output += "<th title='Sort by genre' onclick='SortByText(4, \"#metadata-list\")'>Genre</th>";
+		output += "<th title='Sort by composition date' onclick='SortByText(5, \"#metadata-list\")'>Composed</th>";
+		output += "<th style='padding-right:10px;' title='Sort by premier date' onclick='SortByText(6, \"#metadata-list\")'>Premiered</th>";
+		output += "<th title='Sort by publication date' onclick='SortByText(7, \"#metadata-list\")'>Published</th>";
 		output += "</tr>";
 		output += "</thead>";
 	}
