@@ -621,13 +621,13 @@ function buildTimeSignatureTypeSelect(list, selector) {
 	let fixed = [];
 	fixed.push("simple");
 	fixed.push("simple duple");
-	fixed.push("simple quadruple");
 	fixed.push("simple triple");
+	fixed.push("simple quadruple");
 	fixed.push("simple other");
 	fixed.push("compound");
 	fixed.push("compound duple");
-	fixed.push("compound quadruple");
 	fixed.push("compound triple");
+	fixed.push("compound quadruple");
 	fixed.push("compound other");
 	fixed.push("unequal");
 	fixed.push("unequal duple");
@@ -639,13 +639,25 @@ function buildTimeSignatureTypeSelect(list, selector) {
 	fixed.push("unavailable");
 
 	let rfixed = {};
+	let prefix = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 
 	for (let i=0; i<fixed.length; i++) {
 		if (fixed[i].match(/^\s*$/)) {
 			continue;
 		}
 		rfixed[fixed[i]] = 1;
-		output += "<option value='" + fixed[i] + "'>" + fixed[i] + "</option>\n";
+
+		var shortname = fixed[i];
+
+		var matches;
+		if (matches = shortname.match(/^\s*simple\s+(.+)\s*$/)) {
+			shortname = `${prefix}${matches[1]}`;
+		} else if (matches = shortname.match(/^\s*compound\s+(.+)\s*$/)) {
+			shortname = `${prefix}${matches[1]}`;
+		} else if (matches = shortname.match(/^\s*unequal\s+(.+)\s*$/)) {
+			shortname = `${prefix}${matches[1]}`;
+		}
+		output += "<option value='" + fixed[i] + "'>" + shortname + "</option>\n";
 	}
 
 	// Append all new time signature types (add to fixed order if not wanted at end of list):
@@ -656,7 +668,17 @@ function buildTimeSignatureTypeSelect(list, selector) {
 		if (rfixed[clist[i]]) {
 			continue;
 		}
-		output += "<option value='" + clist[i] + "'>" + clist[i] + "</option>\n";
+		var shortname = clist[i];
+
+		var matches;
+		if (matches = shortname.match(/^\s*simple\s+(.+)\s*$/)) {
+			shortname = `${prefix}${matches[1]}`;
+		} else if (matches = shortname.match(/^\s*compound\s+(.+)\s*$/)) {
+			shortname = `${prefix}${matches[1]}`;
+		} else if (matches = shortname.match(/^\s*unequal\s+(.+)\s*$/)) {
+			shortname = `${prefix}${matches[1]}`;
+		}
+		output += "<option value='" + clist[i] + "'>" + shortname + "</option>\n";
 	}
 
 	element.innerHTML = output;

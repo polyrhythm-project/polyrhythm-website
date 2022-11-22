@@ -1,0 +1,12 @@
+   8 dotted-eighth
+  41 dotted-half
+  81 dotted-quarter
+  99 eighth
+  93 half
+ 414 quarter
+  10 sixteenth
+
+   1 half+eighth
+
+   1 dotted-quarter+dotted-eight
+   1 triplet-quarter

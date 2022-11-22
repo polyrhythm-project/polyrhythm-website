@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="306 0 19 21"
+     width="19" height="21">
+<g transform="translate(0,76) scale(1,-1) scale(.01800) translate(2100,27250)" stroke-linejoin="round" color="black" stroke="currentColor" fill="none" stroke-width="26.7067"  fill-rule="evenodd">
+<path  d="
+M14981 -23360
+L14981 -23228
+L15281 -23228
+"/>
+<path  d="
+M15318 -23960
+L15318 -23409
+"/>
+<path  d="
+M15089 -24126
+L15121 -24126
+L15150 -24121
+L15192 -24107
+L15229 -24089
+L15262 -24065
+L15276 -24051
+L15300 -24023
+L15314 -23995
+L15318 -23967
+L15318 -23948
+L15314 -23929
+L15309 -23920
+L15295 -23901
+L15276 -23887
+L15267 -23882
+L15253 -23878
+L15229 -23873
+L15196 -23873
+L15168 -23878
+L15140 -23887
+L15126 -23892
+L15089 -23910
+L15056 -23934
+L15042 -23948
+L15018 -23976
+L15004 -24004
+L15000 -24032
+L15000 -24051
+L15004 -24070
+L15009 -24079
+L15023 -24098
+L15042 -24112
+L15051 -24117
+L15065 -24121
+L15089 -24126
+Z" fill="currentColor"/>
+<text transform="translate(15375,-23392) scale(1,-1)" fill="currentColor" stroke="none" font-size="455" style="font-family:Times New Roman;font-style:italic">3</text>
+<path  d="
+M15637 -23228
+L15918 -23228
+"/>
+</g>
+</svg>

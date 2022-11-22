@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="307 0 26 18"
+     width="26" height="18">
+<g transform="translate(0,72) scale(1,-1) scale(.01800) translate(2100,27250)" stroke-linejoin="round" color="black" stroke="currentColor" fill="none" stroke-width="26.7067"  fill-rule="evenodd">
+<defs>
+<g id="P00">
+<path  d="
+M118 -168
+L162 -168
+L200 -162
+L256 -143
+L306 -118
+L350 -87
+L368 -68
+L400 -31
+L418 6
+L425 43
+L425 68
+L418 93
+L412 106
+L393 131
+L368 150
+L356 156
+L337 162
+L306 168
+L262 168
+L225 162
+L187 150
+L168 143
+L118 118
+L75 87
+L56 68
+L25 31
+L6 -6
+L0 -43
+L0 -68
+L6 -93
+L12 -106
+L31 -131
+L56 -150
+L68 -156
+L87 -162
+L118 -168
+Z" fill="currentColor"/>
+</g>
+</defs>
+<defs>
+<g id="P01">
+<path  d="
+M200 -12
+L200 18
+L225 43
+L256 43
+L281 18
+L281 -12
+L256 -37
+L225 -37
+L200 -12
+L200 18
+Z" fill="currentColor"/>
+</g>
+</defs>
+<use transform="translate(15000,-24000) scale(.750)" stroke-width="35.609" xlink:href="#P00"/>
+<path  d="
+M15318 -23960
+L15318 -23343
+"/>
+<use transform="translate(15262,-24000) scale(.750)" stroke-width="35.609" xlink:href="#P01"/>
+<path stroke-width="20.0300" d="
+M15393 -23769
+L15463 -23706
+L15533 -23677
+L15602 -23671
+L15672 -23671
+L15741 -23677
+L15811 -23706
+L15881 -23769
+L15811 -23691
+L15741 -23647
+L15672 -23625
+L15602 -23625
+L15533 -23647
+L15463 -23691
+L15393 -23769
+Z" fill="currentColor"/>
+<use transform="translate(15750,-24000) scale(.750)" stroke-width="35.609" xlink:href="#P00"/>
+<path  d="
+M16068 -23960
+L16068 -23343
+"/>
+<path stroke-width="20.0300" d="
+M16345 -24056
+L16350 -24028
+L16354 -23962
+L16354 -23939
+L16350 -23887
+L16345 -23859
+L16331 -23812
+L16317 -23779
+L16303 -23751
+L16284 -23723
+L16260 -23695
+L16237 -23671
+L16209 -23648
+L16167 -23620
+L16120 -23596
+L16068 -23578
+L16068 -23325
+L16082 -23381
+L16087 -23395
+L16096 -23418
+L16115 -23456
+L16129 -23479
+L16143 -23498
+L16167 -23526
+L16218 -23582
+L16237 -23601
+L16270 -23639
+L16289 -23662
+L16307 -23690
+L16326 -23723
+L16340 -23756
+L16350 -23784
+L16359 -23821
+L16364 -23850
+L16368 -23906
+L16368 -23957
+L16364 -24009
+L16359 -24042
+L16354 -24065
+L16350 -24084
+L16345 -24056
+Z" fill="currentColor"/>
+<path stroke-width="20.0300" d="
+M16359 -24042
+L16354 -24065
+L16350 -24084
+L16340 -24117
+L16321 -24168
+L16331 -24135
+L16335 -24112
+L16340 -24089
+L16345 -24056
+L16350 -24028
+L16359 -24042
+Z" fill="currentColor"/>
+<use transform="translate(16012,-24000) scale(.750)" stroke-width="35.609" xlink:href="#P01"/>
+</g>
+</svg>
