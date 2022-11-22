@@ -279,6 +279,7 @@ function createTempoMarking(beat, value) {
 }
 
 
+
 //////////////////////////////
 //
 // createSingleTempoMarking --
@@ -304,34 +305,52 @@ function createSingleTempoMarking(beat, value) {
 		value = value.replace(/\}/, "", "g");
 	}
 	if (beat === "quarter") {
-		beat = "&#x2669;";
+		// beat = "&#x2669;";
+		beat = `<img src="/img/tempo/quarter.svg">`;
 	} else if (beat === "eighth") {
-		beat = "&#x266A;";
+		// beat = "&#x266A;";
+		beat = `<img src="/img/tempo/eighth.svg">`;
 	} else if (beat === "dotted-eighth") {
-		beat = "&#x266A;.";
+		// beat = "&#x266A;.";
+		beat = `<img src="/img/tempo/dotted-eighth.svg">`;
 	} else if (beat === "eighth-dotted") {
-		beat = "&#x266A;.";
+		// beat = "&#x266A;.";
+		beat = `<img src="/img/tempo/dotted-eighth.svg">`;
 	} else if (beat === "dotted-quarter") {
-		beat = "&#x2669;.";
+		// beat = "&#x2669;.";
+		beat = `<img src="/img/tempo/dotted-quarter.svg">`;
 	} else if (beat === "quarter-dotted") {
-		beat = "&#x2669;.";
+		// beat = "&#x2669;.";
+		beat = `<img src="/img/tempo/dotted-quarter.svg">`;
 	} else if (beat === "half") {
-		beat = "&#x1D15E;";
+		// beat = "&#x1D15E;";
+		beat = `<img src="/img/tempo/half.svg">`;
 	} else if (beat === "half-dotted") {
-		beat = "&#x1D15E;.";
+		// beat = "&#x1D15E;.";
+		beat = `<img src="/img/tempo/dotted-half.svg">`;
 	} else if (beat === "dotted-half") {
-		beat = "&#x1D15E;.";
+		// beat = "&#x1D15E;.";
+		beat = `<img src="/img/tempo/dotted-half.svg">`;
 	} else if (beat === "sixteenth") {
-		beat = "&#x1D161;";
+		// beat = "&#x1D161;";
+		beat = `<img src="/img/tempo/sixteenth.svg">`;
 	} else if (beat === "dotted-sixteenth") {
 		beat = "&#x1D161;.";
 	} else if (beat === "sixteenth-dotted") {
 		beat = "&#x1D161;.";
+	} else if (beat === "half=dotted-half") {
+		beat = `<img src="/img/tempo/half.svg">&nbsp;=&nbsp;<img src="/img/tempo/dotted-half.svg">`;
+	} else if (beat === "triplet-quarter") {
+		beat = `<img src="/img/tempo/triplet-quarter.svg">`;
+	} else if (beat === "half+eighth") {
+		beat = `<img src="/img/tempo/half-eighth.svg">`;
+	} else if (beat === "dotted-quarter+dotted-eighth") {
+		beat = `<img src="/img/tempo/dotted-quarter-dotted-eighth.svg">`;
 	}
 
 	value = value.replace(/-/, "&ndash;", "g");
 
-	let output = `${beat} = ${value}`;
+	let output = `${beat}&nbsp;=&nbsp;${value}`;
 	if (bracket) {
 		// output = `[${output}]`;
 		output = `${output}`;
