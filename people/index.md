@@ -56,14 +56,14 @@ and
 </td>
   </tr>
   <tr>
-    <td class="nameline" valign="top" colspan="2"><b>Claudio de Freitas</b></td>
+    <td class="nameline" valign="top" colspan="2"><b>Bryan Bell</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2"><i>DMA (composition), transcriber/editor (music data)</i></td>
+    <td valign="top" colspan="2"><i>Ph.D.	(music theory), research assistant (music data, data analysis, experimental design)</i></td>
   </tr>
   <tr>
-    <td valign="top"><img src="/people/ClaudiodeFreitas.jpg"></td>
-    <td class="topalign">Claudio de Freitas, a bassoonist, and composer from Brazil is currently a DMA in Composition Candidate at UBC Vancouver. He holds a Bachelor of Music from The Harid Conservatory, Boca Raton, Florida, and a Master of Arts from The University of São Paulo, Brazil. He was a contrabassoonist with The São Paulo State Symphony Orchestra (OSESP) for twelve years and recorded more than thirty albums for BIS, CHANDOS, and NAXOS. With an annual season of 120 concerts, he toured with OSESP through South America, the United States, and Europe, performing in important theaters and venues such as Teatro Colón, Avery Fisher Hall, Segerstrom Center for the Arts (Orange County), Strathmore Center, Broward Center, Frankfurt Opera, Kölner Philharmonie, Musikverein, Mozarteum, Teatr Naradowy (Warsaw), as well as in Spain, Croatia, Slovenia, Switzerland, Uruguay, and Chile. Freitas's orchestral works have been performed by important Brazilian orchestras in the states of São Paulo, Rio de Janeiro, Minas Gerais, Espírito Santo, Sergipe and Paraná.</td>
+    <td valign="top"><img src="/people/BryanBell.jpg"></td>
+    <td class="topalign">I am a Ph.D. student in music theory at the University of British Columbia. My research interests are in the perception and cognition of rhythm and meter, as well as digital, mathematical, and empirical approaches to music research. My research is motivated by the conception of music as one domain through which we can understand a broader array of human experiences, including emotion, creativity, memory, and the mind. I am originally from the United States, where I obtained a bachelor’s degree in piano performance (with a minor in English) and a master’s degree in music theory. For my master’s thesis, I encoded the solo piano music of Alexander Scriabin and investigated his use of meter using a computational model. At UBC, I am both a research assistant in the Rhythm Computation and Cognition Lab and a teaching assistant.</td>
   </tr>
   <tr>
     <td class="nameline" valign="top" colspan="2"><b>Rafael Laurindo</b></td>
@@ -94,16 +94,6 @@ and
   <tr>
     <td valign="top"><img src="/people/EthanTong.jpg"></td>
     <td class="topalign">Ethan is a fourth-year undergraduate student double majoring in Music and Education at the University of British Columbia. As a pianist who engages in a variety of genres ranging from classical to jazz, Ethan is enthusiastic about being a part of the Polyrhythm Lab as it enables him to deeply explore music not heard in his academic studies. Ethan spends most of his time teaching private piano and music history lessons, but when not making music, he enjoys time outdoors.</td>
-  </tr>
-  <tr>
-    <td class="nameline" valign="top" colspan="2"><b>Gabriella Vici</b></td>
-  </tr>
-  <tr>
-    <td valign="top" colspan="2"><i>MA (music theory), editor	(music data)</i></td>
-  </tr>
-  <tr>
-    <td valign="top"><img src="/people/GabriellaVici.jpg"></td>
-    <td class="topalign">Originally from Australia, Gabriella Vici is currently undertaking her MA in music theory at the University of British Columbia, with a particular research focus on early twentieth-century music, including repertoire by Bartók, Mahler, and Shostakovich. Prior to studying in Vancouver, she completed her Bachelor's and Master’s degrees in composition at the Sydney Conservatorium of Music, the University of Sydney, and has had the pleasure of composing for leading Australian music groups and soloists, as well as studying under prolific Australian composer, Carl Vine AO.</td>
   </tr>
   <tr>
     <td class="nameline" valign="top" colspan="2"><b>Walker Williams</b></td>
@@ -147,6 +137,8 @@ and
 
 **Meiying Ding**, BS (statistics, computer science), research assistant (data analysis), 2019
 
+**Claudio de Freitas**, DMA (composition), transcriber/editor (music data), 2020–2022
+
 **Marina Gallagher**, Ph.D. (music history), research assistant (metadata), 2015–2017
 
 **Aaron Graham**, DMA (performance), transcriber/editor (music data), 2020–2021
@@ -162,6 +154,8 @@ and
 **Alexandre Negri**, Ph.D. (music theory), transcriber (music data), 2019
 
 **Sarah Pratt**, Dual BA (political science, computer science, applied music technology minor), research assistant (geocoding), 2017–2018
+
+**Gabriella Vici**, MA (music theory), editor	(music data), 2021–2022
 
 **Anna Wright**, MA (music history), research assistant (metadata), 2019–2020
 
