@@ -25,10 +25,7 @@ Poudrier, È., Sapp, C., & Shanahan, D. “The cognitive and affective correlate
 
 - [Slides](https://drive.google.com/file/d/17_VwWnLdMX-2sJrk1UwxWz2FJo7fQ5bT/view?usp=sharing)
 
-<button class="button button1">Green</button>
-
-<button class="button button2">Blue</button>
-
+<a href="https://drive.google.com/file/d/17_VwWnLdMX-2sJrk1UwxWz2FJo7fQ5bT/view?usp=sharing">Slides</a>
 
 Poudrier, È., Sapp, C., & Shanahan, D. “The cognitive and affective correlates of rhythmic complexity.”16th International Conference on Music Perception and Cognition and 11th Triennial Conference of the European Society for the Cognitive Sciences of Music, United Kingdom Hub, 29 July 2021. 
 
