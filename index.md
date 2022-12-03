@@ -29,6 +29,10 @@ summary:
 <span id="search-count"></span>
 </td>
 
+<td>
+<span onclick="clearSearchFields()" class="clear-button">clear</span>
+</td>
+
 </tr>
 </table>
 </tr>
@@ -51,6 +55,11 @@ summary:
 <td>
 <select id="tsigtype" onchange="doSearch();">
 </select>
+</td>
+
+<td>
+<input placeholder="tempo min." value="" autocomplete="off" id="tempomin">
+<input placeholder="tempo max." value="" autocomplete="off" id="tempomax">
 </td>
 
 

@@ -22,6 +22,21 @@ document.addEventListener("DOMContentLoaded", function () {
 			doSearch();
 		});
 	}
+
+	element = document.querySelector("input#tempomin");
+	if (element) {
+		element.addEventListener("input", function() {
+			doSearch();
+		});
+	}
+
+	element = document.querySelector("input#tempomax");
+	if (element) {
+		element.addEventListener("input", function() {
+			doSearch();
+		});
+	}
+
 });
 
 
