@@ -37,7 +37,7 @@ summary:
 	  <p>Poudrier, È., Sapp, C., &amp; Shanahan, D. “The cognitive and affective correlates of rhythmic complexity.”16th International Conference on Music Perception and Cognition and 11th Triennial Conference of the European Society for the Cognitive Sciences of Music, United Kingdom Hub, 29 July 2021.</p></td>
     <td class="topalign"><a class="buttonlink" href="https://drive.google.com/file/d/1VjE2k70_8pjUPDY7vlREcX54J6QNdqF5/view?usp=sharing">Slides</a></td>
     <td class="topalign"><a class="buttonlink" href="https://drive.google.com/file/d/1QK68OVKT_6qm6bQgBqlZHlGGXwt3iM10/view?usp=sharing">Video</a></td>
-    <td class="topalign"><a class="buttonlink" href="https://www.youtube.com/watch?v=A8lk36AlfPYforth">Video Sub.</a></td>
+    <td class="autowidth"><a class="buttonlink" href="https://www.youtube.com/watch?v=A8lk36AlfPYforth">Video Sub.</a></td>
   </tr>
   <tr>
     <td class="topalign">
