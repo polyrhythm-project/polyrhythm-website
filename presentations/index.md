@@ -24,6 +24,9 @@ summary:
 	<blockquote>
 		<p>ABSTRACT: We introduce a computational tool that allows comparison and classification of polyrhythms in notated music. By reducing different musical textures into unpitched rhythmic strands, the composite tool enables visualization of the rhythmic reductions and computation of features related to polyrhythmic design, such as event density, nestedness, and polarity. The visualizations and extracted data can then be used to compare polyrhythms within a specific repertoire or between music in contrasting styles. The composite tool is available for online or offline use and is incorporated into the Polyrhythm Project website for exploration of polyrhythmic examples from the Suter (1980) Corpus.</p>
 	</blockquote></td>
+    <td class="topalign"></td>
+    <td class="topalign"></td>
+    <td class="topalign"></td>
   </tr>
   <tr>
     <td class="topalign">
@@ -37,7 +40,7 @@ summary:
 	  <p>Poudrier, È., Sapp, C., &amp; Shanahan, D. “The cognitive and affective correlates of rhythmic complexity.”16th International Conference on Music Perception and Cognition and 11th Triennial Conference of the European Society for the Cognitive Sciences of Music, United Kingdom Hub, 29 July 2021.</p></td>
     <td class="topalign"><a class="buttonlink" href="https://drive.google.com/file/d/1VjE2k70_8pjUPDY7vlREcX54J6QNdqF5/view?usp=sharing">Slides</a></td>
     <td class="topalign"><a class="buttonlink" href="https://drive.google.com/file/d/1QK68OVKT_6qm6bQgBqlZHlGGXwt3iM10/view?usp=sharing">Video</a></td>
-    <td class="autowidth"><a class="buttonlink" href="https://www.youtube.com/watch?v=A8lk36AlfPYforth">Video Sub.</a></td>
+    <td class="topalign"><a class="buttonlink" href="https://www.youtube.com/watch?v=A8lk36AlfPYforth">VideoSub.</a></td>
   </tr>
   <tr>
     <td class="topalign">
