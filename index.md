@@ -58,6 +58,11 @@ summary:
 </td>
 
 <td>
+<select id="tempobeat" onchange="doSearch();">
+</select>
+</td>
+
+<td>
 <input placeholder="tempo min." value="" autocomplete="off" id="tempomin">
 <input placeholder="tempo max." value="" autocomplete="off" id="tempomax">
 </td>

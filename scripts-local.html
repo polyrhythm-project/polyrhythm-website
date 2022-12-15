@@ -341,6 +341,12 @@ function createSingleTempoMarking(beat, value) {
 		beat = "&#x1D161;.";
 	} else if (beat === "half=dotted-half") {
 		beat = `<img style="${style}" src="/img/tempo/half.svg">&nbsp;=&nbsp;<img style="${style}" src="/img/tempo/dotted-half.svg">`;
+	} else if (beat === "dotted-half=half") {
+		beat = `<img style="${style}" src="/img/tempo/dotted-half.svg">&nbsp;=&nbsp;<img style="${style}" src="/img/tempo/half.svg">`;
+	} else if (beat.match(/dotted-half\s*=\s*half/)) {
+		beat = `<img style="${style}" src="/img/tempo/dotted-half.svg">&nbsp;=&nbsp;<img style="${style}" src="/img/tempo/half.svg">`;
+	} else if (beat === "half-dotted=half") {
+		beat = `<img style="${style}" src="/img/tempo/dotted-half.svg">&nbsp;=&nbsp;<img style="${style}" src="/img/tempo/half.svg">`;
 	} else if (beat === "triplet-quarter") {
 		beat = `<img style="${style}" src="/img/tempo/triplet-quarter.svg">`;
 	} else if (beat === "half+eighth") {
@@ -500,19 +506,62 @@ function doSearch(text) {
 
 	}
 
-	entries = sortByTempoRange(entries);
+	entries = searchByTempoBeat(entries);
+
+	entries = searchByTempoRange(entries);
 
 	displayList(entries, null);
+}
+
+
+//////////////////////////////
+//
+// searchByTempoBeat --
+//
+
+function searchByTempoBeat(entries) {
+	let beat = document.querySelector("#tempobeat");
+	if (!beat) {
+		return entries;
+	}
+	let target = beat.value;
+	if (!target) {
+		return entries;
+	}
+
+	let newentries = [];
+	for (let i=0; i<entries.length; i++) {
+		let value = entries[i]["Example Start Notated Beat"];
+		if (!value) {
+			continue;
+		}
+		if (target === "other") {
+			if (value.match(/\+/)) {
+				newentries.push(entries[i]);
+			} else if (value.match(/trip/)) {
+				newentries.push(entries[i]);
+			}
+		} else {
+			let re = new RegExp("(?<!dotted-)" + target);
+			if (value.match(re)) {
+				if ((!value.match(/\+/)) && (!value.match(/trip/))) {
+					newentries.push(entries[i]);
+				}
+			}
+		}
+	}
+	entries = newentries;
+	return entries;	
 }
 
 
 
 //////////////////////////////
 //
-// sortByTempoRange --
+// searchByTempoRange --
 //
 
-function sortByTempoRange(entries) {
+function searchByTempoRange(entries) {
 	let mine = document.querySelector("#tempomin");
 	if (!mine) {
 		return entries;
@@ -556,6 +605,7 @@ function sortByTempoRange(entries) {
 		if (!field) {
 			continue;
 		}
+
 		let matches = field.match(/(\d+)/g);
 		let inrange = 0;
 		if (matches) {
@@ -567,6 +617,29 @@ function sortByTempoRange(entries) {
 				}
 			}
 		}
+
+		if (!inrange) {
+			// Check inside of tempo ranges:
+			matches = field.match(/(\d+-\d+)/g);
+			if (matches) {
+				for (let j=0; j<matches.length; j++) {
+					let matches2 = matches[j].match(/(\d+)-(\d+)/);
+					if (matches2) {
+						let value1 = parseInt(matches2[1]);
+						let value2 = parseInt(matches2[2]);
+						if ((minvalue >= value1) && (minvalue <= value2)) {
+							inrange = 1;
+							break;
+						}
+						if ((maxvalue >= value1) && (maxvalue <= value2)) {
+							inrange = 1;
+							break;
+						}
+					}
+				}
+			}
+		}
+
 		if (inrange) {
 			output.push(entries[i]);
 		}
@@ -775,6 +848,90 @@ function buildTimeSignatureTypeSelect(list, selector) {
 
 	element.innerHTML = output;
 }
+
+
+
+//////////////////////////////
+//
+// buildTempoBeatSelect --
+//
+
+function buildTempoBeatSelect(list, selector) {
+	let types = {};
+	let tempobeat;
+	for (let i=0; i<list.length; i++) {
+		tempobeat = list[i]["Example Start Notated Beat"];
+		if (!tempobeat) {
+			continue;
+		}
+		tempobeat = tempobeat.replace(/\s+$/, "").replace(/^\s+/, "");
+		types[tempobeat] = 1;
+	}
+	let clist = Object.keys(types).sort();
+	let element = document.querySelector(selector);
+	if (!element) {
+		return;
+	}
+	let output = "";
+	output += "<option value=''>all tempo beat types</a>\n";
+
+	// do a fixed list of known categories
+	let fixed = [];
+	fixed.push("quarter");
+	fixed.push("dotted-quarter");
+	fixed.push("half");
+	fixed.push("dotted-half");
+	fixed.push("eighth");
+	fixed.push("dotted-eighth");
+	fixed.push("sixteenth");
+	fixed.push("other");
+	fixed.push("unavailable");
+
+	let rfixed = {};
+	let prefix = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+
+	for (let i=0; i<fixed.length; i++) {
+		if (fixed[i].match(/^\s*$/)) {
+			continue;
+		}
+		rfixed[fixed[i]] = 1;
+
+		var shortname = fixed[i];
+		output += "<option value='" + fixed[i] + "'>" + shortname + "</option>\n";
+	}
+
+	// Append all new time signature types (add to fixed order if not wanted at end of list):
+	for (let i=0; i<clist.length; i++) {
+		let item = clist[i].replace(/[{}]/g, "");
+		let items = item.split(/\s*;\s*/);
+		for (let j=0; j<items.length; j++) {
+			let item = items[j].replace(/[[]/g, "");
+			item = item.replace(/[\]]/g, "");
+			item = item.replace(/[{}]/g, "");
+			item = item.replace(/[\(\)]/g, "");
+			if (item.match(/\+/)) {
+				item = "other";
+			}
+			if (item.match(/trip/)) {
+				item = "other";
+			}
+			if (item.match(/=/)) {
+				continue;
+			}
+			if (item.match(/^\s*$/)) {
+				continue;
+			}
+			if (rfixed[item]) {
+				continue;
+			}
+			var shortname = item;
+			output += "<option value='" + item + "'>" + shortname + "</option>\n";
+		}
+	}
+
+	element.innerHTML = output;
+}
+
 
 
 //////////////////////////////
