@@ -11,10 +11,10 @@ summary:
 {% include_relative styles-local.html %}
 {% include_relative scripts-local.html %}
 
-# Publications #
+<h1>Publications</h1>
 
 
-## Conference Proceedings ##
+<h2>Conference Proceedings</h2>
 
 
 <table>
@@ -35,13 +35,17 @@ summary:
 </tbody>
 	
 
-## Web Resources ##
+<h2>Web Resources</h2>
+
+<ul>
+<li><p><a href="https://doc.verovio.humdrum.org/filter/composite/" target="_blank"><em>Composite</em> Tool documentation</a></p>
+</li>
+<li><p><a href="https://verovio.humdrum.org/?file=poly" target="_blank">Polyrhythm Project Sampler</a> Sample of 80 examples&ndash;4 examples for each of the 20 composers.</p>
+</li>
+</ul>
 
 
-
-
-## In Progress ##
-
+<h2>In Progress</h2>
 	
 <table>
 <tbody>
