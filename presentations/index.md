@@ -26,7 +26,6 @@ summary:
 	</blockquote></td>
     <td class="topalign"></td>
     <td class="topalign"></td>
-    <td class="topalign"></td>
   </tr>
   <tr>
     <td class="topalign">
