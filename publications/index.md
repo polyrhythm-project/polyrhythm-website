@@ -14,7 +14,7 @@ summary:
 # Publications #
 
 
-<h2>Conference Proceedings</h2>
+## Conference Proceedings ##
 
 
 <table>
@@ -31,11 +31,11 @@ summary:
     <td class="topalign"><p>Poudrier, È. &amp; Shanahan, D. (2018). Modeling rhythmic complexity in a corpus of polyrhythm examples from Europe and America, 1900-1950. In <em>Proceedings of the 15th International Conference on Music Perception and Cognition and the 10th Conference of the European Society for the Cognitive Sciences of Music Conference</em> (Parncutt, R. &amp; Sattmann, S., Eds.), Montreal (QC), Canada, 23-28 July 2018, pp. 355-360.</p></td>
     <td class="topalign"><a class="buttonlink" href="https://static.unigraz.at/fileadmin/veranstaltungen/music-psychology-conference2018/documents/ICMPC15_ESCOM10%20Proceedings.pdf" target="_blank">PDF</a></td>
   </tr>
-</table>
 </tbody>
+</table>
 	
 
-<h2>Web Resources</h2>
+## Web Resources ##
 
 <ul>
 <li><p><a href="https://doc.verovio.humdrum.org/filter/composite/" target="_blank"><em>Composite</em> Tool documentation</a></p>
@@ -45,7 +45,7 @@ summary:
 </ul>
 
 
-<h2>In Progress</h2>
+## In Progress ##
 	
 <table>
 <tbody>
@@ -58,5 +58,5 @@ summary:
   <tr>
     <td class="topalign"><p>Poudrier, È. &amp; Sapp, C. S. Polyrhythm in the works of twenty composers from Western Europe to North America, 1900-1950: <em>The Suter (1980) Corpus.</em></p></td>
   </tr>
-</table>
 </tbody>
+</table>
