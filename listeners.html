@@ -37,6 +37,20 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
+	element = document.querySelector("input#secondsmin");
+	if (element) {
+		element.addEventListener("input", function() {
+			doSearch();
+		});
+	}
+
+	element = document.querySelector("input#secondsmax");
+	if (element) {
+		element.addEventListener("input", function() {
+			doSearch();
+		});
+	}
+
 });
 
 

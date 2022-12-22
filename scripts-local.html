@@ -518,6 +518,8 @@ function doSearch(text) {
 
 	entries = searchByTempoRange(entries);
 
+	entries = searchBySecondsRange(entries);
+
 	displayList(entries, null);
 }
 
@@ -628,6 +630,108 @@ function searchByTempoRange(entries) {
 
 		if (!inrange) {
 			// Check inside of tempo ranges:
+			matches = field.match(/(\d+-\d+)/g);
+			if (matches) {
+				for (let j=0; j<matches.length; j++) {
+					let matches2 = matches[j].match(/(\d+)-(\d+)/);
+					if (matches2) {
+						let value1 = parseInt(matches2[1]);
+						let value2 = parseInt(matches2[2]);
+						if ((minvalue >= value1) && (minvalue <= value2)) {
+							inrange = 1;
+							break;
+						}
+						if ((maxvalue >= value1) && (maxvalue <= value2)) {
+							inrange = 1;
+							break;
+						}
+					}
+				}
+			}
+		}
+
+		if (inrange) {
+			output.push(entries[i]);
+		}
+	}
+
+	return output;
+}
+
+
+
+//////////////////////////////
+//
+// searchBySecondsRange --
+//
+
+function searchBySecondsRange(entries) {
+	let mine = document.querySelector("#secondsmin");
+	if (!mine) {
+		console.error("Cannot find element #secondsmin");
+		return entries;
+	}
+	let maxe = document.querySelector("#secondsmax");
+	if (!mine) {
+		console.error("Cannot find element #secondsmax");
+		return entries;
+	}
+
+	let minvalue = mine.value;
+	let maxvalue = maxe.value;
+
+	if (maxvalue <= 0) {
+		maxvalue = "9999999";
+	}
+
+	let matches;
+	matches = minvalue.match(/(\d+)/);
+	if (matches) {
+		minvalue = parseInt(matches[1]);
+	}
+	matches = maxvalue.match(/(\d+)/);
+	if (matches) {
+		maxvalue = parseInt(matches[1]);
+	}
+	if (!minvalue) {
+		minvalue = maxvalue;
+	}
+	if (!maxvalue) {
+		maxvalue = minvalue;
+	}
+	if (minvalue > maxvalue) {
+		let tval = minvalue;
+		minvalue = maxvalue;
+		maxvalue = tval;
+	}
+	// console.log("SEARCHING FOR SECONDS RANGE", minvalue, maxvalue);
+	if ((!minvalue) && (!maxvalue)) {
+		return entries;
+	}
+
+	let output = [];
+console.log("LENGTH OF ENTRIES", entries.length, entries);
+	for (let i=0; i<entries.length; i++) {
+		let field = entries[i]["Example Timestamp Duration (sec)"];
+console.warn("DES", field);
+		if (!field) {
+			continue;
+		}
+
+		let matches = field.match(/(\d+)/g);
+		let inrange = 0;
+		if (matches) {
+			for (let j=0; j<matches.length; j++) {
+				let value = parseInt(matches[j]);
+				if ((value >= minvalue) && (value <= maxvalue)) {
+					inrange = 1;
+					break;
+				}
+			}
+		}
+
+		if (!inrange) {
+			// Check inside of seconds ranges:
 			matches = field.match(/(\d+-\d+)/g);
 			if (matches) {
 				for (let j=0; j<matches.length; j++) {
