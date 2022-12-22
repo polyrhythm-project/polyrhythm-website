@@ -210,6 +210,81 @@ function SortByNumber(index, selector, reverse) {
 
 
 
+
+//////////////////////////////
+//
+// SortBySeconds --
+//
+
+function SortBySeconds(index, selector, reverse) {
+	SORTCOLUMN = index;
+	var data = document.querySelectorAll(selector + " > tbody > tr");
+	var datalist = [];
+	var i;
+	for (i=0; i<data.length; i++) {
+		datalist.push(data[i]);
+	}
+	datalist.sort(function(a, b) {
+		var A = a.cells[index].textContent;
+		var B = b.cells[index].textContent;
+
+		if (A.match(/^\s*$/)) {
+			return +1;
+		}
+		if (B.match(/^\s*$/)) {
+			return -1;
+		}
+
+		var Anum = 987654321;
+		var Bnum = 987654321;
+		var matches;
+		if (matches = A.match(/(\d+)/)) {
+			Anum = parseInt(matches[1]);
+		}
+		if (matches = B.match(/(\d+)/)) {
+			Bnum = parseInt(matches[1]);
+		}
+
+		if (Anum == 987654321) {
+			if (Bnum == 987654321) {
+				if (reverse) {
+					return B.localeCompare(A);
+				} else {
+					return A.localeCompare(B);
+				}
+			} else {
+				if (reverse) {
+					return -1;
+				} else {
+					return +1;
+				}
+			}
+		} else if (Bnum == 987654321) {
+			if (reverse) {
+				return +1
+			} else {
+				return -1;
+			}
+		}
+
+		if (reverse) {
+			return Bnum - Anum;
+		} else {
+			return Anum - Bnum;
+		}
+	});
+
+	var body = document.querySelector(selector + " tbody");
+	if (body) {
+		body.innerHTML = "";
+		for (i=0; i<datalist.length; i++) {
+			body.appendChild(datalist[i]);
+		}
+	}
+}
+
+
+
 //////////////////////////////
 //
 // SortByTempo --

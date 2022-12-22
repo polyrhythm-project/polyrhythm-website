@@ -38,6 +38,7 @@ function displayList(entries, query) {
 		output += "<th title='Sort by publication date' onclick='SortByText(6, \"#metadata-list\")'>Published</th>";
 		output += "<th style='text-align:center' title='Sort by tempo' onclick='SortByTempo(7, \"#metadata-list\")'>Tempo&nbsp;&nbsp;&nbsp;&nbsp;</th>";
 		output += "<th title='Sort by time signature' onclick='SortByTimeSignature(8, \"#metadata-list\")'>Start time&nbsp;signature</th>";
+		output += "<th title='Sort by recording duration' onclick='SortBySeconds(9, \"#metadata-list\")'>Example duration (sec)</th>";
 		output += "</tr>";
 		output += "</thead>";
 	} else {
@@ -233,6 +234,13 @@ function makeMetaTableRows(list, dtype) {
 				} else {
 		 			output += value;
 				}
+			}
+			output += "</td>";
+
+			output += "<td style='text-align:center;'>";
+			if (list[i]["Example Timestamp Duration (sec)"]) {
+				let value = list[i]["Example Timestamp Duration (sec)"];
+				output += value;
 			}
 			output += "</td>";
 

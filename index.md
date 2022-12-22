@@ -63,10 +63,8 @@ summary:
 </td>
 
 <td>
-<input placeholder="tempo min." value="" autocomplete="off" id="tempomin">
-<input placeholder="tempo max." value="" autocomplete="off" id="tempomax">
+<input placeholder="tempo min." value="" autocomplete="off" id="tempomin">&nbsp;<input placeholder="tempo max." value="" autocomplete="off" id="tempomax">
 </td>
-
 
 </tr>
 </table>
