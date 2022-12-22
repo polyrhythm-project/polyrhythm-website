@@ -67,7 +67,7 @@ summary:
 </td>
 
 <td>
-<input placeholder="seconds min." value="" autocomplete="off" id="secondsmin">&nbsp;<input placeholder="seconds max." value="" autocomplete="off" id="secondsmax">
+<input placeholder="duration min." value="" autocomplete="off" id="secondsmin">&nbsp;<input placeholder="duration max." value="" autocomplete="off" id="secondsmax">
 </td>
 
 </tr>

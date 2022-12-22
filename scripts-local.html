@@ -668,17 +668,19 @@ function searchByTempoRange(entries) {
 function searchBySecondsRange(entries) {
 	let mine = document.querySelector("#secondsmin");
 	if (!mine) {
-		console.error("Cannot find element #secondsmin");
 		return entries;
 	}
 	let maxe = document.querySelector("#secondsmax");
 	if (!mine) {
-		console.error("Cannot find element #secondsmax");
 		return entries;
 	}
 
 	let minvalue = mine.value;
 	let maxvalue = maxe.value;
+
+	if ((minvalue === "") && (maxvalue === "")) {
+		return entries;
+	}
 
 	if (maxvalue <= 0) {
 		maxvalue = "9999999";
