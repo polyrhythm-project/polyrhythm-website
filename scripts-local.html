@@ -604,10 +604,10 @@ function searchByTempoRange(entries) {
 		minvalue = maxvalue;
 		maxvalue = tval;
 	}
-	console.log("SEARCHING FOR TEMPO RANGE", minvalue, maxvalue);
 	if ((!minvalue) && (!maxvalue)) {
 		return entries;
 	}
+	// console.log("SEARCHING FOR TEMPO RANGE", minvalue, maxvalue);
 
 	let output = [];
 	for (let i=0; i<entries.length; i++) {
@@ -682,9 +682,19 @@ function searchBySecondsRange(entries) {
 		return entries;
 	}
 
-	if (maxvalue <= 0) {
+	if (minvalue === "") {
+		minvalue = "1";
+	}
+	if (maxvalue === "") {
 		maxvalue = "9999999";
 	}
+	if (minvalue < 1) {
+		minvalue = "1";
+	}
+	if (maxvalue < 1) {
+		maxvalue = "9999999";
+	}
+
 
 	let matches;
 	matches = minvalue.match(/(\d+)/);
@@ -706,16 +716,14 @@ function searchBySecondsRange(entries) {
 		minvalue = maxvalue;
 		maxvalue = tval;
 	}
-	// console.log("SEARCHING FOR SECONDS RANGE", minvalue, maxvalue);
 	if ((!minvalue) && (!maxvalue)) {
 		return entries;
 	}
+	console.log("SEARCHING FOR SECONDS RANGE", minvalue, maxvalue);
 
 	let output = [];
-console.log("LENGTH OF ENTRIES", entries.length, entries);
 	for (let i=0; i<entries.length; i++) {
 		let field = entries[i]["Example Timestamp Duration (sec)"];
-console.warn("DES", field);
 		if (!field) {
 			continue;
 		}
