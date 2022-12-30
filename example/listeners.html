@@ -16,6 +16,7 @@ var FILTER         = "";
 var CGI            = {};      // CGI parameters from URL
 var SORTCOLUMN     = 0;
 var EXAMPLELIST    = [];
+var BROWSELIST     = [];
 var WORKLIST       = [];
 var NAVIGATION     = {};
 var CURRENTEXAMPLE = "";
@@ -108,7 +109,18 @@ function doAction(examplelist) {
 		nextbutton.addEventListener("click", function() {
 			var exid = CURRENTEXAMPLE;
 			var nextid = NAVIGATION[exid]["next"]["Example No."];
-			displayExample(nextid, EXAMPLELIST);
+			if (BROWSELIST && BROWSELIST.length > 0) {
+				displayExample(nextid, BROWSELIST);
+			} else {
+				if (sessionStorage.BROWSELIST) {
+					BROWSELIST = JSON.parse(sessionStorage.BROWSELIST);
+				}
+				if (BROWSELIST && BROWSELIST.length > 0) {
+					displayExample(nextid, BROWSELIST);
+				} else {
+					displayExample(nextid, EXAMPLELIST);
+				}
+			}
 		});
 	}
 
@@ -117,7 +129,18 @@ function doAction(examplelist) {
 		prevbutton.addEventListener("click", function() {
 			var exid = CURRENTEXAMPLE;
 			var previd = NAVIGATION[exid]["previous"]["Example No."];
-			displayExample(previd, EXAMPLELIST);
+			if (BROWSELIST) {
+				displayExample(previd, BROWSELIST);
+			} else {
+				if (sessionStorage.BROWSELIST) {
+					BROWSELIST = JSON.parse(sessionStorage.BROWSELIST);
+				}
+				if (BROWSELIST && BROWSELIST.length > 0) {
+					displayExample(previd, BROWSELIST);
+				} else {
+					displayExample(previd, EXAMPLELIST);
+				}
+			}
 		});
 	}
 

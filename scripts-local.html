@@ -12,6 +12,18 @@
 //
 
 function displayList(entries, query) {
+	SORTORDER = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+	BROWSELIST = entries;
+	var cache = [];
+	sessionStorage.BROWSELIST = JSON.stringify(BROWSELIST, (key, value) => {
+		if (typeof value === 'object' && value !== null) {
+			if (cache.includes(value)) return;
+			cache.push(value);
+		}
+		return value;
+	});
+	cache = null;
 
 	let dtype = "example";
 	let selement = document.querySelector("#table-scope");
@@ -397,6 +409,25 @@ function doSearch(text) {
 		entries = WORKLIST;
 	}
 
+	let oldentries;
+	let datasetelement = document.querySelector("#dataset");
+	if (datasetelement) {
+		let dataset = datasetelement.value;
+		if (dataset != "") {
+			oldentries = entries;
+			entries = [];
+			let matches = dataset.match(/^(.)/);
+			let query = matches[1];
+			for (let i=0; i<oldentries.length; i++) {
+				testcomp = oldentries[i]["Work Dataset"];
+				if (testcomp === query) {
+					entries.push(oldentries[i]);
+					continue;
+				}
+			}
+		}
+	}
+
 	let celement = document.querySelector("#composer");
 	let composer = "";
 	if (celement) {
@@ -430,7 +461,6 @@ function doSearch(text) {
 	let fields = text.split(/\s+/);
 
 	// filter by composer if needed
-	let oldentries;
 	if (composer) {
 		oldentries = entries;
 		entries = [];

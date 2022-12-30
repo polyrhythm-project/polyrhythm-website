@@ -199,6 +199,11 @@ function SortByNumber(index, selector, reverse) {
 		}
 	});
 
+	SORTORDER[index]++;
+	if (SORTORDER[index] % 2 == 0) {
+		datalist.reverse();
+	}
+
 	var body = document.querySelector(selector + " tbody");
 	if (body) {
 		body.innerHTML = "";
@@ -273,6 +278,11 @@ function SortBySeconds(index, selector, reverse) {
 			return Anum - Bnum;
 		}
 	});
+
+	SORTORDER[index]++;
+	if (SORTORDER[index] % 2 == 0) {
+		datalist.reverse();
+	}
 
 	var body = document.querySelector(selector + " tbody");
 	if (body) {
@@ -349,9 +359,14 @@ function SortByTempo(index, selector, reverse) {
 
 	});
 
-	if (reverse) {
+	SORTORDER[index]++;
+	if (SORTORDER[index] % 2 == 0) {
 		datalist.reverse();
 	}
+
+	//if (reverse) {
+	//	datalist.reverse();
+	//}
 
 	var body = document.querySelector(selector + " tbody");
 	if (body) {
@@ -455,9 +470,14 @@ function SortByTimeSignature(index, selector, reverse) {
 
 	});
 
-	if (reverse) {
+	SORTORDER[index]++;
+	if (SORTORDER[index] % 2 == 0) {
 		datalist.reverse();
 	}
+
+	//if (reverse) {
+	//	datalist.reverse();
+	//}
 
 	var body = document.querySelector(selector + " tbody");
 	if (body) {
@@ -512,12 +532,17 @@ function SortByDruid(index, selector, reverse) {
 			Bnum = matches[1];
 		}
 
-		if (reverse) {
-			return Bnum.localeCompare(Anum);
-		} else {
-			return Anum.localeCompare(Bnum);
-		}
+		// if (reverse) {
+		//	return Bnum.localeCompare(Anum);
+		// } else {
+	 	return Anum.localeCompare(Bnum);
+		// }
 	});
+
+	SORTORDER[index]++;
+	if (SORTORDER[index] % 2 == 0) {
+		datalist.reverse();
+	}
 
 	var body = document.querySelector(selector + " tbody");
 	if (body) {
@@ -610,6 +635,11 @@ function SortByWorkId(index, selector) {
 
 	});
 
+	SORTORDER[index]++;
+	if (SORTORDER[index] % 2 == 0) {
+		datalist.reverse();
+	}
+
 	var body = document.querySelector(selector + " tbody");
 	if (body) {
 		body.innerHTML = "";
@@ -645,6 +675,11 @@ function SortByText(index, selector) {
 		var result = A.localeCompare(B);
 		return result;
 	});
+
+	SORTORDER[index]++;
+	if (SORTORDER[index] % 2 == 0) {
+		datalist.reverse();
+	}
 
 	var body = document.querySelector(selector + " tbody");
 	if (body) {

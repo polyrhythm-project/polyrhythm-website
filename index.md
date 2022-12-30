@@ -25,6 +25,15 @@ summary:
 <input id="search" style="width:220px;"  placeholder="search" value="" autocomplete="off">
 </td>
 
+
+<td>
+<select id="dataset" onchange="doSearch();">
+	<option value="">all datasets</option>
+	<option value="Reserved">Reserved</option>
+	<option value="Test">Test</option>
+</select>
+</td>
+
 <td>
 <span id="search-count"></span>
 </td>
