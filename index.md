@@ -22,17 +22,18 @@ summary:
 </td>
 
 <td>
+<select id="dataset" onchange="doSearch();">
+	<option value="">all datasets</option>
+	<option value="Reserve">Reserve</option>
+	<option value="Testing">Testing</option>
+	<option value="Both">Both</option>
+</select>
+</td>
+
+<td>
 <input id="search" style="width:220px;"  placeholder="search" value="" autocomplete="off">
 </td>
 
-
-<td>
-<select id="dataset" onchange="doSearch();">
-	<option value="">all datasets</option>
-	<option value="Reserved">Reserved</option>
-	<option value="Test">Test</option>
-</select>
-</td>
 
 <td>
 <span id="search-count"></span>

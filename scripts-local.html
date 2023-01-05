@@ -172,13 +172,13 @@ function makeMetaTableRows(list, dtype) {
 					break;
 				}
 			}
-			if (hasReserve) {
+			if (hasReserve && (dtype == "example")) {
 				output += "<b>";
 			}
 			if (list[i]["Work ID"]) {
 		 		output += list[i]["Work ID"];
 			}
-			if (hasReserve) {
+			if (hasReserve && (dtype == "example")) {
 				output += "</b>";
 			}
 
@@ -403,10 +403,12 @@ function doSearch(text) {
 
 	let entries = EXAMPLELIST;
 
+	let workQ = 0;
 	let selement = document.querySelector("#table-scope");
 	if (selement && selement.value === "work") {
 		// only show works, not examples
 		entries = WORKLIST;
+		workQ = 1;
 	}
 
 	let oldentries;
@@ -419,10 +421,22 @@ function doSearch(text) {
 			let matches = dataset.match(/^(.)/);
 			let query = matches[1];
 			for (let i=0; i<oldentries.length; i++) {
-				testcomp = oldentries[i]["Work Dataset"];
-				if (testcomp === query) {
-					entries.push(oldentries[i]);
-					continue;
+				if (workQ) {
+					testcompW = oldentries[i]["Work Dataset"];
+					testcompE = oldentries[i]["Example Dataset"];
+					if (testcompE === query) {
+						entries.push(oldentries[i]);
+						continue;
+					} else if ((query === "B") && (testcompW === "B")) {
+						entries.push(oldentries[i]);
+						continue;
+					}
+				} else {
+					let testcomp = oldentries[i]["Example Dataset"];
+					if ((testcomp === query) || (testcomp === "B")) {
+						entries.push(oldentries[i]);
+						continue;
+					}
 				}
 			}
 		}
