@@ -14,16 +14,21 @@
 function displayList(entries, query) {
 	SORTORDER = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
-	BROWSELIST = entries;
-	var cache = [];
-	sessionStorage.BROWSELIST = JSON.stringify(BROWSELIST, (key, value) => {
-		if (typeof value === 'object' && value !== null) {
-			if (cache.includes(value)) return;
-			cache.push(value);
-		}
-		return value;
-	});
-	cache = null;
+	BROWSELIST = [];
+	for (let i=0; i<entries.length; i++) {
+		BROWSELIST.push(entries[i]["Example No."]);
+	}
+	sessionStorage.BROWSELIST = JSON.stringify(BROWSELIST);
+
+	// var cache = [];
+	// sessionStorage.BROWSELIST = JSON.stringify(BROWSELIST, (key, value) => {
+	// 	if (typeof value === 'object' && value !== null) {
+	// 		if (cache.includes(value)) return;
+	// 		cache.push(value);
+	// 	}
+	// 	return value;
+	// });
+	// cache = null;
 
 	let dtype = "example";
 	let selement = document.querySelector("#table-scope");

@@ -400,6 +400,13 @@ function displayExample(exid, examples) {
 			postFunction: addProblemIcons,
 			url: url
 		});
+	} else {
+		// clear the old example notation
+		let container = document.querySelector("#example-notation-container");
+		if (container) {
+			let svg = container.querySelector("svg");
+			svg.outerHTML = "";
+		}
 	}
 
 	PrepareResourceFileIndex("e0", "/resources/pdf/e0/index.txt", hideUnavailableE0);

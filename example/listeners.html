@@ -13,15 +13,17 @@ var ANALYSIS       = 0;
 var COINCIDENCE    = 0;
 var FILTER         = "";
 
-var CGI            = {};      // CGI parameters from URL
+var CGI            = {};  // CGI parameters from URL
 var SORTCOLUMN     = 0;
 var EXAMPLELIST    = [];
-var BROWSELIST     = [];
+var BROWSELIST     = [];   // List of works on the browse table on the main search page.
+var EXAMPLE_NAVIGATION = {};
 var WORKLIST       = [];
-var NAVIGATION     = {};
 var CURRENTEXAMPLE = "";
 var ACCESS         = 0;
 var SUPERACCESS    = 0;
+
+
 
 
 //////////////////////////////
@@ -35,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		fetch(url)
 		.then(response => response.text())
 		.then(function(text) {
-			console.warn("TEXT " + text + " FOR " + url);
 			if (text.match("SUPERVALID")) {
 				ACCESS = 1;
 				SUPERACCESS = 1;
@@ -90,37 +91,51 @@ function continueListener() {
 
 //////////////////////////////
 //
-// doAction --
+// prepareNextPreviousExampleNavigationList --
+//
+
+function prepareNextPreviousExampleList(examplelist) {
+	if (sessionStorage.BROWSELIST) {
+		BROWSELIST = JSON.parse(sessionStorage.BROWSELIST);
+	}
+	EXAMPLE_NAVIGATION = {};
+	for (let i=0; i<BROWSELIST.length; i++) {
+		let entry = {};
+		entry.currExampleId = BROWSELIST[i];
+		if (i > 0) {
+			entry.prevExampleId = BROWSELIST[i-1];
+		} else {
+			entry.prevExampleId = BROWSELIST[BROWSELIST.length - 1];
+		}
+		if (i < BROWSELIST.length - 1) {
+			entry.nextExampleId = BROWSELIST[i+1];
+		} else {
+			entry.nextExampleId = BROWSELIST[0];
+		}
+		EXAMPLE_NAVIGATION[BROWSELIST[i]] = entry;
+	}
+}
+
+
+
+//////////////////////////////
+//
+// doAction -- Continue preparing data for webpage after Example list has been
+//             downloaded from Google Spreadsheets.
 //
 
 function doAction(examplelist) {
 	WORKLIST = GenerateWorklist(examplelist, EXAMPLELIST);
 	displayExample(CGI.id, EXAMPLELIST);
-	var navigationByExample = localStorage["NAVIGATION_EXAMPLE"];
-	if (navigationByExample) {
-		navigationByExample = JSON.parse(navigationByExample);
-		NAVIGATION = buildNextPrevious2(EXAMPLELIST, navigationByExample);
-	} else {
-		NAVIGATION = buildNextPrevious(EXAMPLELIST);
-	}
+
+	prepareNextPreviousExampleList();
 
 	var nextbutton = document.querySelector("#next-example");
 	if (nextbutton) {
 		nextbutton.addEventListener("click", function() {
 			var exid = CURRENTEXAMPLE;
-			var nextid = NAVIGATION[exid]["next"]["Example No."];
-			if (BROWSELIST && BROWSELIST.length > 0) {
-				displayExample(nextid, BROWSELIST);
-			} else {
-				if (sessionStorage.BROWSELIST) {
-					BROWSELIST = JSON.parse(sessionStorage.BROWSELIST);
-				}
-				if (BROWSELIST && BROWSELIST.length > 0) {
-					displayExample(nextid, BROWSELIST);
-				} else {
-					displayExample(nextid, EXAMPLELIST);
-				}
-			}
+			var nextid = EXAMPLE_NAVIGATION[exid]["nextExampleId"];
+			displayExample(nextid, EXAMPLELIST);
 		});
 	}
 
@@ -128,19 +143,8 @@ function doAction(examplelist) {
 	if (prevbutton) {
 		prevbutton.addEventListener("click", function() {
 			var exid = CURRENTEXAMPLE;
-			var previd = NAVIGATION[exid]["previous"]["Example No."];
-			if (BROWSELIST) {
-				displayExample(previd, BROWSELIST);
-			} else {
-				if (sessionStorage.BROWSELIST) {
-					BROWSELIST = JSON.parse(sessionStorage.BROWSELIST);
-				}
-				if (BROWSELIST && BROWSELIST.length > 0) {
-					displayExample(previd, BROWSELIST);
-				} else {
-					displayExample(previd, EXAMPLELIST);
-				}
-			}
+			var previd = EXAMPLE_NAVIGATION[exid]["prevExampleId"];
+			displayExample(previd, EXAMPLELIST);
 		});
 	}
 
