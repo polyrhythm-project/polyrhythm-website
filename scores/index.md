@@ -19,7 +19,8 @@ Sort scores by:
 <select id="sort-method" onchange="displayScoreList()">
 <option value="workid">Work ID</option>
 <option value="exid">Example ID</option>
-<option value="year">Composition Date</option>
+<option value="cyear">Composition Date</option>
+<option value="pyear">Publication Date</option>
 </select>
 
 </p>

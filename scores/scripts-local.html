@@ -99,8 +99,9 @@ function displayScoreList(workList) {
 			return exidA.localeCompare(b);
 		});
 
-		console.warn("NEW SORTED LIST", sortedList);
-	} else if (sortType === "year") {
+		// console.warn("NEW SORTED LIST", sortedList);
+
+	} else if (sortType === "cyear") {
 
 		let keys = Object.getOwnPropertyNames(workList);
 		keys.sort(function (a, b) {
@@ -108,6 +109,15 @@ function displayScoreList(workList) {
 			let matchesb;
 			let yearA = workList[a][0]["Composition Year"] || "";
 			let yearB = workList[b][0]["Composition Year"] || "";
+			if (!yearA && !yearB) {
+				return 0;
+			}
+			if (!yearA) {
+				return +1;
+			}
+			if (!yearB) {
+				return -1;
+			}
 			matchesA = yearA.match(/(1[89]\d{2})/);
 			if (matchesA) {
 				yearA = parseInt(matchesA[1]);
@@ -143,6 +153,60 @@ function displayScoreList(workList) {
 		for (let i=0; i<keys.length; i++) {
 			sortedList[i] = workList[keys[i]];
 		}
+
+	} else if (sortType === "pyear") {
+
+		let keys = Object.getOwnPropertyNames(workList);
+		keys.sort(function (a, b) {
+			let matchesA;
+			let matchesb;
+			let yearA = workList[a][0]["E1 Edition Year"] || "";
+			let yearB = workList[b][0]["E1 Edition Year"] || "";
+			if (!yearA && !yearB) {
+				return 0;
+			}
+			if (!yearA) {
+				return +1;
+			}
+			if (!yearB) {
+				return -1;
+			}
+			matchesA = yearA.match(/(1[89]\d{2})/);
+			if (matchesA) {
+				yearA = parseInt(matchesA[1]);
+			}
+			matchesB = yearB.match(/(1[89]\d{2})/);
+			if (matchesB) {
+				yearB = parseInt(matchesB[1]);
+			}
+			if (yearA != yearB) {
+				return yearA - yearB;
+			}
+			matchesA = a.match(/^(.*)-(.*)(x?)/);
+			matchesB = b.match(/^(.*)-(.*)(x?)/);
+			let nameA = matchesA[1];
+			let nameB = matchesB[1];
+			let numA  = parseInt(matchesA[2]);
+			let numB  = parseInt(matchesB[2]);
+			let extA  = matchesA[3] || "";
+			let extB  = matchesB[3] || "";
+			if (nameA !== nameB) {
+				return nameA.localeCompare(nameB);
+			}
+			if (numA != numB) {
+				return numA - numB;
+			}
+			// Deal with such as Mai-6x:
+			if (extA == "") {
+				return -1;
+			} else {
+				return 1;
+			}
+		});
+		for (let i=0; i<keys.length; i++) {
+			sortedList[i] = workList[keys[i]];
+		}
+
 	}
 
 	let container = document.querySelector("#score-list");
@@ -199,9 +263,13 @@ function generateWorkEntry(entry) {
 	let workid   = first["Work ID"] || "";
 	let composer = first["Composer Name"] || "";
 	let title    = first["Work Title"] || "";
-	let year     = first["Composition Year"] || "";
-	if (year.match(/\(/)) {
-		year = year.replace(/ \(/g, "; ").replace(/\)/g, " ");
+	let cyear    = first["Composition Year"] || "";
+	let pyear    = first["E1 Edition Year"] || "";
+	if (cyear.match(/\(/)) {
+		cyear = cyear.replace(/ \(/g, "; ").replace(/\)/g, " ");
+	}
+	if (pyear.match(/\(/)) {
+		pyear = pyear.replace(/ \(/g, "; ").replace(/\)/g, " ");
 	}
 	let e = [];
 	for (let i=0; i<entry.length; i++) {
@@ -285,13 +353,13 @@ function generateWorkEntry(entry) {
 
 	output += "<td class='workinfo'>";
 	output += `<span class="worktitle">${title}`;
-	if (year.match(/\(/)) {
-		if (!year.match(/; /)) {
-			year = year.replace(/\(/g, "; ").replace(/\)/, " ");
+	if (cyear.match(/\(/)) {
+		if (!cyear.match(/; /)) {
+			cyear = cyear.replace(/\(/g, "; ").replace(/\)/, " ");
 		}
 	}
-	if (year) {
-		output += ` (${year})`;
+	if (cyear) {
+		output += ` (${cyear})`;
 	}
 	output += `</span>`;
 	output += "<br/>";

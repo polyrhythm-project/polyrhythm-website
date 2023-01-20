@@ -53,7 +53,9 @@ function displayRecordingList(workList) {
 
 	let sortedList = [];
 
-	sortType = "workid";
+	let sortElement = document.querySelector("#sort-method");
+	let sortType = sortElement.value;
+	console.warn("SORT TYPE", sortType);
 
 	if (sortType === "workid") {
 
@@ -84,7 +86,21 @@ function displayRecordingList(workList) {
 			sortedList[i] = workList[keys[i]];
 		}
 
-	} else if (sortType === "year") {
+	} else if (sortType === "exid") {
+		let keys = Object.getOwnPropertyNames(workList);
+		for (let i=0; i<keys.length; i++) {
+			sortedList[i] = workList[keys[i]];
+		}
+
+		sortedList.sort(function (a, b) {
+			let exidA = a[0].Filename.replace(/_.*/, "").replace(/^[TR]/, "");
+			let exidB = b[0].Filename.replace(/_.*/, "").replace(/^[TR]/, "");
+			return exidA.localeCompare(b);
+		});
+
+		// console.warn("NEW SORTED LIST", sortedList);
+
+	} else if (sortType === "cyear") {
 
 		let keys = Object.getOwnPropertyNames(workList);
 		keys.sort(function (a, b) {
@@ -92,11 +108,20 @@ function displayRecordingList(workList) {
 			let matchesb;
 			let yearA = workList[a][0]["Composition Year"] || "";
 			let yearB = workList[b][0]["Composition Year"] || "";
-			matchesA = yearA.match(/(1[89]\d{2})/);
+			if (!yearA && !yearB) {
+				return 0;
+			}
+			if (!yearA) {
+				return +1;
+			}
+			if (!yearB) {
+				return -1;
+			}
+			matchesA = yearA.match(/([12]\d{3})/);
 			if (matchesA) {
 				yearA = parseInt(matchesA[1]);
 			}
-			matchesB = yearB.match(/(1[89]\d{2})/);
+			matchesB = yearB.match(/([12]\d{3})/);
 			if (matchesB) {
 				yearB = parseInt(matchesB[1]);
 			}
@@ -127,6 +152,79 @@ function displayRecordingList(workList) {
 		for (let i=0; i<keys.length; i++) {
 			sortedList[i] = workList[keys[i]];
 		}
+
+	} else if (sortType === "ryear") {
+
+		let keys = Object.getOwnPropertyNames(workList);
+		keys.sort(function (a, b) {
+			let matchesA;
+			let matchesb;
+			let yearA = workList[a][0]["Recording Release Year"] || "";
+			let yearB = workList[b][0]["Recording Release Year"] || "";
+			if (yearA.match(/^[^\d]*$/)) {
+				yearA = "";
+			}
+			if (yearB.match(/^[^\d]*$/)) {
+				yearB = "";
+			}
+			if (!yearA && !yearB) {
+				return 0;
+			}
+			if (!yearA) {
+				return +1;
+			}
+			if (!yearB) {
+				return -1;
+			}
+			matchesA = yearA.match(/([12]\d{3})/);
+			if (matchesA) {
+				yearA = parseInt(matchesA[1]);
+			} else {
+				yearA = "";
+			}
+			matchesB = yearB.match(/([12]\d{3})/);
+			if (matchesB) {
+				yearB = parseInt(matchesB[1]);
+			} else {
+				yearB = "";
+			}
+			if (!yearA && !yearB) {
+				return 0;
+			}
+			if (!yearA) {
+				return +1;
+			}
+			if (!yearB) {
+				return -1;
+			}
+			if (yearA != yearB) {
+				return yearA - yearB;
+			}
+			matchesA = a.match(/^(.*)-(.*)(x?)/);
+			matchesB = b.match(/^(.*)-(.*)(x?)/);
+			let nameA = matchesA[1];
+			let nameB = matchesB[1];
+			let numA  = parseInt(matchesA[2]);
+			let numB  = parseInt(matchesB[2]);
+			let extA  = matchesA[3] || "";
+			let extB  = matchesB[3] || "";
+			if (nameA !== nameB) {
+				return nameA.localeCompare(nameB);
+			}
+			if (numA != numB) {
+				return numA - numB;
+			}
+			// Deal with such as Mai-6x:
+			if (extA == "") {
+				return -1;
+			} else {
+				return 1;
+			}
+		});
+		for (let i=0; i<keys.length; i++) {
+			sortedList[i] = workList[keys[i]];
+		}
+
 	}
 
 	let container = document.querySelector("#recording-list");
@@ -178,9 +276,13 @@ function generateWorkEntry(entry) {
 	let workid   = first["Work ID"] || "";
 	let composer = first["Composer Name"] || "";
 	let title    = first["Work Title"] || "";
-	let year     = first["Composition Year"] || "";
-	if (year.match(/\(/)) {
-		year = year.replace(/ \(/g, "; ").replace(/\)/g, " ");
+	let cyear     = first["Composition Year"] || "";
+	let ryear     = first["Recording Release Date"] || "";
+	if (cyear.match(/\(/)) {
+		cyear = cyear.replace(/ \(/g, "; ").replace(/\)/g, " ");
+	}
+	if (ryear.match(/\(/)) {
+		ryear = ryear.replace(/ \(/g, "; ").replace(/\)/g, " ");
 	}
 	let e = [];
 	for (let i=0; i<entry.length; i++) {
@@ -240,13 +342,13 @@ function generateWorkEntry(entry) {
 	output += "<td class='workinfo'>";
 
 	output += `<span class="worktitle">${title}`;
-	if (year.match(/\(/)) {
-		if (!year.match(/; /)) {
-			year = year.replace(/\(/g, "; ").replace(/\)/, " ");
+	if (cyear.match(/\(/)) {
+		if (!cyear.match(/; /)) {
+			cyear = cyear.replace(/\(/g, "; ").replace(/\)/, " ");
 		}
 	}
-	if (year) {
-		output += ` (${year})`;
+	if (cyear) {
+		output += ` (${cyear})`;
 	}
 	output += `</span>`;
 
