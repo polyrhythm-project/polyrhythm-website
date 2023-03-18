@@ -13,7 +13,7 @@ function FindExampleById(exid, examples) {
 		examples = EXAMPLELIST;
 	}
 	for (let i=0; i<examples.length; i++) {
-		if (examples[i][INDEX_Suter_Example_ID] === exid) {
+		if (examples[i][INDEX_Suter_Example_Number] === exid) {
 			return examples[i];
 		}
 	}
