@@ -1,6 +1,8 @@
 
-{% include_relative listeners.html %}
+
 {% include scripts/scripts-common.html %}
+
+{% include_relative listeners.html %}
 
 <script>
 // vim: ts=3
@@ -16,11 +18,11 @@ function displayList(entries, query) {
 
 	BROWSELIST = [];
 	for (let i=0; i<entries.length; i++) {
-		BROWSELIST.push(entries[i]["Example No."]);
+		BROWSELIST.push(entries[i][INDEX_Suter_Example_Number]);
 	}
 	sessionStorage.BROWSELIST = JSON.stringify(BROWSELIST);
 
-	// var cache = [];
+	// let cache = [];
 	// sessionStorage.BROWSELIST = JSON.stringify(BROWSELIST, (key, value) => {
 	// 	if (typeof value === 'object' && value !== null) {
 	// 		if (cache.includes(value)) return;
@@ -149,7 +151,7 @@ function makeMetaTableRows(list, dtype) {
 	let output = "";
 
 	for (let i=0; i<list.length; i++) {
-		if (!list[i]["Work Title"]) {
+		if (!list[i][INDEX_Work_Title]) {
 			continue;
 		}
 		output += "<tr class='data'>";
@@ -157,9 +159,9 @@ function makeMetaTableRows(list, dtype) {
 		output += "<td style='white-space:pre;'>";
 		if (dtype === "example") {
 
-			if (list[i]["Example No."]) {
-				let number = list[i]["Example No."];
-				if (list[i]["Example Dataset"] === "R") {
+			if (list[i][INDEX_Suter_Example_Number]) {
+				let number = list[i][INDEX_Suter_Example_Number];
+				if (list[i][INDEX_Example_Dataset] === "R") {
 					output += "<b>R";
 		 			output += number;
 					output += "</b>";
@@ -172,7 +174,7 @@ function makeMetaTableRows(list, dtype) {
 			let hasReserve = 0;
 			let elist = list[i]["@examples"];
 			for (let j=0; j<elist.length; j++) {
-				if (elist[j]["Work Dataset"] === "R") {
+				if (elist[j][INDEX_Work_Dataset] === "R") {
 					hasReserve = 1;
 					break;
 				}
@@ -180,8 +182,8 @@ function makeMetaTableRows(list, dtype) {
 			if (hasReserve && (dtype == "example")) {
 				output += "<b>";
 			}
-			if (list[i]["Work ID"]) {
-		 		output += list[i]["Work ID"];
+			if (list[i][INDEX_Suter_Work_ID]) {
+		 		output += list[i][INDEX_Suter_Work_ID];
 			}
 			if (hasReserve && (dtype == "example")) {
 				output += "</b>";
@@ -197,55 +199,55 @@ function makeMetaTableRows(list, dtype) {
 		}
 
 		output += "<td style='min-width:150px;'>";
-		if (list[i]["Composer Name"]) {
-		 	output += PreparePerson(list[i]["Composer Name"]);
+		if (list[i][INDEX_Composer_Name]) {
+		 	output += PreparePerson(list[i][INDEX_Composer_Name]);
 		}
 		output += "</td>";
 
 		output += "<td style='max-width:450px;'>";
-		if (list[i]["Work Title"]) {
-		 	output += PrepareTitle(list[i]["Work Title"]);
+		if (list[i][INDEX_Work_Title]) {
+		 	output += PrepareTitle(list[i][INDEX_Work_Title]);
 		}
 		output += "</td>";
 
 		output += "<td>";
-		if (list[i]["Genre"]) {
-		 	output += list[i]["Genre"];
-			if (list[i]["Sub-Genre"]) {
-		 		output += "/" + list[i]["Sub-Genre"];
+		if (list[i][INDEX_Genre]) {
+		 	output += list[i][INDEX_Genre];
+			if (list[i][INDEX_Sub_Genre]) {
+		 		output += "/" + list[i][INDEX_Sub_Genre];
 			}
 		}
 		output += "</td>";
 
 		output += "<td style='text-align:center; white-space:pre;'>";
-		if (list[i]["Composition Year"]) {
-		 	output += list[i]["Composition Year"];
+		if (list[i][INDEX_Composition_Year]) {
+		 	output += list[i][INDEX_Composition_Year];
 		}
 		output += "</td>";
 
 		output += "<td style='text-align:center;'>";
-		if (list[i]["First Public Performance Year"]) {
-		 	output += list[i]["First Public Performance Year"];
+		if (list[i][INDEX_First_Public_Performance_Year]) {
+		 	output += list[i][INDEX_First_Public_Performance_Year];
 		}
 		output += "</td>";
 
 		output += "<td style='text-align:center;'>";
-		if (list[i]["First Publication Year"]) {
-		 	output += list[i]["First Publication Year"];
+		if (list[i][INDEX_First_Publication_Year]) {
+		 	output += list[i][INDEX_First_Publication_Year];
 		}
 		output += "</td>";
 
 		if (dtype === "example") {
 
 			output += "<td style='text-align:center;'>";
-			if (list[i]["Example Start Notated Beat"]) {
-		 		output += createTempoMarking(list[i]["Example Start Notated Beat"], list[i]["Example Start Notated Beat Rate"]);
+			if (list[i][INDEX_Example_Start_Notated_Beat]) {
+		 		output += createTempoMarking(list[i][INDEX_Example_Start_Notated_Beat], list[i][INDEX_Example_Start_Notated_Beat_Rate]);
 			}
 			output += "</td>";
 
 			output += "<td style='text-align:center;'>";
-			if (list[i]["Example Start Tsig"]) {
-				let value = cleanTimeSignature(list[i]["Example Start Tsig"]);
+			if (list[i][INDEX_Example_Start_Tsig]) {
+				let value = cleanTimeSignature(list[i][INDEX_Example_Start_Tsig]);
 				if (value.match("\{")) {
 		 			output += "unmetered";
 				} else {
@@ -255,8 +257,8 @@ function makeMetaTableRows(list, dtype) {
 			output += "</td>";
 
 			output += "<td style='text-align:center;'>";
-			if (list[i]["Example Timestamp Duration (sec)"]) {
-				let value = list[i]["Example Timestamp Duration (sec)"];
+			if (list[i][INDEX_Example_Timestamp_Duration]) {
+				let value = list[i][INDEX_Example_Timestamp_Duration];
 				output += value;
 			}
 			output += "</td>";
@@ -427,8 +429,8 @@ function doSearch(text) {
 			let query = matches[1];
 			for (let i=0; i<oldentries.length; i++) {
 				if (workQ) {
-					testcompW = oldentries[i]["Work Dataset"];
-					testcompE = oldentries[i]["Example Dataset"];
+					testcompW = oldentries[i][INDEX_Work_Dataset];
+					testcompE = oldentries[i][INDEX_Example_Dataset];
 					if (testcompE === query) {
 						entries.push(oldentries[i]);
 						continue;
@@ -437,7 +439,7 @@ function doSearch(text) {
 						continue;
 					}
 				} else {
-					let testcomp = oldentries[i]["Example Dataset"];
+					let testcomp = oldentries[i][INDEX_Example_Dataset];
 					if ((testcomp === query) || (testcomp === "B")) {
 						entries.push(oldentries[i]);
 						continue;
@@ -485,7 +487,7 @@ function doSearch(text) {
 		entries = [];
 		let testcomp;
 		for (let i=0; i<oldentries.length; i++) {
-			testcomp = PreparePerson(oldentries[i]["Composer Name"]);
+			testcomp = PreparePerson(oldentries[i][INDEX_Composer_Name]);
 			if (!testcomp) {
 				continue;
 			}
@@ -504,8 +506,8 @@ function doSearch(text) {
 		let greg = new RegExp(genre, "i");
 		let sgreg = new RegExp(subgenre, "i");
 		for (let i=0; i<oldentries.length; i++) {
-			if (oldentries[i]["Genre"] && oldentries[i]["Genre"].match(greg) &&
-			    oldentries[i]["Sub-Genre"] && oldentries[i]["Sub-Genre"].match(sgreg)) {
+			if (oldentries[i][INDEX_Genre] && oldentries[i][INDEX_Genre].match(greg) &&
+			    oldentries[i][INDEX_Sub_Genre] && oldentries[i][INDEX_Sub_Genre].match(sgreg)) {
 				entries.push(oldentries[i]);
 			}
 		}
@@ -518,18 +520,18 @@ function doSearch(text) {
 		entries = [];
 		for (let i=0; i<oldentries.length; i++) {
 			if (tsigtype === "simple") {
-				if (oldentries[i]["Example Start Tsig Type"].match(/simple/i)) {
+				if (oldentries[i][INDEX_Example_Start_Tsig_Type].match(/simple/i)) {
 					entries.push(oldentries[i]);
 				}
 			} else if (tsigtype === "compound") {
-				if (oldentries[i]["Example Start Tsig Type"].match(/compound/i)) {
+				if (oldentries[i][INDEX_Example_Start_Tsig_Type].match(/compound/i)) {
 					entries.push(oldentries[i]);
 				}
 			} else if (tsigtype === "unequal") {
-				if (oldentries[i]["Example Start Tsig Type"].match(/unequal/i)) {
+				if (oldentries[i][INDEX_Example_Start_Tsig_Type].match(/unequal/i)) {
 					entries.push(oldentries[i]);
 				}
-			} else if (oldentries[i]["Example Start Tsig Type"] === tsigtype) {
+			} else if (oldentries[i][INDEX_Example_Start_Tsig_Type] === tsigtype) {
 				entries.push(oldentries[i]);
 			}
 		}
@@ -549,11 +551,11 @@ function doSearch(text) {
 					continue;
 				}
 			} else {
-				if (oldentries[j]["Work Title"] && oldentries[j]["Work Title"].match(regexp)) {
+				if (oldentries[j][INDEX_Work_Title] && oldentries[j][INDEX_Work_Title].match(regexp)) {
 					entries.push(oldentries[j]);
 					continue;
 				}
-				if (oldentries[j]["Filename"] && oldentries[j]["Filename"].match(regexp)) {
+				if (oldentries[j][INDEX_Filename] && oldentries[j][INDEX_Filename].match(regexp)) {
 					entries.push(oldentries[j]);
 					continue;
 				}
@@ -590,7 +592,7 @@ function searchByTempoBeat(entries) {
 
 	let newentries = [];
 	for (let i=0; i<entries.length; i++) {
-		let value = entries[i]["Example Start Notated Beat"];
+		let value = entries[i][INDEX_Example_Start_Notated_Beat];
 		if (!value) {
 			continue;
 		}
@@ -660,7 +662,7 @@ function searchByTempoRange(entries) {
 
 	let output = [];
 	for (let i=0; i<entries.length; i++) {
-		let field = entries[i]["Example Start Notated Beat Rate"];
+		let field = entries[i][INDEX_Example_Start_Notated_Beat_Rate];
 		if (!field) {
 			continue;
 		}
@@ -772,7 +774,7 @@ function searchBySecondsRange(entries) {
 
 	let output = [];
 	for (let i=0; i<entries.length; i++) {
-		let field = entries[i]["Example Timestamp Duration (sec)"];
+		let field = entries[i][INDEX_Example_Timestamp_Duration];
 		if (!field) {
 			continue;
 		}
@@ -857,7 +859,7 @@ function buildComposerSelect(list, selector) {
 	let composers = {};
 	let composer;
 	for (let i=0; i<list.length; i++) {
-		composer = PreparePerson(list[i]["Composer Name"]);
+		composer = PreparePerson(list[i][INDEX_Composer_Name]);
 		composers[composer] = 1;
 	}
 	let clist = Object.keys(composers).sort();
@@ -888,13 +890,13 @@ function buildGenreSelect(list, selector) {
 	let genre;
 	let subgenre;
 	for (let i=0; i<list.length; i++) {
-		genre = list[i]["Genre"];
+		genre = list[i][INDEX_Genre];
 		if (!genre) {
 			continue;
 		}
 		genre = genre.replace(/\s+$/, "").replace(/^\s+/, "");
-		if (list[i]["Sub-Genre"]) {
-			subgenre = list[i]["Sub-Genre"];
+		if (list[i][INDEX_Sub_Genre]) {
+			subgenre = list[i][INDEX_Sub_Genre];
 			subgenre = subgenre.replace(/\s+$/, "").replace(/^\s+/, "");
 	 		genre += "/" + subgenre;
 		}
@@ -938,7 +940,7 @@ function buildTimeSignatureTypeSelect(list, selector) {
 	let types = {};
 	let tsigtype;
 	for (let i=0; i<list.length; i++) {
-		tsigtype = list[i]["Example Start Tsig Type"];
+		tsigtype = list[i][INDEX_Example_Start_Tsig_Type];
 		if (!tsigtype) {
 			continue;
 		}
@@ -983,9 +985,9 @@ function buildTimeSignatureTypeSelect(list, selector) {
 		}
 		rfixed[fixed[i]] = 1;
 
-		var shortname = fixed[i];
+		let shortname = fixed[i];
 
-		var matches;
+		let matches;
 		if (matches = shortname.match(/^\s*simple\s+(.+)\s*$/)) {
 			shortname = `${prefix}${matches[1]}`;
 		} else if (matches = shortname.match(/^\s*compound\s+(.+)\s*$/)) {
@@ -1004,9 +1006,9 @@ function buildTimeSignatureTypeSelect(list, selector) {
 		if (rfixed[clist[i]]) {
 			continue;
 		}
-		var shortname = clist[i];
+		let shortname = clist[i];
 
-		var matches;
+		let matches;
 		if (matches = shortname.match(/^\s*simple\s+(.+)\s*$/)) {
 			shortname = `${prefix}${matches[1]}`;
 		} else if (matches = shortname.match(/^\s*compound\s+(.+)\s*$/)) {
@@ -1031,7 +1033,7 @@ function buildTempoBeatSelect(list, selector) {
 	let types = {};
 	let tempobeat;
 	for (let i=0; i<list.length; i++) {
-		tempobeat = list[i]["Example Start Notated Beat"];
+		tempobeat = list[i][INDEX_Example_Start_Notated_Beat];
 		if (!tempobeat) {
 			continue;
 		}
@@ -1067,7 +1069,7 @@ function buildTempoBeatSelect(list, selector) {
 		}
 		rfixed[fixed[i]] = 1;
 
-		var shortname = fixed[i];
+		let shortname = fixed[i];
 		output += "<option value='" + fixed[i] + "'>" + shortname + "</option>\n";
 	}
 
@@ -1095,7 +1097,7 @@ function buildTempoBeatSelect(list, selector) {
 			if (rfixed[item]) {
 				continue;
 			}
-			var shortname = item;
+			let shortname = item;
 			output += "<option value='" + item + "'>" + shortname + "</option>\n";
 		}
 	}

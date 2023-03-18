@@ -46,10 +46,10 @@ function displayExample(exid, examples) {
 	output += "<tr>";
 	output += "<td>";
 	output += "Ex";
-	if (entry["Entry Dataset"] === "R") {
+	if (entry[INDEX_Example_Dataset] === "R") {
 		let pu = "https://raw.githubusercontent.com/epoudrier/RDS_Scores_2018/";
 		pu += "Reserve_Dataset/pdf/";
-		pu += entry["Filename"];
+		pu += entry[INDEX_Filename];
 		pu += ".pdf";
 		output += "<a target='_blank' style='color:#696969;' href='" + pu + "'>";
 		output += "a"
@@ -61,7 +61,7 @@ function displayExample(exid, examples) {
 
 	output += "</td>";
 	output += "<td>";
-	if (entry["Example Dataset"] === "R") {
+	if (entry[INDEX_Example_Dataset] === "R") {
 		output += "R";
 	} else {
 		output += "T";
@@ -71,7 +71,7 @@ function displayExample(exid, examples) {
 	output += "</tr>";
 
 	// work ID
-	let workid = entry["Work ID"];
+	let workid = entry[INDEX_Suter_Work_ID];
 	if (workid) {
 		output += "<tr>";
 		output += "<td>";
@@ -99,7 +99,7 @@ function displayExample(exid, examples) {
 	}
 
 	// title of source work
-	let title = entry["Work Title"];
+	let title = entry[INDEX_Work_Title];
 	if (title) {
 		output += "<tr>";
 		output += "<td>";
@@ -112,7 +112,7 @@ function displayExample(exid, examples) {
 	}
 
 	// starting measure
-	let startm = entry["Example Start Measure"];
+	let startm = entry[INDEX_Example_Start_Measure];
 	if (startm) {
 		output += "<tr>";
 		output += "<td>";
@@ -125,7 +125,7 @@ function displayExample(exid, examples) {
 	}
 
 	// ending measure
-	let endm = entry["Example End Measure"];
+	let endm = entry[INDEX_Example_End_Measure];
 	if (endm) {
 		output += "<tr>";
 		output += "<td>";
@@ -138,7 +138,7 @@ function displayExample(exid, examples) {
 	}
 
 	// genre
-	let genre = entry["Genre"];
+	let genre = entry[INDEX_Genre];
 	if (genre) {
 		output += "<tr>";
 		output += "<td>";
@@ -146,7 +146,7 @@ function displayExample(exid, examples) {
 		output += "</td>";
 		output += "<td>";
 		output += genre;
-		let subgenre = entry["Sub-Genre"];
+		let subgenre = entry[INDEX_Sub-Genre];
 		if (subgenre) {
 			output += " / " + subgenre;
 		}
@@ -155,7 +155,7 @@ function displayExample(exid, examples) {
 	}
 
 	// composer's name
-	let composer = entry["Composer Name"];
+	let composer = entry[INDEX_ComposerName];
 	if (composer) {
 		output += "<tr>";
 		output += "<td>";
@@ -168,7 +168,7 @@ function displayExample(exid, examples) {
 	}
 
 	// composition date
-	let cdate = entry["Composition Year"];
+	let cdate = entry[INDEX_Composition_Year];
 	if (cdate) {
 		output += "<tr>";
 		output += "<td>";
@@ -181,7 +181,7 @@ function displayExample(exid, examples) {
 	}
 
 	// first published
-	let fdate = entry["First Publication Year"];
+	let fdate = entry[INDEX_First_Publication_Year];
 	if (fdate) {
 		output += "<tr>";
 		output += "<td>";
@@ -194,7 +194,7 @@ function displayExample(exid, examples) {
 	}
 
 	// Premiere date
-	let premierdate = entry["Premiere Date"];
+	let premierdate = entry[INDEX_Premiere_Date];
 	if (premierdate) {
 		output += "<tr>";
 		output += "<td>";
@@ -207,7 +207,7 @@ function displayExample(exid, examples) {
 	}
 
 	// Premiere location
-	let premier = entry["Premiere Location"];
+	let premier = entry[INDEX_Premiere_Location];
 	if (premier) {
 		output += "<tr>";
 		output += "<td>";
@@ -220,7 +220,7 @@ function displayExample(exid, examples) {
 	}
 
 	// Premiere ensemble
-	let ensemble = entry["Ensemble"];
+	let ensemble = entry[INDEX_Ensemble];
 	if (ensemble && (ensemble !== "none")) {
 		output += "<tr>";
 		output += "<td>";
@@ -233,7 +233,7 @@ function displayExample(exid, examples) {
 	}
 
 	// Premiere conductor
-	let conductor = entry["Conductor"];
+	let conductor = entry[INDEX_Conductor];
 	if (conductor && (conductor !== "none")) {
 		output += "<tr>";
 		output += "<td>";
@@ -246,7 +246,7 @@ function displayExample(exid, examples) {
 	}
 
 	// Premiere soloists
-	let soloists = entry["Soloists"];
+	let soloists = entry[INDEX_Soloists];
 	if (soloists && (soloists !== "none")) {
 		output += "<tr>";
 		output += "<td>";
@@ -388,12 +388,12 @@ function displayExample(exid, examples) {
 
 	element.innerHTML = output;
 	showCurrentAudio();
-	// let fname = entry["Filename"];
-	let fname = entry["Example No."];
+	// let fname = entry[INDEX_Filename];
+	let fname = entry[INDEX_Suter_Example_Number];
 	let url = `https://data.polyrhythm.humdrum.org/${fname}.krn?a=${localStorage.access}`;
 
 	console.log("URI", url);
-	let dset = entry["Example Dataset"];
+	let dset = entry[INDEX_Example_Dataset];
 	if (ACCESS) {
 		displayHumdrum({
 			source: "example-notation",
@@ -420,7 +420,7 @@ function displayExample(exid, examples) {
 	setButtonStates();
 
 	/* VHV loading button
-	if (entry["Work Dataset"] === "R") {
+	if (entry[INDEX_Work_Dataset] === "R") {
 		let button = document.querySelector("#vbutton");
 		if (button) {
 			button.addEventListener("click", function() {
@@ -428,7 +428,7 @@ function displayExample(exid, examples) {
 				url += "https://raw.githubusercontent.com/craigsapp/";
 				url += "polyrhythm-scores/master/";
 				url += "kern/";
-				url += entry["Filename"];
+				url += entry[INDEX_Filename];
 				url += ".krn";
 				window.open(url, '_blank');
 			});
@@ -834,7 +834,7 @@ function copyData(exampleNum) {
 function buildNextPrevious2(examples, order) {
 	let lookup = {};
 	for (let i=0; i<examples.length; i++) {
-		lookup[examples[i]["Example No."]] = examples[i];
+		lookup[examples[i][INDEX_Suter_Example_Number]] = examples[i];
 	}
 	let newexamples = [];
 	for (i=0; i<order.length; i++) {
@@ -843,7 +843,7 @@ function buildNextPrevious2(examples, order) {
 
 	output = {};
 	for (let i=0; i<newexamples.length; i++) {
-		let exid = newexamples[i]["Example No."];
+		let exid = newexamples[i][INDEX_Suter_Example_Number];
 		if (!exid) {
 			console.log("ERROR in buildNextPrevious2()");
 			continue;
@@ -873,7 +873,7 @@ function buildNextPrevious2(examples, order) {
 function buildNextPrevious(examples) {
 	output = {};
 	for (let i=0; i<examples.length; i++) {
-		let exid = examples[i]["Example No."];
+		let exid = examples[i][INDEX_Suter_Example_Number];
 		if (!exid) {
 			console.log("ERROR in buildNextPrevious()");
 			continue;

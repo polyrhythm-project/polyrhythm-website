@@ -3,25 +3,24 @@
 // vim: ts=3
 
 
-var COLOR          = 0;
-var FULLCOLOR      = 0;
-var GROUP          = 0;
-var MARK           = 0;
-var EVENTCOUNTS    = 0;
-var COMPOSITE      = 0;
-var ANALYSIS       = 0;
-var COINCIDENCE    = 0;
-var FILTER         = "";
+let COLOR          = 0;
+let FULLCOLOR      = 0;
+let GROUP          = 0;
+let MARK           = 0;
+let EVENTCOUNTS    = 0;
+let COMPOSITE      = 0;
+let ANALYSIS       = 0;
+let COINCIDENCE    = 0;
+let FILTER         = "";
 
-var CGI            = {};  // CGI parameters from URL
-var SORTCOLUMN     = 0;
-var EXAMPLELIST    = [];
-var BROWSELIST     = [];   // List of works on the browse table on the main search page.
-var EXAMPLE_NAVIGATION = {};
-var WORKLIST       = [];
-var CURRENTEXAMPLE = "";
-var ACCESS         = 0;
-var SUPERACCESS    = 0;
+let CGI            = {};  // CGI parameters from URL
+let SORTCOLUMN     = 0;
+let BROWSELIST     = [];   // List of works on the browse table on the main search page.
+let EXAMPLE_NAVIGATION = {};
+let WORKLIST       = [];
+let CURRENTEXAMPLE = "";
+let ACCESS         = 0;
+let SUPERACCESS    = 0;
 
 
 
@@ -59,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //
 
 function continueListener() {
-	var element = document.querySelector("input#search");
+	let element = document.querySelector("input#search");
 	if (element) {
 		element.addEventListener("input", function() {
 			doSearch();
@@ -67,16 +66,16 @@ function continueListener() {
 	}
 
 	// Create URL for metadata index to download:
-	var sid = "17rjKQ3lXJHEHAcDfOXTDNX5a0A_jVqwokcaqhd3Ddng";
-	var gid = "900860769";
-	var url = "https://docs.google.com/spreadsheets/d/";
+	let sid = "17rjKQ3lXJHEHAcDfOXTDNX5a0A_jVqwokcaqhd3Ddng";
+	let gid = "900860769";
+	let url = "https://docs.google.com/spreadsheets/d/";
 	url += sid + "/export?gid=" + gid + "&format=tsv";
 
 	if (sessionStorage.EXAMPLELIST) {
 		EXAMPLELIST = JSON.parse(sessionStorage.EXAMPLELIST);
 		doAction(EXAMPLELIST);
 	} else {
-		var request = new XMLHttpRequest();
+		let request = new XMLHttpRequest();
 		request.addEventListener("load", function () {
 			EXAMPLELIST = ParseSpreadsheet(this.responseText);
 			sessionStorage.EXAMPLELIST = JSON.stringify(EXAMPLELIST);
@@ -130,27 +129,25 @@ function doAction(examplelist) {
 
 	prepareNextPreviousExampleList();
 
-	var nextbutton = document.querySelector("#next-example");
+	let nextbutton = document.querySelector("#next-example");
 	if (nextbutton) {
 		nextbutton.addEventListener("click", function() {
-			var exid = CURRENTEXAMPLE;
-			var nextid = EXAMPLE_NAVIGATION[exid]["nextExampleId"];
+			let exid = CURRENTEXAMPLE;
+			let nextid = EXAMPLE_NAVIGATION[exid]["nextExampleId"];
 			displayExample(nextid, EXAMPLELIST);
 		});
 	}
 
-	var prevbutton = document.querySelector("#previous-example");
+	let prevbutton = document.querySelector("#previous-example");
 	if (prevbutton) {
 		prevbutton.addEventListener("click", function() {
-			var exid = CURRENTEXAMPLE;
-			var previd = EXAMPLE_NAVIGATION[exid]["prevExampleId"];
+			let exid = CURRENTEXAMPLE;
+			let previd = EXAMPLE_NAVIGATION[exid]["prevExampleId"];
 			displayExample(previd, EXAMPLELIST);
 		});
 	}
 
 }
-
-
 
 
 </script>

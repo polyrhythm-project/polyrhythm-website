@@ -2,16 +2,13 @@
 <script>
 // vim: ts=3:ft=javascript
 
-var AUDIOINDEX_SIBELIUS = {};
-var AUDIOINDEX_EASTWEST = {};
+let AUDIOINDEX_SIBELIUS = {};
+let AUDIOINDEX_EASTWEST = {};
 
 document.addEventListener("DOMContentLoaded", function() {
 	loadSibeliusAudio();
 	loadEastwestAudio();
 });
-
-
-
 
 
 //////////////////////////////
@@ -20,12 +17,12 @@ document.addEventListener("DOMContentLoaded", function() {
 //
 
 function loadSibeliusAudio() {
-	var url = "/resources/recordings/sibelius/index.txt";
-	var request = new XMLHttpRequest();
+	let url = "/resources/recordings/sibelius/index.txt";
+	let request = new XMLHttpRequest();
 	request.addEventListener("load", function () {
-		var lines = this.responseText.split("\n");
-		for (var i=0; i<lines.length; i++) {
-			var item = lines[i];
+		let lines = this.responseText.split("\n");
+		for (let i=0; i<lines.length; i++) {
+			let item = lines[i];
 			if (!item.match(/^\d+[A-Za-z]?$/)) {
 				continue;
 			}
@@ -45,12 +42,12 @@ function loadSibeliusAudio() {
 //
 
 function loadEastwestAudio() {
-	var url = "/resources/recordings/eastwest/index.txt";
-	var request = new XMLHttpRequest();
+	let url = "/resources/recordings/eastwest/index.txt";
+	let request = new XMLHttpRequest();
 	request.addEventListener("load", function () {
-		var lines = this.responseText.split("\n");
-		for (var i=0; i<lines.length; i++) {
-			var item = lines[i];
+		let lines = this.responseText.split("\n");
+		for (let i=0; i<lines.length; i++) {
+			let item = lines[i];
 			if (!item.match(/^\d+[A-Za-z]?$/)) {
 				continue;
 			}
@@ -70,7 +67,7 @@ function loadEastwestAudio() {
 //
 
 function showCurrentAudio() {
-	console.log("CURRENT EXAMPE = ", CURRENTEXAMPLE);
+	console.log("CURRENT EXAMPLE = ", CURRENTEXAMPLE);
 
 	if (AUDIOINDEX_SIBELIUS[CURRENTEXAMPLE]) {
 		console.log("CURRENTEXAMPLE", CURRENTEXAMPLE, "IS AVAILABLE IN SIBELIUS");
@@ -89,8 +86,6 @@ function showCurrentAudio() {
 		}
 	}
 }
-
-
 
 
 </script>
