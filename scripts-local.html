@@ -290,7 +290,13 @@ function cleanTimeSignature(input) {
 //
 
 function createTempoMarking(beat, value) {
+	if (!beat) {
+		return "NOBEAT";
+	}
 	let beatpieces = beat.split(/\s*;\s*/);
+	if (!value) {
+		return "NOTEMPO";
+	}
 	let valuepieces = value.split(/\s*;\s*/);
 	if (beatpieces.length != valuepieces.length) {
 		return "ERROR";

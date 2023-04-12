@@ -1,10 +1,10 @@
 ---
-title: Polyrhythm Homepage
-author: Craig Stuart Sapp
-keywords: homepage
-permalink: /index.html
+title: "Polyrhythm Homepage"
+author: "Craig Stuart Sapp"
+keywords: "homepage"
+permalink: "/index.html"
 vim: ts=3
-template: default
+template: "default"
 summary: 
 ---
 
