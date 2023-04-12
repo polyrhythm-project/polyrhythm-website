@@ -219,47 +219,49 @@ function displayExample(exid, examples) {
 		output += "</tr>";
 	}
 
-/*
 	// Premiere ensemble
-	let ensemble = entry[INDEX_Ensemble];
-	if (ensemble && (ensemble !== "none")) {
-		output += "<tr>";
-		output += "<td>";
-		output += "Premiere ensemble:";
-		output += "</td>";
-		output += "<td>";
-		output += ensemble;
-		output += "</td>";
-		output += "</tr>";
+	if (typeof INDEX_Ensemble != "undefined") {
+		let ensemble = entry[INDEX_Ensemble];
+		if (ensemble && (ensemble !== "none")) {
+			output += "<tr>";
+			output += "<td>";
+			output += "Premiere ensemble:";
+			output += "</td>";
+			output += "<td>";
+			output += ensemble;
+			output += "</td>";
+			output += "</tr>";
+		}
 	}
-*/
 
-/*
 	// Premiere conductor
-	let conductor = entry[INDEX_Conductor];
-	if (conductor && (conductor !== "none")) {
-		output += "<tr>";
-		output += "<td>";
-		output += "Premiere conductor:";
-		output += "</td>";
-		output += "<td>";
-		output += conductor.replace(/,\s*/g, ", ");
-		output += "</td>";
-		output += "</tr>";
+	if (typeof INDEX_Conductor != "undefined") {
+		let conductor = entry[INDEX_Conductor];
+		if (conductor && (conductor !== "none")) {
+			output += "<tr>";
+			output += "<td>";
+			output += "Premiere conductor:";
+			output += "</td>";
+			output += "<td>";
+			output += conductor.replace(/,\s*/g, ", ");
+			output += "</td>";
+			output += "</tr>";
+		}
 	}
-*/
 
 	// Premiere soloists
-	let soloists = entry[INDEX_Soloists];
-	if (soloists && (soloists !== "none")) {
-		output += "<tr>";
-		output += "<td>";
-		output += "Premiere soloists:";
-		output += "</td>";
-		output += "<td>";
-		output += soloists.replace(/,\s*/g, ", ").replace(/;\s*/g, "; ");;
-		output += "</td>";
-		output += "</tr>";
+	if (typeof INDEX_Soloists != "undefined") {
+		let soloists = entry[INDEX_Soloists];
+		if (soloists && (soloists !== "none")) {
+			output += "<tr>";
+			output += "<td>";
+			output += "Premiere soloists:";
+			output += "</td>";
+			output += "<td>";
+			output += soloists.replace(/,\s*/g, ", ").replace(/;\s*/g, "; ");;
+			output += "</td>";
+			output += "</tr>";
+		}
 	}
 
 	output += "</table>";
@@ -985,9 +987,7 @@ function hideUnavailableE0(tag, index) {
 	}
 	console.log("TAG", tag, "INDEX", index);
 	let e0regions = document.querySelectorAll(".e0-region");
-	console.warn("================================================");
 	console.log("E0REGIONS", e0regions);
-	console.warn("================================================");
 	for (let i=0; i<e0regions.length; i++) {
 		let id = e0regions[i].dataset.id;
 		console.log("ID", id);

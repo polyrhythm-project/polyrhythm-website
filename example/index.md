@@ -8,6 +8,11 @@ verovio: true
 template: default
 summary:
 ---
+
+{% include_relative styles-local.html %}
+{% include_relative scripts-local.html %}
+{% include_relative scripts-audio.html %}
+
 <div class="sticky" style="position:sticky !important; position: -webkit-sticky; top:20px !important;" title="Click to go to previous example" id="previous-example">
 	<i class="navigate glyphicon glyphicon-arrow-left"></i>
 </div>
@@ -20,8 +25,4 @@ summary:
 
 <span id="vbutton"></span>
 <script type="text/x-humdrum" id="example-notation"></script>
-
-{% include_relative styles-local.html %}
-{% include_relative scripts-local.html %}
-{% include_relative scripts-audio.html %}
 
