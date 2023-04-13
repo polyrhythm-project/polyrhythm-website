@@ -1,6 +1,6 @@
 
 
-let INDEX_Suter                              = "Suter";
+// let INDEX_Suter                              = "Suter";  See Suter_Work_Number
 let INDEX_Batch                              = "Batch";
 let INDEX_Birth_Date                         = "Birth Date";
 let INDEX_Birth_Place                        = "Birth Place";
@@ -46,5 +46,9 @@ let INDEX_Suter_Example_Number               = "Suter Example Number";
 let INDEX_Suter_Work_ID                      = "Suter Work ID";
 let INDEX_Work_Dataset                       = "Work Dataset";
 let INDEX_Work_Title                         = "Work Title";
+
+
+// Recordings headings:
+let INDEX_Recording_Release_Year             = "Recording Release Year";
 
 

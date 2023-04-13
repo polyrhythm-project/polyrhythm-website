@@ -15,7 +15,10 @@
 function createRecordingList(exampleList) {
 	let works = {};
 	for (let i=0; i<exampleList.length; i++) {
-		let workid = exampleList[i]["Work ID"];
+		let workid = "";
+		if (typeof INDEX_Suter_Work_ID != "undefined") {
+			workid = exampleList[i][INDEX_Suter_Work_ID];
+		}
 		if (!workid) {
 			console.warn("NO WORKID FOR", exampleList[i]);
 			continue;
@@ -273,11 +276,42 @@ function generateWorkEntry(entry) {
 		return;
 	}
 
-	let workid   = first["Work ID"] || "";
-	let composer = first["Composer Name"] || "";
-	let title    = first["Work Title"] || "";
-	let cyear     = first["Composition Year"] || "";
-	let ryear     = first["Recording Release Date"] || "";
+	let workid   = "";
+	let composer = "";
+	let title    = "";
+	let cyear    = "";
+	let ryear    = "";
+
+	if (typeof INDEX_Suter_Work_ID != "undefined") {
+		workid   = first[INDEX_Suter_Work_ID] || "";
+	} else {
+		console.error("INDEX_Suter_Work_ID not defined");
+	}
+
+	if (typeof INDEX_Composer_Name != "undefined") {
+		composer = first[INDEX_Composer_Name] || "";
+	} else {
+		console.error("INDEX_Composer_Name not defined");
+	}
+
+	if (typeof INDEX_Suter_Work_ID != "undefined") {
+		title = first[INDEX_Work_Title] || "";
+	} else {
+		console.error("INDEX_Suter_Work_Title not defined");
+	}
+
+	if (typeof INDEX_Composition_Year != "undefined") {
+		cyear = first[INDEX_Composition_Year] || "";
+	} else {
+		console.error("INDEX_Composition_Year not defined");
+	}
+
+	if (typeof INDEX_Recording_Release_Year != "undefined") {
+		ryear     = first[INDEX_Recording_Release_Year] || "";
+	} else {
+		console.error("INDEX_Recording_Release_Year not defined");
+	}
+
 	if (cyear.match(/\(/)) {
 		cyear = cyear.replace(/ \(/g, "; ").replace(/\)/g, " ");
 	}
@@ -286,7 +320,10 @@ function generateWorkEntry(entry) {
 	}
 	let e = [];
 	for (let i=0; i<entry.length; i++) {
-		let id = entry[i]["Example ID"];
+		let id = "";
+		if (typeof INDEX_Suter_Example_Number != "undefined") {
+			id = entry[i][INDEX_Suter_Example_Number];
+		}
 		id = id.replace(/^[A-Z][a-z][a-z]-\d+\//, "");
 		let filename = entry[i]["Filename"];
 		let exid = filename.replace(/_.*/, "");

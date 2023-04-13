@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 	fetch(url)
 		.then(response => response.json())
 		.then (json => {
+console.warn("JSON DATA FOR RECORDINGS PAGE", json);
 			displayRecordingList(createRecordingList(json));
 			document.body.classList.remove("waiting");
 		})
