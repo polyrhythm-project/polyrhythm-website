@@ -123,6 +123,8 @@ and
 
 **Austin Culler**, BA (music scholarship), research assistant (metadata), 2017–2018
 
+**Lily Demet**, MA (geography), graduate academic assistant (geographic information and technology), 2023
+
 **Natalie Dietterich**, DMA (composition), transcriber (music data), 2012–2017
 
 **Meiying Ding**, BS (statistics, computer science), research assistant (data analysis), 2019
@@ -148,6 +150,8 @@ and
 **Sarah Pratt**, Dual BA (political science, computer science, applied music technology minor), research assistant (geocoding), 2017–2018
 
 **Gabriella Vici**, MA (music theory), editor	(music data), 2021–2022
+
+**Xilin Wan**, MGEM, graduate academic assistant (geographic information and technology), 2023
 
 **Anna Wright**, MA (music history), research assistant (metadata), 2019–2020
 
