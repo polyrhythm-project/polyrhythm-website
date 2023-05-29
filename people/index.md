@@ -66,16 +66,6 @@ and
     <td class="topalign">I am a Ph.D. student in music theory at the University of British Columbia. My research interests are in the perception and cognition of rhythm and meter, as well as digital, mathematical, and empirical approaches to music research. My research is motivated by the conception of music as one domain through which we can understand a broader array of human experiences, including emotion, creativity, memory, and the mind. I am originally from the United States, where I obtained a bachelor’s degree in piano performance (with a minor in English) and a master’s degree in music theory. For my master’s thesis, I encoded the solo piano music of Alexander Scriabin and investigated his use of meter using a computational model. At UBC, I am both a research assistant in the Rhythm Computation and Cognition Lab and a teaching assistant.</td>
   </tr>
   <tr>
-    <td class="nameline" valign="top" colspan="2"><b>Rafael Laurindo</b></td>
-  </tr>
-  <tr>
-    <td valign="top" colspan="2"><i>DMA (voice), transcriber/editor (music data, website, lyrics)</i></td>
-  </tr>
-  <tr>
-    <td valign="top"><img src="/people/RafaelLaurindo.jpg"></td>
-    <td class="topalign">Rafael Laurindo is a current Doctor of Musical Arts student in Voice, at UBC. He earned his bachelor’s degree from Universidade Federal da Paraiba, in Brazil, his first master’s degree and an Artist’s Diploma in Vocal Performance at Campbellsville University, in the United States, and a second master’s degree, in Opera, at UBC. In Brazil, Mr. Laurindo was a soloist in the early music ensemble Grupo Camena. In the United States, he performed the roles of Balthazar in Menotti’s Amahl and the Night Visitors, Gianni Schicchi in Puccini’s homonymous opera, and Don Alfonso in Mozart’s Cosi fan Tutte. At UBC, he has appeared in Puccini’s Gianni Schicchi, as Alidoro in Rossini’s La Cenerentola, as Ponchel in Puts’ Silent Night, as Papageno in Mozart’s Die Zauberflöte, as Crespel in Offenbach’s Les Contes d'Hoffmann, as Tadeusz in Weinberg’s Pasażerka (The Passenger), as Don Prudenzio in Rossini’s Il Viaggio a Reims, and as Don Bartolo in Mozart’s Le Nozze di Figaro.</td>
-  </tr>
-  <tr>
     <td class="nameline" valign="top" colspan="2"><b>Jason Lee</b></td>
   </tr>
   <tr>
@@ -144,6 +134,8 @@ and
 **Aaron Graham**, DMA (performance), transcriber/editor (music data), 2020–2021
 
 **Felicia Hartono**, BA (music), research assistant (metadata), 2016
+
+**Rafael Laurindo**, DMA (voice), transcriber/editor (music data, website, lyrics), 2020–2022
 
 **Melissa Liang**, BA (music), research assistant (metadata, experimental design), 2018–2019
 
