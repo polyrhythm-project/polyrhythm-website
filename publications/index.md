@@ -20,8 +20,8 @@ summary:
 <table>
 <tbody>
   <tr>
-<td class="topalign"><p>Poudrier, È., Bell, B. J., Sapp, C. (submitted). Listeners' perceived emotions in human vs. synthetic performance of rhythmiucally complex musical excerpts. Paper submitted to The 16th International Symposium on Computer Music Multidisciplinary Research (CMMR2023), November 13-17, 2023, Tokyo, Japan.</p></td>
-    <td class="topalign"><a class="buttonlink" href="[https://dl.acm.org/doi/10.1145/3543882.3543890](https://drive.google.com/file/d/1eDyvUfDAUwLIjyVuy2zQC7xlPcbeHAMM/view?usp=drive_link)" target="_blank">PDF</a></td>
+<td class="topalign"><p>Poudrier, È., Bell, B. J., Sapp, C. S. (submitted). Listeners' perceived emotions in human vs. synthetic performance of rhythmically complex musical excerpts. Paper submitted to The 16th International Symposium on Computer Music Multidisciplinary Research (CMMR2023), November 13-17, 2023, Tokyo, Japan.</p></td>
+    <td class="topalign"><a class="buttonlink" href="https://drive.google.com/file/d/1eDyvUfDAUwLIjyVuy2zQC7xlPcbeHAMM/view?usp=drive_link" target="_blank">PDF</a></td>
     </tr>
   <tr>
 	  <td class="topalign"><p>Poudrier, È., Sapp, C. (2022). <a href="https://drive.google.com/file/d/13ywmzOBdvYK2F5KS5qEvwfmZ9Cf1xyg9/view?usp=sharing" target="_blank">Polyrhythm analysis using the <em>composite</em> tool</a>. In <a href="https://dlfm.web.ox.ac.uk/" target="_blank"><em>9<sup>th</sup> International Conference on Digital Libraries for Musicology</em></a> (DLfM2022), July 28, 2022, Prague, Czech Republic. ACM, New York, NY, USA.</p></td>
