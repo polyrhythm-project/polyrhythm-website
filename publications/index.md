@@ -20,7 +20,7 @@ summary:
 <table>
 <tbody>
   <tr>
-<td class="topalign"><p>Poudrier, È., Bell, B. J., Sapp, C. (submitted). <a href="https://drive.google.com/file/d/13ywmzOBdvYK2F5KS5qEvwfmZ9Cf1xyg9/view?usp=sharing" target="_blank">Listeners' perceived emotions in human vs. synthetic performance of rhythmiucally complex musical excerpts. Paper submitted to The 16th International Symposium on Computer Music Multidisciplinary Research (CMMR2023), November 13-17, 2023, Tokyo, Japan.</p></td>
+<td class="topalign"><p>Poudrier, È., Bell, B. J., Sapp, C. (submitted). Listeners' perceived emotions in human vs. synthetic performance of rhythmiucally complex musical excerpts. Paper submitted to The 16th International Symposium on Computer Music Multidisciplinary Research (CMMR2023), November 13-17, 2023, Tokyo, Japan.</p></td>
     <td class="topalign"><a class="buttonlink" href="[https://dl.acm.org/doi/10.1145/3543882.3543890](https://drive.google.com/file/d/1eDyvUfDAUwLIjyVuy2zQC7xlPcbeHAMM/view?usp=drive_link)" target="_blank">PDF</a></td>
     </tr>
   <tr>
