@@ -85,11 +85,7 @@ and
 
 ![Past Contributors](/people/past-contributors.jpg)
 
-**Nori Jacoby**, collaborator (Max Planck Institute for Empirical Aesthetics, Frankfurt)
-
-**George Tzanetakis**, collaborator (University of Victoria)
-
-**Annelies Andries**, Ph.D. (music history), research assistant (metadata), 2012–2015
+**Annelies Andries**, PhD (music history), research assistant (metadata), 2012–2015
 
 **Austin Culler**, BA (music scholarship), research assistant (metadata), 2017–2018
 
@@ -101,11 +97,13 @@ and
 
 **Claudio de Freitas**, DMA (composition), transcriber/editor (music data), 2020–2022
 
-**Marina Gallagher**, Ph.D. (music history), research assistant (metadata), 2015–2017
+**Marina Gallagher**, PhD (music history), research assistant (metadata), 2015–2017
 
 **Aaron Graham**, DMA (performance), transcriber/editor (music data), 2020–2021
 
 **Felicia Hartono**, BA (music), research assistant (metadata), 2016
+
+**Nori Jacoby**, collaborator (Max Planck Institute for Empirical Aesthetics, Frankfurt)
 
 **Rafael Laurindo**, DMA (voice), transcriber/editor (music data, website, lyrics), 2020–2022
 
@@ -115,17 +113,23 @@ and
 
 **Amita Mahey**, BA, research assistant (metadata), 2017–2018
 
-**Alexandre Negri**, Ph.D. (music theory), transcriber (music data), 2019
+**Alexandre Negri**, PhD (music theory), transcriber (music data), 2019
 
 **Sarah Pratt**, Dual BA (political science, computer science, applied music technology minor), research assistant (geocoding), 2017–2018
 
 **Etahn Tong**, BA (music education), research assistant (metadata team leader), 2021–2022
 
+**George Tzanetakis**, collaborator (University of Victoria)
+
 **Gabriella Vici**, MA (music theory), editor	(music data), 2021–2022
 
 **Xilin Wan**, MGEM, graduate academic assistant (geographic information and technology), 2023
 
+**Walker Williams**, DMA (composition), arranger/editor (music data, audio synthesis), 2020–2022
+
 **Anna Wright**, MA (music history), research assistant (metadata), 2019–2020
+
+**Daniel Wright**, MA (composition), arranger/editor (music data, audio synthesis), 2020–2022
 
 **Qianqian Wu**, BUCS (business, computer science), research assistant (data analysis), 2017–2018
 
