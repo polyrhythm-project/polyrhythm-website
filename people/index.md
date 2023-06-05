@@ -76,36 +76,6 @@ and
     <td class="topalign">Jason Lee is a master’s student in music theory at the University of British Columbia. His research interests include text-music relations, Schenkerian analysis, and Cantonese music. He has upcoming presentations at national conferences of the Society for Music Theory and the Royal Musical Association, among various regional and student conferences. In April 2022, he received the Best Student Paper Award at the College Music Society Northwest Regional Conference for his presentation titled “The Semantic Evolution of Chromatic Mediants: A Baroque Origin”. Before beginning his studies in Canada, Jason graduated from the Chinese University of Hong Kong under the supervision of Professor Su Yin Mak. When not working on his research or singing in a choir, Jason is most likely searching for the latest ice cream flavors around his neighborhood.</td>
   </tr>
   <tr>
-    <td class="nameline" valign="top" colspan="2"><b>Ethan Tong</b></td>
-  </tr>
-  <tr>
-    <td valign="top" colspan="2"><i>BA (music education), research assistant (metadata team leader)</i></td>
-  </tr>
-  <tr>
-    <td valign="top"><img src="/people/EthanTong.jpg"></td>
-    <td class="topalign">Ethan is a fourth-year undergraduate student double majoring in Music and Education at the University of British Columbia. As a pianist who engages in a variety of genres ranging from classical to jazz, Ethan is enthusiastic about being a part of the Polyrhythm Lab as it enables him to deeply explore music not heard in his academic studies. Ethan spends most of his time teaching private piano and music history lessons, but when not making music, he enjoys time outdoors.</td>
-  </tr>
-  <tr>
-    <td class="nameline" valign="top" colspan="2"><b>Walker Williams</b></td>
-  </tr>
-  <tr>
-    <td valign="top" colspan="2"><i>DMA (composition), arranger/editor (audio synthesis)</i></td>
-  </tr>
-  <tr>
-    <td valign="top"><img src="/people/WalkerWilliams.jpg"></td>
-    <td class="topalign">Walker Williams (they/them) is an eclectic composer from rural West Virginia, whose compositional style runs the gamut from conservative tonality to avant-garde performance art (admittedly with a tendency towards ‘pretty music’). Walker is a doctoral candidate in composition at the University of British Columbia UBC), and they hold an MMus from UBC and a BA from Shepherd University in West Virginia. As a white settler, Walker has benefitted from the ongoing act of colonization in both the United States and Canada and would like to acknowledge that their upbringing and education have taken place primarily in the homelands of the Massawomeck, Manahoac, and Musqueam nations. Walker’s compositions have been performed throughout Europe and North America, including the Alba International Music Festival, and the Blackstad in Residence program. In 2019, Walker's Vandalia for string orchestra was selected as the audience favorite at The EAR classical concert in New York City.</td>
-  </tr>
-  <tr>
-    <td class="nameline" valign="top" colspan="2"><b>Daniel Wright</b></td>
-  </tr>
-  <tr>
-    <td valign="top" colspan="2"><i>MA (composition), arranger/editor (music data, audio synthesis)</i></td>
-  </tr>
-  <tr>
-    <td valign="top"><img src="/people/DanielWright.jpg"></td>
-    <td class="topalign">A recent graduate from UBC with an MMus in Composition, Daniel is interested in the intersections between music and theatre. He employs elements of extended techniques, extra-music elements, and improvisation to discover this space. Concerned with what he observes every day, music helps him to explore social issues and approach them through sound. His work encompasses various Percussion Ensemble pieces, works for String Quartet, Chamber Ensemble, solo works, and stage performance. He has had his works performed at the Canadian Music Centre, the West Coast Composer’s Symposium, the Student Composer concert series both at UBC and at Wilfrid Laurier University, as well as with the Kitchener-Waterloo composer collective The Yacht Club. In the future, he plans to explore pitch-triggered audio/MIDI with the Marimba in addition to a continued focus on pertinent issues like climate change, and the rising rate of poverty.</td>
-  </tr>
-
 </tbody>
 </table>
 
