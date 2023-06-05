@@ -119,6 +119,8 @@ and
 
 **Sarah Pratt**, Dual BA (political science, computer science, applied music technology minor), research assistant (geocoding), 2017–2018
 
+**Etahn Tong**, BA (music education), research assistant (metadata team leader), 2021–2022
+
 **Gabriella Vici**, MA (music theory), editor	(music data), 2021–2022
 
 **Xilin Wan**, MGEM, graduate academic assistant (geographic information and technology), 2023
