@@ -62,6 +62,10 @@ summary:
 <table>
 <tbody>
   <tr>
+  </tr>
+    <td class="topalign"><p>Poudrier, È., Bell, B. J., Lee, Y. H., &amp; Sapp, C. S.  The influence of dissonance and register on listeners’ perceived emotions in rhythmically complex musical excerpts.</p></td>
+  </tr>
+  <tr>
     <td class="topalign"><p>Poudrier, È., Bell, B. J., Lee, Y. H., &amp; Sapp, C. S. Listeners’ perceived emotions in ordered vs. randomized musical excerpts.</p></td>
   </tr>
   <tr>
