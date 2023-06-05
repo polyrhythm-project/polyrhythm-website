@@ -18,7 +18,7 @@ summary:
 <table>
 <tbody>
   <tr>
-  <td class="topalign"><p>Poudrier, È. &amp; Shanahan, D. (submitted). The cognitive, affective, and motoric correlates of rhythmic complexity. (submitted). </em>Journal of New Music Research</em>, 25 May, 2023. </p></td>
+  <td class="topalign"><p>Poudrier, È. &amp; Shanahan, D. (submitted). The cognitive, affective, and motoric correlates of rhythmic complexity. (submitted). <em>Journal of New Music Research</em>, 25 May, 2023. </p></td>
     <td class="topalign"><a class="buttonlink" href="https://drive.google.com/file/d/1DyjhgFFp4PJ5JkLdqeoCQZPv1iUl3Fg2/view?usp=drive_link" target="_blank">PDF</a></td>
     </tr>
 </tbody>
@@ -65,7 +65,7 @@ summary:
     <td class="topalign"><p>Poudrier, È., Bell, B. J., Lee, Y. H., &amp; Sapp, C. S. Listeners’ perceived emotions in ordered vs. randomized musical excerpts.</p></td>
   </tr>
   <tr>
-    <td class="topalign"><p>Poudrier, È. Polyrhythms classification using the <em>composite tool.</em></p></td>
+    <td class="topalign"><p>Poudrier, È. Polyrhythms classification using the <em>composite</em> tool.</p></td>
   </tr>
   <tr>
     <td class="topalign"><p>Poudrier, È. &amp; Sapp, C. S. Polyrhythm in the works of twenty composers from Western Europe to North America, 1900-1950: <em>The Suter (1980) Corpus.</em></p></td>
