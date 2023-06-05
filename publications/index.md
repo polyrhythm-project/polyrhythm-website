@@ -56,10 +56,10 @@ summary:
 <table>
 <tbody>
   <tr>
-    <td class="topalign"><p>Poudrier, È. &amp; Shanahan, D. The cognitive and affective correlates of rhythmic complexity.</p></td>
+    <td class="topalign"><p>Poudrier, È., Bell, B. J., Lee, Y. H., Sapp, C. S. Listeners’ perceived emotions in ordered vs. randomized musical excerpts.</p></td>
   </tr>
   <tr>
-    <td class="topalign"><p>Poudrier, È. The classification of polyrhythms based on composite rhythms.</p></td>
+    <td class="topalign"><p>Poudrier, È. Polyrhythms classification using the *composite* tool.</p></td>
   </tr>
   <tr>
     <td class="topalign"><p>Poudrier, È. &amp; Sapp, C. S. Polyrhythm in the works of twenty composers from Western Europe to North America, 1900-1950: <em>The Suter (1980) Corpus.</em></p></td>
