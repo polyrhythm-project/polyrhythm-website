@@ -65,7 +65,7 @@ summary:
     <td class="topalign"><p>Poudrier, È., Bell, B. J., Lee, Y. H., &amp; Sapp, C. S. Listeners’ perceived emotions in ordered vs. randomized musical excerpts.</p></td>
   </tr>
   <tr>
-    <td class="topalign"><p>Poudrier, È. Polyrhythms classification using the <em>composite</em> tool.</p></td>
+    <td class="topalign"><p>Poudrier, È. Polyrhythm classification using the <em>composite</em> tool.</p></td>
   </tr>
   <tr>
     <td class="topalign"><p>Poudrier, È. &amp; Sapp, C. S. Polyrhythm in the works of twenty composers from Western Europe to North America, 1900-1950: <em>The Suter (1980) Corpus.</em></p></td>
