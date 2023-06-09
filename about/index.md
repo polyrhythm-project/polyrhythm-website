@@ -27,7 +27,7 @@ For comments on the website, or if you would like to contribute to this project,
 
 ## Project Funding ##
 
-The digitization of the Suter (1980) Corpus was supported by research grants from the Whitney Humanities Center (Yale University) and the Hampton Research Fund (University of British Columbia). 
+The digitization of the Suter (1980) Corpus was supported in part by research grants from the Whitney Humanities Center (Yale University) and the Hampton Research Fund (University of British Columbia). 
 
 This research is supported in part by the Social Sciences and Humanities Research Council of Canada.
 
