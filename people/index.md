@@ -18,14 +18,29 @@ summary:
     <td class="nameline" valign="top" colspan="2"><b>Ève Poudrier</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2"><i>Principal investigator (University of British Columbia)</i></td>
+    <td valign="top" colspan="2"><i>Principal Investigator (University of British Columbia)</i></td>
   </tr>
   <tr>
     <td valign="top"><img src="/people/EvePoudrier.jpg"></td>
     <td class="topalign">I am an Assistant Professor in music theory at the School of Music of the University of British Columbia, where I teach courses on compositional practice in Europe in the 18th and 19th centuries, techniques of graphic linear analysis, and music psychology. My research has been presented at interdisciplinary conferences in North America, Europe, and the Middle East, and published in Music Perception and Empirical Musicology Review. My current projects focus on empirical aesthetics, specifically the experience of listening to polyrhythm and the cognition of complex rhythmic structures, combining methods of close study, computer-aided musicology, and corpus studies.</td>
   </tr>
   <tr>
-    <td class="nameline" valign="top" colspan="2"><b>Daniel Shanahan</b></td>
+     <td class="nameline" valign="top" colspan="2"><b>Craig Sapp</b></td>
+  </tr>
+  <tr>
+    <td valign="top" colspan="2"><i>Consultant and Technical Director (PHI/CCARH/Stanford University)</i></td>
+  </tr>
+  <tr>
+    <td valign="top"><img width="300" src="/people/CraigSapp.jpg"></td>
+    <td class="topalign">
+Craig is a researcher at the Center For Computer-Assisted Research in the Humanities of the Packard Humanities Institute at Stanford University, as well as an adjunct professor at Stanford University. He is the technical director of the <a target="_blank" href="https://josquin.stanford.edu">Josquin Research Project</a> as well as the <a target="_blank" href="https://www.tassomusic.org">Tasso in MusicProject</a>.  He also collaborates with the Chopin Institute on open-source digitization projects including 
+<a target="_blank" href="https://chopinscores.org">Chopin First Editions</a>
+and
+<a target="_blank" href="https://polishscores.org">Polish Music from 1600&ndash;1900</a>.
+</td>
+  </tr>
+  <tr>
+     <td class="nameline" valign="top" colspan="2"><b>Daniel Shanahan</b></td>
   </tr>
   <tr>
     <td valign="top" colspan="2"><i>Co-investigator (Ohio State University)</i></td>
@@ -38,35 +53,20 @@ Shanahan’s research interests include music and emotion, the diffusion of musi
 </td>
   </tr>
   <tr>
-    <td class="nameline" valign="top" colspan="2"><b>Craig Sapp</b></td>
-  </tr>
-  <tr>
-    <td valign="top" colspan="2"><i>Consultant (PHI/CCARH/Stanford University)</i></td>
-  </tr>
-  <tr>
-    <td valign="top"><img width="300" src="/people/CraigSapp.jpg"></td>
-    <td class="topalign">
-Craig is a researcher at the Center For Computer-Assisted Research in the Humanities of the Packard Humanities Institute at Stanford University, as well as an adjunct professor at Stanford University. He is the technical director of the <a target="_blank" href="https://josquin.stanford.edu">Josquin Research Project</a> as well as the <a target="_blank" href="https://www.tassomusic.org">Tasso in MusicProject</a>.  He also collaborates with the Chopin Institute on open-source digitization projects including 
-<a target="_blank" href="https://chopinscores.org">Chopin First Editions</a>
-and
-<a target="_blank" href="https://polishscores.org">Polish Music from 1600&ndash;1900</a>.
-</td>
-  </tr>
-  <tr>
     <td class="nameline" valign="top" colspan="2"><b>Bryan Bell</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2"><i>Ph.D.	(music theory), research assistant (music data, data analysis, experimental design)</i></td>
+    <td valign="top" colspan="2"><i>PhD	(music theory), research assistant (music data, data analysis, geocoding)</i></td>
   </tr>
   <tr>
     <td valign="top"><img src="/people/BryanBell.jpg"></td>
-    <td class="topalign">I am a Ph.D. student in music theory at the University of British Columbia. My research interests are in the perception and cognition of rhythm and meter, as well as digital, mathematical, and empirical approaches to music research. My research is motivated by the conception of music as one domain through which we can understand a broader array of human experiences, including emotion, creativity, memory, and the mind. I am originally from the United States, where I obtained a bachelor’s degree in piano performance (with a minor in English) and a master’s degree in music theory. For my master’s thesis, I encoded the solo piano music of Alexander Scriabin and investigated his use of meter using a computational model. At UBC, I am both a research assistant in the Rhythm Computation and Cognition Lab and a teaching assistant.</td>
+    <td class="topalign">I am a PhD student in music theory at the University of British Columbia. My research interests are in the perception and cognition of rhythm and meter, as well as digital, mathematical, and empirical approaches to music research. My research is motivated by the conception of music as one domain through which we can understand a broader array of human experiences, including emotion, creativity, memory, and the mind. I am originally from the United States, where I obtained a bachelor’s degree in piano performance (with a minor in English) and a master’s degree in music theory. For my master’s thesis, I encoded the solo piano music of Alexander Scriabin and investigated his use of meter using a computational model. At UBC, I am both a research assistant in the Rhythm Computation and Cognition Lab and a teaching assistant.</td>
   </tr>
   <tr>
     <td class="nameline" valign="top" colspan="2"><b>Jason Lee</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2"><i>MA (music theory), editor (music data)</i></td>
+    <td valign="top" colspan="2"><i>MA (music theory), editor (music data) and research assistant (metadata, experimental design, geocoding)</i></td>
   </tr>
   <tr>
     <td valign="top"><img src="/people/JasonLee.jpg"></td>
@@ -114,7 +114,7 @@ and
 
 **Sarah Pratt**, Dual BA (political science, computer science, applied music technology minor), research assistant (geocoding), 2017–2018
 
-**Etahn Tong**, BA (music education), research assistant (metadata team leader), 2021–2022
+**Ethan Tong**, BA (music education), research assistant (metadata team leader), 2021–2022
 
 **George Tzanetakis**, collaborator (University of Victoria)
 
