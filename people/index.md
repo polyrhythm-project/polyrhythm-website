@@ -59,7 +59,7 @@ Shanahan’s research interests include music and emotion, the diffusion of musi
     <td class="nameline" valign="top" colspan="2"><b>Bryan Bell</b></td>
   </tr>
   <tr>
-    <td valign="top" colspan="2"><i>PhD	(music theory), research assistant (music data, data analysis, geocoding)</i></td>
+    <td valign="top" colspan="2"><i>PhD (music theory), research assistant (music data, data analysis, geocoding)</i></td>
   </tr>
   <tr>
     <td valign="top"><img src="/people/BryanBell.jpg"></td>
@@ -75,7 +75,6 @@ Shanahan’s research interests include music and emotion, the diffusion of musi
     <td valign="top"><img src="/people/JasonLee.jpg"></td>
     <td class="topalign">Jason Lee is a master’s student in music theory at the University of British Columbia. His research interests include text-music relations, Schenkerian analysis, and Cantonese music. He has upcoming presentations at national conferences of the Society for Music Theory and the Royal Musical Association, among various regional and student conferences. In April 2022, he received the Best Student Paper Award at the College Music Society Northwest Regional Conference for his presentation titled “The Semantic Evolution of Chromatic Mediants: A Baroque Origin”. Before beginning his studies in Canada, Jason graduated from the Chinese University of Hong Kong under the supervision of Professor Su Yin Mak. When not working on his research or singing in a choir, Jason is most likely searching for the latest ice cream flavors around his neighborhood.</td>
   </tr>
-  <tr>
 </tbody>
 </table>
 
