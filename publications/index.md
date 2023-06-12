@@ -13,18 +13,28 @@ summary:
 
 # Publications #
 
-
-## Conference Proceedings ##
-
+## Journal Articles ##
 
 <table>
 <tbody>
   <tr>
-    <td class="topalign"><p>Poudrier, È., Bell, B.J., &amp; Sapp, C.S. (2023). <a href="" target="_blank">Listeners' perceived emotions in human vs. synthetic performance of rhythmically complex musical excerpts</a>. In <a href="https://dlfm.web.ox.ac.uk/" target="_blank"><em>9<sup>th</sup> The 16th International Symposium on Computer Music Multidisciplinary Research</em></a> (DLfM2022), November 13–17, 2023, Tokyo, Japan.</p></td>
-    <td class="topalign"><a class="buttonlink" href="" target="_blank">PDF</a></td>
-  </tr>
-    <td class="topalign"><p>Poudrier, È., Sapp, C. (2022). <a href="https://drive.google.com/file/d/13ywmzOBdvYK2F5KS5qEvwfmZ9Cf1xyg9/view?usp=sharing" target="_blank">Polyrhythm analysis using the <em>composite</em> tool</a>. In <a href="https://dlfm.web.ox.ac.uk/" target="_blank"><em>9<sup>th</sup> International Conference on Digital Libraries for Musicology</em></a> (DLfM2022), July 28, 2022, Prague, Czech Republic. ACM, New York, NY, USA.</p></td>
-    <td class="topalign"><a class="buttonlink" href="https://dl.acm.org/doi/10.1145/3543882.3543890" target="_blank">PDF</a></td>
+  <td class="topalign"><p>Poudrier, È. &amp; Shanahan, D. (submitted). The cognitive, affective, and motoric correlates of rhythmic complexity. <em>Journal of New Music Research</em>, 25 May, 2023. </p></td>
+    <td class="topalign"><a class="buttonlink" href="https://drive.google.com/file/d/1DyjhgFFp4PJ5JkLdqeoCQZPv1iUl3Fg2/view?usp=drive_link" target="_blank">PDF</a></td>
+    </tr>
+</tbody>
+</table>
+
+## Conference Proceedings ##
+
+<table>
+<tbody>
+  <tr>
+<td class="topalign"><p>Poudrier, È., Bell, B. J., &amp; Sapp, C. S. (submitted). Listeners' perceived emotions in human vs. synthetic performance of rhythmically complex musical excerpts. The 16th International Symposium on Computer Music Multidisciplinary Research (CMMR2023), November 13-17, 2023, Tokyo, Japan.</p></td>
+    <td class="topalign"><a class="buttonlink" href="https://drive.google.com/file/d/1eDyvUfDAUwLIjyVuy2zQC7xlPcbeHAMM/view?usp=drive_link" target="_blank">PDF</a></td>
+    </tr>
+<tr>
+	  <td class="topalign"><p>Poudrier, È. &amp; Sapp, C. (2022). <a href="https://dl.acm.org/doi/10.1145/3543882.3543890" target="_blank">Polyrhythm analysis using the <em>composite</em> tool</a>. In <a href="https://dlfm.web.ox.ac.uk/" target="_blank"><em>9<sup>th</sup> International Conference on Digital Libraries for Musicology</em></a> (DLfM2022), July 28, 2022, Prague, Czech Republic. ACM, New York, NY, USA.</p></td>
+    <td class="topalign"><a class="buttonlink" href="https://drive.google.com/file/d/13ywmzOBdvYK2F5KS5qEvwfmZ9Cf1xyg9/view?usp=sharing" target="_blank">PDF</a></td>
   </tr>
   <tr>
     <td class="topalign"><p>Poudrier, È., Sapp, C., &amp; Shanahan, D. (2021). The cognitive and affective correlates of rhythmic complexity. In ICMPC ESCOM 2021: <em>Connectivity and diversity in music cognition, 28-31 July 2021</em>.</p></td>
@@ -53,13 +63,19 @@ summary:
 <table>
 <tbody>
   <tr>
-    <td class="topalign"><p>Poudrier, È. &amp; Shanahan, D. The cognitive and affective correlates of rhythmic complexity.</p></td>
+    <td class="topalign"><p>Poudrier, È., Bell, B. J., Lee, Y. H., &amp; Sapp, C. S.  The influence of dissonance and register on listeners’ perceived emotions in rhythmically complex music.</p></td>
   </tr>
   <tr>
-    <td class="topalign"><p>Poudrier, È. The classification of polyrhythms based on composite rhythms.</p></td>
+    <td class="topalign"><p>Poudrier, È., Bell, B. J., Lee, Y. H., &amp; Sapp, C. S. Listeners’ perceived emotions in ordered vs. randomized musical excerpts.</p></td>
+  </tr>
+  <tr>
+    <td class="topalign"><p>Poudrier, È. Polyrhythm classification using the <em>composite</em> tool.</p></td>
   </tr>
   <tr>
     <td class="topalign"><p>Poudrier, È. &amp; Sapp, C. S. Polyrhythm in the works of twenty composers from Western Europe to North America, 1900-1950: <em>The Suter (1980) Corpus.</em></p></td>
   </tr>
 </tbody>
 </table>
+
+
+

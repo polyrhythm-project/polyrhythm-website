@@ -21,22 +21,26 @@
 # Clear out old compiled website:
 rm -rf _site
 
+echo "Compiling website"
+
 # Generate new website files:
 bundle exec jekyll build
+
+echo "Done compiling website"
 
 # Link to non-repo files:
 (cd _site && rm -f ./resources && ln -s /projects/polyrhythm-resources resources)
 
+echo "Updating premissions"
+
 # Allow access through SELinux:
 chcon -R -t httpd_sys_content_t _site
-chcon -R -t httpd_sys_content_t _site/resources
-chcon --user system_u --type httpd_sys_content_t -Rv _site/
-chcon -Rv --type=httpd_sys_content_t /var/www/websites/polyrhythm
-chcon -Rv --type=httpd_sys_content_t /projects/polyrhythm-resources/
+sudo chcon -t httpd_sys_content_t /var/www/websites/polyrhythm
+sudo chcon -R -t httpd_sys_content_t --user system_u /var/www/websites/polyrhythm
+sudo chcon -R -t httpd_sys_content_t /projects/polyrhythm-resources
 
-restorecon _site/
-restorecon _site/resources
-#restorecon /projects/polyrhythm-resources/
-restorecon /var/www/websites/polyrhythm/
+sudo restorecon _site
+sudo restorecon /var/www/websites/polyrhythm
+sudo restorecon /projects/polyrhythm-resources
 
 
