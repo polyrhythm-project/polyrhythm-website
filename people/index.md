@@ -25,7 +25,7 @@ summary:
   </tr>
   <tr>
     <td valign="top"><img src="/people/EvePoudrier.jpg"></td>
-    <td class="topalign">I am an Assistant Professor in music theory at the School of Music of the University of British Columbia, where I teach courses on compositional practice in Europe in the 18th and 19th centuries, techniques of graphic linear analysis, and music psychology. My research has been presented at interdisciplinary conferences in North America, Europe, and the Middle East, and published in Music Perception and Empirical Musicology Review. My current projects focus on empirical aesthetics, specifically the experience of listening to polyrhythm and the cognition of complex rhythmic structures, combining methods of close study, computer-aided musicology, and corpus studies.</td>
+    <td class="topalign">I am an Assistant Professor in music theory at the School of Music of the University of British Columbia, where I teach courses on compositional practice in Europe in the 18th and 19th centuries, techniques of graphic linear analysis, and music psychology. My research has been presented at interdisciplinary conferences in North America, Europe, and the Middle East, and published in Music Perception and Empirical Musicology Review. My current projects focus on empirical aesthetics, specifically the experience of listening to rhythmic polyphony and the aesthetics of complexity, combining methods of close study, computer-aided musicology, and behavioural experimentation.</td>
   </tr>
   <tr>
      <td class="nameline" valign="top" colspan="2"><b>Craig Sapp</b></td>
