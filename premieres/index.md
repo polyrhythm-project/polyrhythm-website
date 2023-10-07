@@ -9,6 +9,7 @@ summary:
 ---
 
 {% include_relative styles-local.html %}
+{% include_relative scripts-local.html %}
 
 # Premieres of polyrhythm works #
 
@@ -79,6 +80,4 @@ summary:
 <div style="margin-bottom:50px; margin-top:20px;" id="list"></div>
 
 
-{% include_relative styles-local.html %}
-{% include_relative scripts-local.html %}
 
