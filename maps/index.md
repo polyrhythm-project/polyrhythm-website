@@ -17,11 +17,11 @@ summary:
 
 The Suter (1980) Corpus is represented by three interactive maps:
 
-1. <a target="_blank" href="https://maps.polyrhythm.humdrum.org/composers/composers-map/composers-map.html#4/53.01/9.75">Composers</a> &mdash; The locations of birth and death for the twenty composers surveyed in this study 
+1. <a target="_blank" href="https://maps.polyrhythm.humdrum.org/composers/#4/49.43/10.40">Composers</a> &mdash; The locations of birth and death for the twenty composers surveyed in this study 
 
-2. <a target="_blank" href="https://maps.polyrhythm.humdrum.org/corpus/corpus.html">Corpus</a> &mdash; The locations of the first performance of the works in the corpus
+2. <a target="_blank" href="https://maps.polyrhythm.humdrum.org/corpus">Corpus</a> &mdash; The locations of the first performance of the works in the corpus
 
-3. <a target="_blank" href="https://maps.polyrhythm.humdrum.org/timeline/timeline-1.html">Timeline</a> &mdash; An animated timeline of the location of the first performance of the works
+3. <a target="_blank" href="https://maps.polyrhythm.humdrum.org/timeline">Timeline</a> &mdash; An animated timeline of the location of the first performance of the works
 
 
 ## How to use the maps ##
