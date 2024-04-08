@@ -63,6 +63,11 @@ summary:
 </td>
 
 <td>
+<select id="staffcount" onchange="doSearch();">
+</select>
+</td>
+
+<td>
 <select id="tsigtype" onchange="doSearch();">
 </select>
 </td>

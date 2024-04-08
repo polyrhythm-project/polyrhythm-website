@@ -111,6 +111,19 @@ function displayExample(exid, examples) {
 		output += "</tr>";
 	}
 
+	// movement title
+	let subtitle = entry[INDEX_Source_Work_Full_Unit];
+	if (subtitle && !subtitle.match(/single movement/)) {
+		output += "<tr>";
+		output += "<td>";
+		output += "Movement:";
+		output += "</td>";
+		output += "<td>";
+		output += subtitle;
+		output += "</td>";
+		output += "</tr>";
+	}
+
 	// starting measure
 	let startm = entry[INDEX_Example_Start_Measure];
 	if (startm) {
