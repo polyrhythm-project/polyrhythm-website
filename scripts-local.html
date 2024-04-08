@@ -543,17 +543,47 @@ function doSearch(text) {
 		}
 	}
 
-	// Filter by "Start time signature" if needed
-	let staffcount = document.querySelector("#staffcount").value;
-	if (staffcount) {
+	// Filter by part counts
+	let partsmin = document.querySelector("#partsmin").value;
+	let partsmax = document.querySelector("#partsmax").value;
+	let active = false;
+	if (partsmin.match(/^\d+/)) {
+		active = true;
+		partsmin = parseInt(partsmin);
+	} else {
+		partsmin = "";
+	}
+	if (partsmax.match(/^\d+/)) {
+		active = true;
+		partsmax = parseInt(partsmax);
+	} else {
+		partsmax = "";
+	}
+	if (active) {
 		oldentries = entries;
 		entries = [];
 		for (let i=0; i<oldentries.length; i++) {
-			if (staffcount == oldentries[i][INDEX_Staff_Count]) {
-				entries.push(oldentries[i]);
+			let number = oldentries[i][INDEX_Staff_Count];
+			if (number.match(/^\d+/)) {
+				number = parseInt(number);
+			} else {
+				continue;
 			}
+			if (partsmin !== "") {
+				if (number < partsmin) {
+					continue;
+				}
+			}
+			if (partsmax !== "") {
+				if (number > partsmax) {
+					continue;
+				}
+			}
+			entries.push(oldentries[i]);
 		}
 	}
+
+
 
 	for (let i=0; i<fields.length; i++) {
 		if (fields[i].match(/^\s*$/)) {
@@ -892,48 +922,6 @@ function buildComposerSelect(list, selector) {
 			continue;
 		}
 		output += "<option value='" + clist[i] + "'>" + clist[i] + "</option>\n";
-	}
-	element.innerHTML = output;
-}
-
-
-//////////////////////////////
-//
-// buildStaffCountSelect --
-//
-
-function buildStaffCountSelect(list, selector) {
-	let staffcounts = {};
-	let staffcount;
-	for (let i=0; i<list.length; i++) {
-		staffcount = list[i][INDEX_Staff_Count];
-		if (!staffcount) {
-			continue;
-		}
-		if (staffcount === "PROBLEM") {
-			continue;
-		}
-		staffcount = staffcount.replace(/\s+$/, "").replace(/^\s+/, "");
-		staffcounts[staffcount] = 1;
-	}
-	let clist = Object.keys(staffcounts).sort();
-	clist.sort(function(a, b) {
-		return a - b;
-	});
-	let element = document.querySelector(selector);
-	if (!element) {
-		return;
-	}
-	let output = "";
-	output += "<option value=''>staves</a>\n";
-	let laststaffcount = "";
-	for (let i=0; i<clist.length; i++) {
-		if (!clist[i]) {
-			continue;
-		}
-		output += "<option value='" + clist[i] + "'>";
-		output += clist[i];
-		output += "</option>";
 	}
 	element.innerHTML = output;
 }

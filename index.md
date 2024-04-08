@@ -63,11 +63,6 @@ summary:
 </td>
 
 <td>
-<select id="staffcount" onchange="doSearch();">
-</select>
-</td>
-
-<td>
 <select id="tsigtype" onchange="doSearch();">
 </select>
 </td>
@@ -83,6 +78,10 @@ summary:
 
 <td>
 <input placeholder="duration min." value="" autocomplete="off" id="secondsmin">&nbsp;<input placeholder="duration max." value="" autocomplete="off" id="secondsmax">
+</td>
+
+<td>
+<input placeholder="part min." value="" autocomplete="off" id="partsmin">&nbsp;<input placeholder="part max." value="" autocomplete="off" id="partsmax">
 </td>
 
 </tr>

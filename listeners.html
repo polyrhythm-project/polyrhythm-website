@@ -39,6 +39,20 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
+	element = document.querySelector("input#partsmin");
+	if (element) {
+		element.addEventListener("input", function() {
+			doSearch();
+		});
+	}
+
+	element = document.querySelector("input#partsmax");
+	if (element) {
+		element.addEventListener("input", function() {
+			doSearch();
+		});
+	}
+
 	element = document.querySelector("input#secondsmin");
 	if (element) {
 		element.addEventListener("input", function() {
@@ -71,7 +85,6 @@ function doAction(examplelist) {
 
 	buildComposerSelect(WORKLIST, "#composer");
 	buildGenreSelect(WORKLIST, "#genre");
-	buildStaffCountSelect(WORKLIST, "#staffcount");
 	buildTimeSignatureTypeSelect(WORKLIST, "#tsigtype");
 	buildTempoBeatSelect(WORKLIST, "#tempobeat");
 
