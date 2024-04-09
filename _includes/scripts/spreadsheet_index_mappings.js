@@ -46,7 +46,9 @@ let INDEX_Suter_Example_Number               = "Suter Example Number";
 let INDEX_Suter_Work_ID                      = "Suter Work ID";
 let INDEX_Work_Dataset                       = "Work Dataset";
 let INDEX_Work_Title                         = "Work Title";
-let INDEX_Staff_Count                         = "Staff Count";
+let INDEX_Staff_Count                        = "Staff Count";
+let INDEX_Instruments                        = "Instruments";
+let INDEX_Instrument_Class                   = "Instrument Class";
 
 
 // Recordings headings:

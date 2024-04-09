@@ -583,6 +583,52 @@ function doSearch(text) {
 		}
 	}
 
+	// Filter by Instrument
+	let instrument = document.querySelector("#instruments").value;
+	if (instrument != "") {
+		let onlyQ = document.querySelector("#instrument-only").checked;
+		oldentries = entries;
+		entries = [];
+		let regex;
+		if (onlyQ) {
+			regex = new RegExp(`^${instrument}$`);
+		} else {
+			regex = new RegExp(`\\b${instrument}\\b`);
+		}
+		for (let i=0; i<oldentries.length; i++) {
+			let ilist = oldentries[i][INDEX_Instruments];
+			if (typeof ilist === "undefined") {
+				continue;
+			}
+			if (ilist.match(regex)) {
+				entries.push(oldentries[i]);
+			}
+		}
+	}
+
+
+	// Filter by Instrument Class
+	let iclass = document.querySelector("#iclasses").value;
+	if (iclass != "") {
+		let onlyQ = document.querySelector("#iclass-only").checked;
+		oldentries = entries;
+		entries = [];
+		let regex;
+		if (onlyQ) {
+			regex = new RegExp(`^${iclass}$`);
+		} else {
+			regex = new RegExp(`\\b${iclass}\\b`);
+		}
+		for (let i=0; i<oldentries.length; i++) {
+			let ilist = oldentries[i][INDEX_Instrument_Class];
+			if (typeof ilist === "undefined") {
+				continue;
+			}
+			if (ilist.match(regex)) {
+				entries.push(oldentries[i]);
+			}
+		}
+	}
 
 
 	for (let i=0; i<fields.length; i++) {
