@@ -30,7 +30,8 @@ function DownloadSpreadsheetData(callback) {
 	}
 
 	// Get JSON version from above spreadsheet:
-	let id = "AKfycbwFFV1cmeeoFPSLgYY__tFAIqdVZBLLFtxL-ASMyQzGnYPqTXXC";
+	let id ="AKfycbx6PtpHYz5rk-QLHN7VSgPCyQgYwJWsATELrG04ytuQpEq-qRbruWdDEhiE0tW8chtQ";
+
 	let url = "https://script.google.com/macros/s/" + id + "/exec";
 	let request = new XMLHttpRequest();
 	request.addEventListener("load", function () {

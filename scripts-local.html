@@ -415,6 +415,7 @@ function doSearch(text) {
 	}
 
 	let entries = EXAMPLELIST;
+console.log("ENTRIES", entries);
 
 	let workQ = 0;
 	let selement = document.querySelector("#table-scope");
@@ -1224,6 +1225,33 @@ function clearSearchFields() {
 	doSearch();
 }
 
+
+//////////////////////////////
+//
+// fillInstrumentOptions --
+//
+
+function fillInsturmentOptions() {
+	let select = document.querySelector("select#instruments");
+	if (!select) {
+		console.error("Cannot find instrument select");
+		return;
+	}
+	let options = select.querySelectorAll("option");
+	for (let i=0; i<options.length; i++) {
+		let value = options[i].value;
+		if (!value) {
+			continue;
+		}
+		let newvalue = INSTRUMENTS[value];
+		if (newvalue) {
+			options[i].innerHTML = newvalue;
+		} else {
+			let old = options[i].innerHTML;
+			options[i].innerHTML = old + " XXX";
+		}
+	}
+}
 
 </script>
 

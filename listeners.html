@@ -7,6 +7,8 @@ var WORKLIST = [];
 var BROWSELIST = [];
 var SORTORDER = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
+var INSTRUMENTS = {% include instruments/instrument-names.json %};
+
 
 //////////////////////////////
 //
@@ -14,6 +16,7 @@ var SORTORDER = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 //
 
 document.addEventListener("DOMContentLoaded", function () {
+	fillInsturmentOptions();
 	CGI = GetCgiParameters();
 	DownloadSpreadsheetData(doAction);
 
@@ -66,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			doSearch();
 		});
 	}
+
 
 });
 
